@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button vs Link</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body id="home">
+    <header>
+      <h1>Don't Use Buttons as Links</h1>
+    </header>
+    <main>
+      <h2>Click the button to view details about item 17</h2>
+      <p>
+        <!-- first button is an anchor tag -->
+        <a id="myAnchor" class="btn" data-ref="17" href="other.html?id=17"
+          >View Item Details</a
+        >
+        actually an anchor.
+      </p>
+      <p>
+        <!-- second button is a button -->
+        <button id="myButton" class="btn" data-ref="17">
+          View Item Details
+        </button>
+        actually a button.
+      </p>
+      <p>
+        <!-- third button is a span... -->
+        <span id="mySpan" class="btn" data-ref="17">View Item Details</span>
+        actually a span.
+      </p>
+      <p>CSS let's us control the appearance of EVERY element on the page.</p>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

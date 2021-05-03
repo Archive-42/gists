@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA Install Events</title>
+    <link rel="stylesheet" href="./main.css" />
+    <!-- pwa manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Older android support -->
+    <meta name="theme-color" content="#bada55" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#bada55" />
+  </head>
+  <body>
+    <header>
+      <h1>PWA Install Events</h1>
+    </header>
+    <main>
+      <p>
+        Access to these events is currently limited to the Chrome|Chromium|Blink
+        based browsers - Chrome, Edge, and Opera.
+      </p>
+      <p>
+        Important to note, on iOS, all browsers are forced to use the Safari
+        Webkit JavaScript Engine. This means that Firefox and Chrome lose some
+        of their capabilities when running on an iOS device.
+      </p>
+      <p>
+        <button id="btnInstall">INSTALL APP</button><br />
+        Hide this button unless:
+        <dl>
+          <dt>Desktop</dt>
+          <dd>Chrome</dd>
+          <dd>Opera</dd>
+          <dd>Edge</dd>
+          <dt>Mobile</dt>
+          <dd>Chrome</dd>
+          <dd>Opera</dd>
+          <dd>Edge</dd>
+          <dd>Safari</dd>
+          <dd>Firefox</dd>
+        </dl><br/>
+        For Safari and Firefox it will have to display instructions.
+      </p>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>

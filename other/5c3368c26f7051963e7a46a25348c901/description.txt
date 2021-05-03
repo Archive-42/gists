@@ -1,0 +1,1 @@
+Code from Service Workers 6 - Using fetch and the cache

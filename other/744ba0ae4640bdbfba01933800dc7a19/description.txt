@@ -1,0 +1,1 @@
+indexedDB part 3 - get( ) and getAll( )

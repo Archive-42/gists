@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Sibling Selectors</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Sibling Selectors (Combinators)</h1>
+      <h2>General vs Adjacent</h2>
+    </header>
+    <main>
+      <section class="general">
+        <h2>General</h2>
+        <!-- everything after the heading -->
+        <div class="card">
+          <div class="card-head">
+            <h2>Some Heading</h2>
+            <h3>some sub title</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="http://www.fillmurray.com/405/300"
+              alt="Bill Freakin Murray"
+            />
+          </div>
+          <div class="card-content">
+            <h2>Some Words</h2>
+            <p>This is some content inside the card content area.</p>
+            <p>This is some content inside the card content area.</p>
+            <p>This is some content inside the card content area.</p>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-del">Delete</button>
+            <button class="btn btn-save">Save</button>
+          </div>
+        </div>
+        <!-- with checkbox -->
+        <button class="btn btn-toggle">Toggle</button>
+
+        <div>I am a DIV. Your toggle power does not affect me.</div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
+          sapiente laborum delectus illo quae? Officia quod eaque accusamus,
+          harum autem quibusdam minima. Beatae corporis consequatur et, eum
+          facilis recusandae unde?
+        </p>
+        <p>
+          Debitis, reiciendis fuga delectus mollitia labore similique voluptatem
+          perspiciatis repudiandae sapiente placeat doloremque tenetur quam
+          alias iusto officia. Velit tenetur cupiditate esse vel animi,
+          architecto culpa rerum debitis consequatur amet?
+        </p>
+      </section>
+      <section class="adjacent">
+        <h2>Adjacent</h2>
+        <!-- all the items except the first -->
+        <ul>
+          <li>First Item</li>
+          <li>Second Item</li>
+          <li>Third Item</li>
+          <li>Fourth Item</li>
+          <li>Fifth Item</li>
+        </ul>
+
+        <!-- input and label spacing -->
+        <form>
+          <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" />
+          </p>
+          <p>
+            <input type="checkbox" id="terms" name="terms" value="yes" />
+            <label for="terms">Accept the Terms</label>
+          </p>
+          <p>
+            <button>Submit</button>
+          </p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

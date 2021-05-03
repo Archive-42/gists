@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Manifest Files</title>
+    <link rel="stylesheet" href="main.css" />
+    <!-- pwa manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Older android support -->
+    <meta name="theme-color" content="#bada55" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#bada55" />
+    
+  </head>
+  <body>
+    <header>
+      <h1>Web Manifest Files</h1>
+    </header>
+    <main>
+      <p>MDN reference for the web manifest properties: <br/>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest"
+        >https://developer.mozilla.org/en-US/docs/Web/Manifest</a
+        >
+      </p>
+      <p>Link tag in each HTML file for "web.manifest" or "manifest.json": <pre><code class="link">
+        &lt;link rel="manifest" href="/manifest.json" /&gt;
+      </code></pre>.</p>
+      
+      <h2>Manifest Required Properties</h2>
+      <ul>
+        <li>
+          <code>"name"</code> and/or <code>"short_name"</code> one or both
+        </li>
+        <li>
+          <code>"icons"</code> array of:
+          <pre><code>
+          {
+            "src": "/img/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose":"maskable"
+          }
+        </code></pre>
+        </li>
+        <li><code>"start_url"</code> relative url</li>
+        <li>
+          <code>"display"</code> browser, fullscreen, standalone, minimal-ui
+        </li>
+      </ul>
+      
+      <h2>Manifest Optional Properties</h2>
+      <ul>
+        <li><code>"background_color"</code> hex value</li>
+        <li><code>"theme_color"</code> hex value</li>
+        <li><code>"description"</code></li>
+        <li>
+          <code>"orientation"</code>
+          <ul>
+            <li>any</li>
+            <li>natural</li>
+            <li>landscape</li>
+            <li>landscape-primary</li>
+            <li>landscape-secondary</li>
+            <li>portrait</li>
+            <li>portrait-primary</li>
+            <li>portrait-secondary</li>
+          </ul>
+        </li>
+        <li><code>"lang"</code> eg: "en-CA"</li>
+        <li><code>"prefer_related_applications"</code> Boolean</li>
+        <li>
+          <code>"related_applications"</code>
+          <pre><code>
+          {
+            "platform": "play",
+            "url": "https://play.google.com/store/apps/details?id=com.example.app1",
+            "id": "com.example.app1"
+          }, {
+            "platform": "itunes",
+            "url": "https://itunes.apple.com/app/example-app1/id123456789"
+          }
+        </code></pre>
+        </li>
+        <li>
+          <code>"screenshots"</code>
+          <pre><code>
+          {
+            "src": "screenshot1.webp",
+            "sizes": "1280x720",
+            "type": "image/webp"
+          }
+        </code></pre>
+        </li>
+        <li>
+          <code>"shortcuts"</code>
+          <pre><code>
+          {
+            "name": "Today's agenda",
+            "url": "/today",
+            "description": "List of events planned for today",
+            "icons": []
+          }
+        </code></pre>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

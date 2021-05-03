@@ -1,0 +1,1 @@
+Code from Service Workers 3 - self.skipWaiting, ev.waitUntil, and clients.claim

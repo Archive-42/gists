@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;400&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+  line-height: 1.5;
+  font-size: 20px;
+  background-color: #222;
+  color: #eee;
+}
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+header,
+main {
+  padding: 1rem 3rem;
+  margin: 0 3rem;
+  background-color: #333;
+}
+h1 {
+  color: gold;
+  font-size: 5rem;
+  line-height: 1;
+  margin: 0;
+  padding: 1rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+h2 {
+  color: orangered;
+  margin: 0;
+  font-size: 2rem;
+  padding: 1rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+p {
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  line-height: 1.5;
+}
+p span {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+}
+.btn {
+  background-color: cornflowerblue;
+  color: #fff;
+  display: inline;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  border: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+a:active,
+a:focus,
+button:active,
+button:focus {
+  outline: 1px solid #eee;
+}

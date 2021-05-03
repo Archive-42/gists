@@ -1,0 +1,1 @@
+PWA 6 - Handling Install Events

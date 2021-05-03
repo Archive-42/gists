@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alternative Fetch</title>
+  </head>
+  <body>
+    <h1>Alternative Fetch Syntax</h1>
+    <script>
+      //standard fetch
+      let url = 'https://jsonplaceholder.typicode.com/posts';
+
+      // fetch(url)
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   })
+      //   .catch((err) => {
+      //     console.warn(err.message);
+      //   });
+
+      //basic promise
+      // let p = new Promise((resolve, reject) => {
+      //   //this function represents the async task
+      //   //resolve();
+      //   reject('bad');
+      // })
+      //   .then(
+      //     (response) => {
+      //       //resolved
+      //       console.log('resolve');
+      //     },
+      //     (err) => {
+      //       console.log(err);
+      //     }
+      //   )
+      //   .catch((err) => {
+      //     //handle any errors
+      //     console.log('error catch');
+      //   });
+
+      fetch(url)
+        .then(
+          (resp) => {
+            if (!resp.ok) throw resp.statusText;
+            return resp.json();
+          },
+          (err) => {
+            //first interrupt
+            //the fetch failing
+            console.log('Network Error');
+            //talk to the indexedDB to get cached data
+          }
+        )
+        .then(
+          (data) => {
+            console.log(data);
+          },
+          (err) => {
+            //failed to run resp.json()
+          }
+        )
+        .catch((err) => {
+          console.warn('NOT resp.ok');
+        });
+    </script>
+  </body>
+</html>

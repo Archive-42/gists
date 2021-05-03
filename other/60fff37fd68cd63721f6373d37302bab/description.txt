@@ -1,0 +1,1 @@
+PWA 4 - New Fetch Requirements for Service Workers in PWAs

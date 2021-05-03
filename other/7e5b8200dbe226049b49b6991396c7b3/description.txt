@@ -1,0 +1,1 @@
+Code for Service Workers 7 - handling 404 errors and offline issues

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA Fetch Requirements</title>
+    <link rel="stylesheet" href="./main.css" />
+    <!-- pwa manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Older android support -->
+    <meta name="theme-color" content="#bada55" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#bada55" />
+  </head>
+  <body>
+    <header>
+      <h1>PWA Fetch Requirements</h1>
+    </header>
+    <main>
+      <p>
+        As of March 2021, Chrome 89 will test for a valid response to an offline
+        HTML `navigation` request.
+      </p>
+      <p>
+        As of August 2021, Chrome version 93 will fail Service Workers that do
+        not send a valid response when offline.
+      </p>
+      <p class="img"></p>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>

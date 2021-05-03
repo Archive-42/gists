@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple IndexedDB</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>IndexedDB</h1>
+      <h2>Using Vanilla JS</h2>
+    </header>
+    <main>
+      <p>This example is using plain vanilla JS and core indexedDB methods.</p>
+      <p>
+        If you are familiar with document databases like MongoDB, you can think
+        of an ObjectStore as a collection.
+      </p>
+      <p>The Core Object and Interfaces are:</p>
+      <ul>
+        <li>
+          <code>window.indexedDB</code> The database object holds Object Stores.
+        </li>
+        <li>
+          <code>IDBObjectStore</code> An Object Store inside a database. (A
+          Collection of objects)
+        </li>
+        <li>
+          <code>IDBRequest</code> A request object for add, put, delete, etc.
+        </li>
+        <li><code>IDBTransaction</code> A wrapper around requests.</li>
+        <li><code>IDBIndex</code> An index added to an Object Store</li>
+        <li>
+          <code>IDBCursor</code> To track current position inside the results of
+          a request.
+        </li>
+        <li><code>IDBKeyRange</code> A range of values for matching a key.</li>
+      </ul>
+      <form name="whiskeyForm">
+        <fieldset>
+          <p>
+            <label for="name">Whiskey: </label>
+            <input type="text" id="name" placeholder="Whiskey Name" required />
+          </p>
+          <p>
+            <label for="country">Country of Origin: </label>
+            <input type="text" id="country" value="" required />
+          </p>
+          <p>
+            <label for="age">Years Old: </label>
+            <input
+              type="text"
+              inputmode="numeric"
+              pattern="[\d]+"
+              id="age"
+              required
+            />
+          </p>
+          <p>
+            <label for="isOwned">Owned: </label>
+            <input type="checkbox" id="isOwned" value="yes" />
+          </p>
+          <p>
+            <button id="btnAdd">Add Whiskey</button>
+            <button id="btnUpdate">Update Whiskey</button>
+            <button id="btnDelete">Delete Whiskey</button>
+            <button id="btnClear">Reset Form</button>
+          </p>
+        </fieldset>
+      </form>
+
+      <section>
+        <h3 class="listTitle">List of Whiskeys</h3>
+        <ul class="wList">
+          <!-- build list here -->
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2021 Chicken Stuff Inc.</p>
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

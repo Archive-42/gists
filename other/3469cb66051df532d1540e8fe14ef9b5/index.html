@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Protocols</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Website Custom Protocols</h1>
+    </header>
+    <main>
+      <p>
+        We can Register our website in the current browser as a handler for a
+        custom protocol, like `web+cheese`.
+      </p>
+      <p>
+        So, any time the current browser gets a request like
+        `web+cheese:mozzarella` then it will open the registered URL. It can
+        pass the value after the `:` to that URL too.
+      </p>
+      <p>A link to <a href="web+bob:gene">`web+bob:gene`</a></p>
+      <p>Works on Opera, Firefox, Edge, and Chrome (if using https).</p>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>

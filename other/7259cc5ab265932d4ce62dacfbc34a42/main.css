@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 20px;
+  background-color: #222;
+  color: #eee;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+body {
+  min-height: 100vh;
+}
+header,
+main {
+  padding: 1rem 4rem;
+}
+section {
+  padding: 1rem 0 2rem;
+}
+section + section {
+  border-top: 1px solid gold;
+}
+header h1 {
+  color: gold;
+  font-size: 4rem;
+}
+header h2 {
+  color: orangered;
+  font-size: 3rem;
+}
+
+/*******************************
+  General ~
+  Any sibling that follows
+  even if another sibling between
+*******************************/
+.general .card {
+  width: 300px;
+  background-color: #eee;
+  color: #222;
+  margin: 2rem 0;
+}
+.general .card-head {
+  padding: 0.25rem 1rem;
+  font-size: 1.2rem;
+}
+.general .card-image {
+  max-height: 100px;
+  overflow: hidden;
+}
+.general .card-image img {
+  width: 100%;
+}
+.general .card-content {
+  padding: 1rem 1rem;
+  font-size: 1rem;
+}
+.general .card-actions {
+  display: flex;
+  justify-content: center;
+}
+.general .btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  border: none;
+}
+.general .btn-del {
+  color: white;
+  background-color: maroon;
+}
+.general .btn-save {
+  background-color: limegreen;
+  color: white;
+}
+.general .card h2 ~ * {
+  color: #777;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+/* TODO: */
+
+.general .btn-toggle {
+  margin: 1rem 0;
+}
+.general .btn-toggle:focus {
+  background-color: #bada55;
+}
+.general .btn-toggle:focus ~ p {
+  color: lightcoral;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+/* TODO: */
+
+/*******************************
+  Adjacent +
+  Any sibling that follows
+  immediately after
+*******************************/
+.adjacent ul {
+  width: 50vw;
+  margin: 2rem auto;
+}
+.adjacent li {
+  color: #222;
+  background-color: #eee;
+  padding: 0.5rem 2rem;
+}
+.adjacent li + li {
+  border-top: 2px solid #aaa;
+}
+/* TODO:  */
+
+.adjacent form {
+  width: 50vw;
+  margin: 2rem auto;
+  outline: 1px solid gold;
+}
+.adjacent form > p {
+  clear: both;
+  padding: 1rem;
+}
+.adjacent label {
+  font-size: 1rem;
+}
+.adjacent input {
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+.adjacent [type="checkbox"] {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.adjacent button {
+  background-color: cornflowerblue;
+  color: white;
+  padding: 0.25rem 2rem;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+}
+.adjacent input + label {
+  margin-left: 4rem;
+}
+.adjacent label + input {
+  margin-left: 3rem;
+}
+/* TODO:  */
