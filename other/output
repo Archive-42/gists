@@ -1,0 +1,1345 @@
+ curl -ig "http://dev.thomastraum.com/wp-json/posts?type=tt_news&filter[posts_per_page]=20" | prettyjson
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 45456    0 45456    0     0   190k      0 --:--:-- --:--:-- --:--:--  191k
+HTTP/1.1 200 OK
+Date: Tue, 17 Nov 2015 14:42:08 GMT
+Server: Apache/2.4.16 (Unix) PHP/5.5.29
+X-Powered-By: PHP/5.5.29
+X-Pingback: http://dev.thomastraum.com/xmlrpc.php
+X-Content-Type-Options: nosniff
+Link: </wp-json/posts?type=tt_news&filter%5Bposts_per_page%5D=20&page=2>; rel="next", <http://dev.thomastraum.com/wp-json/posts/5627>; rel="item"; title="Ghost at carlow", <http://dev.thomastraum.com/wp-json/posts/5629>; rel="item"; title="its nice that", <http://dev.thomastraum.com/wp-json/posts/5581>; rel="item"; title="", <http://dev.thomastraum.com/wp-json/posts/5579>; rel="item"; title="Merdien", <http://dev.thomastraum.com/wp-json/posts/5583>; rel="item"; title=""Texture"", <http://dev.thomastraum.com/wp-json/posts/5538>; rel="item"; title="Visual Communication in the Post Internet Age", <http://dev.thomastraum.com/wp-json/posts/5540>; rel="item"; title="032C", <http://dev.thomastraum.com/wp-json/posts/5409>; rel="item"; title="Epic video for an epic track — Deadboy "RETURN" ", <http://dev.thomastraum.com/wp-json/posts/5349>; rel="item"; title="Kenzo toiletpaper anim", <http://dev.thomastraum.com/wp-json/posts/5347>; rel="item"; title="Ghost is showing at Garage CCC", <http://dev.thomastraum.com/wp-json/posts/5351>; rel="item"; title="Wire 2014", <http://dev.thomastraum.com/wp-json/posts/5193>; rel="item"; title="Moncler", <http://dev.thomastraum.com/wp-json/posts/5191>; rel="item"; title="Mubi Ad", <http://dev.thomastraum.com/wp-json/posts/4871>; rel="item"; title="Ghost at Eyebeam NYC ", <http://dev.thomastraum.com/wp-json/posts/4866>; rel="item"; title="TTNews: Raving review of the Unfolded book (http://t.co/nwLXhfbu) we worked on http://t.co/Y9J8v3LY", <http://dev.thomastraum.com/wp-json/posts/4865>; rel="item"; title="TTNews: RT @itsnicethat: .@MoreSoonLtd and @TTnews smash it with a new promo for @Kenzo_paris http://t.co/KqypBYvW", <http://dev.thomastraum.com/wp-json/posts/4816>; rel="item"; title="TTNews: &quot;Marble Punch&quot; – Kenzo FW2012 Video by @thomastraum and Carl Burgess (@MoreSoonLtd) now live on http://t.co/gC8js1rN (http://t.co/YYrp3Jwt)", <http://dev.thomastraum.com/wp-json/posts/4814>; rel="item"; title="TTNews: RT @thomastraum: Any c4d animators among my followers with some time next week to work on a cool project?", <http://dev.thomastraum.com/wp-json/posts/4784>; rel="item"; title="TTNews: TT for Moscow Photo Biennale ☭ http://t.co/4bIDEz9R", <http://dev.thomastraum.com/wp-json/posts/4785>; rel="item"; title="TTNews: TT for Scheltens &amp;amp; Abbenes ♕ http://t.co/nwLXhfbu"
+X-WP-Total: 88
+X-WP-TotalPages: 5
+Last-Modified: Sun, 06 Sep 2015 20:14:50 GMT
+Transfer-Encoding: chunked
+Content-Type: application/json; charset=UTF-8
+
+
+- 
+  ID:             5627
+  title:          Ghost at carlow
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>Super excited that <a href="http://dev.thomastraum.com/work/archive/#works/ghost/" target="_blank">GHOST</a> is showing at the <a href="http://www.visualcarlow.ie/" target="_blank">VISUAL Centre for Contemporary Art</a> in Ireland in one big room reserved just for the piece, should be stunning.</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ghost-at-carlow/
+  date:           2015-05-16T14:19:05
+  modified:       2015-05-16T14:19:05
+  format:         standard
+  slug:           ghost-at-carlow
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5627
+  excerpt:        <p>Super excited that GHOST is showing at the VISUAL Centre for Contemporary Art in Ireland in one big room reserved just for the piece, should be stunning.</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2015-05-16T13:19:05
+  modified_gmt:   2015-05-16T13:19:05
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5627
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5627/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5627/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5629
+  title:          its nice that
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>Our work was featured in Its Nice That&#8217;s <a href="http://printedpagesmagazine.com/" target="_blank">Printed Pages</a> Winter 2014 issue about KENZO.</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/its-nice-that/
+  date:           2015-02-16T14:19:38
+  modified:       2015-05-16T14:27:34
+  format:         standard
+  slug:           its-nice-that
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5629
+  excerpt:        <p>Our work was featured in Its Nice That&#8217;s Printed Pages Winter 2014 issue about KENZO.</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2015-02-16T14:19:38
+  modified_gmt:   2015-05-16T13:27:34
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5629
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5629/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5629/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5581
+  title:          
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>We had an amazing time giving a one week workshop at <a href="http://ecal.ch" target="_blank">ECAL</a></p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/5581/
+  date:           2014-11-24T12:15:57
+  modified:       2014-11-24T12:15:57
+  format:         standard
+  slug:           5581
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5581
+  excerpt:        <p>We had an amazing time giving a one week workshop at ECAL</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-11-24T12:15:57
+  modified_gmt:   2014-11-24T12:15:57
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5581
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5581/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5581/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5579
+  title:          Merdien
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>&#8220;Meridian&#8221; (https://vimeo.com/101010308 ) for Christopher Raeburn is shown as part of ASVOFF http://ashadedviewonfashionfilm.com festival in Paris this weekend.</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/merdien/
+  date:           2014-11-24T12:12:29
+  modified:       2014-11-24T12:12:29
+  format:         standard
+  slug:           merdien
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5579
+  excerpt:        <p>&#8220;Meridian&#8221; (https://vimeo.com/101010308 ) for Christopher Raeburn is shown as part of ASVOFF http://ashadedviewonfashionfilm.com festival in Paris this weekend.</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-11-24T12:12:29
+  modified_gmt:   2014-11-24T12:12:29
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5579
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5579/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5579/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5583
+  title:          &#8220;Texture&#8221;
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>Featured on TCP — &#8220;Texture&#8221; Turns The Internet Into An Alien Landscape | The Creators Project <a dir="ltr" title="http://creat.rs/1shhTod" href="http://t.co/XodaUm13bO" target="_blank" rel="nofollow" data-expanded-url="http://creat.rs/1shhTod">http://creat.rs/1shhTod </a></p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/texture/
+  date:           2014-10-24T12:16:05
+  modified:       2014-11-24T12:16:36
+  format:         standard
+  slug:           texture
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5583
+  excerpt:        <p>Featured on TCP — &#8220;Texture&#8221; Turns The Internet Into An Alien Landscape | The Creators Project http://creat.rs/1shhTod </p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-10-24T11:16:05
+  modified_gmt:   2014-11-24T12:16:36
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5583
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5583/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5583/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5538
+  title:          Visual Communication in the Post Internet Age
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>&#8220;Visual Communication in the Post Internet Age&#8221; Super happy that our work is featured in the new <a href="http://www.idea-mag.com/en/publication/366.php" target="_blank">IDEA magazine</a>, a publication I always thought as one of the best out there.</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/visual-communication-in-the-post-internet-age/
+  date:           2014-08-21T10:35:47
+  modified:       2014-08-21T10:40:59
+  format:         standard
+  slug:           visual-communication-in-the-post-internet-age
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5538
+  excerpt:        <p>&#8220;Visual Communication in the Post Internet Age&#8221; Super happy that our work is featured in the new IDEA magazine, a publication I always thought as one of the best out there.</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-08-21T09:35:47
+  modified_gmt:   2014-08-21T09:40:59
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5538
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5538/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5538/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5540
+  title:          032C
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p><a href="http://032c.com/2014/3d-meridian-a-closer-look-at-this-seasons-most-advanced-fashion-film-for-christopher-raeburn" target="_blank">&#8220;3D MERIDIAN: A Closer Look at this Season’s Most Advanced Fashion Film for CHRISTOPHER RÆBURN&#8221;</a> Interview and feature about <a href="http://dev.thomastraum.com/#works/cristopher-raeburn-ss-2015-collection-film/" target="_blank">our film</a> for Christopher Raeburn on the one and only <a href="http://032c.com/2014/3d-meridian-a-closer-look-at-this-seasons-most-advanced-fashion-film-for-christopher-raeburn" target="_blank">032C</a></p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/032c/
+  date:           2014-08-17T10:36:38
+  modified:       2014-08-21T10:39:27
+  format:         standard
+  slug:           032c
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5540
+  excerpt:        <p>&#8220;3D MERIDIAN: A Closer Look at this Season’s Most Advanced Fashion Film for CHRISTOPHER RÆBURN&#8221; Interview and feature about our film for Christopher Raeburn on the one and only 032C</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-08-17T09:36:38
+  modified_gmt:   2014-08-21T09:39:27
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5540
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5540/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5540/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5409
+  title:          Epic video for an epic track — Deadboy &#8220;RETURN&#8221;
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p><a href="http://dev.thomastraum.com/#works/deadboy-return-video/" target="_blank">Epic video for an epic track — Deadboy &#8220;RETURN&#8221;</a></p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/epic-video-for-an-epic-track-deadboy-return/
+  date:           2014-04-09T18:25:02
+  modified:       2014-04-09T18:25:28
+  format:         standard
+  slug:           epic-video-for-an-epic-track-deadboy-return
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5409
+  excerpt:        <p>Epic video for an epic track — Deadboy &#8220;RETURN&#8221;</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-04-09T17:25:02
+  modified_gmt:   2014-04-09T17:25:28
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5409
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5409/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5409/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5349
+  title:          Kenzo toiletpaper anim
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p><a href="https://www.youtube.com/watch?v=ZtZLE2D8X4s " target="_blank">Little clip</a> we made for KENZO Spring Summer campaign. Stay tuned for a lot more Kenzo work coming up!</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/kenzo/
+  date:           2014-02-25T11:57:37
+  modified:       2014-03-25T12:13:08
+  format:         standard
+  slug:           kenzo
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5349
+  excerpt:        <p>Little clip we made for KENZO Spring Summer campaign. Stay tuned for a lot more Kenzo work coming up!</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-02-25T11:57:37
+  modified_gmt:   2014-03-25T12:13:08
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5349
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5349/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5349/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5347
+  title:          Ghost is showing at Garage CCC
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p><a href="http://dev.thomastraum.com/#works/ghost/" target="_blank">Ghost</a> is showing at <a href="http://garageccc.com/en" target="_blank">Garage CCC</a> Moscow from the 10th to the 22nd of January.</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ghost-is-showing-at-garage-ccc/
+  date:           2014-01-05T11:55:51
+  modified:       2014-03-25T12:22:30
+  format:         standard
+  slug:           ghost-is-showing-at-garage-ccc
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5347
+  excerpt:        <p>Ghost is showing at Garage CCC Moscow from the 10th to the 22nd of January.</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-01-05T11:55:51
+  modified_gmt:   2014-03-25T12:22:30
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5347
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5347/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5347/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5351
+  title:          Wire 2014
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p><a href="http://www.thewire.co.uk/archive/issues/359" target="_blank">Cover</a> for WIRE Music Magazine</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/wire-2014/
+  date:           2014-01-01T12:10:20
+  modified:       2014-03-25T12:13:08
+  format:         standard
+  slug:           wire-2014
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5351
+  excerpt:        <p>Cover for WIRE Music Magazine</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2014-01-01T12:10:20
+  modified_gmt:   2014-03-25T12:13:08
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5351
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5351/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5351/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5193
+  title:          Moncler
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>The Moncler X Pharrell film I worked on with <a dir="ltr" href="https://twitter.com/MoreSoonLtd">@MoreSoonLtd</a> is up on ye olde Hypebeast: <a dir="ltr" title="http://hypebeast.com/2013/9/moncler-lunettes-featuring-pharrell-williams" href="http://t.co/VoSmF2Z6MX" target="_blank" rel="nofollow" data-expanded-url="http://hypebeast.com/2013/9/moncler-lunettes-featuring-pharrell-williams">http://hypebeast.com/2013/9/moncler-lunettes-featuring-pharrell-williams …</a>. More info mañana</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/moncler/
+  date:           2013-09-27T11:11:08
+  modified:       2014-03-25T12:13:08
+  format:         standard
+  slug:           moncler
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5193
+  excerpt:        <p>The Moncler X Pharrell film I worked on with @MoreSoonLtd is up on ye olde Hypebeast: http://hypebeast.com/2013/9/moncler-lunettes-featuring-pharrell-williams …. More info mañana</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2013-09-27T10:11:08
+  modified_gmt:   2014-03-25T12:13:08
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5193
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5193/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5193/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             5191
+  title:          Mubi Ad
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>Our Ad for <a href="http://mubi.com/" target="_blank">Mubi</a> is out <a href="https://vimeo.com/74491264" target="_blank">https://vimeo.com/74491264</a> ! We almost killed ourselves making this one, hope you like it.</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/mubi-ad/
+  date:           2013-09-16T11:07:12
+  modified:       2013-10-03T11:10:20
+  format:         standard
+  slug:           mubi-ad
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=5191
+  excerpt:        <p>Our Ad for Mubi is out https://vimeo.com/74491264 ! We almost killed ourselves making this one, hope you like it.</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2013-09-16T10:07:12
+  modified_gmt:   2013-10-03T10:10:20
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/5191
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/5191/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/5191/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4871
+  title:          Ghost at Eyebeam NYC
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          1
+    username:    admin
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        admin
+    URL:         
+    avatar:      http://1.gravatar.com/avatar/de0d627d9f08a03551f316367c939b1c?s=96
+    description: 
+    registered:  2008-09-27T00:10:46+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/1
+        archives: http://dev.thomastraum.com/wp-json/users/1/posts
+  content:        <p>Now showing &#8220;Ghost&#8221; (http://www.epfl-ecal-lab.ch/index.php/projects/give-me-more/ghosts/) at Eyebeam NYC as part of the &#8220;Give Me More&#8221; Exhibition (http://www.eyebeam.org/events/gimme-more-is-augmented-reality-the-next-medium)</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ghost-at-eyebeam-nyc/
+  date:           2013-02-23T16:20:28
+  modified:       2013-02-23T16:21:08
+  format:         standard
+  slug:           ghost-at-eyebeam-nyc
+  guid:           http://dev.thomastraum.com/?post_type=tt_news&#038;p=4871
+  excerpt:        <p>Now showing &#8220;Ghost&#8221; (http://www.epfl-ecal-lab.ch/index.php/projects/give-me-more/ghosts/) at Eyebeam NYC as part of the &#8220;Give Me More&#8221; Exhibition (http://www.eyebeam.org/events/gimme-more-is-augmented-reality-the-next-medium)</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2013-02-23T16:20:28
+  modified_gmt:   2013-02-23T16:21:08
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4871
+      author:          http://dev.thomastraum.com/wp-json/users/1
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4871/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4871/revisions
+  custom_fields: 
+    (empty array)
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4866
+  title:          TTNews: Raving review of the Unfolded book (http://t.co/nwLXhfbu) we worked on  http://t.co/Y9J8v3LY
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          5
+    username:    Thomas Traum
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        thomas-traum
+    URL:         http://thomastraum.tumblr.com/
+    avatar:      http://1.gravatar.com/avatar/?s=96
+    description: 
+    registered:  2008-10-01T01:58:49+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/5
+        archives: http://dev.thomastraum.com/wp-json/users/5/posts
+  content:        <p>TTNews: Raving review of the Unfolded book (http://t.co/nwLXhfbu) we worked on  http://t.co/Y9J8v3LY</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ttnews-raving-review-of-the-unfolded-book-httpt-conwlxhfbu-we-worked-on-httpt-coy9j8v3ly/
+  date:           2012-10-06T13:39:59
+  modified:       2012-10-06T13:39:59
+  format:         standard
+  slug:           ttnews-raving-review-of-the-unfolded-book-httpt-conwlxhfbu-we-worked-on-httpt-coy9j8v3ly
+  guid:           http://dev.thomastraum.com/?guid=2c760b6bc349dbac6badd8d2ae3b77e9
+  excerpt:        <p>TTNews: Raving review of the Unfolded book (http://t.co/nwLXhfbu) we worked on  http://t.co/Y9J8v3LY</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2012-10-06T12:39:59
+  modified_gmt:   2012-10-06T12:39:59
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4866
+      author:          http://dev.thomastraum.com/wp-json/users/5
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4866/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4866/revisions
+  custom_fields: 
+    syndication_source: 
+      - Twitter / TTNews
+    syndication_source_uri: 
+      - http://twitter.com/TTNews
+    syndication_source_id: 
+      - tag:twitter.com,2007:Status
+    syndication_feed: 
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+    syndication_feed_id: 
+      - 67
+    syndication_permalink: 
+      - http://twitter.com/TTNews/statuses/254561641511911425
+    syndication_item_hash: 
+      - 774bc2a2bf85f7e37d4e4e4f8e1a57b6
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4865
+  title:          TTNews: RT @itsnicethat: .@MoreSoonLtd and @TTnews smash it with a new promo for @Kenzo_paris http://t.co/KqypBYvW
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          5
+    username:    Thomas Traum
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        thomas-traum
+    URL:         http://thomastraum.tumblr.com/
+    avatar:      http://1.gravatar.com/avatar/?s=96
+    description: 
+    registered:  2008-10-01T01:58:49+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/5
+        archives: http://dev.thomastraum.com/wp-json/users/5/posts
+  content:        <p>TTNews: RT @itsnicethat: .@MoreSoonLtd and @TTnews smash it with a new promo for @Kenzo_paris http://t.co/KqypBYvW</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ttnews-rt-itsnicethat-moresoonltd-and-ttnews-smash-it-with-a-new-promo-for-kenzo_paris-httpt-cokqypbyvw/
+  date:           2012-10-04T23:11:48
+  modified:       2012-10-04T23:11:48
+  format:         standard
+  slug:           ttnews-rt-itsnicethat-moresoonltd-and-ttnews-smash-it-with-a-new-promo-for-kenzo_paris-httpt-cokqypbyvw
+  guid:           http://dev.thomastraum.com/?guid=c9e996bf9428c1e7393a5033825c1806
+  excerpt:        <p>TTNews: RT @itsnicethat: .@MoreSoonLtd and @TTnews smash it with a new promo for @Kenzo_paris http://t.co/KqypBYvW</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2012-10-04T22:11:48
+  modified_gmt:   2012-10-04T22:11:48
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4865
+      author:          http://dev.thomastraum.com/wp-json/users/5
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4865/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4865/revisions
+  custom_fields: 
+    syndication_source: 
+      - Twitter / TTNews
+    syndication_source_uri: 
+      - http://twitter.com/TTNews
+    syndication_source_id: 
+      - tag:twitter.com,2007:Status
+    syndication_feed: 
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+    syndication_feed_id: 
+      - 67
+    syndication_permalink: 
+      - http://twitter.com/TTNews/statuses/253980770144772097
+    syndication_item_hash: 
+      - 354254d678c57edff3925068b050e88a
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4816
+  title:          TTNews: &quot;Marble Punch&quot; – Kenzo FW2012 Video by @thomastraum and Carl Burgess (@MoreSoonLtd) now live on http://t.co/gC8js1rN (http://t.co/YYrp3Jwt)
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          5
+    username:    Thomas Traum
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        thomas-traum
+    URL:         http://thomastraum.tumblr.com/
+    avatar:      http://2.gravatar.com/avatar/?s=96
+    description: 
+    registered:  2008-10-01T01:58:49+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/5
+        archives: http://dev.thomastraum.com/wp-json/users/5/posts
+  content:        <p>TTNews: &#8220;Marble Punch&#8221; – Kenzo FW2012 Video by @thomastraum and Carl Burgess (@MoreSoonLtd) now live on http://t.co/gC8js1rN (http://t.co/YYrp3Jwt)</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ttnews-marble-punch-kenzo-fw2012-video-by-thomastraum-and-carl-burgess-moresoonltd-now-live-on-httpt-cogc8js1rn-httpt-coyyrp3jwt/
+  date:           2012-09-25T13:26:40
+  modified:       2012-09-25T13:26:40
+  format:         standard
+  slug:           ttnews-marble-punch-kenzo-fw2012-video-by-thomastraum-and-carl-burgess-moresoonltd-now-live-on-httpt-cogc8js1rn-httpt-coyyrp3jwt
+  guid:           http://dev.thomastraum.com/?guid=78008532e5db8bb1d16247b52aec5275
+  excerpt:        <p>TTNews: &#8220;Marble Punch&#8221; – Kenzo FW2012 Video by @thomastraum and Carl Burgess (@MoreSoonLtd) now live on http://t.co/gC8js1rN (http://t.co/YYrp3Jwt)</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2012-09-25T12:26:40
+  modified_gmt:   2012-09-25T12:26:40
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4816
+      author:          http://dev.thomastraum.com/wp-json/users/5
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4816/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4816/revisions
+  custom_fields: 
+    syndication_source: 
+      - Twitter / TTNews
+    syndication_source_uri: 
+      - http://twitter.com/TTNews
+    syndication_source_id: 
+      - tag:twitter.com,2007:Status
+    syndication_feed: 
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+    syndication_feed_id: 
+      - 67
+    syndication_permalink: 
+      - http://twitter.com/TTNews/statuses/250572025020706817
+    syndication_item_hash: 
+      - 4c4c573231bf49f63e73824fd410eba2
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4814
+  title:          TTNews: RT @thomastraum: Any c4d animators among my followers with some time next week to work on a cool project?
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          5
+    username:    Thomas Traum
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        thomas-traum
+    URL:         http://thomastraum.tumblr.com/
+    avatar:      http://0.gravatar.com/avatar/?s=96
+    description: 
+    registered:  2008-10-01T01:58:49+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/5
+        archives: http://dev.thomastraum.com/wp-json/users/5/posts
+  content:        <p>TTNews: RT @thomastraum: Any c4d animators among my followers with some time next week to work on a cool project?</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ttnews-rt-thomastraum-any-c4d-animators-among-my-followers-with-some-time-next-week-to-work-on-a-cool-project/
+  date:           2012-08-22T14:19:58
+  modified:       2012-08-22T14:19:58
+  format:         standard
+  slug:           ttnews-rt-thomastraum-any-c4d-animators-among-my-followers-with-some-time-next-week-to-work-on-a-cool-project
+  guid:           http://dev.thomastraum.com/?guid=3b359e6547ef0ec992700c81a12bdfc2
+  excerpt:        <p>TTNews: RT @thomastraum: Any c4d animators among my followers with some time next week to work on a cool project?</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2012-08-22T13:19:58
+  modified_gmt:   2012-08-22T13:19:58
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4814
+      author:          http://dev.thomastraum.com/wp-json/users/5
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4814/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4814/revisions
+  custom_fields: 
+    syndication_source: 
+      - Twitter / TTNews
+      - Twitter / TTNews
+    syndication_source_uri: 
+      - http://twitter.com/TTNews
+      - http://twitter.com/TTNews
+    syndication_source_id: 
+      - tag:twitter.com,2007:Status
+      - tag:twitter.com,2007:Status
+    syndication_feed: 
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+    syndication_feed_id: 
+      - 67
+      - 67
+    syndication_permalink: 
+      - http://twitter.com/TTNews/statuses/238264249049296896
+      - http://twitter.com/TTNews/statuses/238264249049296896
+    syndication_item_hash: 
+      - ee9eb4cb38d4fa72f0c3b5af4cbfba71
+      - ee9eb4cb38d4fa72f0c3b5af4cbfba71
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4784
+  title:          TTNews: TT for Moscow Photo Biennale ☭ http://t.co/4bIDEz9R
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          5
+    username:    Thomas Traum
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        thomas-traum
+    URL:         http://thomastraum.tumblr.com/
+    avatar:      http://2.gravatar.com/avatar/?s=96
+    description: 
+    registered:  2008-10-01T01:58:49+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/5
+        archives: http://dev.thomastraum.com/wp-json/users/5/posts
+  content:        <p>TTNews: TT for Moscow Photo Biennale ☭ http://t.co/4bIDEz9R</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ttnews-tt-for-moscow-photo-biennale-%e2%98%ad-httpt-co4bidez9r/
+  date:           2012-07-12T19:36:09
+  modified:       2012-07-12T19:36:09
+  format:         standard
+  slug:           ttnews-tt-for-moscow-photo-biennale-%e2%98%ad-httpt-co4bidez9r
+  guid:           http://dev.thomastraum.com/?guid=321b24444518ce9c8a1837ef9b577a90
+  excerpt:        <p>TTNews: TT for Moscow Photo Biennale ☭ http://t.co/4bIDEz9R</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2012-07-12T18:36:09
+  modified_gmt:   2012-07-12T18:36:09
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4784
+      author:          http://dev.thomastraum.com/wp-json/users/5
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4784/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4784/revisions
+  custom_fields: 
+    syndication_source: 
+      - Twitter / TTNews
+    syndication_source_uri: 
+      - http://twitter.com/TTNews
+    syndication_source_id: 
+      - tag:twitter.com,2007:Status
+    syndication_feed: 
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+    syndication_feed_id: 
+      - 67
+    syndication_permalink: 
+      - http://twitter.com/TTNews/statuses/223485919251013633
+    syndication_item_hash: 
+      - aeac484869735192172cce22ff5a5a6f
+      - ecc55fea0f0e9a06cdcb40db8c041733
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121
+- 
+  ID:             4785
+  title:          TTNews: TT for Scheltens &amp;amp; Abbenes ♕ http://t.co/nwLXhfbu
+  status:         publish
+  type:           tt_news
+  author: 
+    ID:          5
+    username:    Thomas Traum
+    name:        Thomas Traum
+    first_name:  
+    last_name:   
+    nickname:    Thomas Traum
+    slug:        thomas-traum
+    URL:         http://thomastraum.tumblr.com/
+    avatar:      http://1.gravatar.com/avatar/?s=96
+    description: 
+    registered:  2008-10-01T01:58:49+01:00
+    meta: 
+      links: 
+        self:     http://dev.thomastraum.com/wp-json/users/5
+        archives: http://dev.thomastraum.com/wp-json/users/5/posts
+  content:        <p>TTNews: TT for Scheltens &amp; Abbenes ♕ http://t.co/nwLXhfbu</p>
+
+  parent:         null
+  link:           http://dev.thomastraum.com/news/ttnews-tt-for-scheltens-amp-abbenes-%e2%99%95-httpt-conwlxhfbu/
+  date:           2012-07-12T19:35:38
+  modified:       2012-07-12T19:35:38
+  format:         standard
+  slug:           ttnews-tt-for-scheltens-amp-abbenes-%e2%99%95-httpt-conwlxhfbu
+  guid:           http://dev.thomastraum.com/?guid=1237158b330240c90b848cce59534476
+  excerpt:        <p>TTNews: TT for Scheltens &amp; Abbenes ♕ http://t.co/nwLXhfbu</p>
+
+  menu_order:     0
+  comment_status: closed
+  ping_status:    closed
+  sticky:         false
+  date_gmt:       2012-07-12T18:35:38
+  modified_gmt:   2012-07-12T18:35:38
+  meta: 
+    links: 
+      self:            http://dev.thomastraum.com/wp-json/posts/4785
+      author:          http://dev.thomastraum.com/wp-json/users/5
+      collection:      http://dev.thomastraum.com/wp-json/posts
+      replies:         http://dev.thomastraum.com/wp-json/posts/4785/comments
+      version-history: http://dev.thomastraum.com/wp-json/posts/4785/revisions
+  custom_fields: 
+    syndication_source: 
+      - Twitter / TTNews
+    syndication_source_uri: 
+      - http://twitter.com/TTNews
+    syndication_source_id: 
+      - tag:twitter.com,2007:Status
+    syndication_feed: 
+      - http://twitter.com/statuses/user_timeline/18065630.atom
+    syndication_feed_id: 
+      - 67
+    syndication_permalink: 
+      - http://twitter.com/TTNews/statuses/223485786836844544
+    syndication_item_hash: 
+      - 5b56641727a1f2b548f9364c588b49c4
+      - bb55c96d6bac50e439adb123e0ca8e9c
+  featured_image: null
+  terms: 
+    news_categories: 
+      - 
+        ID:          126
+        name:        All
+        slug:        all
+        description: 
+        parent:      null
+        count:       87
+        link:        http://dev.thomastraum.com/updates/all/
+        meta: 
+          links: 
+            collection: http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms
+            self:       http://dev.thomastraum.com/wp-json/taxonomies/news_categories/terms/121

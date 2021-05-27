@@ -1,0 +1,9 @@
+$ ipconfig getv6packet en1
+DHCPv6 REPLY (7) Transaction ID 0x55156a Length 84
+Options[3] = {
+  CLIENTID (1) Length 14 DUID ... Addr 3c:07:54:26:99:ee <<<
+  SERVERID (2) Length 14 DUID ... Addr 54:e6:fc:e5:76:25
+  IA_NA (3) Length 40 IA_NA ... Options[1] = {
+    IAADDR (5) Length 24 IAADDR 2001:db8::1 ... 86400 Valid=86400
+  }
+}

@@ -1,0 +1,153 @@
+	      ------------------------------------STDERR------------------------------------
+	          Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (7) Failed to connect to 172.17.0.8 port 3000: Connection refused
+	=> Logs:
+	{ removed: 0, updated: 76 }
+	{ removed: 0, updated: 76 }
+	{ removed: 0, updated: 76 }
+	{ removed: 0, updated: 79 }
+	{ removed: 0, updated: 79 }
+	{ removed: 0, updated: 84 }
+	{ removed: 0, updated: 84 }
+	{ removed: 0, updated: 85 }
+	{ removed: 0, updated: 85 }
+	{ removed: 0, updated: 89 }
+	{ removed: 0, updated: 89 }
+	{ removed: 0, updated: 89 }
+	{ removed: 0, updated: 91 }
+	{ removed: 0, updated: 91 }
+	Exception in callback of async function: TypeError: Cannot read property 'catch' of undefined
+	    at server/migrations/things-instagram-duplicates-2.migration.js:139:5
+	    at server/migrations/things-instagram-duplicates-2.migration.js:29:3
+	    at runWithEnvironment (packages/meteor.js:1286:24)
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 92 }
+	Exception in callback of async function: TypeError: Cannot read property 'catch' of undefined
+	    at server/migrations/things-instagram-duplicates-2.migration.js:139:5
+	    at server/migrations/things-instagram-duplicates-2.migration.js:29:3
+	    at runWithEnvironment (packages/meteor.js:1286:24)
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 92 }
+	{ removed: 0, updated: 106 }
+	{ removed: 0, updated: 106 }
+	{ removed: 0, updated: 106 }
+	{ removed: 0, updated: 106 }
+	{ removed: 0, updated: 106 }
+	{ removed: 0, updated: 111 }
+	{ removed: 0, updated: 111 }
+	{ removed: 0, updated: 111 }
+	{ removed: 0, updated: 111 }
+	{ removed: 0, updated: 112 }
+	{ removed: 0, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 3, updated: 112 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 114 }
+	{ removed: 9, updated: 116 }
+	{ removed: 9, updated: 116 }
+	{ removed: 9, updated: 118 }
+	{ removed: 9, updated: 120 }
+	{ removed: 9, updated: 120 }
+	{ removed: 9, updated: 120 }
+	Exception in callback of async function: TypeError: Cannot read property 'catch' of undefined
+	    at server/migrations/things-instagram-duplicates-2.migration.js:139:5
+	    at server/migrations/things-instagram-duplicates-2.migration.js:29:3
+	    at runWithEnvironment (packages/meteor.js:1286:24)
+	{ removed: 9, updated: 120 }
+	Exception in callback of async function: TypeError: Cannot read property 'catch' of undefined
+	    at server/migrations/things-instagram-duplicates-2.migration.js:139:5
+	    at server/migrations/things-instagram-duplicates-2.migration.js:29:3
+	    at runWithEnvironment (packages/meteor.js:1286:24)
+	{ removed: 9, updated: 122 }
+	Exception in callback of async function: TypeError: Cannot read property 'catch' of undefined
+	    at server/migrations/things-instagram-duplicates-2.migration.js:139:5
+	    at server/migrations/things-instagram-duplicates-2.migration.js:29:3
+	    at runWithEnvironment (packages/meteor.js:1286:24)
+	{ removed: 9, updated: 124 }
+	{ removed: 15, updated: 124 }
+	{ removed: 21, updated: 126 }
+	{ removed: 21, updated: 126 }
+	{ removed: 21, updated: 126 }
+	{ removed: 21, updated: 128 }
+	{ removed: 21, updated: 130 }
+	{ removed: 21, updated: 130 }
+	{ removed: 21, updated: 130 }
+	{ removed: 25, updated: 132 }
+	{ removed: 25, updated: 132 }
+	{ removed: 25, updated: 132 }
+	{ removed: 25, updated: 132 }
+	{ removed: 25, updated: 132 }
+	Exception in callback of async function: TypeError: Cannot read property 'catch' of undefined
+	    at server/migrations/things-instagram-duplicates-2.migration.js:139:5
+	    at server/migrations/things-instagram-duplicates-2.migration.js:29:3
+	    at runWithEnvironment (packages/meteor.js:1286:24)
+	{ removed: 25, updated: 132 }
+	{ removed: 25, updated: 132 }
+	{ removed: 25, updated: 135 }
+	{ removed: 28, updated: 138 }
+	{ removed: 28, updated: 138 }
+	{ removed: 28, updated: 140 }
+	 
+	=> Redeploying previous version of the app
+	 
+	
+	      ------------------------------------STDOUT------------------------------------
+	      IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	=> Container status:
+	restarted: 1 times {"Bridge":"","SandboxID":"19362ab965c29885673db751c18ba9936c58410628ae87792cd57af6e2937f57","HairpinMode":false,"LinkLocalIPv6Address":"","LinkLocalIPv6PrefixLen":0,"Ports":{"3000/tcp":null,"80/tcp":null},"SandboxKey":"/var/run/docker/netns/19362ab965c2","SecondaryIPAddresses":null,"SecondaryIPv6Addresses":null,"EndpointID":"e79815f976432746e21d4250b186b7d47744c0d0b4cb5dcf6dd31af59db09ac4","Gateway":"172.17.0.1","GlobalIPv6Address":"","GlobalIPv6PrefixLen":0,"IPAddress":"172.17.0.8","IPPrefixLen":16,"IPv6Gateway":"","MacAddress":"02:42:ac:11:00:08","Networks":{"bridge":{"IPAMConfig":null,"Links":null,"Aliases":null,"NetworkID":"019915ced3cf75427cd9174d264d9ae34361eb60d908ef70472399bd55f764b4","EndpointID":"e79815f976432746e21d4250b186b7d47744c0d0b4cb5dcf6dd31af59db09ac4","Gateway":"172.17.0.1","IPAddress":"172.17.0.8","IPPrefixLen":16,"IPv6Gateway":"","GlobalIPv6Address":"","GlobalIPv6PrefixLen":0,"MacAddress":"02:42:ac:11:00:08","DriverOpts":null}}} {"Status":"running","Running":true,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":7363,"ExitCode":0,"Error":"","StartedAt":"2020-06-15T10:16:59.383085618Z","FinishedAt":"2020-06-15T10:16:55.815687283Z"}
+	
+	To see more logs type 'mup logs --tail=200'
+	
+	
+	      ------------------------------------------------------------------------------

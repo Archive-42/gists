@@ -1,0 +1,9 @@
+CAVEATS
+     There are limits to what you can do in the child process.  To be totally
+     safe you should restrict yourself to only executing async-signal safe
+     operations until such time as one of the exec functions is called.  All
+     APIs, including global data symbols, in any framework or library should
+     be assumed to be unsafe after a fork() unless explicitly documented to be
+     safe or async-signal safe.  If you need to use these frameworks in the
+     child process, you must exec.  In this situation it is reasonable to exec
+     yourself.

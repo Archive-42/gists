@@ -1,0 +1,151 @@
+	=> Logs:
+	{ removed: 103, updated: 1228 }
+	{ removed: 103, updated: 1228 }
+	{ removed: 103, updated: 1228 }
+	{ removed: 103, updated: 1228 }
+	{ removed: 103, updated: 1228 }
+	{ removed: 103, updated: 1228 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1240 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1254 }
+	{ removed: 103, updated: 1256 }
+	{ removed: 103, updated: 1256 }
+	{ removed: 103, updated: 1256 }
+	{ removed: 103, updated: 1256 }
+	{ removed: 103, updated: 1256 }
+	{ removed: 109, updated: 1258 }
+	{ removed: 109, updated: 1258 }
+	{ removed: 109, updated: 1258 }
+	{ removed: 109, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1258 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1260 }
+	{ removed: 116, updated: 1262 }
+	{ removed: 116, updated: 1262 }
+	{ removed: 117, updated: 1262 }
+	{ removed: 117, updated: 1262 }
+	{ removed: 117, updated: 1262 }
+	{ removed: 117, updated: 1262 }
+	{ removed: 117, updated: 1262 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1267 }
+	{ removed: 117, updated: 1268 }
+	{ removed: 117, updated: 1268 }
+	{ removed: 117, updated: 1270 }
+	{ removed: 117, updated: 1270 }
+	{ removed: 117, updated: 1270 }
+	{ removed: 123, updated: 1272 }
+	{ removed: 123, updated: 1272 }
+	{ removed: 123, updated: 1275 }
+	{ removed: 123, updated: 1275 }
+	{ removed: 123, updated: 1287 }
+	{ removed: 123, updated: 1287 }
+	{ removed: 123, updated: 1287 }
+	{ removed: 123, updated: 1289 }
+	{ removed: 123, updated: 1289 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1292 }
+	{ removed: 123, updated: 1299 }
+	{ removed: 123, updated: 1299 }
+	{ removed: 123, updated: 1299 }
+	{ removed: 123, updated: 1299 }
+	{ removed: 123, updated: 1299 }
+	{ removed: 123, updated: 1299 }
+	{ removed: 123, updated: 1299 }
+	 
+	=> Redeploying previous version of the app
+	 
+	
+	      ------------------------------------STDOUT------------------------------------
+	      IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	IP: 172.17.0.8
+	=> Container status:
+	restarted: 1 times {"Bridge":"","SandboxID":"e6ca0c6381411db68d5997c0e29280299fcbc80f13d34d82ccdca5a252960f86","HairpinMode":false,"LinkLocalIPv6Address":"","LinkLocalIPv6PrefixLen":0,"Ports":{"3000/tcp":null,"80/tcp":null},"SandboxKey":"/var/run/docker/netns/e6ca0c638141","SecondaryIPAddresses":null,"SecondaryIPv6Addresses":null,"EndpointID":"de83c586961e7f13e432f6989f9cbff183364bcb88ebaef354121bc2fc0de945","Gateway":"172.17.0.1","GlobalIPv6Address":"","GlobalIPv6PrefixLen":0,"IPAddress":"172.17.0.8","IPPrefixLen":16,"IPv6Gateway":"","MacAddress":"02:42:ac:11:00:08","Networks":{"bridge":{"IPAMConfig":null,"Links":null,"Aliases":null,"NetworkID":"019915ced3cf75427cd9174d264d9ae34361eb60d908ef70472399bd55f764b4","EndpointID":"de83c586961e7f13e432f6989f9cbff183364bcb88ebaef354121bc2fc0de945","Gateway":"172.17.0.1","IPAddress":"172.17.0.8","IPPrefixLen":16,"IPv6Gateway":"","GlobalIPv6Address":"","GlobalIPv6PrefixLen":0,"MacAddress":"02:42:ac:11:00:08","DriverOpts":null}}} {"Status":"running","Running":true,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":14053,"ExitCode":0,"Error":"","StartedAt":"2020-06-15T10:32:04.775084046Z","FinishedAt":"2020-06-15T10:32:01.191754827Z"}
+	
+	To see more logs type 'mup logs --tail=200'
+	
+	
+	      ------------------------------------------------------------------------------

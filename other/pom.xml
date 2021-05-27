@@ -1,0 +1,14 @@
+<project ...>
+
+...
+
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>parent</relativePath>
+    </parent>
+
+...
+
+</project>

@@ -1,0 +1,1452 @@
+==> Build Environment
+CC: /usr/bin/cc
+CXX: /usr/bin/c++
+LD: /usr/bin/cc
+CFLAGS: -O3 -march=core2 -msse4.1 -w -pipe
+CXXFLAGS: -O3 -march=core2 -msse4.1 -w -pipe
+MAKEFLAGS: -j2
+PATH: /opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+==> Downloading http://image_magick.veidrodis.com/image_magick/ImageMagick-6.6.1-5.tar.bz2
+File already downloaded and cached to /Users/koraktor/Library/Caches/Homebrew
+/usr/bin/tar xf /Users/koraktor/Library/Caches/Homebrew/imagemagick-6.6.1-5.tar.bz2
+==> ./configure --without-maximum-compile-warnings --disable-osx-universal-binary --without-perl --prefix=/usr/local/Cellar/imagemagick/6.6.1-5 --disable-dependency-tracking --enable-shared --disable-static --with-modules --without-magick-plus-plus --without-ghostscript
+./configure --without-maximum-compile-warnings --disable-osx-universal-binary --without-perl --prefix=/usr/local/Cellar/imagemagick/6.6.1-5 --disable-dependency-tracking --enable-shared --disable-static --with-modules --without-magick-plus-plus --without-ghostscript
+configuring ImageMagick 6.6.1-5
+checking build system type... x86_64-apple-darwin10.3.0
+checking host system type... x86_64-apple-darwin10.3.0
+checking target system type... x86_64-apple-darwin10.3.0
+checking whether build environment is sane... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... config/install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for gcc... /usr/bin/cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/bin/cc accepts -g... yes
+checking for /usr/bin/cc option to accept ISO C89... none needed
+checking dependency style of /usr/bin/cc... none
+checking how to run the C preprocessor... /usr/bin/cc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for gcc... (cached) /usr/bin/cc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /usr/bin/cc accepts -g... (cached) yes
+checking for /usr/bin/cc option to accept ISO C89... (cached) none needed
+checking dependency style of /usr/bin/cc... (cached) none
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/bin/c++ accepts -g... yes
+checking dependency style of /usr/bin/c++... none
+checking for /usr/bin/cc option to accept ISO C99... -std=gnu99
+checking for /usr/bin/cc -std=gnu99 option to accept ISO Standard C... (cached) -std=gnu99
+checking how to run the C preprocessor... /usr/bin/cc -E
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by /usr/bin/cc -std=gnu99... /usr/bin/cc
+checking if the linker (/usr/bin/cc) is GNU ld... no
+checking for /usr/bin/cc -std=gnu99 option to accept ISO C99... (cached) -std=gnu99
+checking whether /usr/bin/cc -std=gnu99 -std=gnu99 and cc understand -c and -o together... yes
+checking maximum warning verbosity option... no
+checking whether make sets $(MAKE)... (cached) yes
+checking whether ln -s works... yes
+checking if malloc debugging is wanted... no
+checking for pkg-config... /usr/local/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for linker lazyload option... none
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... -D_THREAD_SAFE
+checking for /usr/bin/cc -std=gnu99 -std=gnu99 option to support OpenMP... -fopenmp
+checking whether we are using the Microsoft C compiler... no
+checking CL/cl.h usability... no
+checking CL/cl.h presence... no
+checking for CL/cl.h... no
+checking OpenCL/cl.h usability... yes
+checking OpenCL/cl.h presence... yes
+checking for OpenCL/cl.h... yes
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking for OpenCL library... -lclparser -framework OpenCL -L/System/Library/Frameworks/OpenCL.framework/Versions/A/Libraries
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for native large file support... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking the maximum length of command line arguments... 196608
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/cc option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from /usr/bin/cc -std=gnu99 -std=gnu99 object... ok
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for dlfcn.h... yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether /usr/bin/c++ accepts -g... (cached) yes
+checking dependency style of /usr/bin/c++... (cached) none
+checking how to run the C++ preprocessor... /usr/bin/c++ -E
+checking for objdir... .libs
+checking if /usr/bin/cc -std=gnu99 -std=gnu99 supports -fno-rtti -fno-exceptions... yes
+checking for /usr/bin/cc -std=gnu99 -std=gnu99 option to produce PIC... -fno-common -DPIC
+checking if /usr/bin/cc -std=gnu99 -std=gnu99 PIC flag -fno-common -DPIC works... yes
+checking if /usr/bin/cc -std=gnu99 -std=gnu99 static flag -static works... no
+checking if /usr/bin/cc -std=gnu99 -std=gnu99 supports -c -o file.o... yes
+checking if /usr/bin/cc -std=gnu99 -std=gnu99 supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/cc -std=gnu99 -std=gnu99 linker (/usr/bin/cc) supports shared libraries... yes
+checking dynamic linker characteristics... darwin10.3.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... yes
+checking whether a statically linked program can dlopen itself... yes
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for ld used by /usr/bin/c++... /usr/bin/cc
+checking if the linker (/usr/bin/cc) is GNU ld... no
+checking whether the /usr/bin/c++ linker (/usr/bin/cc) supports shared libraries... yes
+checking for /usr/bin/c++ option to produce PIC... -fno-common -DPIC
+checking if /usr/bin/c++ PIC flag -fno-common -DPIC works... yes
+checking if /usr/bin/c++ static flag -static works... no
+checking if /usr/bin/c++ supports -c -o file.o... yes
+checking if /usr/bin/c++ supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/c++ linker (/usr/bin/cc) supports shared libraries... yes
+checking dynamic linker characteristics... darwin10.3.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking which extension is used for runtime loadable modules... .so
+checking which variable specifies run-time module search path... DYLD_LIBRARY_PATH
+checking for the default library search path... /usr/local/lib /lib /usr/lib
+checking for library containing dlopen... none required
+checking for dlerror... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dld_link in -ldld... no
+checking for _ prefix in compiled symbols... yes
+checking whether we have to add an underscore for dlsym... no
+checking whether deplibs are loaded by dlopen... yes
+checking for argz.h... no
+checking for error_t... no
+checking for argz_add... no
+checking for argz_append... no
+checking for argz_count... no
+checking for argz_create_sep... no
+checking for argz_insert... no
+checking for argz_next... no
+checking for argz_stringify... no
+checking whether libtool supports -dlopen/-dlpreopen... yes
+checking for ltdl.h... yes
+checking whether lt_dlinterface_register is declared... yes
+checking for lt_dladvise_preload in -lltdl... no
+checking where to find libltdl headers... -I${top_srcdir}/ltdl
+checking where to find libltdl library... ${top_build_prefix}ltdl/libltdlc.la
+checking for unistd.h... (cached) yes
+checking for dl.h... no
+checking for sys/dl.h... no
+checking for dld.h... no
+checking for mach-o/dyld.h... yes
+checking for dirent.h... yes
+checking for closedir... yes
+checking for opendir... yes
+checking for readdir... yes
+checking for strlcat... yes
+checking for strlcpy... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether /usr/bin/cc -std=gnu99 -std=gnu99 needs -traditional... no
+checking for ANSI C header files... (cached) yes
+checking whether to enable assertions... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking arm/limits.h usability... no
+checking arm/limits.h presence... no
+checking for arm/limits.h... no
+checking complex.h usability... yes
+checking complex.h presence... yes
+checking for complex.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking linux/unistd.h usability... no
+checking linux/unistd.h presence... no
+checking for linux/unistd.h... no
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking machine/param.h usability... yes
+checking machine/param.h presence... yes
+checking for machine/param.h... yes
+checking for mach-o/dyld.h... (cached) yes
+checking OS.h usability... no
+checking OS.h presence... no
+checking for OS.h... no
+checking process.h usability... no
+checking process.h presence... no
+checking for process.h... no
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking sys/ipc.h usability... yes
+checking sys/ipc.h presence... yes
+checking for sys/ipc.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/syslimits.h usability... yes
+checking sys/syslimits.h presence... yes
+checking for sys/syslimits.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/timeb.h usability... yes
+checking sys/timeb.h presence... yes
+checking for sys/timeb.h... yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for working volatile... yes
+checking for preprocessor stringizing operator... yes
+checking whether stat file-mode macros are broken... no
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking whether #! works in shell scripts... yes
+checking for inline... inline
+checking for C/C++ restrict keyword... __restrict
+checking whether byte ordering is bigendian... no
+checking for mode_t... yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for long double with more range or precision than double... yes
+checking whether char is unsigned... no
+checking size of signed short... 2
+checking size of unsigned short... 2
+checking size of signed int... 4
+checking size of unsigned int... 4
+checking size of signed long... 8
+checking size of unsigned long... 8
+checking size of signed long long... 8
+checking size of unsigned long long... 8
+checking size of off_t... 8
+checking size of size_t... 8
+checking size of unsigned int*... 8
+checking for signed 8-bit type... signed char
+checking for unsigned 8-bit type... unsigned char
+checking for signed 16-bit type... signed short
+checking for unsigned 16-bit type... unsigned short
+checking for signed 32-bit type... signed int
+checking for unsigned 32-bit type... unsigned int
+checking for signed 64-bit type... signed long
+checking for unsigned 64-bit type... unsigned long
+checking for unsigned maximum type... unsigned long
+checking for pointer difference type... unsigned long
+checking whether our compiler supports __func__... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap file i/o... yes
+checking whether closedir returns void... no
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... (cached) yes
+checking for working mmap... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for working memcmp... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking return type of signal handlers... void
+checking for working strtod... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for sqrt in -lm... yes
+checking for _exit... yes
+checking for atexit... yes
+checking for cimag... yes
+checking for clock... yes
+checking for directio... no
+checking for execvp... yes
+checking for fchmod... yes
+checking for floor... yes
+checking for fork... (cached) yes
+checking for ftime... yes
+checking for ftruncate... yes
+checking for getcwd... yes
+checking for getpid... yes
+checking for getexecname... no
+checking for getdtablesize... yes
+checking for getpagesize... (cached) yes
+checking for getrlimit... yes
+checking for getrusage... yes
+checking for gettimeofday... yes
+checking for gmtime_r... yes
+checking for j0... yes
+checking for j1... yes
+checking for localtime_r... yes
+checking for lstat... yes
+checking for memmove... yes
+checking for memset... yes
+checking for mkstemp... yes
+checking for munmap... yes
+checking for _NSGetExecutablePath... yes
+checking for pclose... yes
+checking for _pclose... no
+checking for poll... yes
+checking for popen... yes
+checking for _popen... no
+checking for posix_fadvise... no
+checking for posix_fallocate... no
+checking for posix_madvise... yes
+checking for posix_memalign... yes
+checking for pow... yes
+checking for pread... yes
+checking for pwrite... yes
+checking for raise... yes
+checking for rand_r... yes
+checking for readlink... yes
+checking for readdir_r... yes
+checking for realpath... yes
+checking for select... yes
+checking for seekdir... yes
+checking for setlocale... yes
+checking for sqrt... yes
+checking for setvbuf... yes
+checking for stat... yes
+checking for strchr... yes
+checking for strerror_r... yes
+checking for strrchr... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strpbrk... yes
+checking for strspn... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for strtoul... yes
+checking for symlink... yes
+checking for sysconf... yes
+checking for sigemptyset... yes
+checking for sigaction... yes
+checking for spawnvp... no
+checking for strerror... yes
+checking for strlcat... (cached) yes
+checking for strlcpy... (cached) yes
+checking for strcasecmp... yes
+checking for strncasecmp... yes
+checking for telldir... yes
+checking for tempnam... yes
+checking for times... yes
+checking for usleep... yes
+checking for utime... yes
+checking for vsprintf... yes
+checking for vsnprintf... yes
+checking for waitpid... yes
+checking for _wfopen... no
+checking for _wstat... no
+checking for library containing clock_gettime... no
+checking for gettimeofday... (cached) yes
+checking whether pread is declared... yes
+checking whether pwrite is declared... yes
+checking whether strlcpy is declared... yes
+checking whether vsnprintf is declared... yes
+checking for X11 configure files... 
+checking for GOMP_parallel_start in -lgomp... yes
+checking for the pthreads library -lpthread... yes
+-------------------------------------------------------------
+checking for BZLIB... 
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for BZ2_bzDecompress in -lbz2... yes
+checking if BZLIB package is complete... yes
+checking for X... libraries , headers 
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+-------------------------------------------------------------
+checking for X11... 
+checking for shmctl... yes
+checking for XShmAttach in -lXext... yes
+checking for XShapeCombineMask in -lXext... yes
+checking for XtSetEventDispatcher in -lXt... yes
+-------------------------------------------------------------
+checking for ZLIB... 
+checking zconf.h usability... yes
+checking zconf.h presence... yes
+checking for zconf.h... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for compress in -lz... yes
+checking for uncompress in -lz... yes
+checking for deflate in -lz... yes
+checking for inflate in -lz... yes
+checking for gzseek in -lz... yes
+checking for gztell in -lz... yes
+checking if ZLIB package is complete... yes
+-------------------------------------------------------------
+checking for DPS... 
+checking DPS/dpsXclient.h usability... no
+checking DPS/dpsXclient.h presence... no
+checking for DPS/dpsXclient.h... no
+checking for DPSInitialize in -ldps... no
+checking for DPSInitialize in -ldps... no
+checking for XDPSPixelsPerPoint in -ldpstk... no
+checking if DPS package is complete... no
+-------------------------------------------------------------
+checking for DJVU... 
+checking libdjvu/ddjvuapi.h usability... no
+checking libdjvu/ddjvuapi.h presence... no
+checking for libdjvu/ddjvuapi.h... no
+checking for ddjvu_context_create in -ldjvulibre... no
+checking if DJVU package is complete... no
+-------------------------------------------------------------
+checking for FFTW... 
+checking fftw3.h usability... no
+checking fftw3.h presence... no
+checking for fftw3.h... no
+checking for fftw_execute in -lfftw3... no
+checking if FFTW package is complete... no
+-------------------------------------------------------------
+checking for FlashPIX... 
+checking fpxlib.h usability... no
+checking fpxlib.h presence... no
+checking for fpxlib.h... no
+checking for FPX_OpenImageByFilename in -lfpx... no
+checking if FlashPIX package is complete... no
+-------------------------------------------------------------
+checking for FONTCONFIG... yes
+
+-------------------------------------------------------------
+checking for FreeType 2.0... 
+checking for freetype-config... freetype-config
+checking for FT_Init_FreeType in -lfreetype... yes
+checking ft2build.h usability... yes
+checking ft2build.h presence... yes
+checking for ft2build.h... yes
+checking for freetype/freetype.h... yes
+checking if FreeType package is complete... yes
+-------------------------------------------------------------
+checking for GVC... no
+
+-------------------------------------------------------------
+checking for JBIG... 
+checking jbig.h usability... no
+checking jbig.h presence... no
+checking for jbig.h... no
+checking for jbg_dec_init in -ljbig... no
+checking if JBIG package is complete... no
+-------------------------------------------------------------
+checking for JPEG... 
+checking jconfig.h usability... yes
+checking jconfig.h presence... yes
+checking for jconfig.h... yes
+checking jerror.h usability... yes
+checking jerror.h presence... yes
+checking for jerror.h... yes
+checking jmorecfg.h usability... yes
+checking jmorecfg.h presence... yes
+checking for jmorecfg.h... yes
+checking jpeglib.h usability... yes
+checking jpeglib.h presence... yes
+checking for jpeglib.h... yes
+checking for jpeg_read_header in -ljpeg... yes
+checking for JPEG library is version 6b or later... yes
+checking if JPEG package is complete... yes
+-------------------------------------------------------------
+checking for JPEG Version 2... 
+checking jasper/jasper.h usability... yes
+checking jasper/jasper.h presence... yes
+checking for jasper/jasper.h... yes
+checking for jas_stream_fopen in -ljasper... yes
+checking if JPEG version 2 support package is complete... yes
+-------------------------------------------------------------
+checking for LCMS... 
+checking lcms2.h usability... no
+checking lcms2.h presence... no
+checking for lcms2.h... no
+checking lcms/lcms2.h usability... no
+checking lcms/lcms2.h presence... no
+checking for lcms/lcms2.h... no
+checking for cmsOpenProfileFromMem in -llcms2... no
+checking if LCMS2 package is complete... no
+-------------------------------------------------------------
+checking for LCMS... 
+checking lcms.h usability... yes
+checking lcms.h presence... yes
+checking for lcms.h... yes
+checking for cmsOpenProfileFromMem in -llcms... yes
+checking if LCMS package is complete... yes
+-------------------------------------------------------------
+checking for LQR... no
+
+-------------------------------------------------------------
+checking for OPENEXR... no
+
+-------------------------------------------------------------
+checking for PNG... 
+checking png.h usability... yes
+checking png.h presence... yes
+checking for png.h... yes
+checking for png_get_io_ptr in -lpng... yes
+checking if PNG package is complete... yes
+-------------------------------------------------------------
+checking for RSVG... no
+
+checking for CAIRO_SVG... yes
+
+-------------------------------------------------------------
+checking for TIFF... 
+checking tiff.h usability... yes
+checking tiff.h presence... yes
+checking for tiff.h... yes
+checking tiffio.h usability... yes
+checking tiffio.h presence... yes
+checking for tiffio.h... yes
+checking for TIFFOpen in -ltiff... yes
+checking for TIFFClientOpen in -ltiff... yes
+checking for TIFFIsByteSwapped in -ltiff... yes
+checking for TIFFReadRGBATile in -ltiff... yes
+checking for TIFFReadRGBAStrip in -ltiff... yes
+checking if TIFF package is complete... yes
+checking tiffconf.h usability... yes
+checking tiffconf.h presence... yes
+checking for tiffconf.h... yes
+checking for TIFFIsCODECConfigured... yes
+checking for TIFFMergeFieldInfo... yes
+checking for TIFFReadEXIFDirectory... yes
+checking for TIFFSetErrorHandlerExt... yes
+checking for TIFFSetTagExtender... yes
+checking for TIFFSetWarningHandlerExt... yes
+checking for TIFFSwabArrayOfTriples... yes
+-------------------------------------------------------------
+checking for WMF... 
+checking libwmf/eps.h usability... yes
+checking libwmf/eps.h presence... yes
+checking for libwmf/eps.h... yes
+checking for wmf_eps_function in -lwmf... yes
+checking if WMF package is complete... yes
+-------------------------------------------------------------
+checking for XML... 
+checking for xml2-config... xml2-config
+checking libxml/parser.h usability... yes
+checking libxml/parser.h presence... yes
+checking for libxml/parser.h... yes
+checking for xmlParseExternalEntity in -lxml2... yes
+checking if XML package is complete... yes
+-------------------------------------------------------------
+checking for ImageMagick delegate programs... 
+checking for autotrace... autotrace
+checking for mplayer... mplayer
+checking for blender... blender
+checking for bzip2... /usr/bin/bzip2
+checking for xdg-open... xdg-open
+checking for ralcgm... ralcgm
+checking for cat... /bin/cat
+checking for ufraw-batch... ufraw-batch
+checking for dot... dot
+checking for dvips... dvips
+checking for echo... /bin/echo
+checking for xterm... /usr/X11/bin/xterm
+checking for fig2dev... fig2dev
+checking for convert... /usr/local/bin/convert
+checking for display... /usr/local/bin/display
+checking for mogrify... /usr/local/bin/mogrify
+checking for gnuplot... gnuplot
+checking for ra_pfm... ra_pfm
+checking for hp2xx... hp2xx
+checking for html2ps... html2ps
+checking for ilbmtoppm... ilbmtoppm
+checking for ppmtoilbm... ppmtoilbm
+checking for lp... /usr/bin/lp
+checking for lpr... /usr/bin/lpr
+checking for uncompress... /usr/bin/uncompress
+checking for compress... /usr/bin/compress
+checking for gimp... gimp
+checking for groff... /usr/bin/groff
+checking for ffmpeg... ffmpeg
+checking for ffmpeg... ffmpeg
+checking for mv... /bin/mv
+checking for pcl6... pcl6
+checking for pgpv... pgpv
+checking for povray... povray
+checking for gsx... no
+checking for gsc... no
+checking for gs... /usr/local/bin/gs
+checking for rawtorle... rawtorle
+checking for rm... /bin/rm
+checking for rsvg... rsvg
+checking for scanimage... /usr/local/bin/scanimage
+checking for enscript... /usr/bin/enscript
+checking for wmf2eps... /usr/local/bin/wmf2eps
+checking for curl... /usr/bin/curl
+checking for gxps... gxps
+checking for gzip... /usr/bin/gzip
+checking for Dejavu fonts directory... not found!
+checking for Ghostscript fonts directory... /usr/local/share/ghostscript/fonts/
+checking for gnutar... gnutar
+checking for perl... perl
+checking for rpmbuild... no
+checking for rpm... no
+checking for 7za... no
+checking for zip... zip
+-------------------------------------------------------------
+checking for Ghostscript... 
+checking for Ghostscript version... 8.62
+checking for gs alpha device... pngalpha
+checking for gs color device... pnmraw
+checking for gs CMYK device... pam
+checking for gs mono device... pbmraw
+checking for gs PDF writing device... pdfwrite
+checking for gs PS writing device... pswrite
+checking for gs EPS writing device... epswrite
+-------------------------------------------------------------
+Update ImageMagick configuration
+configure: creating ./config.status
+config.status: creating config/configure.xml
+config.status: creating config/delegates.xml
+config.status: creating config/ImageMagick.rdf
+config.status: creating config/MagickCore.dox
+config.status: creating config/MagickWand.dox
+config.status: creating config/type-dejavu.xml
+config.status: creating config/type-ghostscript.xml
+config.status: creating config/type-windows.xml
+config.status: creating config/type.xml
+config.status: creating ImageMagick.spec
+config.status: creating Magick++/bin/Magick++-config
+config.status: creating magick/ImageMagick.pc
+config.status: creating Magick++/lib/ImageMagick++.pc
+config.status: creating Magick++/lib/Magick++.pc
+config.status: creating magick/Magick-config
+config.status: creating magick/MagickCore-config
+config.status: creating magick/MagickCore.pc
+config.status: creating magick/version.h
+config.status: creating Makefile
+config.status: creating magick.sh
+config.status: creating PerlMagick/Magick.pm
+config.status: creating PerlMagick/Makefile.PL
+config.status: creating PerlMagick/check.sh
+config.status: creating utilities/animate.1
+config.status: creating utilities/compare.1
+config.status: creating utilities/composite.1
+config.status: creating utilities/conjure.1
+config.status: creating utilities/convert.1
+config.status: creating utilities/display.1
+config.status: creating utilities/identify.1
+config.status: creating utilities/ImageMagick.1
+config.status: creating utilities/import.1
+config.status: creating utilities/mogrify.1
+config.status: creating utilities/montage.1
+config.status: creating utilities/stream.1
+config.status: creating wand/MagickWand-config
+config.status: creating wand/MagickWand.pc
+config.status: creating wand/Wand-config
+config.status: creating wand/Wand.pc
+config.status: creating config/config.h
+config.status: executing magick/magick-config.h commands
+config.status: creating magick/magick-config.h - prefix MAGICKCORE for config/config.h defines
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default commands
+config.status: executing MagickCore-config.in commands
+config.status: executing Magick-config.in commands
+config.status: executing MagickWand-config.in commands
+config.status: executing Wand-config.in commands
+config.status: executing Magick++-config.in commands
+config.status: executing PerlMagick/check.sh.in commands
+
+ImageMagick is configured as follows. Please verify that this configuration
+matches your expectations.
+
+Host system type: x86_64-apple-darwin10.3.0
+Build system type: x86_64-apple-darwin10.3.0
+
+                  Option                        Value
+-------------------------------------------------------------------------------
+Shared libraries  --enable-shared=yes		yes
+Static libraries  --enable-static=no		no
+Module support    --with-modules=yes		yes
+GNU ld            --with-gnu-ld=no		no
+Quantum depth     --with-quantum-depth=16	16
+High Dynamic Range Imagery
+                  --enable-hdri=no		no
+
+Delegate Configuration:
+BZLIB             --with-bzlib=yes		yes
+Autotrace         --with-autotrace=no		no
+Dejavu fonts      --with-dejavu-font-dir=default	none
+DJVU              --with-djvu=yes		no
+DPS               --with-dps=yes		no
+FFTW              --with-fftw=yes		no
+FlashPIX          --with-fpx=yes		no
+FontConfig        --with-fontconfig=yes		yes
+FreeType          --with-freetype=yes		yes
+GhostPCL          None				pcl6 (unknown)
+GhostXPS          None				gxps (unknown)
+Ghostscript       None				gs (8.62)
+Ghostscript fonts --with-gs-font-dir=default	/usr/local/share/ghostscript/fonts/
+Ghostscript lib   --with-gslib=no		no
+Graphviz          --with-gvc=yes		no
+JBIG              --with-jbig=yes		no
+JPEG v1           --with-jpeg=yes		yes
+JPEG-2000         --with-jp2=yes		yes
+LCMS              --with-lcms=yes		yes
+LQR               --with-lqr=yes		no
+Magick++          --with-magick-plus-plus=no	no
+OpenEXR           --with-openexr=yes		no
+PERL              --with-perl=no		no
+PNG               --with-png=yes		yes
+RSVG              --with-rsvg=yes		no
+TIFF              --with-tiff=yes		yes
+Windows fonts     --with-windows-font-dir=	none
+WMF               --with-wmf=yes		yes
+X11               --with-x=			yes
+XML               --with-xml=yes		yes
+ZLIB              --with-zlib=yes		yes
+
+X11 Configuration:
+      X_CFLAGS        = 
+      X_PRE_LIBS      = -lSM -lICE
+      X_LIBS          = 
+      X_EXTRA_LIBS    = 
+
+Options used to compile and link:
+  PREFIX          = /usr/local/Cellar/imagemagick/6.6.1-5
+  EXEC-PREFIX     = /usr/local/Cellar/imagemagick/6.6.1-5
+  VERSION         = 6.6.1
+  CC              = /usr/bin/cc -std=gnu99 -std=gnu99
+  CFLAGS          = -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE
+  CPPFLAGS        = -I/usr/local/Cellar/imagemagick/6.6.1-5/include/ImageMagick
+  PCFLAGS         = -fopenmp
+  DEFS            = -DHAVE_CONFIG_H
+  LDFLAGS         = -L/usr/X11R6/lib
+  MAGICK_LDFLAGS  = -L/usr/local/Cellar/imagemagick/6.6.1-5/lib -L/usr/X11R6/lib
+  LIBS            = -lMagickCore -llcms -ltiff -lfreetype -ljpeg -L/usr/X11/lib -lfontconfig -lXext -lSM -lICE -lX11 -lXt -lbz2 -lz -lm -lgomp -lclparser -framework OpenCL -L/System/Library/Frameworks/OpenCL.framework/Versions/A/Libraries -lm -lpthread 
+  CXX             = /usr/bin/c++
+  CXXFLAGS        = -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE
+
+==> make install
+make install 
+/bin/sh ./config/mkinstalldirs . ltdl/
+cp ./ltdl/argz_.h ltdl/argz.h-t
+mv ltdl/argz.h-t ltdl/argz.h
+make  install-am
+  CC     coders/coders_art_la-art.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_art_la-art.lo `test -f 'coders/art.c' || echo './'`coders/art.c
+  CC     magick/magick_libMagickCore_la-accelerate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-accelerate.lo `test -f 'magick/accelerate.c' || echo './'`magick/accelerate.c
+  CC     magick/magick_libMagickCore_la-animate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-animate.lo `test -f 'magick/animate.c' || echo './'`magick/animate.c
+  CC     magick/magick_libMagickCore_la-annotate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-annotate.lo `test -f 'magick/annotate.c' || echo './'`magick/annotate.c
+  CC     magick/magick_libMagickCore_la-artifact.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-artifact.lo `test -f 'magick/artifact.c' || echo './'`magick/artifact.c
+  CC     magick/magick_libMagickCore_la-attribute.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-attribute.lo `test -f 'magick/attribute.c' || echo './'`magick/attribute.c
+  CC     magick/magick_libMagickCore_la-blob.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-blob.lo `test -f 'magick/blob.c' || echo './'`magick/blob.c
+  CC     magick/magick_libMagickCore_la-cache.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-cache.lo `test -f 'magick/cache.c' || echo './'`magick/cache.c
+  CC     magick/magick_libMagickCore_la-cache-view.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-cache-view.lo `test -f 'magick/cache-view.c' || echo './'`magick/cache-view.c
+  CC     magick/magick_libMagickCore_la-cipher.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-cipher.lo `test -f 'magick/cipher.c' || echo './'`magick/cipher.c
+  CC     magick/magick_libMagickCore_la-client.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-client.lo `test -f 'magick/client.c' || echo './'`magick/client.c
+  CC     magick/magick_libMagickCore_la-coder.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-coder.lo `test -f 'magick/coder.c' || echo './'`magick/coder.c
+  CC     magick/magick_libMagickCore_la-color.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-color.lo `test -f 'magick/color.c' || echo './'`magick/color.c
+  CC     magick/magick_libMagickCore_la-colormap.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-colormap.lo `test -f 'magick/colormap.c' || echo './'`magick/colormap.c
+  CC     magick/magick_libMagickCore_la-colorspace.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-colorspace.lo `test -f 'magick/colorspace.c' || echo './'`magick/colorspace.c
+  CC     magick/magick_libMagickCore_la-compare.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-compare.lo `test -f 'magick/compare.c' || echo './'`magick/compare.c
+  CC     magick/magick_libMagickCore_la-composite.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-composite.lo `test -f 'magick/composite.c' || echo './'`magick/composite.c
+  CC     magick/magick_libMagickCore_la-compress.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-compress.lo `test -f 'magick/compress.c' || echo './'`magick/compress.c
+  CC     magick/magick_libMagickCore_la-configure.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-configure.lo `test -f 'magick/configure.c' || echo './'`magick/configure.c
+  CC     magick/magick_libMagickCore_la-constitute.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-constitute.lo `test -f 'magick/constitute.c' || echo './'`magick/constitute.c
+  CC     magick/magick_libMagickCore_la-decorate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-decorate.lo `test -f 'magick/decorate.c' || echo './'`magick/decorate.c
+  CC     magick/magick_libMagickCore_la-delegate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-delegate.lo `test -f 'magick/delegate.c' || echo './'`magick/delegate.c
+  CC     magick/magick_libMagickCore_la-deprecate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-deprecate.lo `test -f 'magick/deprecate.c' || echo './'`magick/deprecate.c
+  CC     magick/magick_libMagickCore_la-display.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-display.lo `test -f 'magick/display.c' || echo './'`magick/display.c
+  CC     magick/magick_libMagickCore_la-distort.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-distort.lo `test -f 'magick/distort.c' || echo './'`magick/distort.c
+  CC     magick/magick_libMagickCore_la-draw.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-draw.lo `test -f 'magick/draw.c' || echo './'`magick/draw.c
+  CC     magick/magick_libMagickCore_la-effect.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-effect.lo `test -f 'magick/effect.c' || echo './'`magick/effect.c
+  CC     magick/magick_libMagickCore_la-enhance.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-enhance.lo `test -f 'magick/enhance.c' || echo './'`magick/enhance.c
+  CC     magick/magick_libMagickCore_la-exception.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-exception.lo `test -f 'magick/exception.c' || echo './'`magick/exception.c
+  CC     magick/magick_libMagickCore_la-feature.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-feature.lo `test -f 'magick/feature.c' || echo './'`magick/feature.c
+  CC     magick/magick_libMagickCore_la-fourier.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-fourier.lo `test -f 'magick/fourier.c' || echo './'`magick/fourier.c
+  CC     magick/magick_libMagickCore_la-fx.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-fx.lo `test -f 'magick/fx.c' || echo './'`magick/fx.c
+  CC     magick/magick_libMagickCore_la-gem.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-gem.lo `test -f 'magick/gem.c' || echo './'`magick/gem.c
+  CC     magick/magick_libMagickCore_la-geometry.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-geometry.lo `test -f 'magick/geometry.c' || echo './'`magick/geometry.c
+  CC     magick/magick_libMagickCore_la-hashmap.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-hashmap.lo `test -f 'magick/hashmap.c' || echo './'`magick/hashmap.c
+  CC     magick/magick_libMagickCore_la-histogram.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-histogram.lo `test -f 'magick/histogram.c' || echo './'`magick/histogram.c
+  CC     magick/magick_libMagickCore_la-identify.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-identify.lo `test -f 'magick/identify.c' || echo './'`magick/identify.c
+  CC     magick/magick_libMagickCore_la-image.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-image.lo `test -f 'magick/image.c' || echo './'`magick/image.c
+  CC     magick/magick_libMagickCore_la-layer.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-layer.lo `test -f 'magick/layer.c' || echo './'`magick/layer.c
+  CC     magick/magick_libMagickCore_la-list.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-list.lo `test -f 'magick/list.c' || echo './'`magick/list.c
+  CC     magick/magick_libMagickCore_la-locale.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-locale.lo `test -f 'magick/locale.c' || echo './'`magick/locale.c
+  CC     magick/magick_libMagickCore_la-log.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-log.lo `test -f 'magick/log.c' || echo './'`magick/log.c
+  CC     magick/magick_libMagickCore_la-magic.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-magic.lo `test -f 'magick/magic.c' || echo './'`magick/magic.c
+  CC     magick/magick_libMagickCore_la-magick.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-magick.lo `test -f 'magick/magick.c' || echo './'`magick/magick.c
+  CC     magick/magick_libMagickCore_la-matrix.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-matrix.lo `test -f 'magick/matrix.c' || echo './'`magick/matrix.c
+  CC     magick/magick_libMagickCore_la-memory.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-memory.lo `test -f 'magick/memory.c' || echo './'`magick/memory.c
+  CC     magick/magick_libMagickCore_la-mime.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-mime.lo `test -f 'magick/mime.c' || echo './'`magick/mime.c
+  CC     magick/magick_libMagickCore_la-module.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-module.lo `test -f 'magick/module.c' || echo './'`magick/module.c
+  CC     magick/magick_libMagickCore_la-monitor.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-monitor.lo `test -f 'magick/monitor.c' || echo './'`magick/monitor.c
+  CC     magick/magick_libMagickCore_la-montage.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-montage.lo `test -f 'magick/montage.c' || echo './'`magick/montage.c
+  CC     magick/magick_libMagickCore_la-morphology.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-morphology.lo `test -f 'magick/morphology.c' || echo './'`magick/morphology.c
+  CC     magick/magick_libMagickCore_la-option.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-option.lo `test -f 'magick/option.c' || echo './'`magick/option.c
+  CC     magick/magick_libMagickCore_la-paint.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-paint.lo `test -f 'magick/paint.c' || echo './'`magick/paint.c
+  CC     magick/magick_libMagickCore_la-pixel.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-pixel.lo `test -f 'magick/pixel.c' || echo './'`magick/pixel.c
+  CC     magick/magick_libMagickCore_la-policy.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-policy.lo `test -f 'magick/policy.c' || echo './'`magick/policy.c
+  CC     magick/magick_libMagickCore_la-PreRvIcccm.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-PreRvIcccm.lo `test -f 'magick/PreRvIcccm.c' || echo './'`magick/PreRvIcccm.c
+  CC     magick/magick_libMagickCore_la-prepress.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-prepress.lo `test -f 'magick/prepress.c' || echo './'`magick/prepress.c
+  CC     magick/magick_libMagickCore_la-property.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-property.lo `test -f 'magick/property.c' || echo './'`magick/property.c
+  CC     magick/magick_libMagickCore_la-profile.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-profile.lo `test -f 'magick/profile.c' || echo './'`magick/profile.c
+  CC     magick/magick_libMagickCore_la-quantize.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-quantize.lo `test -f 'magick/quantize.c' || echo './'`magick/quantize.c
+  CC     magick/magick_libMagickCore_la-quantum.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-quantum.lo `test -f 'magick/quantum.c' || echo './'`magick/quantum.c
+  CC     magick/magick_libMagickCore_la-quantum-export.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-quantum-export.lo `test -f 'magick/quantum-export.c' || echo './'`magick/quantum-export.c
+  CC     magick/magick_libMagickCore_la-quantum-import.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-quantum-import.lo `test -f 'magick/quantum-import.c' || echo './'`magick/quantum-import.c
+  CC     magick/magick_libMagickCore_la-random.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-random.lo `test -f 'magick/random.c' || echo './'`magick/random.c
+  CC     magick/magick_libMagickCore_la-registry.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-registry.lo `test -f 'magick/registry.c' || echo './'`magick/registry.c
+  CC     magick/magick_libMagickCore_la-resample.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-resample.lo `test -f 'magick/resample.c' || echo './'`magick/resample.c
+  CC     magick/magick_libMagickCore_la-resize.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-resize.lo `test -f 'magick/resize.c' || echo './'`magick/resize.c
+  CC     magick/magick_libMagickCore_la-resource.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-resource.lo `test -f 'magick/resource.c' || echo './'`magick/resource.c
+  CC     magick/magick_libMagickCore_la-segment.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-segment.lo `test -f 'magick/segment.c' || echo './'`magick/segment.c
+  CC     magick/magick_libMagickCore_la-semaphore.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-semaphore.lo `test -f 'magick/semaphore.c' || echo './'`magick/semaphore.c
+  CC     magick/magick_libMagickCore_la-shear.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-shear.lo `test -f 'magick/shear.c' || echo './'`magick/shear.c
+  CC     magick/magick_libMagickCore_la-signature.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-signature.lo `test -f 'magick/signature.c' || echo './'`magick/signature.c
+  CC     magick/magick_libMagickCore_la-splay-tree.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-splay-tree.lo `test -f 'magick/splay-tree.c' || echo './'`magick/splay-tree.c
+  CC     magick/magick_libMagickCore_la-static.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-static.lo `test -f 'magick/static.c' || echo './'`magick/static.c
+  CC     magick/magick_libMagickCore_la-statistic.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-statistic.lo `test -f 'magick/statistic.c' || echo './'`magick/statistic.c
+  CC     magick/magick_libMagickCore_la-stream.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-stream.lo `test -f 'magick/stream.c' || echo './'`magick/stream.c
+  CC     magick/magick_libMagickCore_la-string.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-string.lo `test -f 'magick/string.c' || echo './'`magick/string.c
+  CC     magick/magick_libMagickCore_la-thread.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-thread.lo `test -f 'magick/thread.c' || echo './'`magick/thread.c
+  CC     magick/magick_libMagickCore_la-timer.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-timer.lo `test -f 'magick/timer.c' || echo './'`magick/timer.c
+  CC     magick/magick_libMagickCore_la-token.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-token.lo `test -f 'magick/token.c' || echo './'`magick/token.c
+  CC     magick/magick_libMagickCore_la-transform.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-transform.lo `test -f 'magick/transform.c' || echo './'`magick/transform.c
+  CC     magick/magick_libMagickCore_la-threshold.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-threshold.lo `test -f 'magick/threshold.c' || echo './'`magick/threshold.c
+  CC     magick/magick_libMagickCore_la-type.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-type.lo `test -f 'magick/type.c' || echo './'`magick/type.c
+  CC     magick/magick_libMagickCore_la-utility.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-utility.lo `test -f 'magick/utility.c' || echo './'`magick/utility.c
+  CC     magick/magick_libMagickCore_la-version.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-version.lo `test -f 'magick/version.c' || echo './'`magick/version.c
+  CC     magick/magick_libMagickCore_la-widget.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-widget.lo `test -f 'magick/widget.c' || echo './'`magick/widget.c
+  CC     magick/magick_libMagickCore_la-xml-tree.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-xml-tree.lo `test -f 'magick/xml-tree.c' || echo './'`magick/xml-tree.c
+  CC     magick/magick_libMagickCore_la-xwindow.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I./ltdl -I./ltdl  -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o magick/magick_libMagickCore_la-xwindow.lo `test -f 'magick/xwindow.c' || echo './'`magick/xwindow.c
+  CC     ltdl/loaders/ltdl_libltdlc_la-preopen.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -DLTDLOPEN=libltdlc -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/loaders/ltdl_libltdlc_la-preopen.lo `test -f 'ltdl/loaders/preopen.c' || echo './'`ltdl/loaders/preopen.c
+  CC     ltdl/ltdl_libltdlc_la-lt__alloc.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -DLTDLOPEN=libltdlc -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/ltdl_libltdlc_la-lt__alloc.lo `test -f 'ltdl/lt__alloc.c' || echo './'`ltdl/lt__alloc.c
+  CC     ltdl/ltdl_libltdlc_la-lt_dlloader.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -DLTDLOPEN=libltdlc -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/ltdl_libltdlc_la-lt_dlloader.lo `test -f 'ltdl/lt_dlloader.c' || echo './'`ltdl/lt_dlloader.c
+  CC     ltdl/ltdl_libltdlc_la-lt_error.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -DLTDLOPEN=libltdlc -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/ltdl_libltdlc_la-lt_error.lo `test -f 'ltdl/lt_error.c' || echo './'`ltdl/lt_error.c
+  CC     ltdl/ltdl_libltdlc_la-ltdl.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -DLTDLOPEN=libltdlc -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/ltdl_libltdlc_la-ltdl.lo `test -f 'ltdl/ltdl.c' || echo './'`ltdl/ltdl.c
+  CC     ltdl/ltdl_libltdlc_la-slist.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -DLTDLOPEN=libltdlc -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/ltdl_libltdlc_la-slist.lo `test -f 'ltdl/slist.c' || echo './'`ltdl/slist.c
+  CC     ltdl/loaders/dlopen.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/loaders/dlopen.lo ltdl/loaders/dlopen.c
+  CCLD   ltdl/dlopen.la
+  CC     ltdl/argz.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config  -I. -I. -DLT_CONFIG_H='<config/config.h>' -DLTDL -I. -I. -Iltdl -I./ltdl -I./ltdl/libltdl -I./Magick++/lib -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o ltdl/argz.lo ltdl/argz.c
+  CCLD   ltdl/libltdlc.la
+  CCLD   magick/libMagickCore.la
+warning: no debug symbols in executable (-arch x86_64)
+  CCLD   coders/art.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_avs_la-avs.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_avs_la-avs.lo `test -f 'coders/avs.c' || echo './'`coders/avs.c
+  CCLD   coders/avs.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_bmp_la-bmp.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_bmp_la-bmp.lo `test -f 'coders/bmp.c' || echo './'`coders/bmp.c
+  CCLD   coders/bmp.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_braille_la-braille.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_braille_la-braille.lo `test -f 'coders/braille.c' || echo './'`coders/braille.c
+  CCLD   coders/braille.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_cals_la-cals.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_cals_la-cals.lo `test -f 'coders/cals.c' || echo './'`coders/cals.c
+  CCLD   coders/cals.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_caption_la-caption.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_caption_la-caption.lo `test -f 'coders/caption.c' || echo './'`coders/caption.c
+  CCLD   coders/caption.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_cin_la-cin.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_cin_la-cin.lo `test -f 'coders/cin.c' || echo './'`coders/cin.c
+  CCLD   coders/cin.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_cip_la-cip.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_cip_la-cip.lo `test -f 'coders/cip.c' || echo './'`coders/cip.c
+  CCLD   coders/cip.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_clip_la-clip.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_clip_la-clip.lo `test -f 'coders/clip.c' || echo './'`coders/clip.c
+  CCLD   coders/clip.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_cmyk_la-cmyk.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_cmyk_la-cmyk.lo `test -f 'coders/cmyk.c' || echo './'`coders/cmyk.c
+  CCLD   coders/cmyk.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_cut_la-cut.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_cut_la-cut.lo `test -f 'coders/cut.c' || echo './'`coders/cut.c
+  CCLD   coders/cut.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_dcm_la-dcm.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_dcm_la-dcm.lo `test -f 'coders/dcm.c' || echo './'`coders/dcm.c
+  CCLD   coders/dcm.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_dds_la-dds.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_dds_la-dds.lo `test -f 'coders/dds.c' || echo './'`coders/dds.c
+  CCLD   coders/dds.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_dib_la-dib.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_dib_la-dib.lo `test -f 'coders/dib.c' || echo './'`coders/dib.c
+  CCLD   coders/dib.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_dng_la-dng.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_dng_la-dng.lo `test -f 'coders/dng.c' || echo './'`coders/dng.c
+  CCLD   coders/dng.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_dot_la-dot.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config    -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_dot_la-dot.lo `test -f 'coders/dot.c' || echo './'`coders/dot.c
+  CCLD   coders/dot.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_dpx_la-dpx.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_dpx_la-dpx.lo `test -f 'coders/dpx.c' || echo './'`coders/dpx.c
+  CCLD   coders/dpx.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_fax_la-fax.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_fax_la-fax.lo `test -f 'coders/fax.c' || echo './'`coders/fax.c
+  CCLD   coders/fax.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_fits_la-fits.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_fits_la-fits.lo `test -f 'coders/fits.c' || echo './'`coders/fits.c
+  CCLD   coders/fits.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_gif_la-gif.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_gif_la-gif.lo `test -f 'coders/gif.c' || echo './'`coders/gif.c
+  CCLD   coders/gif.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_gradient_la-gradient.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_gradient_la-gradient.lo `test -f 'coders/gradient.c' || echo './'`coders/gradient.c
+  CCLD   coders/gradient.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_gray_la-gray.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_gray_la-gray.lo `test -f 'coders/gray.c' || echo './'`coders/gray.c
+  CCLD   coders/gray.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_hald_la-hald.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_hald_la-hald.lo `test -f 'coders/hald.c' || echo './'`coders/hald.c
+  CCLD   coders/hald.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_histogram_la-histogram.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_histogram_la-histogram.lo `test -f 'coders/histogram.c' || echo './'`coders/histogram.c
+  CCLD   coders/histogram.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_hrz_la-hrz.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_hrz_la-hrz.lo `test -f 'coders/hrz.c' || echo './'`coders/hrz.c
+  CCLD   coders/hrz.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_html_la-html.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_html_la-html.lo `test -f 'coders/html.c' || echo './'`coders/html.c
+  CCLD   coders/html.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_icon_la-icon.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_icon_la-icon.lo `test -f 'coders/icon.c' || echo './'`coders/icon.c
+  CCLD   coders/icon.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_info_la-info.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_info_la-info.lo `test -f 'coders/info.c' || echo './'`coders/info.c
+  CCLD   coders/info.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_inline_la-inline.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_inline_la-inline.lo `test -f 'coders/inline.c' || echo './'`coders/inline.c
+  CCLD   coders/inline.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ipl_la-ipl.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ipl_la-ipl.lo `test -f 'coders/ipl.c' || echo './'`coders/ipl.c
+  CCLD   coders/ipl.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_label_la-label.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_label_la-label.lo `test -f 'coders/label.c' || echo './'`coders/label.c
+  CCLD   coders/label.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_magick_la-magick.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_magick_la-magick.lo `test -f 'coders/magick.c' || echo './'`coders/magick.c
+  CCLD   coders/magick.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_map_la-map.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_map_la-map.lo `test -f 'coders/map.c' || echo './'`coders/map.c
+  CCLD   coders/map.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mat_la-mat.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mat_la-mat.lo `test -f 'coders/mat.c' || echo './'`coders/mat.c
+  CCLD   coders/mat.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_matte_la-matte.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_matte_la-matte.lo `test -f 'coders/matte.c' || echo './'`coders/matte.c
+  CCLD   coders/matte.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_meta_la-meta.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_meta_la-meta.lo `test -f 'coders/meta.c' || echo './'`coders/meta.c
+  CCLD   coders/meta.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_miff_la-miff.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_miff_la-miff.lo `test -f 'coders/miff.c' || echo './'`coders/miff.c
+  CCLD   coders/miff.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mono_la-mono.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mono_la-mono.lo `test -f 'coders/mono.c' || echo './'`coders/mono.c
+  CCLD   coders/mono.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mpc_la-mpc.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mpc_la-mpc.lo `test -f 'coders/mpc.c' || echo './'`coders/mpc.c
+  CCLD   coders/mpc.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mpeg_la-mpeg.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mpeg_la-mpeg.lo `test -f 'coders/mpeg.c' || echo './'`coders/mpeg.c
+  CCLD   coders/mpeg.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mpr_la-mpr.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mpr_la-mpr.lo `test -f 'coders/mpr.c' || echo './'`coders/mpr.c
+  CCLD   coders/mpr.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_msl_la-msl.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_msl_la-msl.lo `test -f 'coders/msl.c' || echo './'`coders/msl.c
+  CCLD   coders/msl.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mtv_la-mtv.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mtv_la-mtv.lo `test -f 'coders/mtv.c' || echo './'`coders/mtv.c
+  CCLD   coders/mtv.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_mvg_la-mvg.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_mvg_la-mvg.lo `test -f 'coders/mvg.c' || echo './'`coders/mvg.c
+  CCLD   coders/mvg.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_null_la-null.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_null_la-null.lo `test -f 'coders/null.c' || echo './'`coders/null.c
+  CCLD   coders/null.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_otb_la-otb.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_otb_la-otb.lo `test -f 'coders/otb.c' || echo './'`coders/otb.c
+  CCLD   coders/otb.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_palm_la-palm.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_palm_la-palm.lo `test -f 'coders/palm.c' || echo './'`coders/palm.c
+  CCLD   coders/palm.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pattern_la-pattern.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pattern_la-pattern.lo `test -f 'coders/pattern.c' || echo './'`coders/pattern.c
+  CCLD   coders/pattern.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pcd_la-pcd.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pcd_la-pcd.lo `test -f 'coders/pcd.c' || echo './'`coders/pcd.c
+  CCLD   coders/pcd.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pcl_la-pcl.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pcl_la-pcl.lo `test -f 'coders/pcl.c' || echo './'`coders/pcl.c
+  CCLD   coders/pcl.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pcx_la-pcx.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pcx_la-pcx.lo `test -f 'coders/pcx.c' || echo './'`coders/pcx.c
+  CCLD   coders/pcx.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pdb_la-pdb.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pdb_la-pdb.lo `test -f 'coders/pdb.c' || echo './'`coders/pdb.c
+  CCLD   coders/pdb.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pdf_la-pdf.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pdf_la-pdf.lo `test -f 'coders/pdf.c' || echo './'`coders/pdf.c
+  CCLD   coders/pdf.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pes_la-pes.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pes_la-pes.lo `test -f 'coders/pes.c' || echo './'`coders/pes.c
+  CCLD   coders/pes.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pict_la-pict.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pict_la-pict.lo `test -f 'coders/pict.c' || echo './'`coders/pict.c
+  CCLD   coders/pict.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pix_la-pix.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pix_la-pix.lo `test -f 'coders/pix.c' || echo './'`coders/pix.c
+  CCLD   coders/pix.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_plasma_la-plasma.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_plasma_la-plasma.lo `test -f 'coders/plasma.c' || echo './'`coders/plasma.c
+  CCLD   coders/plasma.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pnm_la-pnm.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pnm_la-pnm.lo `test -f 'coders/pnm.c' || echo './'`coders/pnm.c
+  CCLD   coders/pnm.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_preview_la-preview.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_preview_la-preview.lo `test -f 'coders/preview.c' || echo './'`coders/preview.c
+  CCLD   coders/preview.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ps_la-ps.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ps_la-ps.lo `test -f 'coders/ps.c' || echo './'`coders/ps.c
+  CCLD   coders/ps.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ps2_la-ps2.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ps2_la-ps2.lo `test -f 'coders/ps2.c' || echo './'`coders/ps2.c
+  CCLD   coders/ps2.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ps3_la-ps3.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ps3_la-ps3.lo `test -f 'coders/ps3.c' || echo './'`coders/ps3.c
+  CCLD   coders/ps3.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_psd_la-psd.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_psd_la-psd.lo `test -f 'coders/psd.c' || echo './'`coders/psd.c
+  CCLD   coders/psd.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_pwp_la-pwp.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_pwp_la-pwp.lo `test -f 'coders/pwp.c' || echo './'`coders/pwp.c
+  CCLD   coders/pwp.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_raw_la-raw.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_raw_la-raw.lo `test -f 'coders/raw.c' || echo './'`coders/raw.c
+  CCLD   coders/raw.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_rgb_la-rgb.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_rgb_la-rgb.lo `test -f 'coders/rgb.c' || echo './'`coders/rgb.c
+  CCLD   coders/rgb.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_rla_la-rla.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_rla_la-rla.lo `test -f 'coders/rla.c' || echo './'`coders/rla.c
+  CCLD   coders/rla.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_rle_la-rle.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_rle_la-rle.lo `test -f 'coders/rle.c' || echo './'`coders/rle.c
+  CCLD   coders/rle.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_scr_la-scr.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_scr_la-scr.lo `test -f 'coders/scr.c' || echo './'`coders/scr.c
+  CCLD   coders/scr.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_sct_la-sct.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_sct_la-sct.lo `test -f 'coders/sct.c' || echo './'`coders/sct.c
+  CCLD   coders/sct.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_sfw_la-sfw.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_sfw_la-sfw.lo `test -f 'coders/sfw.c' || echo './'`coders/sfw.c
+  CCLD   coders/sfw.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_sgi_la-sgi.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_sgi_la-sgi.lo `test -f 'coders/sgi.c' || echo './'`coders/sgi.c
+  CCLD   coders/sgi.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_stegano_la-stegano.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_stegano_la-stegano.lo `test -f 'coders/stegano.c' || echo './'`coders/stegano.c
+  CCLD   coders/stegano.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_sun_la-sun.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_sun_la-sun.lo `test -f 'coders/sun.c' || echo './'`coders/sun.c
+  CCLD   coders/sun.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_svg_la-svg.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config    -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11/include/cairo -I/usr/X11/include/pixman-1 -I/usr/X11/include -I/usr/X11/include/libpng12   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_svg_la-svg.lo `test -f 'coders/svg.c' || echo './'`coders/svg.c
+  CC     wand/wand_libMagickWand_la-animate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-animate.lo `test -f 'wand/animate.c' || echo './'`wand/animate.c
+  CC     wand/wand_libMagickWand_la-compare.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-compare.lo `test -f 'wand/compare.c' || echo './'`wand/compare.c
+  CC     wand/wand_libMagickWand_la-composite.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-composite.lo `test -f 'wand/composite.c' || echo './'`wand/composite.c
+  CC     wand/wand_libMagickWand_la-conjure.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-conjure.lo `test -f 'wand/conjure.c' || echo './'`wand/conjure.c
+  CC     wand/wand_libMagickWand_la-convert.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-convert.lo `test -f 'wand/convert.c' || echo './'`wand/convert.c
+  CC     wand/wand_libMagickWand_la-deprecate.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-deprecate.lo `test -f 'wand/deprecate.c' || echo './'`wand/deprecate.c
+  CC     wand/wand_libMagickWand_la-display.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-display.lo `test -f 'wand/display.c' || echo './'`wand/display.c
+  CC     wand/wand_libMagickWand_la-drawing-wand.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-drawing-wand.lo `test -f 'wand/drawing-wand.c' || echo './'`wand/drawing-wand.c
+  CC     wand/wand_libMagickWand_la-identify.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-identify.lo `test -f 'wand/identify.c' || echo './'`wand/identify.c
+  CC     wand/wand_libMagickWand_la-import.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-import.lo `test -f 'wand/import.c' || echo './'`wand/import.c
+  CC     wand/wand_libMagickWand_la-magick-image.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-magick-image.lo `test -f 'wand/magick-image.c' || echo './'`wand/magick-image.c
+  CC     wand/wand_libMagickWand_la-magick-property.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-magick-property.lo `test -f 'wand/magick-property.c' || echo './'`wand/magick-property.c
+  CC     wand/wand_libMagickWand_la-magick-wand.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-magick-wand.lo `test -f 'wand/magick-wand.c' || echo './'`wand/magick-wand.c
+  CC     wand/wand_libMagickWand_la-mogrify.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-mogrify.lo `test -f 'wand/mogrify.c' || echo './'`wand/mogrify.c
+  CC     wand/wand_libMagickWand_la-montage.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-montage.lo `test -f 'wand/montage.c' || echo './'`wand/montage.c
+  CC     wand/wand_libMagickWand_la-pixel-iterator.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-pixel-iterator.lo `test -f 'wand/pixel-iterator.c' || echo './'`wand/pixel-iterator.c
+  CC     wand/wand_libMagickWand_la-pixel-view.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-pixel-view.lo `test -f 'wand/pixel-view.c' || echo './'`wand/pixel-view.c
+  CC     wand/wand_libMagickWand_la-pixel-wand.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-pixel-wand.lo `test -f 'wand/pixel-wand.c' || echo './'`wand/pixel-wand.c
+  CC     wand/wand_libMagickWand_la-stream.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-stream.lo `test -f 'wand/stream.c' || echo './'`wand/stream.c
+  CC     wand/wand_libMagickWand_la-wand.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o wand/wand_libMagickWand_la-wand.lo `test -f 'wand/wand.c' || echo './'`wand/wand.c
+  CCLD   wand/libMagickWand.la
+warning: no debug symbols in executable (-arch x86_64)
+  CCLD   coders/svg.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_tga_la-tga.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_tga_la-tga.lo `test -f 'coders/tga.c' || echo './'`coders/tga.c
+  CCLD   coders/tga.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_thumbnail_la-thumbnail.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_thumbnail_la-thumbnail.lo `test -f 'coders/thumbnail.c' || echo './'`coders/thumbnail.c
+  CCLD   coders/thumbnail.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_tile_la-tile.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_tile_la-tile.lo `test -f 'coders/tile.c' || echo './'`coders/tile.c
+  CCLD   coders/tile.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_tim_la-tim.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_tim_la-tim.lo `test -f 'coders/tim.c' || echo './'`coders/tim.c
+  CCLD   coders/tim.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ttf_la-ttf.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ttf_la-ttf.lo `test -f 'coders/ttf.c' || echo './'`coders/ttf.c
+  CCLD   coders/ttf.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_txt_la-txt.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_txt_la-txt.lo `test -f 'coders/txt.c' || echo './'`coders/txt.c
+  CCLD   coders/txt.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_uil_la-uil.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_uil_la-uil.lo `test -f 'coders/uil.c' || echo './'`coders/uil.c
+  CCLD   coders/uil.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_url_la-url.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_url_la-url.lo `test -f 'coders/url.c' || echo './'`coders/url.c
+  CCLD   coders/url.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_uyvy_la-uyvy.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_uyvy_la-uyvy.lo `test -f 'coders/uyvy.c' || echo './'`coders/uyvy.c
+  CCLD   coders/uyvy.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_vicar_la-vicar.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_vicar_la-vicar.lo `test -f 'coders/vicar.c' || echo './'`coders/vicar.c
+  CCLD   coders/vicar.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_vid_la-vid.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_vid_la-vid.lo `test -f 'coders/vid.c' || echo './'`coders/vid.c
+  CCLD   coders/vid.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_viff_la-viff.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_viff_la-viff.lo `test -f 'coders/viff.c' || echo './'`coders/viff.c
+  CCLD   coders/viff.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_wbmp_la-wbmp.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_wbmp_la-wbmp.lo `test -f 'coders/wbmp.c' || echo './'`coders/wbmp.c
+  CCLD   coders/wbmp.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_wpg_la-wpg.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_wpg_la-wpg.lo `test -f 'coders/wpg.c' || echo './'`coders/wpg.c
+  CCLD   coders/wpg.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_xbm_la-xbm.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_xbm_la-xbm.lo `test -f 'coders/xbm.c' || echo './'`coders/xbm.c
+  CCLD   coders/xbm.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_xc_la-xc.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_xc_la-xc.lo `test -f 'coders/xc.c' || echo './'`coders/xc.c
+  CCLD   coders/xc.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_xcf_la-xcf.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_xcf_la-xcf.lo `test -f 'coders/xcf.c' || echo './'`coders/xcf.c
+  CCLD   coders/xcf.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_xpm_la-xpm.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_xpm_la-xpm.lo `test -f 'coders/xpm.c' || echo './'`coders/xpm.c
+  CCLD   coders/xpm.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_xps_la-xps.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_xps_la-xps.lo `test -f 'coders/xps.c' || echo './'`coders/xps.c
+  CCLD   coders/xps.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ycbcr_la-ycbcr.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ycbcr_la-ycbcr.lo `test -f 'coders/ycbcr.c' || echo './'`coders/ycbcr.c
+  CCLD   coders/ycbcr.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_yuv_la-yuv.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_yuv_la-yuv.lo `test -f 'coders/yuv.c' || echo './'`coders/yuv.c
+  CCLD   coders/yuv.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_jpeg_la-jpeg.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_jpeg_la-jpeg.lo `test -f 'coders/jpeg.c' || echo './'`coders/jpeg.c
+  CCLD   coders/jpeg.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_jp2_la-jp2.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_jp2_la-jp2.lo `test -f 'coders/jp2.c' || echo './'`coders/jp2.c
+  CCLD   coders/jp2.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_png_la-png.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_png_la-png.lo `test -f 'coders/png.c' || echo './'`coders/png.c
+  CCLD   coders/png.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_ept_la-ept.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_ept_la-ept.lo `test -f 'coders/ept.c' || echo './'`coders/ept.c
+  CCLD   coders/ept.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_tiff_la-tiff.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_tiff_la-tiff.lo `test -f 'coders/tiff.c' || echo './'`coders/tiff.c
+  CCLD   coders/tiff.la
+warning: no debug symbols in executable (-arch x86_64)
+  CC     coders/coders_wmf_la-wmf.lo
+/bin/sh ./libtool --silent --tag=CC   --mode=compile /usr/bin/cc -std=gnu99 -std=gnu99 -DHAVE_CONFIG_H -I. -I./config   -I/usr/local/include/freetype2 -I/usr/local/include -I/usr/X11R6/include -I/usr/include/libxml2  -D_THREAD_SAFE -fopenmp -march=core2 -msse4.1 -w -pipe -O3 -D_THREAD_SAFE -c -o coders/coders_wmf_la-wmf.lo `test -f 'coders/wmf.c' || echo './'`coders/wmf.c
+  CCLD   coders/wmf.la
+Error: #<BuildError: Failure while executing: make install >
+/usr/local/Library/Homebrew/formula.rb:322:in `system'
+/usr/local/Library/Formula/imagemagick.rb:65:in `install'
+/usr/local/Library/Homebrew/install.rb:96:in `install'
+/usr/local/Library/Homebrew/formula.rb:202:in `brew'
+/usr/local/Library/Homebrew/formula.rb:374:in `stage'
+/usr/local/Library/Homebrew/formula.rb:337:in `mktemp'
+/usr/local/Library/Homebrew/formula.rb:372:in `stage'
+/usr/local/Library/Homebrew/formula.rb:197:in `brew'
+/usr/local/Library/Homebrew/install.rb:74:in `install'
+/usr/local/Library/Homebrew/install.rb:39
+/usr/local/Library/Formula/imagemagick.rb:73
+==> Rescuing build...
+When you exit this shell Homebrew will attempt to finalise the installation.
+If nothing is installed or the shell exits with a non-zero error code,
+Homebrew will abort. The installation prefix is:
+/usr/local/Cellar/imagemagick/6.6.1-5

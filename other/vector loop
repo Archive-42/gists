@@ -1,0 +1,4 @@
+vector<Particle*>::iterator it = group.begin();
+while( it != group.end() ) {
+  it++;
+}
