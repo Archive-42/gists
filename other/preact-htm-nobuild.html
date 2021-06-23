@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>htm Demo</title>
+  <body>
+    <h1>no build preact htm app here:</h1>
+    <div id="app"></div>
+  </body>
+
+  <script type="module">
+     // -- no build example of preact + htm, useful for small proof of concept
+     // -- but remember that 'snowpack' bundler understands JSX out of the box, 
+    // -- is a better dev server than vscode live-server extension, and is ultra fast and lightweight, unlike webpack, etc.
+    
+     // -- htm/preact standalone is ok if not using hooks, but hooks wont work with this
+    // -- also is less 'changeable' if you happen to need to switch to React for some reason
+    // -- eg 'datalist' html element does not work ATM in preact
+    // import { html, Component, render } from 'https://cdn.skypack.dev/htm/preact/standalaone';
+    
+    // -- maybe name it React for more compatibility, 5.5k
+    import * as preact from 'https://cdn.skypack.dev/preact';
+    // optional, but hooks give a more elegant code free of 'this.', at its less than 1k
+    import * as preactHooks from 'https://cdn.skypack.dev/preact/hooks'; 
+    
+    import htm from 'https://cdn.skypack.dev/htm';
+    const html = htm.bind(preact.h);
+    
+    // -- api compat, dont usu preact/compat if not strictly needed
+    const React = {...preact, ...preactHooks}
+    const ReactDOM = preact;
+
+    // note: any skypack import points to final 'pinned' version. Just visit the normal skypack ulr in the browser and there you have the normal and minified. Also can do import('...') in the console and see in 'network' tab what ends downloading:
+    // eg: https://cdn.skypack.dev/-/htm@v3.0.4-eKPIliCVcHknqhs5clvp/dist=es2020,mode=imports/optimized/htm.js
+    // for production better to use that
+
+
+    // -- If only one instance of App is going to be used, you can avoid hooks with this
+    // let stateSync = { count: 0 }
+
+    function App (props) {
+      // initializad only once, sync alternative to useState, with forceUpdate bellow
+      let stateSync = React.useRef({count:0}).current; 
+
+      // -- another way to get a component state, less elegant
+      this._times =  '_times' in this ? this._times+1 : 1;
+    
+      // -- we wont have trouble with inc not being bound in events ""()=>this.inc()" or "this.inc.bind(this)" is unneded, unlike using clases.
+      let inc =()=> {
+        stateSync.count += 1; 
+        
+        // less efficient that setState but less tricky (note: this does not work in React, you'll need a useForceUpdate hook that toggles a dummy useState.
+        this.forceUpdate(); 
+      }
+
+      return html`
+          <p>Page ${props.page} - times rendered: ${this._times}</p>
+          <button onClick=${inc}>${stateSync.count}</button>
+        `;
+    }
+
+    ReactDOM.render(html`
+      <div>
+        <${App} page="pageone" />
+        <hr />
+        <${App} page="pagetwo" />
+      </div>
+    `, document.getElementById("app"));
+</script>
+
+
+</html>

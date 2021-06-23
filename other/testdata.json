@@ -1,0 +1,38 @@
+{
+  
+  "apps" : {
+    "mobile": {},
+    "web": {}
+  },
+
+  "users": {
+    "userid01" : {
+      "name" : "userone",
+      "email" : "one@email.com",
+      "authorizedApps" : ["web"],
+      "authentication": "none",
+      "groups": ["grpAdmin"]
+    },
+    "userid02": {
+      "name": "usertwo",
+      "email": "two@email.com",
+      "authorizedApps":  ["web","mobile"],
+      "authentication": "ldap",
+      "groups": [ "grpAdmin" ]
+    },
+    "userid03": {
+      "name": "userthree",
+      "email": "three@emilio.net",
+      "authorizedApps" : ["mobile"],
+      "authentication": "own",
+      "groups": [ "grpUser", "grpAdmin" ],
+      "passwordHash": "c29bc07753555a41a16fb3517ef2e66112589642adc9aed09f786bd15aec177382b63c1bb43d3ac896efe7ac1678aef4"
+    }
+  },
+
+  "origins": {
+    "127\\.0\\.0\\.1": {"groups": [ "grpAdmin" ] },
+    "10\\.0\\.1\\": {"groups": [ "grpUser" ] }
+  }
+
+}

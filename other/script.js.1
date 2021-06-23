@@ -1,0 +1,24 @@
+// Once the form is submitted, disable the button
+$(document).on( 'submit', '.wpcf7-form', function() {
+  var $submit =  $(this).find('[type=submit]');
+
+  // Disable the button
+  $submit.attr('disabled', true)
+    // Create a backup of the button text
+    .data( 'original-text', $submit.text() )
+    // Change the button text to indicate sending
+    .text( 'Sending…' );
+});
+
+// After submit, re-enable the button
+$(document).on( 'wpcf7submit', '.wpcf7', function (e) {
+  var $submit =  $(this).find('[type=submit]');
+
+  // Enable the button again
+  $submit.removeAttr('disabled');
+
+  // Reset the button text
+  if( $submit.data( 'original-text' ) ) {
+    $submit.text( $submit.data( 'original-text' ) );
+  }
+});

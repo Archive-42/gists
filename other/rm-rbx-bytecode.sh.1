@@ -1,0 +1,1 @@
+find . -name '*.rbc' -exec rm {} \;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="timeComp">
+    Seconds: <span></span>
+  </div>
+
+  <div id="countComp"></div>
+</body>
+<script>
+
+  // -- reactive store
+  let store = {
+    state: new Proxy({
+        time : 0,
+        count :1
+      }, {
+      set(target, prop, val) { // to intercept property writing
+        target[prop] = val;
+        store.update()
+        return true;
+      } 
+    }),
+    updaters: new Map(),
+    update: function () { this.updaters.forEach(updater=>updater(this.state)) }
+  }
+
+  // -- "hydrate" component
+  let timeComp = document.getElementById("timeComp")
+  timeComp.interval = setInterval(()=>store.state.time++, 1000)
+  store.updaters.set(timeComp, (state)=>{
+    timeComp.querySelector("span").innerHTML = state.time
+  })
+
+  // -- or create and hydrate one (wrap in a function for private state)
+  let countComp = document.getElementById("countComp")
+  countComp.innerHTML = `
+    <p>Count: <span></span></p>
+    <button>Inc</button>
+  `;
+  countComp.querySelector("button").addEventListener("click", ()=>store.state.count++)
+  store.updaters.set(countComp, (state)=>{
+    countComp.querySelector("span").innerHTML = state.count
+  })
+
+  // -- paint initial state
+  store.update()
+
+</script>
+</html>
