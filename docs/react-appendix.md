@@ -15,9 +15,11 @@ If you've worked with ES5 JavaScript before, you're likely used to
 seeing variables declared with `var`:
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 var myVariable = 5;
 ```
+
 :::
 
 Both the `const` and `let` statements also declare variables. They were
@@ -32,7 +34,7 @@ If the variable will be re-assigned, use `let`.
 
 We encourage the use of `const` and `let` instead of `var`. In addition
 to the restriction introduced by `const`, both `const` and `let` are
-*block scoped* as opposed to *function scoped*. This scoping can help
+_block scoped_ as opposed to _function scoped_. This scoping can help
 avoid unexpected bugs.
 
 ### Arrow functions
@@ -41,25 +43,29 @@ There are three ways to write arrow function bodies. For the examples
 below, let's say we have an array of city objects:
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 onst cities = [
   { name: 'Cairo', pop: 7764700 },
   { name: 'Lagos', pop: 8029200 },
 ];
 ```
+
 :::
 
 If we write an arrow function that spans multiple lines, we must use
 braces to delimit the function body like this:
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const formattedPopulations = cities.map((city) => {
   const popMM = (city.pop / 1000000).toFixed(2);
   return popMM + ' million';
 });
 console.log(formattedPopulations);
 ```
+
 :::
 
 Note that we must also explicitly specify a `return` for the function.
@@ -68,11 +74,13 @@ However, if we write a function body that is only a single line (or
 single expression) we can use parentheses to delimit it:
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const formattedPopulations2 = cities.map((city) => (
   (city.pop / 1000000).toFixed(2) + ' million'
 ));
 ```
+
 :::
 
 Notably, we don't use `return` as it's implied.
@@ -80,19 +88,23 @@ Notably, we don't use `return` as it's implied.
 Furthermore, if your function body is terse you can write it like so:
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const pops = cities.map(city => city.pop);
 console.log(pops);
 ```
+
 :::
 
 The terseness of arrow functions is one of two reasons that we use them.
 Compare the one-liner above to this:
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const popsNoArrow = cities.map(function(city) { return city.pop });
 ```
+
 :::
 
 Of greater benefit, though, is how arrow functions bind the `this`
@@ -104,7 +116,8 @@ object. To illustrate the confusion this causes, consider the following
 example:
 
 ::: {#cb7 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 unction printSong() {
   console.log("Oops - The Global Object");
 }
@@ -124,9 +137,9 @@ const jukebox = {
     console.log(song.title + " - " + song.artist);
   },
   printSongs: function () {
-    
+
     this.songs.forEach(function(song) {
-      
+
       this.printSong(song);
     });
   },
@@ -134,13 +147,14 @@ const jukebox = {
 
 jukebox.printSongs();
 ```
+
 :::
 
 The method `printSongs()` iterates over `this.songs` with `forEach()`.
 In this context, `this` is bound to the object (`jukebox`) as expected.
 However, the anonymous function passed to `forEach()` binds its internal
 `this` to the global object. As such, `this.printSong(song)` calls the
-function declared at the top of the example, *not* the method on
+function declared at the top of the example, _not_ the method on
 `jukebox`.
 
 JavaScript developers have traditionally used workarounds for this
@@ -149,10 +163,11 @@ behavior, but arrow functions solve the problem by **capturing the
 `printSongs()` has the expected result:
 
 ::: {#cb8 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
   printSongs: function () {
     this.songs.forEach((song) => {
-      
+
       this.printSong(song);
     });
   },
@@ -160,6 +175,7 @@ behavior, but arrow functions solve the problem by **capturing the
 
 jukebox.printSongs();
 ```
+
 :::
 
 For this reason, throughout the book we use arrow functions for all
@@ -175,13 +191,15 @@ Inside any file, you can use `export` to specify a variable the module
 should expose. Here's an example of a file that exports two functions:
 
 ::: {#cb9 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 export const sayHi = () => (console.log('Hi!'));
 export const sayBye = () => (console.log('Bye!'));
 
 const saySomething = () => (console.log('Something!'));
 ```
+
 :::
 
 Now, anywhere we wanted to use these functions we could use `import`. We
@@ -190,16 +208,18 @@ this is using ES6's destructuring assignment syntax to list them out
 like this:
 
 ::: {#cb10 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 import { sayHi, sayBye } from './greetings';
 
-sayHi(); 
-sayBye(); 
+sayHi();
+sayBye();
 ```
+
 :::
 
-Importantly, the function that was *not* exported (`saySomething`) is
+Importantly, the function that was _not_ exported (`saySomething`) is
 unavailable outside of the module.
 
 Also note that we supply a **relative path** to `from`, indicating that
@@ -210,7 +230,8 @@ export, you can use this syntax to list off all the exposed variables in
 one area:
 
 ::: {#cb11 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 const sayHi = () => (console.log('Hi!'));
 const sayBye = () => (console.log('Bye!'));
@@ -219,6 +240,7 @@ const saySomething = () => (console.log('Something!'));
 
 export { sayHi, sayBye };
 ```
+
 :::
 
 We can also specify that we'd like to import all of a module's
@@ -226,17 +248,19 @@ functionality underneath a given namespace with the
 `import * as <Namespace>` syntax:
 
 ::: {#cb12 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 import * as Greetings from './greetings';
 
 Greetings.sayHi();
-  
+
 Greetings.sayBye();
-  
+
 Greetings.saySomething();
-  
+
 ```
+
 :::
 
 **Default export**
@@ -245,7 +269,8 @@ The other type of export is a default export. A module can only contain
 one default export:
 
 ::: {#cb13 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 const sayHi = () => (console.log('Hi!'));
 const sayBye = () => (console.log('Bye!'));
@@ -256,6 +281,7 @@ const Greetings = { sayHi, sayBye };
 
 export default Greetings;
 ```
+
 :::
 
 This is a common pattern for libraries. It means you can easily import
@@ -263,13 +289,15 @@ the library wholesale without specifying what individual functions you
 want:
 
 ::: {#cb14 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 import Greetings from './greetings';
 
-Greetings.sayHi(); 
-Greetings.sayBye(); 
+Greetings.sayHi();
+Greetings.sayBye();
 ```
+
 :::
 
 It's not uncommon for a module to use a mix of both named exports and
@@ -277,45 +305,51 @@ default exports. For instance, with `react-dom`, you can import
 `ReactDOM` (a default export) like this:
 
 ::: {#cb15 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
-  
+
 );
 ```
+
 :::
 
 Or, if you're only going to use the `render()` function, you can import
 the named `render()` function like this:
 
 ::: {#cb16 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 import { render } from 'react-dom';
 
 render(
-  
+
 );
 ```
+
 :::
 
 To achieve this flexibility, the export implementation for `react-dom`
 looks something like this:
 
 ::: {#cb17 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 
 export const render = (component, target) => {
-  
+
 };
 
 const ReactDOM = {
   render,
-  
+
 };
 
 export default ReactDOM;
 ```
+
 :::
 
 If you want to play around with the module syntax, check out the folder
@@ -331,16 +365,18 @@ We use `Object.assign()` often throughout the book. We use it in areas
 where we want to create a modified version of an existing object.
 
 `Object.assign()` accepts any number of objects as arguments. When the
-function receives two arguments, it *copies* the properties of the
+function receives two arguments, it _copies_ the properties of the
 second object onto the first, like so:
 
 ::: {#cb18 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 onst coffee = { };
 const noCream = { cream: false };
 const noMilk = { milk: false };
 Object.assign(coffee, noCream);
 ```
+
 :::
 
 It is idiomatic to pass in three arguments to `Object.assign()`. The
@@ -350,9 +386,11 @@ properties we'd like to build off of. The last is the changes we'd like
 to apply:
 
 ::: {#cb19 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const coffeeWithMilk = Object.assign({}, coffee, { milk: true });
 ```
+
 :::
 
 `Object.assign()` is a handy method for working with "immutable"
@@ -363,44 +401,52 @@ JavaScript objects.
 In ES5 JavaScript, you'd interpolate variables into strings like this:
 
 ::: {#cb20 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 var greeting = 'Hello, ' + user + '! It is ' + degF + ' degrees outside.';
 ```
+
 :::
 
 With ES6 template literals, we can create the same string like this:
 
 ::: {#cb21 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const greeting = `Hello, ${user}! It is ${degF} degrees outside.`;
 ```
+
 :::
 
 ### The spread operator (`...`)
 
-In arrays, the ellipsis `...` operator will *expand* the array that
+In arrays, the ellipsis `...` operator will _expand_ the array that
 follows into the parent array. The spread operator enables us to
 succinctly construct new arrays as a composite of existing arrays.
 
 Here is an example:
 
 ::: {#cb22 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const a = [ 1, 2, 3 ];
 const b = [ 4, 5, 6 ];
 const c = [ ...a, ...b, 7, 8, 9 ];
 
-console.log(c);  
+console.log(c);
 ```
+
 :::
 
 Notice how this is different than if we wrote:
 
 ::: {#cb23 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const d = [ a, b, 7, 8, 9 ];
-console.log(d); 
+console.log(d);
 ```
+
 :::
 
 ### Enhanced object literals
@@ -409,24 +455,28 @@ In ES5, all objects were required to have explicit key and value
 declarations:
 
 ::: {#cb24 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const explicit = {
   getState: getState,
   dispatch: dispatch,
 };
 ```
+
 :::
 
 In ES6, you can use this terser syntax whenever the property name and
 variable name are the same:
 
 ::: {#cb25 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const implicit = {
   getState,
   dispatch,
 };
 ```
+
 :::
 
 Lots of open source libraries use this syntax, so it's good to be
@@ -441,36 +491,42 @@ that it is `undefined` when the function is called.
 This:
 
 ::: {#cb26 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 unction divide(a, b) {
-  
+
   const divisor = typeof b === 'undefined' ? 1 : b;
 
   return a / divisor;
 }
 ```
+
 :::
 
 Can be written as this:
 
 ::: {#cb27 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function divide(a, b = 1) {
   return a / b;
 }
 ```
+
 :::
 
 In both cases, using the function looks like this:
 
 ::: {#cb28 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 divide(14, 2);
 
 divide(14, undefined);
 
 divide(14);
 ```
+
 :::
 
 Whenever the argument `b` in the example above is `undefined`, the
@@ -478,9 +534,11 @@ default argument is used. Note that `null` will not use the default
 argument:
 
 ::: {#cb29 .sourceCode}
-``` {.sourceCode .js}
-divide(14, null); 
+
+```{.sourceCode .js}
+divide(14, null);
 ```
+
 :::
 
 ### Destructuring assignments
@@ -491,22 +549,26 @@ In ES5, extracting and assigning multiple elements from an array looked
 like this:
 
 ::: {#cb30 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ar fruits = [ 'apples', 'bananas', 'oranges' ];
 var fruit1 = fruits[0];
 var fruit2 = fruits[1];
 ```
+
 :::
 
 In ES6, we can use the destructuring syntax to accomplish the same task
 like this:
 
 ::: {#cb31 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const [ veg1, veg2 ] = [ 'asparagus', 'broccoli', 'onion' ];
-console.log(veg1); 
-console.log(veg2); 
+console.log(veg1);
+console.log(veg2);
 ```
+
 :::
 
 The variables in the array on the left are "matched" and assigned to the
@@ -519,7 +581,8 @@ We can do something similar for extracting object properties into
 variables:
 
 ::: {#cb32 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const smoothie = {
   fats: [ 'avocado', 'peanut butter', 'greek yogurt' ],
   liquids: [ 'almond milk' ],
@@ -529,9 +592,10 @@ const smoothie = {
 
 const { liquids, fruits } = smoothie;
 
-console.log(liquids); 
-console.log(fruits); 
+console.log(liquids);
+console.log(fruits);
 ```
+
 :::
 
 #### Parameter context matching
@@ -540,7 +604,8 @@ We can use these same principles to bind arguments inside a function to
 properties of an object supplied as an argument:
 
 ::: {#cb33 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const containsSpinach = ({ greens }) => {
   if (greens.find(g => g === 'spinach')) {
     return true;
@@ -549,14 +614,16 @@ const containsSpinach = ({ greens }) => {
   }
 };
 
-containsSpinach(smoothie); 
+containsSpinach(smoothie);
 ```
+
 :::
 
 We do this often with functional React components:
 
 ::: {#cb34 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const IngredientList = ({ ingredients, onClick }) => (
   <ul className='IngredientList'>
     {
@@ -573,6 +640,7 @@ const IngredientList = ({ ingredients, onClick }) => (
   </ul>
 )
 ```
+
 :::
 
 Here, we use destructuring to extract the props into variables

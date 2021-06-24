@@ -1,67 +1,63 @@
-Introduction to Ruby
-====================
+# Introduction to Ruby
 
-Why Learn Ruby?
----------------
+## Why Learn Ruby?
 
--   It has learned/stolen a ton from the languages that came before it.
--   It's elegant and easy to learn
--   It doesn't focus on making code as short as possible, it cares about
-    readability
--   It has a huge community behind it - documentation, tutorials, etc.
--   RAILS! Ruby is a well designed object oriented language. It is easy
-    to read and stresses the DRY (Don't Repeat Yourself) principle.
-    Since many of the method names and the ruby syntax itself is so much
-    like english, it is an ideal language to start with.
+- It has learned/stolen a ton from the languages that came before it.
+- It's elegant and easy to learn
+- It doesn't focus on making code as short as possible, it cares about
+  readability
+- It has a huge community behind it - documentation, tutorials, etc.
+- RAILS! Ruby is a well designed object oriented language. It is easy
+  to read and stresses the DRY (Don't Repeat Yourself) principle.
+  Since many of the method names and the ruby syntax itself is so much
+  like english, it is an ideal language to start with.
 
-Objectives
-----------
+## Objectives
 
--   Ruby docs
--   Variables and assignments
--   Strings
--   Symbols
--   Fixnum, Float
--   Input and Output
--   Arrays
--   Booleans
+- Ruby docs
+- Variables and assignments
+- Strings
+- Symbols
+- Fixnum, Float
+- Input and Output
+- Arrays
+- Booleans
 
-My First Ruby App - basic Hello World
--------------------------------------
+## My First Ruby App - basic Hello World
 
--   Everyone let's make a new folder for our ruby exercises:
-    -   `mkdir ruby_exercises`
--   Make a new ruby file
-    -   `subl ex1.rb`
--   Add this to the file:
-    -   `puts 'hello world'`
-    -   `puts 'my name is Bryan'`
--   Now let's run our code. Execute it with:
-    -   `ruby ex1.rb`
--   Ok great, our first program! Let's add a comment and then run our
-    code:
-    -   `#this code won't run!`
--   Now let's do something different
-    -   `puts '2 + 2'`
--   Oh now! That's not what we want. How can we get it to evaluate the
-    expression?
-    -   `puts 2+ 2`
--   So what's the difference? When we use quotes, we are making a
-    **string**. It's text and isn't evaluated.
+- Everyone let's make a new folder for our ruby exercises:
+  - `mkdir ruby_exercises`
+- Make a new ruby file
+  - `subl ex1.rb`
+- Add this to the file:
+  - `puts 'hello world'`
+  - `puts 'my name is Bryan'`
+- Now let's run our code. Execute it with:
+  - `ruby ex1.rb`
+- Ok great, our first program! Let's add a comment and then run our
+  code:
+  - `#this code won't run!`
+- Now let's do something different
+  - `puts '2 + 2'`
+- Oh now! That's not what we want. How can we get it to evaluate the
+  expression?
+  - `puts 2+ 2`
+- So what's the difference? When we use quotes, we are making a
+  **string**. It's text and isn't evaluated.
 
 \#\#Let's talk about numbers and math! So let's do some more math
 besides just `2 + 2`
 
--   To play around with some math expressions, we're going to use
-    something called **IRB**. It allows us to execute short bits of Ruby
-    code without saving it to a file and running it in the terminal.
--   In IRB we can evaluate simple expressions:
+- To play around with some math expressions, we're going to use
+  something called **IRB**. It allows us to execute short bits of Ruby
+  code without saving it to a file and running it in the terminal.
+- In IRB we can evaluate simple expressions:
 
 <!-- -->
 
     puts "This is IRB!"
     5
-    1000009 
+    1000009
 
 So we have numbers! We can do some operations with those numbers:
 
@@ -71,35 +67,34 @@ So we have numbers! We can do some operations with those numbers:
     81/9
     1/3 # notice what happens when we run this.
 
--   We run into a problem! That shouldn't be 0. So what's going on?
--   **Integers** are numbers without decimal points
--   **Floating-Point Numbers** (floats) are numbers with decimal points
+- We run into a problem! That shouldn't be 0. So what's going on?
+- **Integers** are numbers without decimal points
+- **Floating-Point Numbers** (floats) are numbers with decimal points
 
 These expressions follow the order of operations. So we can do something
 like: `10 * (25 - 1)`
 
-EXERCISE TIME!
---------------
+## EXERCISE TIME!
 
 Write a program that outputs the number of minutes in a decade
 `puts 60 * 24 * (365 * 10 + 2)`
 
-So let's go back to Strings
----------------------------
+## So let's go back to Strings
 
--   Strings are basically groups of letters. Things like:
-    -   `Ruby is awesome`
--   As you've seen already we use `puts` to print things
--   String Arithmetic.
-    -   You can sort of add 2 strings
-        -   `puts 'I like' + 'ice cream'`
-    -   We can also multiply them
-        -   puts "Hello World" \* 100
-    -   Make sure we know the difference between numbers and digits:
+- Strings are basically groups of letters. Things like:
+  - `Ruby is awesome`
+- As you've seen already we use `puts` to print things
+- String Arithmetic.
 
-            puts 2 * 5
-            puts '2' * 5
-            puts '2 * 5'
+  - You can sort of add 2 strings
+    - `puts 'I like' + 'ice cream'`
+  - We can also multiply them
+    - puts "Hello World" \* 100
+  - Make sure we know the difference between numbers and digits:
+
+        puts 2 * 5
+        puts '2' * 5
+        puts '2 * 5'
 
 What if we want to print out the string "You're awesome"
 
@@ -110,16 +105,14 @@ Ok, so what if we want to type the '\\' character like in 'Up'
     puts "up\\down"
     puts "This should go on a \n new line"
 
-Booleans
---------
+## Booleans
 
 Booleans can only have 2 values. TRUE or FALSE
 
     100 > 1
     60 < 20
 
-VARIABLES
----------
+## VARIABLES
 
 So far, we've learned about data types, but we can't do anything with
 these values. Variables allow us to store values and use them later.
@@ -134,7 +127,7 @@ Here's a really simple example.
     puts my_string
 
 So we're storing a value in the computer's memory for later use. You can
-think of it as my\_string is pointing to 'you can say that again'
+think of it as my_string is pointing to 'you can say that again'
 
 Of course variables can point to any data type. So let's try another
 example:
@@ -151,7 +144,7 @@ example:
 
 **String Interpolation**
 
-When naming variables, most Ruby programmers use **snake\_case**
+When naming variables, most Ruby programmers use **snake_case**
 
 ### Code Along
 
@@ -164,8 +157,7 @@ greets you:
 Now on your own, let's adapt it so that it asks for our middle and last
 name as well.
 
-Some More String Methods
-------------------------
+## Some More String Methods
 
 [RUBY DOCS](http://www.ruby-doc.org/)
 
@@ -191,7 +183,7 @@ Some More String Methods
     # This will still print "Tim Garcia"
     puts full_name
 
-    # Saves the downcased value of the string to full_name. 
+    # Saves the downcased value of the string to full_name.
     full_name.downcase!
 
     # This will print "tim garcia", because of the call to downcase!
@@ -202,7 +194,7 @@ Some More String Methods
     full_name[4] = 'G'
 
     # Will print 'a' to STDOUT.  'a' is the last character in the full_name String
-    puts full_name[-1] 
+    puts full_name[-1]
 
 #### Exercise
 

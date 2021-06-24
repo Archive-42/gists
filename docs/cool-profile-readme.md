@@ -1,25 +1,24 @@
 ### Hi there 👋
 
--   🔭 I'm currently working on JS, Python
--   🌱 I'm currently learning Advanced Typescript & Go
--   🤔 I'm looking for & am uptodate with Frontend Everything
--   👯 I'm looking to work with Ambitious Developers
--   💬 Ask me about Fullstack in Node, Python, and Typescript
--   📫 How to reach me: google -\> ahmadalibaloch
--   😄 Pronouns: Runner, Chess Player, Abstract, MultiDomain
--   ⚡ Fun fact: Writing a book "The Unlocking", to grow original humans
-    on earth free from cultural, childhood, family and self imposed
-    locks!
+- 🔭 I'm currently working on JS, Python
+- 🌱 I'm currently learning Advanced Typescript & Go
+- 🤔 I'm looking for & am uptodate with Frontend Everything
+- 👯 I'm looking to work with Ambitious Developers
+- 💬 Ask me about Fullstack in Node, Python, and Typescript
+- 📫 How to reach me: google -\> ahmadalibaloch
+- 😄 Pronouns: Runner, Chess Player, Abstract, MultiDomain
+- ⚡ Fun fact: Writing a book "The Unlocking", to grow original humans
+  on earth free from cultural, childhood, family and self imposed
+  locks!
 
 **Languages and Tools:**
 
-`` `` `` `` `` ``
+` ` ` ` ` `
 
 [![](https://github-profile-trophy.vercel.app/?username=ahmadalibaloch&row=2&column=3)](https://github.com/ryo-ma/github-profile-trophy)
 ![](https://github-readme-stats.vercel.app/api?username=ahmadalibaloch&count_private=true&include_all_commits=true&show_icons=true)
 
-ahmadalibaloch github personal website
-======================================
+# ahmadalibaloch github personal website
 
 Link: [ahmadalibaloch.github.io](https://ahmadalibaloch.github.io/) \#\#
 What kind of technical stack have you used? Among them, which is the one
@@ -34,8 +33,7 @@ you are good at using?
 > of products here at Intech, with shared components, libraries is also
 > the achievement I count.
 
-Do you have any experience of working with the development team? Please explain what role you played in what kind of team.
---------------------------------------------------------------------------------------------------------------------------
+## Do you have any experience of working with the development team? Please explain what role you played in what kind of team.
 
 > I joined as Senior Front End Developer here at Intech in a team of 15
 > people. We followed the two weeks sprints, agile methodology. Overtime
@@ -47,8 +45,7 @@ Do you have any experience of working with the development team? Please explain 
 > app, using a number of services in a bigger platform, hosted in our
 > own cloud using DCOS later migrated to Kubernetes.
 
-What is your biggest achievement in your career? If that's a team achievement, please explain what did you contribute to, in order that the team makes the achievement.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## What is your biggest achievement in your career? If that's a team achievement, please explain what did you contribute to, in order that the team makes the achievement.
 
 > I count a goal as an achievement, when it really is complete (like a
 > published app) and beneficial to end users. Creating this platform
@@ -62,8 +59,7 @@ What is your biggest achievement in your career? If that's a team achievement, p
 > independent apps are now being developed dependent on the basic,
 > scalable, maintainable services of this platform.
 
-Please share any personal output as an engineer. If it's an achievement related to your work, please tell us to what extent you were committed to the achievement in details.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Please share any personal output as an engineer. If it's an achievement related to your work, please tell us to what extent you were committed to the achievement in details.
 
 > I was assigned the visualizations module and rendering live streams
 > when I joined my recent job at Intech. I created a service extending
@@ -89,8 +85,7 @@ many POCs, do R&D, which has added a lot to my knowledge. Sometimes I
 would sit late in office but I like to be pro-active and do/learn things
 upfront.
 
-If you have any experience aside from frontend, please explain it. We would like to know, in what area and how far you are familiar with.
------------------------------------------------------------------------------------------------------------------------------------------
+## If you have any experience aside from frontend, please explain it. We would like to know, in what area and how far you are familiar with.
 
 > I also have professional experience as a Native Android developer. I
 > have some interesting apps published on Playstore, they use Google
@@ -101,8 +96,7 @@ If you have any experience aside from frontend, please explain it. We would like
 > experience with .Net. Python on the backend. I also contribute on
 > stackoverflow and Github whenever I find an opportunity.
 
-Please explain it if you have an experience of using the latest library or framework.
--------------------------------------------------------------------------------------
+## Please explain it if you have an experience of using the latest library or framework.
 
 > If this question is about frontend then of course the framework I am
 > mostly using is React. For my personal apps, I use Angular, with Nrwl
@@ -113,8 +107,7 @@ Please explain it if you have an experience of using the latest library or frame
 > We recently moved to GraphQL, for our backend, for which we use Prisma
 > on Node.js here at Intech.
 
-If you have any experience of management or lead, please explain it. (How many people were there in the team? What kind of team you were managing?)
----------------------------------------------------------------------------------------------------------------------------------------------------
+## If you have any experience of management or lead, please explain it. (How many people were there in the team? What kind of team you were managing?)
 
 > Currently I am working as Lead Developer and Technical Product owner.
 > I have a team of 3 people here at Intech, of which two are fresh grads
@@ -127,8 +120,7 @@ If you have any experience of management or lead, please explain it. (How many p
 > Before this I worked as a senior developer where I was also guiding a
 > junior developer, who now owns many of the modules I developed.
 
-Do you have an experience of agile or scrum? Also, to what extent are you familiar with team development experience by agile software development?
---------------------------------------------------------------------------------------------------------------------------------------------------
+## Do you have an experience of agile or scrum? Also, to what extent are you familiar with team development experience by agile software development?
 
 > I have already explained our mythology in one of above questions on
 > our custom agile, where we need to have some open time for burning
@@ -143,8 +135,7 @@ Do you have an experience of agile or scrum? Also, to what extent are you famili
 > person for any issue. If it is a small issue, they would resolve it or
 > get in touch with the specific person at a right time.
 
-If you have your own idea or strong thoughts of architecture or design regarding frontend development, please tell us.
-----------------------------------------------------------------------------------------------------------------------
+## If you have your own idea or strong thoughts of architecture or design regarding frontend development, please tell us.
 
 > I believe in following a best practice and then sticking to it, if
 > there are no breaking issues. Of course we need to be evaluating or
@@ -158,15 +149,13 @@ If you have your own idea or strong thoughts of architecture or design regarding
 > and layouts design library (if any) should be well mentioned and known
 > in a team.
 
-If you have an experience of microservices software development, please tell us.
---------------------------------------------------------------------------------
+## If you have an experience of microservices software development, please tell us.
 
 > Yes, I am responsible for my own docker/service deployment, its
 > maintenance, logs and versioning. I have working knowledge of bash and
 > other needed commands. I use Ubuntu Linux and sometimes Windows.
 
-Please let us know the details of your experience of developing SPA, PWA, SSR etc if you have any. Also, please let us know how you've involved with the architecture or design of those? If you could answer specifically it would be great.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Please let us know the details of your experience of developing SPA, PWA, SSR etc if you have any. Also, please let us know how you've involved with the architecture or design of those? If you could answer specifically it would be great.
 
 > Single Page Applications is the core skill I am working on for the
 > recent years in my career. I have understanding of the issues like
@@ -174,8 +163,7 @@ Please let us know the details of your experience of developing SPA, PWA, SSR et
 > created a service worker, for refreshing JWT tokens, that was an
 > interesting learning.
 
-In terms of product development with the team, if you have experience in improving performance/ scalability etc, please describe it specifically. What kind of service was it? How big the system size was? How did you contribute to the team?
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## In terms of product development with the team, if you have experience in improving performance/ scalability etc, please describe it specifically. What kind of service was it? How big the system size was? How did you contribute to the team?
 
 > I have two things to share, one on the frontend and another on the
 > backend. When designing a little library consisting of a service for

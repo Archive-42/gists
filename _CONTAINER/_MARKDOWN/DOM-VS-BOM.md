@@ -43,24 +43,25 @@ Networking JS interpreter UI backend
 **Running Scripts**
 
 - Insert a script via a .js document into an .html document:
-```html
+
+````html
 <html>
-<head>
-<script type="text/javascript" src="dom-ready-script.js"></script>
-</head>
-<body><form>
-<input type="button" value="Go back!" onclick="history.back()">
-</form>
+  <head>
+    <script type="text/javascript" src="dom-ready-script.js"></script>
+  </head>
+  <body>
+    <form>
+      <input type="button" value="Go back!" onclick="history.back()" />
+    </form>
   </body>
-    <html></html>
-    </html>
-    ```
-- Run the script on DOMContentLoaded (when the doc has been loaded, but without waiting for stylesheets, images, and subframes):
-  ```js
-  window.addEventListener("DOMContentLoaded", (event) => {
-    console.log("This script loaded when the DOM was ready.");
-  });
-  ```
+  <html></html>
+</html>
+``` - Run the script on DOMContentLoaded (when the doc has been loaded, but
+without waiting for stylesheets, images, and subframes): ```js
+window.addEventListener("DOMContentLoaded", (event) => { console.log("This
+script loaded when the DOM was ready."); });
+````
+
 - Run the script on page load using window.onload (wait for EVERYTHING to load):
   ```js
   window.onload = () => {

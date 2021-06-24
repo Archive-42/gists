@@ -1,15 +1,14 @@
 This is a solution using Babel (node)
 
-babel requirements
-------------------
+## babel requirements
 
     npm install --save-dev @babel/core @babel/cli @babel/plugin-transform-typescript babel-plugin-replace-import-extensions
 
-babel.config.js
----------------
+## babel.config.js
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 module.exports = function (api) {
   //api.cache(true);
   return {
@@ -21,22 +20,23 @@ module.exports = function (api) {
   };
 }
 ```
+
 :::
 
-Convert
--------
+## Convert
 
     babel --extensions ".ts" src/*.ts -d build
 
-optionally for node
--------------------
+## optionally for node
 
 Add `build/package.json` for Node to load esm imports with .js
 extensions
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .json}
+
+```{.sourceCode .json}
 /* build/package.json */
 {"type":"module"}
 ```
+
 :::

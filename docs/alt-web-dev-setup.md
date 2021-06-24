@@ -16,8 +16,7 @@ As we progress through the course you will be prompted to complete a few
 installation and configuration steps to get your personal machine ready
 for the next phase.
 
-Phase 0: Preparing your machine
--------------------------------
+## Phase 0: Preparing your machine
 
 Here we will install basic developer tools, such as
 [homebrew](https://brew.sh/) (a 3rd party package manager for MacOS),
@@ -138,8 +137,7 @@ will do the rest. Simply restart VS Code and you'll be good to go. (Note
 that there's a second script, called `setup_vscode_linter.sh`. We can't
 run this script yet but will do so in due time.)
 
-Phase 1: Ruby
--------------
+## Phase 1: Ruby
 
 Here we will be setting up Ruby with the help of
 [rbenv](https://github.com/rbenv/rbenv), a Ruby environment manager. We
@@ -189,26 +187,25 @@ of Ruby.
 
 There are a few gems we will want to access globally.
 
--   Bundler allows us to define project dependencies inside a `Gemfile`
-    and gives us a bunch of commands to update, remove and install them.
-    Check out the [Bundler docs](http://bundler.io/docs.html) for more
-    info.
--   Pry is an alternative to the Irb (the default Ruby REPL). It is not
-    only more powerful, but also easier to use than Irb and should be
-    your go-to for running and debugging Ruby code. Check out the [Pry
-    website](http://pryrepl.org/) for more info and a super useful
-    tutorial.
--   Byebug is feature-rich debugging tool for Ruby. With Byebug you can
-    halt the execution of your code and inspect/track variables and the
-    flow of execution. Lots of cool features in here, so check out the
-    [Byebug docs](https://github.com/deivid-rodriguez/byebug)!
+- Bundler allows us to define project dependencies inside a `Gemfile`
+  and gives us a bunch of commands to update, remove and install them.
+  Check out the [Bundler docs](http://bundler.io/docs.html) for more
+  info.
+- Pry is an alternative to the Irb (the default Ruby REPL). It is not
+  only more powerful, but also easier to use than Irb and should be
+  your go-to for running and debugging Ruby code. Check out the [Pry
+  website](http://pryrepl.org/) for more info and a super useful
+  tutorial.
+- Byebug is feature-rich debugging tool for Ruby. With Byebug you can
+  halt the execution of your code and inspect/track variables and the
+  flow of execution. Lots of cool features in here, so check out the
+  [Byebug docs](https://github.com/deivid-rodriguez/byebug)!
 
 Let's install them.
 
     gem install bundler pry byebug
 
-Phase 2: Backend Development
-----------------------------
+## Phase 2: Backend Development
 
 For backend development we will need a database application, a server,
 and a web-application framework.
@@ -311,8 +308,7 @@ sync:
     # verify installation
     which rails # => /Users/username/.rbenv/shims/rails
 
-Phase 3: Frontend Development
------------------------------
+## Phase 3: Frontend Development
 
 ### Node.js & NPM
 

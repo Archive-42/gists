@@ -1,7 +1,9 @@
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 apt-mark showmanual
 ```
+
 :::
 
     |01:19:09|bryan@LAPTOP-9LGJ3JGS:[~] ~_exitstatus:0__________________________________________________________o>

@@ -1,5 +1,4 @@
-Phresh 'n Clean
-===============
+# Phresh 'n Clean
 
 Wipe your hard drive clean and install your apps quickly.
 
@@ -25,8 +24,7 @@ Treats**](https://github.com/naoki-evan-hisamoto/phresh-n-clean/blob/master/READ
 section will tell you some of our Liferay team members' top picks for
 applications and extensions.
 
-Preparation
------------
+## Preparation
 
 The Preparation section will prevent you from losing important files,
 documents, and application keys upon reinstalling OSX. The hard drive is
@@ -64,10 +62,9 @@ hoops to get your product license back.
 > Information from [Field
 > Guide---Gizmodo](https://fieldguide.gizmodo.com/make-your-mac-feel-like-new-again-with-a-fresh-install-1697926482)
 
-------------------------------------------------------------------------
+---
 
-Wipe + Reinstall
-----------------
+## Wipe + Reinstall
 
 The Wipe + Reinstall section will walk you through installing a phresh
 copy of OSX. When you are ready, you'll erase your hard drive and
@@ -107,7 +104,7 @@ completed this step, your hard drive will be reformatted.
 > Information from [Apple
 > Support](https://support.apple.com/guide/disk-utility/erase-a-volume-dskutl14079/mac)
 
-------------------------------------------------------------------------
+---
 
 ### 2. Reinstall
 
@@ -128,8 +125,7 @@ installation files for a different OS version on a flash drive).
 > Information from
 > [OSXDaily](http://osxdaily.com/2017/10/02/clean-install-macos-high-sierra/)
 
-Set Up
-------
+## Set Up
 
 The Set Up section will walk you through getting your phresh machine up
 and running as quickly as possible. We will set up the computer with
@@ -237,12 +233,10 @@ build software alongside millions of other developers.
 > ###### Resources
 >
 > [Getting Started - Git
-> Basics](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics) \>
-> [Github Guides](https://guides.github.com/)\
+> Basics](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics) \> > [Github Guides](https://guides.github.com/)\
 > Description from [Github](https://github.com/)
 
-Application Installation
-------------------------
+## Application Installation
 
 The Application Installation section will walk you through installing
 your applications. Using Homebrew Cask, you can download and install the
@@ -257,9 +251,8 @@ speed to macOS applications and large binaries alike.
 #### Application
 
 1.  Decide what applications you would like to install with [Homebrew
-    Cask Search](https://caskroom.github.io/search).
-    2.  Enter `brew cask install [application]` into a Terminal prompt.
-        This will install the selected application.
+    Cask Search](https://caskroom.github.io/search). 2. Enter `brew cask install [application]` into a Terminal prompt.
+    This will install the selected application.
 2.  Enter `brew cask install [application][space][application]` into a
     Terminal prompt to install multiple applications.
 3.  After installing all desired applications, enter `brew cask cleanup`
@@ -270,7 +263,7 @@ speed to macOS applications and large binaries alike.
 To install all of the following applications with a single line of code:
 
 1.  Enter
-    `brew cask install google-chrome firefox slack skype figma sketch           craftmanager adobe-creative-cloud sublime-text hyper`
+    `brew cask install google-chrome firefox slack skype figma sketch craftmanager adobe-creative-cloud sublime-text hyper`
     into a Terminal prompt.
 
 #### Fonts
@@ -317,10 +310,9 @@ To install all of the following applications with a single line of code:
 > Documentation](https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md)
 > Description from [Homebrew Cask](https://caskroom.github.io/)
 
-------------------------------------------------------------------------
+---
 
-Tasty Treats
-------------
+## Tasty Treats
 
 The Tasty Treats section will tell you some of our Liferay team members'
 top picks for applications and extensions.
@@ -341,17 +333,17 @@ top picks for applications and extensions.
 To install all of the following applications with a single line of code
 enter:
 
-`brew cask install clipy imageoptim zsh zsh-autosuggestions         zsh-syntax-highlighting visual-studio-code`
+`brew cask install clipy imageoptim zsh zsh-autosuggestions zsh-syntax-highlighting visual-studio-code`
 
 into a Terminal prompt.
 
 #### Paul's Complete List
 
-`brew cask install google-chrome firefox slack skype figma sketch         google-drive-file-stream adobe-creative-cloud sublime-text flux         bettertouchtool opera visual-studio-code vivaldi clipy dropbox         imageoptim brave`
+`brew cask install google-chrome firefox slack skype figma sketch google-drive-file-stream adobe-creative-cloud sublime-text flux bettertouchtool opera visual-studio-code vivaldi clipy dropbox imageoptim brave`
 
 #### Paul's Fonts
 
-`brew cask install font-source-sans-pro font-blokk-neue         font-playfair-display-sc font-playfair-display`
+`brew cask install font-source-sans-pro font-blokk-neue font-playfair-display-sc font-playfair-display`
 
 ### Abel Hancock's Top Picks
 
@@ -402,7 +394,7 @@ into a Terminal prompt.
 To install all of the following applications with a few lines of code
 enter:
 
-    brew tap crisidev/homebrew-chunkwm 
+    brew tap crisidev/homebrew-chunkwm
     brew install chunkwm koekeishiya/formulae/skhd
     brew cask install gitkraken
 

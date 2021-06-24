@@ -29,35 +29,35 @@ The subsets on either side of the partition are then recursively 6
 evaluated until contiguous subsets of no more than two elements are
 evaluated.
 
-Sample implementation of quicksort and mergesort in ruby
-========================================================
+# Sample implementation of quicksort and mergesort in ruby
 
 Both algorithm sort in O(n \* lg(n)) time Quicksort works inplace, where
 mergesort works in a new array
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 def quicksort(array, from=0, to=nil)
     if to == nil
         # Sort the whole array, by default
         to = array.count - 1
     end
- 
+
     if from >= to
         # Done sorting
         return
     end
- 
+
     # Take a pivot value, at the far left
     pivot = array[from]
- 
+
     # Min and Max pointers
     min = from
     max = to
- 
+
     # Current free slot
     free = min
- 
+
     while min < max
         if free == min # Evaluate array[max]
             if array[max] <= pivot # Smaller than pivot, must move
@@ -79,30 +79,32 @@ def quicksort(array, from=0, to=nil)
             raise "Inconsistent state"
         end
     end
- 
+
     array[free] = pivot
- 
+
     quicksort array, from, free - 1
     quicksort array, free + 1, to
 end
 ```
+
 :::
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 def mergesort(array)
     if array.count <= 1
         # Array of length 1 or less is always sorted
         return array
     end
- 
+
     # Apply "Divide & Conquer" strategy
- 
+
     # 1. Divide
     mid = array.count / 2
     part_a = mergesort array.slice(0, mid)
     part_b = mergesort array.slice(mid, array.count - mid)
- 
+
     # 2. Conquer
     array = []
     offset_a = 0
@@ -110,7 +112,7 @@ def mergesort(array)
     while offset_a < part_a.count && offset_b < part_b.count
         a = part_a[offset_a]
         b = part_b[offset_b]
- 
+
         # Take the smallest of the two, and push it on our array
         if a <= b
             array << a
@@ -120,35 +122,36 @@ def mergesort(array)
             offset_b += 1
         end
     end
- 
+
     # There is at least one element left in either part_a or part_b (not both)
     while offset_a < part_a.count
         array << part_a[offset_a]
         offset_a += 1
     end
- 
+
     while offset_b < part_b.count
         array << part_b[offset_b]
         offset_b += 1
     end
- 
+
     return array
 end
 ```
+
 :::
 
-Search a sorted array in O(lg(n)) time
-======================================
+# Search a sorted array in O(lg(n)) time
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 def binary_search(array, value, from=0, to=nil)
     if to == nil
         to = array.count - 1
     end
- 
+
     mid = (from + to) / 2
- 
+
     if value < array[mid]
         return binary_search array, value, from, mid - 1
     elsif value > array[mid]
@@ -157,34 +160,35 @@ def binary_search(array, value, from=0, to=nil)
         return mid
     end
 end
- 
+
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].shuffle
 # Quicksort operates inplace (i.e. in "a" itself)
 # There's no need to reassign
 quicksort a
 puts "quicksort"
 puts a
- 
+
 b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].shuffle
 # Mergesort operates in new array
 # So we need to reassign
 b = mergesort b
 puts "mergesort"
 puts b
- 
+
 offset_3 = binary_search a, 3
 puts "3 is at offset #{offset_3} in a"
- 
+
 offset_15 = binary_search b, 15
 puts "15 is at offset #{offset_15} in b"
 ```
+
 :::
 
-Write a program to print a 2D array (n x m) in spiral order (clockwise)
-=======================================================================
+# Write a program to print a 2D array (n x m) in spiral order (clockwise)
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 # Input sample:
 #
 # 3;3;1 2 3 4 5 6 7 8 9
@@ -227,12 +231,14 @@ File.open(ARGV[0]).each do |line|
   puts spiral_print(matrix, rows, cols).join(' ')
 end
 ```
+
 :::
 
 \#Linked List
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 class List
     attr_accessor :head, :tail
 
@@ -249,7 +255,7 @@ class List
 
         @head = val
         @tail = new_node
-    end 
+    end
 
     def insert_after(node, new_data, cur_nodes=self)
         if(cur_nodes.head == node)
@@ -270,11 +276,11 @@ class List
         end
     end
 
-    Get the last item     
+    Get the last item
     def last
         if @tail == nil
             @head
-        else 
+        else
             @tail.last
         end
     end
@@ -283,7 +289,7 @@ class List
     def reverse(new_list=List.new(@head), cur_list=@tail)
         if cur_list == nil
             new_list
-        else    
+        else
             new_list.insert_first(cur_list.head)
             reverse(new_list,cur_list.tail)
         end
@@ -298,22 +304,24 @@ private
     end
 end
 ```
+
 :::
 
 \#Binary Tree with Breadth First Search
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 class BinTree
- 
+
     attr_accessor :left, :right, :val
-    
+
     def initialize(val)
         @left = nil
         @right = nil
         @val = val
     end
- 
+
     def insert_node(new_val)
         if new_val < @val
             if(@left == nil)
@@ -329,32 +337,32 @@ class BinTree
             end
         end
     end
- 
- 
+
+
     # Searching the Tree for search_val but not the ideal search
     def search_bfs(search_val)
         # Start our queue and Visited list
         queue = Queue.new
         visited = []
-        
+
         # adds root tree to queue
         # adds to visited list
         queue.enq(self)
         visited.push(self)
- 
+
         while !queue.empty?
             current_node = queue.deq
- 
+
             # Check if current_node val == search_val
             if current_node.val == search_val
                 return current_node
             end
- 
-            if current_node.left && !visited.include?(current_node.left) 
+
+            if current_node.left && !visited.include?(current_node.left)
                 queue.enq(current_node.left)
                 visited.push(current_node.left)
-            end 
- 
+            end
+
             if current_node.right && !visited.include?(current_node.right)
                 queue.enq(current_node.right)
                 visited.push(current_node.right)
@@ -362,8 +370,8 @@ class BinTree
         end
         "none!"
     end
- 
-       
+
+
       #Better
     def search(val)
         if @val == val
@@ -373,56 +381,57 @@ class BinTree
         elsif @val < val && @right
             return @right.search(val)
         end
- 
+
         return "Not Found!"
     end
- 
+
 end
- 
- 
- 
+
+
+
 class Tree
     attr_accessor :children, :val
- 
+
     def initialize(val)
         @val = val
         @children = []
     end
- 
+
     def insert(val)
       @children.push(Tree.new(val))
     end
- 
+
     # Searching the Tree for search_val
     def search_bfs(search_val)
         # Start our queue and Visited list
         queue = Queue.new
         visited = []
-        
+
         # adds root tree to queue
         # adds to visited list
         queue.enq(self)
         visited.push(self)
- 
+
         while !queue.empty?
             current_node = queue.deq
- 
+
             # Check if current_node val == search_val
             if current_node.val == search_val
                 return current_node
             end
- 
+
             current_node.children.each do |child|
-                if !visited.include?(child) 
+                if !visited.include?(child)
                     queue.enq(child)
                     visited.push(child)
-                end 
+                end
             end
         end
         "none!"
     end
 end
 ```
+
 :::
 
 \#What Happens When You Type In A URL
@@ -442,56 +451,57 @@ end
 \#AutoComplete Tree
 
 ::: {#cb8 .sourceCode}
-``` {.sourceCode .ruby}
+
+```{.sourceCode .ruby}
 class WordTreeNode
   attr_accessor :value, :children, :complete
- 
+
   def initialize(value = '', complete = false)
     @value    = value
     @children = []
     @complete = complete
   end
- 
+
   def learn(word)
     # Chop the string such that it's one character
     # longer than the value of the current node
     stem = word[0 .. value.length]
- 
+
     # We are on the last step if the stem is equal to the word
     complete = stem == word
- 
+
     # Look for a child with value == stem
     node = @children.find { |child| child.value == stem }
- 
+
     # Create it if it didn't exist
     unless node
       node = WordTreeNode.new(stem, complete)
       @children.push node
     end
- 
+
     # The node may already exist but not marked as complete...
     node.complete ||= true if complete
- 
+
     # Recurse unless this was a complete word
     # NOTE: using the stem here is a bad idea
     node.learn(word) unless complete
   end
- 
+
   # Returns all complete words in this subtree
   def words
     # Count ourselves if we are a complete word
     words = self.complete ? [self] : []
- 
+
     @children.reduce(words) do |words, subtree|
       words += subtree.words
       words
     end
   end
- 
+
   def completions_for(str)
     # Stem our input string as above
     stem = str[0 .. value.length]
- 
+
     completions = []
     if stem == str && stem.length == value.length
       # we want to return ALL complete words below
@@ -500,22 +510,22 @@ class WordTreeNode
       completions += words
     else
       # Still walking down the tree
- 
+
       # Count the current node if it's a complete word
       completions << self if self.complete
- 
+
       # Find the subtree that matches the stem
       subtree = @children.find { |child| child.value == stem }
- 
+
       # If it exists, we want the completions underneath it
       completions += subtree.completions_for(str) unless subtree.nil?
     end
- 
+
     # Return the array of complete nodes
     completions
   end
 end
- 
+
 tree = WordTreeNode.new
 tree.learn 'apple'
 tree.learn 'ape'
@@ -527,7 +537,7 @@ tree.learn 'boo'
 tree.learn 'book'
 tree.learn 'books'
 tree.learn 'bored'
- 
+
 p tree.completions_for('a').map &:value # => ["app", "apple", "appear", "appease", "approve", "ape"]
 p tree.completions_for('ap').map &:value # => ["app", "apple", "appear", "appease", "approve", "ape"]
 p tree.completions_for('appe').map &:value # => ["app", "appear", "appease"]
@@ -536,4 +546,5 @@ p tree.completions_for('b').map &:value # => ["boo", "book", "books", "bored"]
 p tree.completions_for('bo').map &:value # => ["boo", "book", "books", "bored"]
 p tree.completions_for('bor').map &:value # => ["bored"]
 ```
+
 :::

@@ -1,4 +1,3 @@
-
     dpkg --get-selections | grep -v deinstall
     accountsservice                                 install
     acl                                             install

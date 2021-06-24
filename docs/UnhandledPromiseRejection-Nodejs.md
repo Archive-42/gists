@@ -1,10 +1,8 @@
-nodejs weirdness ahead
-----------------------
+## nodejs weirdness ahead
 
 https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a
 
-TL;DR:
-------
+## TL;DR:
 
 To prevent throw's inside async's exiting with code 0 despite the error,
 **ALWAYS** call the top level async function this way:

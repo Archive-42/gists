@@ -1,5 +1,4 @@
-Docker Commands, Help & Tips
-============================
+# Docker Commands, Help & Tips
 
 ### Show commands & management commands
 
@@ -13,8 +12,7 @@ Docker Commands, Help & Tips
 
     $ docker info
 
-WORKING WITH CONTAINERS
-=======================
+# WORKING WITH CONTAINERS
 
 ### Create an run a container in foreground
 
@@ -34,16 +32,16 @@ WORKING WITH CONTAINERS
 
 ### TIP: WHAT RUN DID
 
--   Looked for image called nginx in image cache
--   If not found in cache, it looks to the default image repo on
-    Dockerhub
--   Pulled it down (latest version), stored in the image cache
--   Started it in a new container
--   We specified to take port 80- on the host and forward to port 80 on
-    the container
--   We could do "\$ docker container run --publish 8000:80 --detach
-    nginx" to use port 8000
--   We can specify versions like "nginx:1.09"
+- Looked for image called nginx in image cache
+- If not found in cache, it looks to the default image repo on
+  Dockerhub
+- Pulled it down (latest version), stored in the image cache
+- Started it in a new container
+- We specified to take port 80- on the host and forward to port 80 on
+  the container
+- We could do "\$ docker container run --publish 8000:80 --detach
+  nginx" to use port 8000
+- We can specify versions like "nginx:1.09"
 
 ### List running containers
 
@@ -97,8 +95,7 @@ runs in a mini-VM so to see the processes youll need to connect directly
 to that. On Linux however you can run "ps aux" and see the processes
 directly
 
-IMAGE COMMANDS
-==============
+# IMAGE COMMANDS
 
 ### List the images we have pulled
 
@@ -118,10 +115,10 @@ IMAGE COMMANDS
 
 #### TIP: ABOUT IMAGES
 
--   Images are app bianaries and dependencies with meta data about the
-    image data and how to run the image
--   Images are no a complete OS. No kernel, kernel modules (drivers)
--   Host provides the kernel, big difference between VM
+- Images are app bianaries and dependencies with meta data about the
+  image data and how to run the image
+- Images are no a complete OS. No kernel, kernel modules (drivers)
+- Host provides the kernel, big difference between VM
 
 ### Some sample container creation
 
@@ -141,8 +138,7 @@ MYSQL:
 
     $ docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql
 
-CONTAINER INFO
---------------
+## CONTAINER INFO
 
 ### View info on container
 
@@ -156,15 +152,14 @@ CONTAINER INFO
 
     $ docker container stats [NAME]
 
-ACCESSING CONTAINERS
---------------------
+## ACCESSING CONTAINERS
 
 ### Create new nginx container and bash into
 
     $ docker container run -it --name [NAME] nginx bash
 
--   i = interactive Keep STDIN open if not attached
--   t = tty - Open prompt
+- i = interactive Keep STDIN open if not attached
+- t = tty - Open prompt
 
 **For Git Bash, use "winpty"**
 
@@ -195,8 +190,7 @@ ACCESSING CONTAINERS
 (use sh because it does not include bash) (alpine uses apk for its
 package manager - can install bash if you want)
 
-NETWORKING
-==========
+# NETWORKING
 
 ### "bridge" or "docker0" is the default network
 
@@ -233,11 +227,9 @@ NETWORKING
 
     $ docker network disconnect
 
-IMAGE TAGGING & PUSHING TO DOCKERHUB
-====================================
+# IMAGE TAGGING & PUSHING TO DOCKERHUB
 
-tags are labels that point ot an image ID
-=========================================
+# tags are labels that point ot an image ID
 
     $ docker image ls
 
@@ -261,14 +253,14 @@ Youll see that each image has a tag
 
 ### DOCKERFILE PARTS
 
--   FROM - The os used. Common is alpine, debian, ubuntu
--   ENV - Environment variables
--   RUN - Run commands/shell scripts, etc
--   EXPOSE - Ports to expose
--   CMD - Final command run when you launch a new container from image
--   WORKDIR - Sets working directory (also could use 'RUN cd
-    /some/path')
--   COPY \# Copies files from host to container
+- FROM - The os used. Common is alpine, debian, ubuntu
+- ENV - Environment variables
+- RUN - Run commands/shell scripts, etc
+- EXPOSE - Ports to expose
+- CMD - Final command run when you launch a new container from image
+- WORKDIR - Sets working directory (also could use 'RUN cd
+  /some/path')
+- COPY \# Copies files from host to container
 
 ### Build image from dockerfile (reponame can be whatever)
 
@@ -278,14 +270,13 @@ Youll see that each image has a tag
 
 #### TIP: CACHE & ORDER
 
--   If you re-run the build, it will be quick because everythging is
-    cached.
--   If you change one line and re-run, that line and everything after
-    will not be cached
--   Keep things that change the most toward the bottom of the Dockerfile
+- If you re-run the build, it will be quick because everythging is
+  cached.
+- If you change one line and re-run, that line and everything after
+  will not be cached
+- Keep things that change the most toward the bottom of the Dockerfile
 
-EXTENDING DOCKERFILE
-====================
+# EXTENDING DOCKERFILE
 
 ### Custom Dockerfile for html paqge with nginx
 
@@ -307,8 +298,7 @@ EXTENDING DOCKERFILE
 
     $ docker image push bradtraversy/nginx-website
 
-VOLUMES
-=======
+# VOLUMES
 
 ### Volume - Makes special location outside of container UFS. Used for databases
 
@@ -340,9 +330,9 @@ VOLUMES
 
 #### TIP: Mounts
 
--   You will also see the volume under mounts
--   Container gets its own uniqe location on the host to store that data
--   Source: xxx is where it lives on the host
+- You will also see the volume under mounts
+- Container gets its own uniqe location on the host to store that data
+- Source: xxx is where it lives on the host
 
 ### Check volumes
 
@@ -359,12 +349,11 @@ containers, so we used named volumes**
 
     docker volume inspect mysql-db
 
-BIND MOUNTS
-===========
+# BIND MOUNTS
 
--   Can not use in Dockerfile, specified at run time (uses -v as well)
--   ... run -v /Users/brad/stuff:/path/container (mac/linux)
--   ... run -v //c/Users/brad/stuff:/path/container (windows)
+- Can not use in Dockerfile, specified at run time (uses -v as well)
+- ... run -v /Users/brad/stuff:/path/container (mac/linux)
+- ... run -v //c/Users/brad/stuff:/path/container (windows)
 
 **TIP: Instead of typing out local path, for working directory use
 \$(pwd):/path/container - On windows may not work unless you are in your
@@ -384,18 +373,17 @@ users folder**
 
     $ touch test.txt
 
-DOCKER COMPOSE
-==============
+# DOCKER COMPOSE
 
--   Configure relationships between containers
--   Save our docker container run settings in easy to read file
--   2 Parts: YAML File (docker.compose.yml) + CLI tool (docker-compose)
+- Configure relationships between containers
+- Save our docker container run settings in easy to read file
+- 2 Parts: YAML File (docker.compose.yml) + CLI tool (docker-compose)
 
 ### 1. docker.compose.yml - Describes solutions for
 
--   containers
--   networks
--   volumes
+- containers
+- networks
+- volumes
 
 ### 2. docker-compose CLI - used for local dev/test automation with YAML files
 

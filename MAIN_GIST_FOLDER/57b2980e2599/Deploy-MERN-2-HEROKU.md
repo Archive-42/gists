@@ -155,66 +155,60 @@ This will assume that you have both `client` and `server` running correctly and 
 
 10. The command we need to push our `server` code specifically, because we have the separation of `client` and `server` in our project structure, is `git subtree push --prefix server heroku master`
 
+    - This is telling git to push a subtree, or in other words a _subdirectory_, from our current git repo. The `--prefix` flag comes before that subdirectory that we want to push, in our case it is `server`. And lastly we're telling it to push to the remote `heroku` our `master` branch.
 
-    *   This is telling git to push a subtree, or in other words a _subdirectory_, from our current git repo. The `--prefix` flag comes before that subdirectory that we want to push, in our case it is `server`. And lastly we're telling it to push to the remote `heroku` our `master` branch.
+      git subtree push --prefix server heroku master
 
-        git subtree push --prefix server heroku master
-
-
-    * * *
+    ***
 
     **IF you want to test and ensure that you've deployed your server to Heroku just add in a test route in your `server.js` like:**
 
         app.get('/', (req, res) => { res.send('Hello from Express!')
 
-
     You can view your app by:
     \- Copy and pasting the url that will appear in your Terminal after successfully pushing your code to the remote Heroku branch
     \- Navigating to your project on [the Heroku website](http://heroku.com/) and there will be a button that says 'View App' - click it and it will take you there
 
-    *   If you see the 'Hello from Express!' (or whatever test message you used) then that means your server is running correctly
+    - If you see the 'Hello from Express!' (or whatever test message you used) then that means your server is running correctly
 
-    * * *
+    ***
 
 11. Now for our MongoDB connection to work we must define an environment variable for Heroku to store our MongoDB connection string.
-
 
     > We want to keep our connection string secret as we don't want anybody able to connect to our database and change, delete, add things etc.
     > In our local build the connection string, is stored in our `.env` file inside of `/server`. I named by connection string `MONGODB_URI`. You can do this next step on the Heroku CLI or on the Heroku website.
     > I recommend the website it's more straightforward and you don't have to worry about escaping special characters. I'm going to describe the next steps going through the website.
 
-    *   Navigate to your dashboard on Heroku
-    *   Click on your project name that will be present from our previous steps where we created our remote branch and pushed the code
-    *   Navigate to the Settings tab near the top
-    *   The second section is 'Config Vars' - click on 'Reveal Config Vars'
-    *   You'll see two inputs:
-        *   One is the name of your environment variable - name this **whatever you have it named in your local build**. For me that is `MONGODB_URI`.
-        *   Second is the value - paste your whole connection string here that you should copy from your `.env` file directly to avoid any typos.
-    *   Then just click 'Add' and our MongoDB connection environment variable is set. ![Heroku site config vars](https://res.cloudinary.com/practicaldev/image/fetch/s--D4fJ2hPQ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/7ewhhh5fybrk94691c6i.png)
+    - Navigate to your dashboard on Heroku
+    - Click on your project name that will be present from our previous steps where we created our remote branch and pushed the code
+    - Navigate to the Settings tab near the top
+    - The second section is 'Config Vars' - click on 'Reveal Config Vars'
+    - You'll see two inputs:
+      - One is the name of your environment variable - name this **whatever you have it named in your local build**. For me that is `MONGODB_URI`.
+      - Second is the value - paste your whole connection string here that you should copy from your `.env` file directly to avoid any typos.
+    - Then just click 'Add' and our MongoDB connection environment variable is set. ![Heroku site config vars](https://res.cloudinary.com/practicaldev/image/fetch/s--D4fJ2hPQ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/7ewhhh5fybrk94691c6i.png)
 
-    * * *
+    ***
 
     Our `server` code is officially deployed and configured correctly. Now onto the `client` code with Netlify.
 
-    * * *
+    ***
 
 12. Next is to deploy the front-end React code in `/client` to Netlify. Login to Netlify if you haven't already, the default tab should be `Sites` or just navigate to that tab.
 
 13. **LASTLY** after we deploy our front-end React code we must ensure _any requests_ we're sending from the client-side is changed to use our Heroku URL now instead of localhost.
 
+    - In my structure the requests were being made from `client/api/index.js` so navigate to that file and _any request that contains_ `http://localhost:5000` must be replaced by your Heroku URL.
 
-    *   In my structure the requests were being made from `client/api/index.js` so navigate to that file and _any request that contains_ `http://localhost:5000` must be replaced by your Heroku URL.
+      // Before
+      const res = await fetch('http://localhost:5000/scores/'
 
-        // Before
-        const res = await fetch('http://localhost:5000/scores/'
+      // After
+      const res = await fetch('https://my-project.herokuapp.com/scores/')
 
-        // After
-        const res = await fetch('https://my-project.herokuapp.com/scores/')
-
-        // 'my-project' in the URL will either be the auto-generated
-        // name from Netlify or if you changed the name it will
-        // be the name you gave it
-
+      // 'my-project' in the URL will either be the auto-generated
+      // name from Netlify or if you changed the name it will
+      // be the name you gave it
 
 **Ensure that you push these changes up to GitHub.** Netlify will trigger a redeploy when they detect changes to your `master` branch. So for this to work you must make those changes apparent to Netlify essentially.
 

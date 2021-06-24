@@ -1,18 +1,18 @@
-**Big O Notation**
-------------------
+## **Big O Notation**
 
--   Big O helps gives us a precise vocabulary to talk about how our code
-    performs.
+- Big O helps gives us a precise vocabulary to talk about how our code
+  performs.
 
-    -   Useful for discussing trade-offs between different approaches.
-    -   Helps us debug things easier.
-    -   It also comes up a lot in interviews!
+  - Useful for discussing trade-offs between different approaches.
+  - Helps us debug things easier.
+  - It also comes up a lot in interviews!
 
--   An Example: Comparing two functions that calculate the sum of all
-    numbers from 1 up to n.
+- An Example: Comparing two functions that calculate the sum of all
+  numbers from 1 up to n.
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function addUpTo(n) {
   let total = 0;
   for (let i = 0; i <= n; i++) {
@@ -21,44 +21,48 @@ function addUpTo(n) {
   return total;
 }
 ```
+
 :::
 
 > Number of operations will grow with n. Would be O(n) or Linear Time.
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function addUpTo(n) {
   return (n * (n + 1)) / 2;
 }
 ```
+
 :::
 
 > Has three simple operations: 1 Multiplication 1 Addition 1 Division.
 > (Regardless of n) Would be O(1) or Constant Time.
 
--   First we need to consider what makes one implementation better than
-    the other?
+- First we need to consider what makes one implementation better than
+  the other?
 
-    -   Faster? (Time Complexity);
-    -   Less Memory Intensive (Space Complexity);
-    -   More Readable
+  - Faster? (Time Complexity);
+  - Less Memory Intensive (Space Complexity);
+  - More Readable
 
--   How can we measure speed?
+- How can we measure speed?
 
-    -   Timers? (Doesn't work well - not reliable or precise)
-    -   Instead we should count the number of simple operations.
+  - Timers? (Doesn't work well - not reliable or precise)
+  - Instead we should count the number of simple operations.
 
--   Big O Notation is a way to formalize fuzzy counting.
--   An algorithm is O(f(n)) if the number of simple operations the
-    computer has to do is eventually less than a constant f(n) times, as
-    n increases.
-    -   f(n) = n (Linear)
-    -   f(n) = n\^2 (Quadratic)
-    -   f(n) = 1 (Constant)
-    -   f(n) could be anything!
+- Big O Notation is a way to formalize fuzzy counting.
+- An algorithm is O(f(n)) if the number of simple operations the
+  computer has to do is eventually less than a constant f(n) times, as
+  n increases.
+  - f(n) = n (Linear)
+  - f(n) = n\^2 (Quadratic)
+  - f(n) = 1 (Constant)
+  - f(n) could be anything!
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function countUpAndDown(n) {
   console.log('going up!');
   for (let i = 0; i < n; i++) {
@@ -71,13 +75,15 @@ function countUpAndDown(n) {
   console.log('Back down, bye!);
 }
 ```
+
 :::
 
 > Both loops are O(n) but since we just want the big picture, this
 > entire function would be O(n);
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function printAllPairs(n) {
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
@@ -86,99 +92,103 @@ function printAllPairs(n) {
   }
 }
 ```
+
 :::
 
 > Nested loops are never a good thing when trying to write fast code.
 > O(n\^2) or Quadratic Time.
 
--   Constants don't matter in big O & Smaller Terms don't matter
+- Constants don't matter in big O & Smaller Terms don't matter
 
-    -   O(2n) is just O(n) Linear
-    -   O(500) is just O(1) Constnat
-    -   O(13n\^2) is just O(n\^2) Quadratic
-    -   O(n + 10) is just O(n) Linear
-    -   O(1000n + 50) is just O(n) Linear
-    -   O(n\^2 + 5n + 8) is just O(n\^2) Quadratic
+  - O(2n) is just O(n) Linear
+  - O(500) is just O(1) Constnat
+  - O(13n\^2) is just O(n\^2) Quadratic
+  - O(n + 10) is just O(n) Linear
+  - O(1000n + 50) is just O(n) Linear
+  - O(n\^2 + 5n + 8) is just O(n\^2) Quadratic
 
--   **`Big O Shorthands`**
+- **`Big O Shorthands`**
 
-    -   Arithmetic Operations are Constant
-    -   Variable assignment is constant
-    -   Accessing elements in an array (by index) or by object (by key)
-        is constant.
-    -   In a loop, the complexity is the length of the loop times the
-        complexity of whatever is inside of the loop.
+  - Arithmetic Operations are Constant
+  - Variable assignment is constant
+  - Accessing elements in an array (by index) or by object (by key)
+    is constant.
+  - In a loop, the complexity is the length of the loop times the
+    complexity of whatever is inside of the loop.
 
--   Additional Examples
+- Additional Examples
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function logAtLeast5(n) {
   for (let i = 1; i <= Math.max(5, n); i++) {
     console.log(i);
   }
 }
 ```
+
 :::
 
 > O(n) Linear Time
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function logAtMost5(n) {
   for (let i = 1; i <= Math.min(5, n); i++) {
     console.log(i);
   }
 }
 ```
+
 :::
 
 > O(1) Constant Time.
 
-------------------------------------------------------------------------
+---
 
-**A Guide to Big-O Notation**
------------------------------
+## **A Guide to Big-O Notation**
 
 **Curating Complexity: A Guide to Big-O Notation**
 
--   Why is looking at runtime not a reliable method of calculating time
-    complexity?
+- Why is looking at runtime not a reliable method of calculating time
+  complexity?
 
-    -   Not all computers are made equal( some may be stronger and
-        therefore boost our runtime speed )
-    -   How many background processes ran concurrently with our program
-        that was being tested?
-    -   We also need to ask if our code remains performant if we
-        increase the size of the input.
+  - Not all computers are made equal( some may be stronger and
+    therefore boost our runtime speed )
+  - How many background processes ran concurrently with our program
+    that was being tested?
+  - We also need to ask if our code remains performant if we
+    increase the size of the input.
 
--   The real question we need to answering is:
-    **`How does our performance scale?`**.
+- The real question we need to answering is:
+  **`How does our performance scale?`**.
 
 **Big O Notation**
 
--   Big O Notation is a tool for describing the efficiency of algorithms
-    with respect to the size of the input arguments.
--   Since we use mathematical functions in Big-O, there are a few big
-    picture ideas that we'll want to keep in mind:
-    -   The function should be defined by the size of the input.
-    -   **`Smaller`** Big O is better (lower time complexity)
-    -   Big O is used to describe the worst case scenario.
-    -   Big O is simplified to show only its most dominant mathematical
-        term.
+- Big O Notation is a tool for describing the efficiency of algorithms
+  with respect to the size of the input arguments.
+- Since we use mathematical functions in Big-O, there are a few big
+  picture ideas that we'll want to keep in mind:
+  - The function should be defined by the size of the input.
+  - **`Smaller`** Big O is better (lower time complexity)
+  - Big O is used to describe the worst case scenario.
+  - Big O is simplified to show only its most dominant mathematical
+    term.
 
 **Simplifying Math Terms**
 
--   We can use the following rules to simplify the our Big O functions:
+- We can use the following rules to simplify the our Big O functions:
 
-    -   **`Simplify Products`** : If the function is a product of many
-        terms, we drop the terms that don't depend on n.
-    -   **`Simplify Sums`** : If the function is a sum of many terms, we
-        drop the non-dominant terms.
+  - **`Simplify Products`** : If the function is a product of many
+    terms, we drop the terms that don't depend on n.
+  - **`Simplify Sums`** : If the function is a sum of many terms, we
+    drop the non-dominant terms.
 
--   **`n`** : size of the input
--   **`T(f)`** : unsimplified math function
--   **`O(f)`** : simplified math function.
+- **`n`** : size of the input
+- **`T(f)`** : unsimplified math function
+- **`O(f)`** : simplified math function.
 
 **`Simplifying a Product`** \| Unsimplified \| Big-O Simplified \| \|
 ------------------- \| --------------------- \| \| T(5 \_ n\^2) \|
@@ -193,115 +203,125 @@ O(n) Linear \| \| T( n! + 10n ) \| O(n!) Polynomial \|
 
 **`Putting it all together`**
 
-  Unsimplified        Big-O Simplified
-  ------------------- -----------------------
-  T( 5n2 + 99n )      O(n\^2) Quadratic
-  T( 2n + nlog(n) )   O(nlog(n)) Log Linear
-  T( 2n + 5n1000)     O(2\^n) Exponential
+Unsimplified Big-O Simplified
 
--   First we apply the product rule to drop all constants.
--   Then we apply the sum rule to select the single most dominant term.
+---
 
-------------------------------------------------------------------------
+T( 5n2 + 99n ) O(n\^2) Quadratic
+T( 2n + nlog(n) ) O(nlog(n)) Log Linear
+T( 2n + 5n1000) O(2\^n) Exponential
 
-**Complexity Classes**
-----------------------
+- First we apply the product rule to drop all constants.
+- Then we apply the sum rule to select the single most dominant term.
+
+---
+
+## **Complexity Classes**
 
 **Common Complexity Classes**
 
 > There are 7 major classes in Time Complexity
 
-  Big O                        Complexity Class Name
-  ---------------------------- ----------------------------------------
-  O(1)                         Constant
-  O(log(n))                    Logarithmic
-  O(n)                         Linear
-  O(nlog(n))                   Loglinear, Linearithmetic, Quasilinear
-  O(nc) - O(n2), O(n3), etc.   Polynomial
-  O(cn) - O(2n), O(3n), etc.   Exponential
-  O(n!)                        Factorial
+Big O Complexity Class Name
 
--   **`O(1) Constant`**
+---
 
-    -   The algorithm takes roughly the same number of steps for any
-        input size.
+O(1) Constant
+O(log(n)) Logarithmic
+O(n) Linear
+O(nlog(n)) Loglinear, Linearithmetic, Quasilinear
+O(nc) - O(n2), O(n3), etc. Polynomial
+O(cn) - O(2n), O(3n), etc. Exponential
+O(n!) Factorial
 
-    ::: {#cb7 .sourceCode}
-    ``` {.sourceCode .js}
-    // O(1)
-    function constant1(n) {
-      return n * 2 + 1;
+- **`O(1) Constant`**
+
+  - The algorithm takes roughly the same number of steps for any
+    input size.
+
+  ::: {#cb7 .sourceCode}
+
+  ```{.sourceCode .js}
+  // O(1)
+  function constant1(n) {
+    return n * 2 + 1;
+  }
+
+  // O(1)
+  function constant2(n) {
+    for (let i = 1; i <= 100; i++) {
+      console.log(i);
     }
+  }
+  ```
 
-    // O(1)
-    function constant2(n) {
-      for (let i = 1; i <= 100; i++) {
-        console.log(i);
-      }
+  :::
+
+- **`O(log(n)) Logarithmic`**
+
+  - In most cases our hidden base of Logarithmic time is 2, log
+    complexity algo's will typically display 'halving' the size of
+    the input (like binary search!)
+
+  ::: {#cb8 .sourceCode}
+
+  ```{.sourceCode .js}
+  // O(log(n))
+  function logarithmic1(n) {
+    if (n <= 1) return;
+    logarithmic1(n / 2);
+  }
+
+  // O(log(n))
+  function logarithmic2(n) {
+    let i = n;
+    while (i > 1) {
+      i /= 2;
     }
-    ```
-    :::
+  }
+  ```
 
--   **`O(log(n)) Logarithmic`**
+  :::
 
-    -   In most cases our hidden base of Logarithmic time is 2, log
-        complexity algo's will typically display 'halving' the size of
-        the input (like binary search!)
+- **`O(n) Linear`**
 
-    ::: {#cb8 .sourceCode}
-    ``` {.sourceCode .js}
-    // O(log(n))
-    function logarithmic1(n) {
-      if (n <= 1) return;
-      logarithmic1(n / 2);
+  - Linear algo's will access each item of the input "once".
+
+  ::: {#cb9 .sourceCode}
+
+  ```{.sourceCode .js}
+  // O(n)
+  function linear1(n) {
+    for (let i = 1; i <= n; i++) {
+      console.log(i);
     }
+  }
 
-    // O(log(n))
-    function logarithmic2(n) {
-      let i = n;
-      while (i > 1) {
-        i /= 2;
-      }
+  // O(n), where n is the length of the array
+  function linear2(array) {
+    for (let i = 0; i < array.length; i++) {
+      console.log(i);
     }
-    ```
-    :::
+  }
 
--   **`O(n) Linear`**
+  // O(n)
+  function linear3(n) {
+    if (n === 1) return;
+    linear3(n - 1);
+  }
+  ```
 
-    -   Linear algo's will access each item of the input "once".
+  :::
 
-    ::: {#cb9 .sourceCode}
-    ``` {.sourceCode .js}
-    // O(n)
-    function linear1(n) {
-      for (let i = 1; i <= n; i++) {
-        console.log(i);
-      }
-    }
-
-    // O(n), where n is the length of the array
-    function linear2(array) {
-      for (let i = 0; i < array.length; i++) {
-        console.log(i);
-      }
-    }
-
-    // O(n)
-    function linear3(n) {
-      if (n === 1) return;
-      linear3(n - 1);
-    }
-    ```
-    :::
-
--   **`O(nlog(n)) Log Linear Time`**
-    -   Combination of linear and logarithmic behavior, we will see
-        features from both classes.
-    -   Algo's that are log-linear will use both recursion AND
-        iteration.
+- **`O(nlog(n)) Log Linear Time`**
+  - Combination of linear and logarithmic behavior, we will see
+    features from both classes.
+  - Algo's that are log-linear will use both recursion AND
+    iteration.
 
 ::: {#cb10 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 // O(n * log(n))
 function loglinear(n) {
   if (n <= 1) return;
@@ -314,13 +334,15 @@ function loglinear(n) {
   loglinear(n / 2);
 }
 ```
+
 :::
 
--   **`O(nc) Polynomial`**
-    -   C is a fixed constant.
+- **`O(nc) Polynomial`**
+  - C is a fixed constant.
 
 ::: {#cb11 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 // O(n^2)
 function quadratic(n) {
   for (let i = 1; i <= n; i++) {
@@ -337,16 +359,18 @@ function cubic(n) {
   }
 }
 ```
+
 :::
 
--   Example of Quadratic and Cubic runtime.
+- Example of Quadratic and Cubic runtime.
 
--   **`O(c^n) Exponential`**
-    -   C is now the number of recursive calls made in each stack frame.
-    -   Algo's with exponential time are VERY SLOW.
+- **`O(c^n) Exponential`**
+  - C is now the number of recursive calls made in each stack frame.
+  - Algo's with exponential time are VERY SLOW.
 
 ::: {#cb12 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 // O(2^n)
 function exponential2n(n) {
   if (n === 1) return;
@@ -362,32 +386,35 @@ function exponential3n(n) {
   exponential_3n(n - 1);
 }
 ```
+
 :::
 
--   **`O(n!) Factorial`**
-    -   The largest/ worst complexity (minus DTIME which is n\^n);
+- **`O(n!) Factorial`**
+  - The largest/ worst complexity (minus DTIME which is n\^n);
 
-------------------------------------------------------------------------
+---
 
-**Memoization**
----------------
+## **Memoization**
 
--   **Memoization** : a design pattern used to reduce the overall number
-    of calculations that can occur in algorithms that use recursive
-    strategies to solve.
-    -   MZ stores the results of the sub-problems in some other data
-        structure, so that we can avoid duplicate calculations and only
-        'solve' each problem once.
-    -   Two features that comprise memoization:
-        -   1.  FUNCTION MUST BE RECURSIVE.
+- **Memoization** : a design pattern used to reduce the overall number
+  of calculations that can occur in algorithms that use recursive
+  strategies to solve.
 
-        -   2.  Our additional DS is usually an object (we refer to it
-                as our memo!)
+  - MZ stores the results of the sub-problems in some other data
+    structure, so that we can avoid duplicate calculations and only
+    'solve' each problem once.
+  - Two features that comprise memoization:
+
+    - 1.  FUNCTION MUST BE RECURSIVE.
+
+    - 2.  Our additional DS is usually an object (we refer to it
+          as our memo!)
 
 **Memoizing Factorial**
 
 ::: {#cb13 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 let memo = {};
 
 function factorial(n) {
@@ -410,17 +437,18 @@ factorial(7); // => 5040, requires 2 calls
 
 memo; // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
 ```
+
 :::
 
--   Our memo object is *mapping* out our arguments of factorial to it's
-    return value.
-    -   Keep in mind we didn't improve the speed of our algo.
+- Our memo object is _mapping_ out our arguments of factorial to it's
+  return value.
+  - Keep in mind we didn't improve the speed of our algo.
 
 **Memoizing Fibonacci**
 ![memofib](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/memoization/images/fib_memoized.png)
 
--   Our time complexity for fibonacci goes from O(2\^n) to O(n) after
-    applying memoization.
+- Our time complexity for fibonacci goes from O(2\^n) to O(n) after
+  applying memoization.
 
 **The Memoization Formula**
 
@@ -439,13 +467,13 @@ memo; // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
     the visual tree first.
 2.  When you notice duplicate sub-tree's that means we can memoize.
 
-------------------------------------------------------------------------
+---
 
-\*\*
-----
+## \*\*
 
 ::: {#cb14 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function fastFib(n, memo = {}) {
   if (n in memo) return memo[n];
   if (n === 1 || n === 2) return 1;
@@ -457,20 +485,21 @@ function fastFib(n, memo = {}) {
 fastFib(6); // => 8
 fastFib(50); // => 12586269025
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Tabulation**
---------------
+## **Tabulation**
 
--   **Tabulation Strategy**
-    -   Use When:
-        -   The function is iterative and not recursive.
-        -   The accompanying DS is usually an array.
+- **Tabulation Strategy**
+  - Use When:
+    - The function is iterative and not recursive.
+    - The accompanying DS is usually an array.
 
 ::: {#cb15 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function fib(n) {
   let mostRecentCalcs = [0, 1];
 
@@ -484,23 +513,23 @@ function fib(n) {
   return mostRecentCalcs[1];
 }
 ```
+
 :::
 
--   Steps for tabulation
-    -   Create a table array based off the size of the input.
-    -   Initialize some values in the table to 'answer' the trivially
-        small subproblem.
-    -   Iterate through the array and fill in the remaining entries.
-    -   Your final answer is usually the last entry in the table.
+- Steps for tabulation
+  - Create a table array based off the size of the input.
+  - Initialize some values in the table to 'answer' the trivially
+    small subproblem.
+  - Iterate through the array and fill in the remaining entries.
+  - Your final answer is usually the last entry in the table.
 
-**Class Examples**
-==================
+# **Class Examples**
 
-**Example of Linear Search**
-----------------------------
+## **Example of Linear Search**
 
 ::: {#cb16 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function search(array, term) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === term) {
@@ -510,17 +539,18 @@ function search(array, term) {
   return -1;
 }
 ```
+
 :::
 
--   Worst Case Scenario: The term does not even exist in the array.
--   Meaning: If it doesn't exist then our for loop would run until the
-    end therefore making our time complexity O(n).
+- Worst Case Scenario: The term does not even exist in the array.
+- Meaning: If it doesn't exist then our for loop would run until the
+  end therefore making our time complexity O(n).
 
-**Example of Binary Search**
-----------------------------
+## **Example of Binary Search**
 
 ::: {#cb17 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function binarySearch(arr, x, start, end) {
   if (start > end) return false;
 
@@ -534,18 +564,19 @@ function binarySearch(arr, x, start, end) {
   }
 }
 ```
+
 :::
 
--   Must be conducted on a sorted array.
--   Binary search is logarithmic time, not exponential b/c n is cut down
-    by two, not growing.
--   Binary Search is part of Divide and Conquer.
+- Must be conducted on a sorted array.
+- Binary search is logarithmic time, not exponential b/c n is cut down
+  by two, not growing.
+- Binary Search is part of Divide and Conquer.
 
-**Example of Merge Sort**
--------------------------
+## **Example of Merge Sort**
 
 ::: {#cb18 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function merge(leftArray, rightArray) {
   const sorted = [];
   while (letArray.length > 0 && rightArray.length > 0) {
@@ -590,15 +621,16 @@ function mergeSort(array) {
   return merge(leftArray, rightArray);
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Example of Bubble Sort**
---------------------------
+## **Example of Bubble Sort**
 
 ::: {#cb19 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function bubbleSort(items) {
   let length = items.length;
   for (let i = 0; i < length; i++) {
@@ -612,36 +644,36 @@ function bubbleSort(items) {
   }
 }
 ```
+
 :::
 
--   Worst Case & Best Case are always the same because it makes nested
-    loops.
--   Double for loops are polynomial time complexity or more specifically
-    in this case Quadratic big O O(n\^2); \# **Notes**
+- Worst Case & Best Case are always the same because it makes nested
+  loops.
+- Double for loops are polynomial time complexity or more specifically
+  in this case Quadratic big O O(n\^2); \# **Notes**
 
-**Sorting Algorithms**
-----------------------
+## **Sorting Algorithms**
 
-**Bubble Sort**
----------------
+## **Bubble Sort**
 
--   The first major sorting algorithm one learns in introductory
-    programming courses.
--   Gives an intro on how to convert unsorted data into sorted data.
--   It's almost never used in production code because:
-    -   It's not efficient
-    -   It's not commonly used
-    -   There is stigma attached to it
--   **`Bubbling Up`** : Term that infers that an item *is in motion*,
-    *moving in some direction*, and *has some final resting
-    destination*.
+- The first major sorting algorithm one learns in introductory
+  programming courses.
+- Gives an intro on how to convert unsorted data into sorted data.
+- It's almost never used in production code because:
+  - It's not efficient
+  - It's not commonly used
+  - There is stigma attached to it
+- **`Bubbling Up`** : Term that infers that an item _is in motion_,
+  _moving in some direction_, and _has some final resting
+  destination_.
 
--   Bubble sort, sorts an array of integers by bubbling the largest
-    integer to the top.
-    ![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
+- Bubble sort, sorts an array of integers by bubbling the largest
+  integer to the top.
+  ![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
 
 ::: {#cb20 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 // Bubble Sort
 function bubble(array) {
   let sorted = true;
@@ -661,25 +693,26 @@ function bubble(array) {
   }
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Selection Sort**
-------------------
+## **Selection Sort**
 
--   Selection sort organizes the smallest elements to the start of the
-    array.
-    ![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
--   Summary of how Selection Sort should work:
-    1.  Set MIN to location 0
-    2.  Search the minimum element in the list.
-    3.  Swap with value at location Min
-    4.  Increment Min to point to next element.
-    5.  Repeat until list is sorted.
+- Selection sort organizes the smallest elements to the start of the
+  array.
+  ![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
+- Summary of how Selection Sort should work:
+  1.  Set MIN to location 0
+  2.  Search the minimum element in the list.
+  3.  Swap with value at location Min
+  4.  Increment Min to point to next element.
+  5.  Repeat until list is sorted.
 
 ::: {#cb21 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 let selectionSort = (arr) => {
   let len = arr.length;
   for (let i = 0; i < len; i++) {
@@ -698,21 +731,21 @@ let selectionSort = (arr) => {
   return arr;
 };
 ```
+
 :::
 
-**Selection Sort**
-------------------
+## **Selection Sort**
 
 **`Time Complexity`**: Quadratic O(n\^2)
 
--   Our outer loop will contribute O(n) while the inner loop will
-    contribute O(n / 2) on average. Because our loops are nested we will
-    get O(n\^2);
+- Our outer loop will contribute O(n) while the inner loop will
+  contribute O(n / 2) on average. Because our loops are nested we will
+  get O(n\^2);
 
 **`Space Complexity`**: O(1)
 
--   Selection Sort will always use the same amount of memory regardless
-    of n.
+- Selection Sort will always use the same amount of memory regardless
+  of n.
 
 ![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
 ![se](https://www.w3resource.com/w3r_images/selection-short.png)
@@ -720,7 +753,8 @@ let selectionSort = (arr) => {
 > Class Solution
 
 ::: {#cb22 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function swap(array, idx1, idx2) {
   [array[idx1], array[idx2]] = [array[idx2], array[idx2]];
 }
@@ -739,12 +773,14 @@ function selectionSort(array) {
   }
 }
 ```
+
 :::
 
 > Alt Solution
 
 ::: {#cb23 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function selectionSort(array) {
   for (let i = 0; i < array.length; i++) {
     let lowest = i;
@@ -762,23 +798,23 @@ function selectionSort(array) {
   return array;
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Insertion Sort**
-------------------
+## **Insertion Sort**
 
 **`Time Complexity`**: Quadratic O(n\^2)
 
--   Our outer loop will contribute O(n) while the inner loop will
-    contribute O(n / 2) on average. Because our loops are nested we will
-    get O(n\^2);
+- Our outer loop will contribute O(n) while the inner loop will
+  contribute O(n / 2) on average. Because our loops are nested we will
+  get O(n\^2);
 
 **`Space Complexity`**: O(n)
 
--   Because we are creating a subArray for each element in the original
-    input, our Space Comlexity becomes linear.
+- Because we are creating a subArray for each element in the original
+  input, our Space Comlexity becomes linear.
 
 ![insertion](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/insertion_sort/images/InsertionSort.gif)
 ![insert](https://media.geeksforgeeks.org/wp-content/uploads/insertionsort.png)
@@ -786,7 +822,8 @@ function selectionSort(array) {
 > Class Solution
 
 ::: {#cb24 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
     let value = list[i];
@@ -800,12 +837,14 @@ function insertionSort(array) {
   return array;
 }
 ```
+
 :::
 
 > Alt Solution
 
 ::: {#cb25 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     let current = arr[i];
@@ -819,27 +858,28 @@ function insertionSort(arr) {
   return arr;
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Merge Sort**
---------------
+## **Merge Sort**
 
 **`Time Complexity`**: Log Linear O(nlog(n))
 
--   Since our array gets split in half every single time we contribute
-    O(log(n)). The while loop contained in our helper merge function
-    contributes O(n) therefore our time complexity is O(nlog(n));
-    **`Space Complexity`**: O(n)
--   We are linear O(n) time because we are creating subArrays.
-    ![nmer](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/merge_sort/images/MergeSort.gif)
-    ![dmwio](https://www.geeksforgeeks.org/wp-content/uploads/Merge-Sort-Tutorial.png)
+- Since our array gets split in half every single time we contribute
+  O(log(n)). The while loop contained in our helper merge function
+  contributes O(n) therefore our time complexity is O(nlog(n));
+  **`Space Complexity`**: O(n)
+- We are linear O(n) time because we are creating subArrays.
+  ![nmer](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/merge_sort/images/MergeSort.gif)
+  ![dmwio](https://www.geeksforgeeks.org/wp-content/uploads/Merge-Sort-Tutorial.png)
 
 > Class Solution
 
 ::: {#cb26 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function merge(arr1, arr2) {
   let result = [];
   while (arr1.length && arr2.length) {
@@ -862,27 +902,28 @@ function mergeSort(arr) {
   return merge(left, right);
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Quick Sort**
---------------
+## **Quick Sort**
 
 **`Time Complexity`**: Quadratic O(n\^2)
 
--   Even though the average time complexity O(nLog(n)), the worst case
-    scenario is always quadratic.
+- Even though the average time complexity O(nLog(n)), the worst case
+  scenario is always quadratic.
 
 **`Space Complexity`**: O(n)
 
--   Our space complexity is linear O(n) because of the partition arrays
-    we create.
-    ![quick](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
-    ![qs](https://www.w3resource.com/w3r_images/quick-sort-part-1.png)
+- Our space complexity is linear O(n) because of the partition arrays
+  we create.
+  ![quick](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
+  ![qs](https://www.w3resource.com/w3r_images/quick-sort-part-1.png)
 
 ::: {#cb27 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function quickSort(array) {
   if (array.length <= 1) return array;
 
@@ -897,12 +938,12 @@ function quickSort(array) {
   return [...sortedLeft, pivot, ...sortedRight];
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Binary Search**
------------------
+## **Binary Search**
 
 **`Time Complexity`**: Log Time O(log(n))
 
@@ -912,7 +953,8 @@ function quickSort(array) {
 > Recursive Solution
 
 ::: {#cb28 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function binarySearch(array, target) {
   if (array.length === 0) return false;
 
@@ -927,12 +969,14 @@ function binarySearch(array, target) {
   }
 }
 ```
+
 :::
 
 > Min Max Solution
 
 ::: {#cb29 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function binarySearch(array, target) {
   let start = 0;
   let end = array.length - 1;
@@ -955,28 +999,29 @@ function binarySearch(array, target) {
   return -1;
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Insertion Sort**
-------------------
+## **Insertion Sort**
 
 ![insert](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/insertion_sort/images/InsertionSort.gif)
 
--   Works by building a larger and larger sorted region at the left-most
-    end of the array.
--   Steps:
-    1.  If it is the first element, and it is already sorted; return 1.
-    2.  Pick next element.
-    3.  Compare with all elements in the sorted sub list
-    4.  Shift all the elemnts in the sorted sub list that is greater
-        than the value to be sorted.
-    5.  Insert the value
-    6.  Repeat until list is sorted.
+- Works by building a larger and larger sorted region at the left-most
+  end of the array.
+- Steps:
+  1.  If it is the first element, and it is already sorted; return 1.
+  2.  Pick next element.
+  3.  Compare with all elements in the sorted sub list
+  4.  Shift all the elemnts in the sorted sub list that is greater
+      than the value to be sorted.
+  5.  Insert the value
+  6.  Repeat until list is sorted.
 
 ::: {#cb30 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 let insertionSort = (inputArr) => {
   let length = inputArr.length;
   for (let i = 1; i < length; i++) {
@@ -991,26 +1036,27 @@ let insertionSort = (inputArr) => {
   return inputArr;
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Merge Sort**
---------------
+## **Merge Sort**
 
 ![merge](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/merge_sort/images/MergeSort.gif)
 
--   Merge sort is nlogn time.
--   We need a function for merging and a function for sorting.
--   Steps:
-    1.  If there is only one element in the list, it is already sorted;
-        return the array.
-    2.  Otherwise, divide the list recursively into two halves until it
-        can no longer be divided.
-    3.  Merge the smallest lists into new list in a sorted order.
+- Merge sort is nlogn time.
+- We need a function for merging and a function for sorting.
+- Steps:
+  1.  If there is only one element in the list, it is already sorted;
+      return the array.
+  2.  Otherwise, divide the list recursively into two halves until it
+      can no longer be divided.
+  3.  Merge the smallest lists into new list in a sorted order.
 
 ::: {#cb31 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const merge = (arr1, arr2) => {
   let sorted = [];
 
@@ -1022,10 +1068,12 @@ const merge = (arr1, arr2) => {
   return sorted.concat(arr1.slice().concat(arr2.slice()));
 };
 ```
+
 :::
 
 ::: {#cb32 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const mergeSort = (arr) => {
   if (arr.length <= 1) return arr;
   let mid = Math.floor(arr.length / 2),
@@ -1035,22 +1083,23 @@ const mergeSort = (arr) => {
   return merge(left, right);
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-**Quick Sort**
---------------
+## **Quick Sort**
 
--   QS is another Divide and Conquer strategy.
--   Some key ideas to keep in mind:
-    -   It is easy to sort elements of an array relative to a particular
-        target value.
-    -   An array of 0 or 1 elements is already trivially sorted.
-        ![quicksort](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
+- QS is another Divide and Conquer strategy.
+- Some key ideas to keep in mind:
+  - It is easy to sort elements of an array relative to a particular
+    target value.
+  - An array of 0 or 1 elements is already trivially sorted.
+    ![quicksort](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
 
 ::: {#cb33 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function quick_Sort(origArray) {
   if (origArray.length <= 1) {
     return origArray;
@@ -1073,12 +1122,14 @@ function quick_Sort(origArray) {
   }
 }
 ```
+
 :::
 
 **binary search**
 
 ::: {#cb34 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const binarySearch = (array, target) => {
   let startIndex = 0;
   let endIndex = array.length - 1;
@@ -1103,24 +1154,23 @@ const binarySearch = (array, target) => {
   console.log("Target value not found in array");
 }
 ```
+
 :::
 
-**Notes**
-=========
+# **Notes**
 
-**Linked Lists**
-----------------
+## **Linked Lists**
 
--   A **`linked list`** represents a linear sequence of 'vertices' or
-    'nodes' and tracks three properties.
-    -   **`Head`** : The first node in the list.
-    -   **`Tail`** : The last node in the list.
-    -   **`Length`** : The number of nodes in the list; the list's
-        length.
--   **`Nodes`** : Simpler, smaller data structure that connects the
-    linked list.
--   Node Properties:
-    -   **`Value`** : THe actual value this node represents.
-    -   **`Next`** : The next node in the list (relative to this node).
-    -   **`Previous`** : The previous node in the list (relative to this
-        node).
+- A **`linked list`** represents a linear sequence of 'vertices' or
+  'nodes' and tracks three properties.
+  - **`Head`** : The first node in the list.
+  - **`Tail`** : The last node in the list.
+  - **`Length`** : The number of nodes in the list; the list's
+    length.
+- **`Nodes`** : Simpler, smaller data structure that connects the
+  linked list.
+- Node Properties:
+  - **`Value`** : THe actual value this node represents.
+  - **`Next`** : The next node in the list (relative to this node).
+  - **`Previous`** : The previous node in the list (relative to this
+    node).

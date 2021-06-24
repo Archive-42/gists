@@ -153,6 +153,7 @@ const store = useSelector(state => state.newReducer);
 const dispatch = useDispatch();
 
 return (
+
 <div>
 <span>{store.date}</span>
 <button onClick={() => dispatch(actionName(`${Date.now()}`))}>

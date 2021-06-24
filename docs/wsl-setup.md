@@ -1,40 +1,38 @@
-Setting up Windows Subsystem for Linux for Development
-======================================================
+# Setting up Windows Subsystem for Linux for Development
 
-*You must be running Windows 10 to perform this procedure.* If you are
+_You must be running Windows 10 to perform this procedure._ If you are
 using a different operating system, check [When should I set up a local
 environment](https://help.learn.co/en/articles/1394611-when-should-i-set-up-a-local-environment)
 to find out what setup instructions you should follow.
 
-*Note: It is no longer necessary to enable developer mode for Windows
-Subsystem Linux to work.*
+_Note: It is no longer necessary to enable developer mode for Windows
+Subsystem Linux to work._
 
-Getting Windows Ready
----------------------
+## Getting Windows Ready
 
 1.  Windows Subsystem Linux (WSL) is **not** automatically enabled on
     windows. So, to start off, we need to enable it!
 
-    a.  Go to your Windows Search bar and type in
-        `turn windows features on or off`
+    a. Go to your Windows Search bar and type in
+    `turn windows features on or off`
 
-    b.  Click on the result that matches your query. It will be in your
-        Control Panel. You should see something like this:
+    b. Click on the result that matches your query. It will be in your
+    Control Panel. You should see something like this:
 
     ![toggle windows
-    features](https://curriculum-content.s3.amazonaws.com/setup-instructions/turn-windows-features-on-or-off.png)
+features](https://curriculum-content.s3.amazonaws.com/setup-instructions/turn-windows-features-on-or-off.png)
 
-    c.  Scroll down until you see "Windows Subsystem for Linux" - ensure
-        its box is checked!
+    c. Scroll down until you see "Windows Subsystem for Linux" - ensure
+    its box is checked!
 
     ![wsl
-    checkbox](https://curriculum-content.s3.amazonaws.com/setup-instructions/wsl-turnon.png)
+checkbox](https://curriculum-content.s3.amazonaws.com/setup-instructions/wsl-turnon.png)
 
-    d.  Scroll up a bit until you see "Virtual Machine Platform." Turn
-        this feature on as well.
+    d. Scroll up a bit until you see "Virtual Machine Platform." Turn
+    this feature on as well.
 
     ![virtual machine platform
-    checkbox](https://curriculum-content.s3.amazonaws.com/setup-instructions/wsl-virtual-machine-platform.png)
+checkbox](https://curriculum-content.s3.amazonaws.com/setup-instructions/wsl-virtual-machine-platform.png)
 
     > **Note:** The "Virtual Machine Platform" was added in a February
     > 2020 update to Windows. If your computer has not received this
@@ -66,19 +64,18 @@ store](https://curriculum-content.s3.amazonaws.com/setup-instructions/ubuntu-cho
     making a username and password. Don't forget your password!
 
     ![open
-    ubuntu](https://curriculum-content.s3.amazonaws.com/setup-instructions/open-ubuntu.png)
+ubuntu](https://curriculum-content.s3.amazonaws.com/setup-instructions/open-ubuntu.png)
 
 Note: if you get an error at this step, see FAQ below.
 
-Start Outfitting your new Linux Subsystem: RVM / Ruby, learn-co, git, NodeJS, and Rails
----------------------------------------------------------------------------------------
+## Start Outfitting your new Linux Subsystem: RVM / Ruby, learn-co, git, NodeJS, and Rails
 
 7.  Once everything is set up, we can start setting up our system! Start
     off by running the following to download our dependencies:
 
 <!-- -->
 
-    sudo apt-get update  
+    sudo apt-get update
 
     sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev libpq-dev libgdbm-dev libncurses5-dev automake libtool bison gnupg postgresql postgresql-contrib
 
@@ -157,44 +154,43 @@ instructions.](https://help.github.com/articles/generating-a-new-ssh-key-and-add
 
     gem install learn-co
 
--   In your browser:
-    -   If you have connected your Github account to your Learn account,
-        navigate to learn.co/your\_github\_username
-    -   If you have not connected your Github account: Go to [your
-        profile](https://learn.co/account/profile) \> Learn Settings \>
-        Public Profile. Click on the link under **Username**
--   At the bottom of the page, you should see text that says
-    `OAuth Token:` followed by a token. Copy the token, and then go back
-    to your WSL terminal
--   Type:
+- In your browser:
+  - If you have connected your Github account to your Learn account,
+    navigate to learn.co/your_github_username
+  - If you have not connected your Github account: Go to [your
+    profile](https://learn.co/account/profile) \> Learn Settings \>
+    Public Profile. Click on the link under **Username**
+- At the bottom of the page, you should see text that says
+  `OAuth Token:` followed by a token. Copy the token, and then go back
+  to your WSL terminal
+- Type:
 
-        learn whoami
+      learn whoami
 
--   Paste in your token
+- Paste in your token
 
 You should now be fully authenticated with learn.
 
 13. Now let's get Node Version Manager, NodeJS, and Rails installed so
     we can make a bunch of stuff!
 
--   First, install NVM:
+- First, install NVM:
 
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
--   Then, reload bash profile into current session:
+- Then, reload bash profile into current session:
 
-        source ~/.bashrc
+      source ~/.bashrc
 
--   Next, install NodeJS:
+- Next, install NodeJS:
 
-        nvm install node
+      nvm install node
 
--   Now, Ruby on Rails:
+- Now, Ruby on Rails:
 
-        gem install rails
+      gem install rails
 
-Choose your programming editor: VSCode
---------------------------------------
+## Choose your programming editor: VSCode
 
 You can use any editor you want, but I am going to be walking through
 setting up VSCode.
@@ -206,16 +202,16 @@ setting up VSCode.
 
 15. To configure your Ubuntu terminal to be available in VSCode:
 
--   open up VSCode
--   open the Command Palette via `F1` or `Ctrl`+`Shift`+`p`
--   begin typing the following: `Terminal: Select Default Shell` until
-    you see it. Select that option.
+- open up VSCode
+- open the Command Palette via `F1` or `Ctrl`+`Shift`+`p`
+- begin typing the following: `Terminal: Select Default Shell` until
+  you see it. Select that option.
 
 ![command
 palette](https://curriculum-content.s3.amazonaws.com/setup-instructions/default-shell.png)
 
--   Once you select it, a few options will pop up. You want to select
-    WSL
+- Once you select it, a few options will pop up. You want to select
+  WSL
 
 ![WSL
 Terminal](https://curriculum-content.s3.amazonaws.com/setup-instructions/wsl-bash-selection.png)
@@ -224,65 +220,64 @@ Terminal](https://curriculum-content.s3.amazonaws.com/setup-instructions/wsl-bas
     Terminal" in the "Terminal" drop-down, or type `Ctrl`+`Shift`+\` in
     order to use it!
 
-17. Additional User Settings *(OPTIONAL)*:
+17. Additional User Settings _(OPTIONAL)_:
 
--   You can add a few things to your User Settings to customize and
-    improve your programming experience. Most importantly, we can make
-    VSCode treat .erb files like .html files, allowing us to use all the
-    same shortcuts and get the same syntax highlighting.
--   To open up user settings, again open up the Command Palette using
-    `F1` or `Ctr`+`Shift`+`p` and type
-    `Preferences: Open Settings (JSON)`
+- You can add a few things to your User Settings to customize and
+  improve your programming experience. Most importantly, we can make
+  VSCode treat .erb files like .html files, allowing us to use all the
+  same shortcuts and get the same syntax highlighting.
+- To open up user settings, again open up the Command Palette using
+  `F1` or `Ctr`+`Shift`+`p` and type
+  `Preferences: Open Settings (JSON)`
 
 ![Preferences -
 settings](https://curriculum-content.s3.amazonaws.com/setup-instructions/settings-json.png)
 
--   You will see a screen like this:
+- You will see a screen like this:
 
 ![Preferences -
 settings](https://curriculum-content.s3.amazonaws.com/setup-instructions/user-settings.png)
 
--   To have your erb files treated like html, add the following to your
-    user settings (circled above):
+- To have your erb files treated like html, add the following to your
+  user settings (circled above):
 
-        "emmet.includeLanguages": {
-            "erb": "html"
-        }
+      "emmet.includeLanguages": {
+          "erb": "html"
+      }
 
--   Some optional personal preferences that I like:
+- Some optional personal preferences that I like:
 
-        "window.zoomLevel": -1,
-        "editor.acceptSuggestionOnEnter": "off",
-        "editor.fontSize": 11,
-        "editor.fontFamily": "Hack, Consolas, 'Courier New', monospace",
+      "window.zoomLevel": -1,
+      "editor.acceptSuggestionOnEnter": "off",
+      "editor.fontSize": 11,
+      "editor.fontFamily": "Hack, Consolas, 'Courier New', monospace",
 
--   Note that for the Hack font to be usable, you have to download it.
-    You can check it out [here](https://sourcefoundry.org/hack/).
+- Note that for the Hack font to be usable, you have to download it.
+  You can check it out [here](https://sourcefoundry.org/hack/).
 
 18. Update your .learn-config
 
--   Travel to your Linux home directory by typing `cd`, you can change
-    your .learn-config by typing:
+- Travel to your Linux home directory by typing `cd`, you can change
+  your .learn-config by typing:
 
-        nano .learn-config
+      nano .learn-config
 
--   and customizing where you want the `learn open` command to save
-    labs, and setting your editor to VSCode. Here's what it should look
-    like:
+- and customizing where you want the `learn open` command to save
+  labs, and setting your editor to VSCode. Here's what it should look
+  like:
 
-        ---
-        :learn_directory: "/mnt/c/users/<your username>/dev/flatiron/labs"
-        :editor: code
+      ---
+      :learn_directory: "/mnt/c/users/<your username>/dev/flatiron/labs"
+      :editor: code
 
--   You save a file you have modified in `nano` by following the
-    directions at the bottom of the screen: click `Ctrl`+`X` and then
-    `y` and then `Enter` to save your changes.
+- You save a file you have modified in `nano` by following the
+  directions at the bottom of the screen: click `Ctrl`+`X` and then
+  `y` and then `Enter` to save your changes.
 
--   If you feel uncomfortable with these commands, check out the basic
-    Linux commands link below in the resources.
+- If you feel uncomfortable with these commands, check out the basic
+  Linux commands link below in the resources.
 
-Important Knowledge: Basic Use
-------------------------------
+## Important Knowledge: Basic Use
 
 Your terminal is actually accessing an Ubuntu Virtual Machine which is
 running inside of your Windows OS. If you ever `cd` in your terminal,
@@ -331,8 +326,7 @@ your VSCode editor can open to the correct location when you use
 (if you are in your Linux file system, VSCode will open, but not to the
 right spot).
 
-Adding A Flatiron Customization To Your Terminal
-------------------------------------------------
+## Adding A Flatiron Customization To Your Terminal
 
 Start out by ensuring you're back in the Linux home directory, with
 `cd ~` or just `cd`.
@@ -355,8 +349,7 @@ endings:
 
     dos2unix .bashrc
 
-Set up a directory for all of your labs
----------------------------------------
+## Set up a directory for all of your labs
 
 You'll notice that we set up our `.learn-config` file earlier with a
 path destination of
@@ -396,15 +389,15 @@ Also, you should be able to run the command
 at any time in your terminal and you will be taken to your `labs`
 directory. Give it a try!
 
-Phantomjs
----------
+## Phantomjs
 
 In the Javascript section of the Flatiron curriculum, some tests require
 phantomjs. If you run across an error related to phantomjs, do the
 following:
 
 ::: {#cb32 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sudo apt-get update
 sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
 sudo apt-get install libfreetype6 libfreetype6-dev -y
@@ -417,10 +410,10 @@ sudo mv $PHANTOM_JS /usr/local/share
 sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
 phantomjs --version
 ```
+
 :::
 
-Advanced topics: PostgreSQL setup (OPTIONAL)
---------------------------------------------
+## Advanced topics: PostgreSQL setup (OPTIONAL)
 
 **Setting up PostgreSQL allows simple production-level database
 integration into a Rails project. This allows easy hosting on Heroku
@@ -447,23 +440,23 @@ once connection is verified, you can quit by typing
 ![PGAdmin in
 start](https://curriculum-content.s3.amazonaws.com/setup-instructions/pgadmin-start.png)
 
--   This should open up pgAdmin in your browser. Start a server by
-    right-clicking "PostgreSQL" and selecting "Connect Server"
+- This should open up pgAdmin in your browser. Start a server by
+  right-clicking "PostgreSQL" and selecting "Connect Server"
 
 ![PostgreSQL
 selection](https://curriculum-content.s3.amazonaws.com/setup-instructions/start-server.png)
 ![PostgreSQL
 connect](https://curriculum-content.s3.amazonaws.com/setup-instructions/connect-server.png)
 
--   Enter the password you defined during the download
--   Your PostgreSQL server is running, and can now be integrated into
-    your projects.
--   You also want to set up a new user/role and password that you want
-    to use with your rails app. Ensure you give your user/role all
-    available permissions during setup.
-    -   During setup, ensure to fill out `Name` in the `General` tab,
-        `Password` in the `Definition` tab, and enable all permissions
-        in the `Privileges` tab.
+- Enter the password you defined during the download
+- Your PostgreSQL server is running, and can now be integrated into
+  your projects.
+- You also want to set up a new user/role and password that you want
+  to use with your rails app. Ensure you give your user/role all
+  available permissions during setup.
+  - During setup, ensure to fill out `Name` in the `General` tab,
+    `Password` in the `Definition` tab, and enable all permissions
+    in the `Privileges` tab.
 
 ![create
 user](https://curriculum-content.s3.amazonaws.com/setup-instructions/pgadmin-create-user.png)
@@ -473,56 +466,55 @@ permissions](https://curriculum-content.s3.amazonaws.com/setup-instructions/crea
 
 **EXAMPLE: CONNECTING YOUR POSTGRESQL SERVER TO YOUR RAILS APP**
 
--   Make sure your server is connected and roles are configured as
-    described above.
--   Make sure you are in a suitable directory (in your Windows file
-    system space) and create a Rails app configured to use PostgreSQL:
+- Make sure your server is connected and roles are configured as
+  described above.
+- Make sure you are in a suitable directory (in your Windows file
+  system space) and create a Rails app configured to use PostgreSQL:
 
-        rails new my-first-app --database=postgresql
+      rails new my-first-app --database=postgresql
 
--   Now, let's configure our `database.yml` file to allow our app to
-    connect to our database. Add the following to your
-    `config/database.yml` file under BOTH `development:` and `test:` You
-    will need to add a user and password which will correspond to the
-    roles we created in pgAdmin.
+- Now, let's configure our `database.yml` file to allow our app to
+  connect to our database. Add the following to your
+  `config/database.yml` file under BOTH `development:` and `test:` You
+  will need to add a user and password which will correspond to the
+  roles we created in pgAdmin.
 
-        host: localhost
-        user: your-postgres-username
-        password: your-postgres-usernames-password
+      host: localhost
+      user: your-postgres-username
+      password: your-postgres-usernames-password
 
--   We can now test our database and rails interoperability by first
-    setting up some architecture in our app:
+- We can now test our database and rails interoperability by first
+  setting up some architecture in our app:
 
-        rails g scaffold Post title:string body:text
+      rails g scaffold Post title:string body:text
 
--   now create and migrate a database:
+- now create and migrate a database:
 
-        rake db:create
-        rake db:migrate
+      rake db:create
+      rake db:migrate
 
--   If these fail, ensure you have added your database.yml
-    configurations under both the development AND test sections
+- If these fail, ensure you have added your database.yml
+  configurations under both the development AND test sections
 
--   Now, start a server: `rails s`
--   If you navigate to `localhost:3000` you should see that we are on
-    Rails!\
-    ![on
-    Rails](https://curriculum-content.s3.amazonaws.com/setup-instructions/on-rails.png)
--   Let's test our database by going to 'localhost:3000/posts'\
-    ![posts](https://curriculum-content.s3.amazonaws.com/setup-instructions/posts.png)
--   Now just follow the crud links and try to make a post! We should be
-    seeing our database working great with our rails app!
+- Now, start a server: `rails s`
+- If you navigate to `localhost:3000` you should see that we are on
+  Rails!\
+  ![on
+Rails](https://curriculum-content.s3.amazonaws.com/setup-instructions/on-rails.png)
+- Let's test our database by going to 'localhost:3000/posts'\
+  ![posts](https://curriculum-content.s3.amazonaws.com/setup-instructions/posts.png)
+- Now just follow the crud links and try to make a post! We should be
+  seeing our database working great with our rails app!
 
 ![database
 works](https://curriculum-content.s3.amazonaws.com/setup-instructions/database-works.png)
 
--   Hopefully, everything is working for you! Now you're ready to
-    develop using WSL!
+- Hopefully, everything is working for you! Now you're ready to
+  develop using WSL!
 
-------------------------------------------------------------------------
-
-FAQ
 ---
+
+## FAQ
 
 If you get the error:
 `Windows Subsystem for Linux has no installed distributions. Distributions can be installed by visiting the Windows Store: https://aka.ms/wslstore Press any key to continue...`
@@ -542,10 +534,9 @@ Manager](https://curriculum-content.s3.amazonaws.com/setup-instructions/lxss_man
 [You can check out the github issue
 here](https://github.com/Microsoft/WSL/issues/2576)
 
-------------------------------------------------------------------------
+---
 
-Resources
----------
+## Resources
 
 [Microsoft Documentation: Windows Subsystem for
 Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)\

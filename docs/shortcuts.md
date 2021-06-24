@@ -24,13 +24,11 @@ quokka on cur 6. **Ctrl + alt + L** \>\>\> turbo console log
 **VS Code...** \#\#Basic Editing Home / End \>\>\> Go to beginning/end
 of line Ctrl+Home \>\>\> Go to beginning of file
 
-Cursor and Selection
---------------------
+## Cursor and Selection
 
 Alt+Click \>\>\> Insert cursor
 
-Display
--------
+## Display
 
 Ctrl+Shift+V \>\>\> Open Markdown preview Ctrl+K , V \>\>\> Open
 Markdown preview to the side
@@ -38,14 +36,13 @@ Markdown preview to the side
 \#Windows Terminal Alt + direction \>\> resizes pane Ctrl + direction
 \>\> changes focus
 
-Capture2Text
-============
+# Capture2Text
 
 win + q \>\> perform ocr capture
 
 To kill specific ports
 
-``` {.console}
+```{.console}
   lsof -i :<port>
   echo "list of PID"
   kill -9 <PID>

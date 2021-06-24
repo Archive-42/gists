@@ -1,32 +1,31 @@
-Nodejs worker threads
-=====================
+# Nodejs worker threads
 
 Proper concurrency in nodejs: "getting golang goroutines in node"
 
--   For CPU consuming sync tasks (not IO), similar to spawn but with
-    less costs and posibility to share memory
--   Not for shared http/websockets (use cluster or spawn for that)
--   https://nodejs.org/api/worker\_threads.html
+- For CPU consuming sync tasks (not IO), similar to spawn but with
+  less costs and posibility to share memory
+- Not for shared http/websockets (use cluster or spawn for that)
+- https://nodejs.org/api/worker\_threads.html
 
-Using **microjob** library
---------------------------
+## Using **microjob** library
 
--   Launch 4 fibonacci sync processes in parallel
--   Cool thing: you pass a function, not .js file, so basically you kind
-    of have **go coroutines** syntax in nodejs
--   https://github.com/wilk/microjob
+- Launch 4 fibonacci sync processes in parallel
+- Cool thing: you pass a function, not .js file, so basically you kind
+  of have **go coroutines** syntax in nodejs
+- https://github.com/wilk/microjob
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function workFib (num) {
-  
+
   function fibRec(nRec) {
     if (nRec <= 1) {
       return nRec
     }
     return fibRec(nRec-1) + fibRec(nRec-2)
   }
-  
+
   let result = fibRec(num)
   return result;
 }
@@ -39,7 +38,7 @@ const workLoop = (data) => {
   console.log('starting data 3', data)
   for (i = 0; i < data; i++) {
     // heavy CPU load ...
-    
+
   }
 
   return i;
@@ -50,16 +49,16 @@ let work = workFib;
 
 (async () => {
   const { job, start, stop } = require("microjob");
-  
+
   try {
     // start the worker pool
     await start();
- 
-    let results 
+
+    let results
     let startTime = Date.now();
 
-    // work(2000000000); // approx 1 second 
-    // work(2000000000); // approx 1 second 
+    // work(2000000000); // approx 1 second
+    // work(2000000000); // approx 1 second
 
     let count = 0
     let jobs = []
@@ -72,26 +71,27 @@ let work = workFib;
     console.log('jobs sent');
     results = await Promise.all(jobs)
 
-    console.log(`jobs done in ${Date.now()-startTime}`, results) 
+    console.log(`jobs done in ${Date.now()-startTime}`, results)
     console.log('count', count)
-    
-  } catch (err) {  console.error(err);  } 
+
+  } catch (err) {  console.error(err);  }
   finally {  await stop();  } // shutdown worker pool
 
 
 })();
 ```
+
 :::
 
-My own naive approach
----------------------
+## My own naive approach
 
--   My first attempt to grasp the concepts
+- My first attempt to grasp the concepts
 
 ### createThreadedJobQueue.js
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 /*
   TODO: auto restart worker on crash
 */
@@ -108,7 +108,7 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
 
   numWorkers = numWorkers || numCPUs
 
-  
+
   // pick first non-busy workerReg
   let pickWorkerReg = () => {
     for (let workerReg of workersReg) {
@@ -132,7 +132,7 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
       // save result
       jobDoneCallback(ev.props);
 
-      // assign a new job to 
+      // assign a new job to
       let workerReg = workersReg[ev.workerId]
       workerReg.busy=false;
       assignNextJob()
@@ -146,7 +146,7 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
       }
 
     }
-    
+
   }
 
   function createWorker(workerId, onWorkerEvent) {
@@ -159,7 +159,7 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
     worker.on('message', (props)=>onWorkerEvent({workerId, type:'message', props:props}));
     worker.on('error', (err)=>onWorkerEvent({workerId, type:'error', props:err}));
     worker.on('exit', (code)=>onWorkerEvent({workerId, type:'exit', props:code}));
-    
+
     return worker;
   }
 
@@ -173,7 +173,7 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
     let job = jobs.shift();
     if (!job) return;
     console.log('assigning', job.type, job.props, 'to worker', workerReg.workerId);
-    workerReg.busy = true; 
+    workerReg.busy = true;
     workerReg.worker.postMessage(job);
   }
 
@@ -185,16 +185,16 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
 
   // -- return
   let queueInterface = {
-    push(requestedJob) { 
+    push(requestedJob) {
       let requestedJobs = Array.isArray(requestedJob) ? requestedJob : [requestedJob]
       for (let rj of requestedJobs) {
-        jobs.push(rj) 
+        jobs.push(rj)
         assignNextJob()
       }
     },
 
-    close() { 
-      jobsClosed = true 
+    close() {
+      jobsClosed = true
     },
 
     onJobDone(cb)  {
@@ -204,23 +204,25 @@ module.exports = function createThreadedJobQueue (workerFile, numWorkers) {
   return queueInterface;
 }
 ```
+
 :::
 
 ### thread-worker.js
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const { parentPort, workerData } = require('worker_threads');
 
 function fib (num) {
-  
+
   function fibRec(nRec) {
     if (nRec <= 1) {
       return nRec
     }
     return fibRec(nRec-1) + fibRec(nRec-2)
   }
-  
+
   //console.log('- starting fib', num);
   let result = fibRec(num)
   return result;
@@ -230,12 +232,14 @@ parentPort.on("message",msg=>{  // {job:'fib', props:, result:}
   parentPort.postMessage({...msg, result: fib(msg.props)});
 })
 ```
+
 :::
 
 ### thread-main.js
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 let createThreadedJobQueue = require('./createThreadedJobQueue');
 
 const path = require('path');
@@ -260,14 +264,14 @@ console.log('jobs requested')
 
 //mainThread().catch(e=>{console.log(e);process.exit(1)});
 ```
+
 :::
 
-Somehow related
----------------
+## Somehow related
 
--   threads: works both in browser (web workers) and node (worker
-    threads) with the same interface
-    -   https://github.com/andywer/threads.js
--   parallel-js: uses spawn instead of workers, but works in browser
-    with web workers as well
-    -   https://github.com/wilk/microjob
+- threads: works both in browser (web workers) and node (worker
+  threads) with the same interface
+  - https://github.com/andywer/threads.js
+- parallel-js: uses spawn instead of workers, but works in browser
+  with web workers as well
+  - https://github.com/wilk/microjob

@@ -1,5 +1,4 @@
-9 fancy title design in CSS you need to learn now
-=================================================
+# 9 fancy title design in CSS you need to learn now
 
 > Learn how to EASILY create fancy looking title with only CSS
 

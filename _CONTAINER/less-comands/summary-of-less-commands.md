@@ -28,7 +28,9 @@ F Forward forever; like "tail -f".
 ESC-F Like F but stop when search pattern is found.
 r ^R ^L Repaint screen.
 R Repaint screen, discarding buffered input.
----------------------------------------------------
+
+---
+
 Default "window" is the screen height.
 Default "half-window" is half of the screen height.
 
@@ -43,11 +45,13 @@ N _ Repeat previous search in reverse direction.
 ESC-n _ Repeat previous search, spanning files.
 ESC-N _ Repeat previous search, reverse dir. & spanning files.
 ESC-u Undo (toggle) search highlighting.
-&pattern _ Display only matching lines
----------------------------------------------------
+&pattern \_ Display only matching lines
+
+---
+
 A search pattern may begin with one or more of:
 ^N or ! Search for NON-matching lines.
-^E or _ Search multiple files (pass thru END OF FILE).
+^E or \_ Search multiple files (pass thru END OF FILE).
 ^F or @ Start search at FIRST file (for /) or last file (for ?).
 ^K Highlight matches, but don't move (KEEP position).
 ^R Don't use REGULAR EXPRESSIONS.
@@ -65,7 +69,9 @@ T _ Go to the (N-th) previous tag.
 } ) ] _ Find open bracket { ( [.
 ESC-^F <c1> <c2> _ Find close bracket <c2>.
 ESC-^B <c1> <c2> \* Find open bracket <c1>
----------------------------------------------------
+
+---
+
 Each "find close bracket" command goes forward to the close bracket
 matching the (N-th) open bracket in the top line.
 Each "find open bracket" command goes backward to the open bracket
@@ -77,7 +83,9 @@ M<letter> Mark the current bottom line with <letter>.
 '' Go to the previous position.
 ^X^X Same as '.
 ESC-M<letter> Clear a mark.
----------------------------------------------------
+
+---
+
 A mark is any upper-case or lower-case letter.
 Certain marks are predefined:
 ^ means beginning of the file

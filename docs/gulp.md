@@ -1,5 +1,4 @@
-Gulp
-----
+## Gulp
 
 https://css-tricks.com/the-simplest-ways-to-handle-html-includes/
 

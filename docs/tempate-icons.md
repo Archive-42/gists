@@ -26,7 +26,7 @@ icon](docs/icons/typescript.svg "TypeScript") ![Ruby
 icon](docs/icons/ruby.svg "Ruby") ![Ruby On Rails
 icon](docs/icons/rubyonrails.svg "Ruby On Rails") ![C
 icon](docs/icons/c.svg "C") ![C++ icon](docs/icons/cplusplus.svg "C++")
-![C\# icon](docs/icons/csharp.svg "C#") ![Java
+![C# icon](docs/icons/csharp.svg "C#") ![Java
 icon](docs/icons/java.svg "Java") ![Kotlin
 icon](docs/icons/kotlin.svg "Kotlin") ![Swift
 icon](docs/icons/swift.svg "Swift") ![Go icon](docs/icons/go.svg "Go")
@@ -71,7 +71,7 @@ icon](docs/icons/postman.svg "Postman") ![GitKraken
 icon](docs/icons/gitkraken.svg "GitKraken")
 
 **GAME ENGINES**\
-![Ren\'Py icon](docs/icons/renpy.svg "Ren'Py") ![Stencyl
+![Ren'Py icon](docs/icons/renpy.svg "Ren'Py") ![Stencyl
 icon](docs/icons/stencyl.svg "Stencyl") ![Unity
 icon](docs/icons/unity.svg "Unity") ![Scratch
 icon](docs/icons/scratch.svg "Scratch") ![Unreal

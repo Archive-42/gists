@@ -925,7 +925,8 @@ Let's say we want to use promises to handle an AJAX request to fetch the resourc
 We firstly are going to create a promise. We will use the jQuery get method to do our AJAX request to X.
 
 ```js
-const xFetcherPromise = new Promise(function (resolve, reject) { // Create promise using "new" keyword and store it into a variable
+const xFetcherPromise = new Promise(function (resolve, reject) {
+  // Create promise using "new" keyword and store it into a variable
   // Promise constructor takes a function parameter which has resolve and reject parameters itself
   $.get("X") // Launch the AJAX request
     .done(function (X) {

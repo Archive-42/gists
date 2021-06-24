@@ -1,4 +1,4 @@
-                                            Version           
+                                            Version
 
 ScreenToGif 2.30.0\
 HOTKEY 1.0.1\

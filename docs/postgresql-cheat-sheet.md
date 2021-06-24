@@ -1,8 +1,10 @@
 =========================== \#\# PostgreSQL commands
 =========================== \| \| \| \|
---------------------------------------------------------------------------------------
-\|
------------------------------------------------------------------------------------------------------------------------------
+
+---
+
+## \|
+
 \| \| Access the PostgreSQL server from **psql** with a specific user:
 `psql -U [username];` \| Connect to a specific
 database:`\c database_name;` \| \| To quit the psql:`\q` \| [List all
@@ -309,8 +311,7 @@ Delete specific rows based on a condition:
     DELETE FROM table_name
     WHERE condition;
 
-Performance
------------
+## Performance
 
 Show the query plan for a query:
 
@@ -320,4 +321,4 @@ Show and execute the query plan for a query:
 
     EXPLAIN ANALYZE query;
 
-Collect statistics: \`\`\` ANALYZE table\_name;
+Collect statistics: \`\`\` ANALYZE table_name;

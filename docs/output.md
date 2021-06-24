@@ -1,90 +1,113 @@
 \#Useful Commands!
 
-  \*\*\*
-  --------
-  \*\*\*
-  \|\|
-  \|\|
-  V
+\*\*\*
+
+---
+
+\*\*\*
+\|\|
+\|\|
+V
 
 1. Download Links of a specific file extension from website
------------------------------------------------------------
+
+---
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .bash}
- wget -r -A.pdf https://overapi.com/gitwget --wait=2 --level=inf --limit-rate=20K --recursive --page-requisites --user-agent=Mozilla --no-parent --convert-links --adjust-extension --no-clobber -e robots=off  
+
+```{.sourceCode .bash}
+ wget -r -A.pdf https://overapi.com/gitwget --wait=2 --level=inf --limit-rate=20K --recursive --page-requisites --user-agent=Mozilla --no-parent --convert-links --adjust-extension --no-clobber -e robots=off
 ```
+
 :::
 
 2. Download Website for ofline use...
--------------------------------------
+
+---
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sudo apt install httrack
 httrack --ext-depth=2 _**url**_
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 3. Recursivley remove files named cookies.txt
----------------------------------------------
+
+---
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -name cookies.txt -type f -exec rm -rf {} \;
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 4. Recursivley remove lines of text contaning the string badFolder from files in the working directory.
--------------------------------------------------------------------------------------------------------
+
+---
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -type f -exec sed -i '/badFolder/d' ./* {} \;
 ```
+
 :::
 
-------
-------
+---
 
-5. Recursivley Install node\_modules
-------------------------------------
+---
+
+5. Recursivley Install node_modules
+
+---
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 npm i -g recursive-install
 
 
 
 npm-recursive-install
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 6. Recursivley Exicute any sequence of commands
------------------------------------------------
+
+---
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 function RecurseDirs ()
 {
     oldIFS=$IFS
     IFS=$'\n'
     for f in "$@"
     do
-  
+
   # YOUR CODE HERE!
    for file in *; do mv "$file" `echo $file | tr ' ' '_'` ; done
-  
-  
+
+
         if [[ -d "${f}" ]]; then
             cd "${f}"
             RecurseDirs $(ls -1 ".")
@@ -95,40 +118,52 @@ function RecurseDirs ()
 }
 RecurseDirs "./"
 ```
+
 :::
 
--------
--------
+---
 
-7. Copy any text between \<**script**\> tags in a file called *example.html* to be inserted into a new file: *out.js*
----------------------------------------------------------------------------------------------------------------------
+---
+
+7. Copy any text between \<**script**\> tags in a file called _example.html_ to be inserted into a new file: _out.js_
+
+---
 
 ::: {#cb7 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sed -n -e '/<script>/,/<\/script>/p' example.html >out.js
 ```
+
 :::
 
-------
-------
+---
 
-8. Recursivley Delete node\_modules folders
--------------------------------------------
+---
+
+8. Recursivley Delete node_modules folders
+
+---
 
 ::: {#cb8 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -name 'node_modules' -type d -print -prune -exec rm -rf '{}' +
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 9. Sanatize file and folder names to remove illegal characters and reserved words.
-----------------------------------------------------------------------------------
+
+---
 
 ::: {#cb9 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sanitize() {
   shopt -s extglob;
 
@@ -152,133 +187,164 @@ sanitize_dir() {
 
 sanitize_dir '/path/to/somewhere'
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 10. Start postgresql in terminal
---------------------------------
+
+---
 
 ::: {#cb10 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
  sudo -u postgres psql
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 11. Add closing body and script tags to each html file in working directory.
-----------------------------------------------------------------------------
+
+---
 
 ::: {#cb11 .sourceCode}
-``` {.sourceCode .bash}
-for f in * ; do 
+
+```{.sourceCode .bash}
+for f in * ; do
   mv "$f" "$f.html"
 doneecho "<form>
  <input type="button" value="Go back!" onclick="history.back()">
 </form>
-  </body></html>" | tee -a *.html  
+  </body></html>" | tee -a *.html
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 12. Batch Download Videos
--------------------------
+
+---
 
 ::: {#cb12 .sourceCode}
-``` {.sourceCode .bash}
-#!/bin/bash 
 
- 
-link="#insert url here#" 
-#links were a set of strings with just the index of the video as the variable 
- 
-num=3  
-#first video was numbered 3 - weird.  
- 
-ext=".mp4" 
- 
-while [ $num -le 66 ] 
-do 
-      wget $link$num$ext -P ~/Downloads/ 
-      num=$(($num+1)) 
-done 
+```{.sourceCode .bash}
+#!/bin/bash
+
+
+link="#insert url here#"
+#links were a set of strings with just the index of the video as the variable
+
+num=3
+#first video was numbered 3 - weird.
+
+ext=".mp4"
+
+while [ $num -le 66 ]
+do
+      wget $link$num$ext -P ~/Downloads/
+      num=$(($num+1))
+done
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 13. Change File Extension from '.txt' to .doc for all files in working directory.
----------------------------------------------------------------------------------
+
+---
 
 ::: {#cb13 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
   sudo apt install rename
 
 
 rename 's/\.txt$/.doc/' *.txt
 ```
+
 :::
 
 14. Recursivley change any file with extension .js.download to .js
-------------------------------------------------------------------
+
+---
 
 ::: {#cb14 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -name "*.\.js\.download" -exec rename 's/\.js\.download$/.js/' '{}' +
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 15. Copy folder structure including only files of a specific extension into an ouput Folder
--------------------------------------------------------------------------------------------
+
+---
 
 ::: {#cb15 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -name '*.md' | cpio -pdm './../outputFolder'
 ```
+
 :::
 
-------
-------
+---
 
-\# **PANDOC!!!**
-----------------
+---
 
-------------------------------------------------------------------------
+## \# **PANDOC!!!**
+
+---
 
 > sudo apt install pandoc
 >
 > 1\`\`\`bash pandoc -s file.txt -o file.rtf---
 
 ::: {#cb16 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 
 pandoc *.md> -o _example.html
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb17 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find ./ -iname "*.html" -type f -exec sh -c 'pandoc "${0}" -o "${0%.html}.md"' {} \;
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb18 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 
 find ./ -iname "*.md" -type f -exec sh -c 'pandoc "${0}" -o "${0%.md}.html"' {} \;
 
@@ -299,13 +365,16 @@ echo "<form>
 </form>
   </body></html>" | tee -a *.html
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb19 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 for x in "./"/*/; do
   (cd "$x"
    files=(*)
@@ -313,46 +382,58 @@ for x in "./"/*/; do
   )
 done
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb20 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -size +75M -a -print -a -exec rm -f {} \;
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb21 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . \( -name ".git" -o -name ".gitignore" -o -name ".gitmodules" -o -name ".gitattributes" \) -exec rm -rf -- {} +
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 > check what you are about to delete before deleting:
 
 ::: {#cb22 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -name "*.zip" -type f -print
 
 #Delete:
 
 find . -name "*.zip" -type f -print -delete#!/bin/sh
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb23 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find ./ | sed -E -e 's/([^ ]+[ ]+){8}//' | grep -i "\.*$">files
 listing="files"
 
@@ -450,114 +531,135 @@ echo '  </style>'
 
 cmd $listing --sort=extension >>$html
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb24 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sudo apt install uniq
 
 
 
 uniq -u input.txt output.txt
 ```
+
 :::
 
-------
-------
+---
 
-``` {.git}
+---
+
+```{.git}
 git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch assets/_website-components/0-DOJO/widgets-master/output/info/stats.json' HEAD
 ```
 
-------
-------
+---
+
+---
 
 ::: {#cb26 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find ./ | grep -i "\.html*$"
 ls -R './' | awk '
 /:$/&&f{s=$0;f=0}
 /:$/&&!f{sub(/:$/,"");s=$0;f=1;next}
 NF&&f{ print s"/"$0 }'>listing.md
 ```
+
 :::
 
-------
-------
+---
 
-Recursivley remove from all html files any lines contaning the string "badText"
-===============================================================================
+---
+
+# Recursivley remove from all html files any lines contaning the string "badText"
 
 ::: {#cb27 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -type f -exec sed -i '/badText/d' ./*.html {} \;
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 \#install unzip:
 
 ::: {#cb28 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sudo apt install unzip
 
 # recursivley unzip all zip files into a folder by the same name:
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; done;
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-recursivley delete .zip files when done:
-========================================
+# recursivley delete .zip files when done:
 
 ::: {#cb29 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . -name "*.zip" -type f -print -delete
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb30 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 n=1;
 max=50;
 while [ "$n" -le "$max" ]; do
   mkdir "s$n"
   n=`expr "$n" + 1`;
-done 
+done
 ```
+
 :::
 
-------
-------
+---
 
-``` {.git}
+---
+
+```{.git}
   git config --global credential.helper store
 ```
 
-------
-------
+---
+
+---
 
 ::: {#cb32 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 
 sed -i '/target-string/d' ./js-in-one-page.html
 ```
+
 :::
 
-examples:
-=========
+# examples:
 
 ::: {#cb33 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 sed -i '/\.git/d' ./index.html
 
 # Recursive
@@ -565,13 +667,16 @@ sed -i '/\.git/d' ./index.html
 
 find . -type f -a \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.md" \) -a -exec sed -i  '/BADSTRING/d' '{}' +
 ```
+
 :::
 
-------
-------
+---
+
+---
 
 ::: {#cb34 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 # recursivley remove empty files
 
 find . -empty -type f -print -delete
@@ -581,32 +686,38 @@ find . -empty -type f -print -delete
 # recursivley remove empty folders
 find . -empty -type d -print -delete
 ```
+
 :::
 
-------
-------
+---
 
-recursively remove .git folder, .gitignore file and .gitmodules file and .gitattributes file
-============================================================================================
+---
+
+# recursively remove .git folder, .gitignore file and .gitmodules file and .gitattributes file
 
 ::: {#cb35 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 find . \( -name ".git" -o -name ".gitignore" -o -name ".gitmodules" -o -name ".gitattributes" \) -exec rm -rf -- {} +
 ```
+
 :::
 
-------
-------
+---
 
-Recursivley remove security, release, changelog, License & contributing files
-=============================================================================
+---
+
+# Recursivley remove security, release, changelog, License & contributing files
 
 ::: {#cb36 .sourceCode}
-``` {.sourceCode .bash}
+
+```{.sourceCode .bash}
 
 find . \( -name "*SECURITY.txt" -o -name "*RELEASE.txt" -o  -name "*CHANGELOG.txt" -o -name "*LICENSE.txt" -o -name "*CONTRIBUTING.txt" -name "*HISTORY.md" -o -name "*LICENSE" -o -name "*SECURITY.md" -o -name "*RELEASE.md" -o  -name "*CHANGELOG.md" -o -name "*LICENSE.md" -o -name "*CODE_OF_CONDUCT.md" -o -name "*CONTRIBUTING.md" \) -exec rm -rf -- {} +
 ```
+
 :::
 
-------
-------
+---
+
+---

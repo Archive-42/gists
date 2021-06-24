@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>preact-webcomponent-snowpack</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="web-componentes-with-preact-and-snowpack">web componentes with preact and snowpack</h1>
-<h2 id="index.jsx">index.jsx</h2>
-<pre class="jsx"><code>  const Greeting = ({name = &quot;World&quot;}) =&gt; (
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>preact-webcomponent-snowpack</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="web-componentes-with-preact-and-snowpack">
+      web componentes with preact and snowpack
+    </h1>
+    <h2 id="index.jsx">index.jsx</h2>
+    <pre
+      class="jsx"
+    ><code>  const Greeting = ({name = &quot;World&quot;}) =&gt; (
     &lt;p&gt;Hello, {name}!&lt;/p&gt;
   );
   preactCE(Greeting, &quot;x-greeting&quot;, [&quot;name&quot;]);</code></pre>
-<h2 id="index.html">index.html</h2>
-<pre><code>&lt;!DOCTYPE html&gt;
+    <h2 id="index.html">index.html</h2>
+    <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -40,11 +57,11 @@
   &lt;x-greeting name=&quot;yey&quot;&gt;&lt;/x-greeting&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<h2 id="dev-and-build">dev and build</h2>
-<p>Having <code>npm install -g snowpack</code></p>
-<ul>
-<li>snowpack dev</li>
-<li>snowpack build</li>
-</ul>
-</body>
+    <h2 id="dev-and-build">dev and build</h2>
+    <p>Having <code>npm install -g snowpack</code></p>
+    <ul>
+      <li>snowpack dev</li>
+      <li>snowpack build</li>
+    </ul>
+  </body>
 </html>

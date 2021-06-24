@@ -4,8 +4,7 @@ SUMMARY OF LESS COMMANDS
       Notes in parentheses indicate the behavior if N is given.
       A key preceded by a caret indicates the Ctrl key; thus ^K is ctrl-K.
 
-h H Display this help. q :q Q :Q ZZ Exit.
----------------------------------------------------------------------------
+## h H Display this help. q :q Q :Q ZZ Exit.
 
                            MOVING
 
@@ -24,7 +23,8 @@ when search pattern is found. r \^R \^L Repaint screen. R Repaint
 screen, discarding buffered input.
 --------------------------------------------------- Default "window" is
 the screen height. Default "half-window" is half of the screen height.
----------------------------------------------------------------------------
+
+---
 
                           SEARCHING
 
@@ -40,7 +40,8 @@ or \* Search multiple files (pass thru END OF FILE). \^F or @ Start
 search at FIRST file (for /) or last file (for ?). \^K Highlight
 matches, but don't move (KEEP position). \^R Don't use REGULAR
 EXPRESSIONS.
----------------------------------------------------------------------------
+
+---
 
                            JUMPING
 
@@ -61,7 +62,8 @@ m Mark the current top line with . M Mark the current bottom line with .
 --------------------------------------------------- A mark is any
 upper-case or lower-case letter. Certain marks are predefined: \^ means
 beginning of the file \$ means end of the file
----------------------------------------------------------------------------
+
+---
 
                         CHANGING FILES
 
@@ -70,7 +72,8 @@ beginning of the file \$ means end of the file
 previous file from the command line. :x \* Examine the first (or N-th)
 file from the command line. :d Delete the current file from the command
 line list. = \^G :f Print current file name.
----------------------------------------------------------------------------
+
+---
 
                     MISCELLANEOUS COMMANDS
 
@@ -83,7 +86,8 @@ less cmd each time a new file is examined.
 between current pos & mark X to shell command. s file Save input to a
 file. v Edit the current file with \$VISUAL or \$EDITOR. V Print version
 number of "less".
----------------------------------------------------------------------------
+
+---
 
                      OPTIONS
 
@@ -136,7 +140,7 @@ across invocations of less. --use-backslash Subsequent options use
 backslash as escape char. --wheel-lines=N Each click of the mouse wheel
 moves N lines.
 
-------------------------------------------------------------------------
+---
 
                           LINE EDITING
 

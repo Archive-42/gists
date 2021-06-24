@@ -1,5 +1,4 @@
-Windows Subsytem for Linux (WSL) and Ubuntu
--------------------------------------------
+## Windows Subsytem for Linux (WSL) and Ubuntu
 
 Test if you have Ubuntu installed by typing "Ubuntu" in the search box
 in the bottom app bar that reads "Type here to search". If you see a
@@ -8,133 +7,132 @@ then you have it installed.
 
 1.  In the application search box in the bottom bar, type "PowerShell"
     to find the application named "Windows PowerShell"
-2.  
+2.
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 3.  Right-click on "Windows PowerShell" and choose "Run as
     administrator" from the popup menu
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 4.  In the blue PowerShell window, type the following:
     `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 5.  Restart your computer
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 6.  In the application search box in the bottom bar, type "Store" to
     find the application named "Microsoft Store"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 7.  Click "Microsoft Store"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 8.  Click the "Search" button in the upper-right corner of the window
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 9.  Type in "Ubuntu"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 10. Click "Run Linux on Windows (Get the apps)"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 11. Click the orange tile labeled **"Ubuntu 18.04 LTS"** UBUNTU VERSION
     MUST BE 18.04 OR GREATER
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 12. Click "Install"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 13. After it downloads, click "Launch"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 14. If you get the option, pin the application to the task bar.
     Otherwise, right-click on the orange Ubuntu icon in the task bar and
     choose "Pin to taskbar"
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 15. Wait for it to install the local files
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 16. When prompted to "Enter new UNIX username", type your first name
     with no spaces
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 17. When prompted, enter and retype a password for this UNIX user (it
     can be the same as your Windows password)
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 18. Confirm your installation by typing the command `whoami` followed by
     Enter at the prompt (it should print your first name)
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 19. You need to update your packages, so type `sudo apt update` (if
     prompted for your password, enter it)
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
 20. You need to upgrade your packages, so type `sudo apt upgrade` (if
     prompted for your password, enter it)
 
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-Git
 ---
+
+---
+
+## Git
 
 Git comes with Ubuntu, so there's nothing to install. However, you
 should configure it using the following instructions.
@@ -147,8 +145,7 @@ should configure it using the following instructions.
     `git config --global user.email your@email.com` with replacing
     "your\@email.com" with your real email.
 
-Google Chrome
--------------
+## Google Chrome
 
 Test if you have Chrome installed by typing "Chrome" in the search box
 in the bottom app bar that reads "Type here to search". If you see a
@@ -166,8 +163,7 @@ Chrome.
 2.  Right-click on the Chrome icon in the task bar and choose "Pin to
     taskbar".
 
-Node.js
--------
+## Node.js
 
 Test if you have Node.js installed by opening an Ubuntu terminal and
 typing `node --version`. If it reports "Command 'node' not found", then
@@ -184,8 +180,7 @@ you need to follow these directions.
 6.  Confirm that **node** is installed by typing `node --version` and
     seeing it print something that is not "Command not found"!
 
-Unzip
------
+## Unzip
 
 For your projects you will often have to download a zip file and unzip
 it. It is easier to do this from the command line. So we need to install
@@ -193,30 +188,26 @@ a linux unzip utility.
 
 In the Ubuntu terminal type: `sudo apt install unzip` and press Enter
 
-Mocha.js
---------
+## Mocha.js
 
 Test if you have Mocha.js installed by opening an Ubuntu terminal and
 typing `which mocha`. If it prints a path, then you're good. Otherwise,
 if it prints nothing, install Mocha.js by typing `npm install -g mocha`.
 
-Python 3
---------
+## Python 3
 
 Ubuntu does not come with Python 3. Install it using the command
 `sudo apt install python3`. Test it by typing `python3 --version` and
 seeing it print a number.
 
-*Note about WSL*
-----------------
+## _Note about WSL_
 
 As of the time of writing of this document, WSL has an issue renaming or
 deleting files if Visual Studio Code is open. So before doing any linux
 commands which manipulate files, make sure you **close** Visual Studio
 Code before running those commands in the Ubuntu terminal.
 
-Preparing your machine
-----------------------
+## Preparing your machine
 
 The commands you need to enter are listed below. Here we will install
 basic developer tools, such as [homebrew](https://brew.sh/) (a 3rd party
@@ -363,6 +354,6 @@ Here are the instructions of how to install `mocha`!
 
 ### Installing Python3
 
-You can just use *homebrew* for this install, too.
+You can just use _homebrew_ for this install, too.
 
     brew install python

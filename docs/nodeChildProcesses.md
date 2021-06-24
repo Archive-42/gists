@@ -1,10 +1,9 @@
-Child process \| Node.js v15.12.0 Documentation
-===============================================
+# Child process \| Node.js v15.12.0 Documentation
 
-> Source Code: lib/child\_process.js
+> Source Code: lib/child_process.js
 
 **Source Code:**
-[lib/child\_process.js](https://github.com/nodejs/node/blob/v15.12.0/lib/child_process.js)
+[lib/child_process.js](https://github.com/nodejs/node/blob/v15.12.0/lib/child_process.js)
 
 The `child_process` module provides the ability to spawn subprocesses in
 a manner that is similar, but not identical, to
@@ -66,26 +65,26 @@ Each of these alternatives are implemented on top of
 or
 [`child_process.spawnSync()`](#child_process_child_process_spawnsync_command_args_options).
 
--   [`child_process.exec()`](#child_process_child_process_exec_command_options_callback):
-    spawns a shell and runs a command within that shell, passing the
-    `stdout` and `stderr` to a callback function when complete.
--   [`child_process.execFile()`](#child_process_child_process_execfile_file_args_options_callback):
-    similar to
-    [`child_process.exec()`](#child_process_child_process_exec_command_options_callback)
-    except that it spawns the command directly without first spawning a
-    shell by default.
--   [`child_process.fork()`](#child_process_child_process_fork_modulepath_args_options):
-    spawns a new Node.js process and invokes a specified module with an
-    IPC communication channel established that allows sending messages
-    between parent and child.
--   [`child_process.execSync()`](#child_process_child_process_execsync_command_options):
-    a synchronous version of
-    [`child_process.exec()`](#child_process_child_process_exec_command_options_callback)
-    that will block the Node.js event loop.
--   [`child_process.execFileSync()`](#child_process_child_process_execfilesync_file_args_options):
-    a synchronous version of
-    [`child_process.execFile()`](#child_process_child_process_execfile_file_args_options_callback)
-    that will block the Node.js event loop.
+- [`child_process.exec()`](#child_process_child_process_exec_command_options_callback):
+  spawns a shell and runs a command within that shell, passing the
+  `stdout` and `stderr` to a callback function when complete.
+- [`child_process.execFile()`](#child_process_child_process_execfile_file_args_options_callback):
+  similar to
+  [`child_process.exec()`](#child_process_child_process_exec_command_options_callback)
+  except that it spawns the command directly without first spawning a
+  shell by default.
+- [`child_process.fork()`](#child_process_child_process_fork_modulepath_args_options):
+  spawns a new Node.js process and invokes a specified module with an
+  IPC communication channel established that allows sending messages
+  between parent and child.
+- [`child_process.execSync()`](#child_process_child_process_execsync_command_options):
+  a synchronous version of
+  [`child_process.exec()`](#child_process_child_process_exec_command_options_callback)
+  that will block the Node.js event loop.
+- [`child_process.execFileSync()`](#child_process_child_process_execfilesync_file_args_options):
+  a synchronous version of
+  [`child_process.execFile()`](#child_process_child_process_execfile_file_args_options_callback)
+  that will block the Node.js event loop.
 
 For certain use cases, such as automating shell scripts, the
 [synchronous counterparts](#child_process_synchronous_process_creation)
@@ -93,8 +92,7 @@ may be more convenient. In many cases, however, the synchronous methods
 can have significant impact on performance due to stalling the event
 loop while spawned processes complete.
 
-Asynchronous process creation[\#](#child_process_asynchronous_process_creation)
--------------------------------------------------------------------------------
+## Asynchronous process creation[\#](#child_process_asynchronous_process_creation)
 
 The
 [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options),
@@ -172,76 +170,76 @@ quoted.
     const bat = spawn('"my script.cmd"', ['a', 'b'], { shell: true });
 
     exec('"my script.cmd" a b', (err, stdout, stderr) => {
-      
+
     });
 
 ### `child_process.exec(command[, options][, callback])`[\#](#child_process_child_process_exec_command_options_callback)
 
--   `command`
+- `command`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The command to run, with space-separated arguments.
+- `options`
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The command to run, with space-separated arguments.
--   `options`
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process. **Default:**
-        `process.cwd()`.
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `encoding`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        **Default:** `'utf8'`
-    -   `shell`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Shell to execute the command with. See [Shell
-        requirements](#child_process_shell_requirements) and [Default
-        Windows shell](#child_process_default_windows_shell).
-        **Default:** `'/bin/sh'` on Unix, `process.env.ComSpec` on
-        Windows.
-    -   `signal`
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
-        allows aborting the child process using an AbortSignal.
-    -   `timeout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        **Default:** `0`
-    -   `maxBuffer`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Largest amount of data in bytes allowed on stdout or stderr. If
-        exceeded, the child process is terminated and any output is
-        truncated. See caveat at [`maxBuffer` and
-        Unicode](#child_process_maxbuffer_and_unicode). **Default:**
-        `1024 * 1024`.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        **Default:** `'SIGTERM'`
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process (see
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process (see
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `windowsHide`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Hide the subprocess console window that would normally be
-        created on Windows systems. **Default:** `false`.
--   `callback`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
-    called with the output when process terminates.
-    -   `error`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-    -   `stdout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-    -   `stderr`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
--   Returns:
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
+    Current working directory of the child process. **Default:**
+    `process.cwd()`.
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `encoding`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    **Default:** `'utf8'`
+  - `shell`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Shell to execute the command with. See [Shell
+    requirements](#child_process_shell_requirements) and [Default
+    Windows shell](#child_process_default_windows_shell).
+    **Default:** `'/bin/sh'` on Unix, `process.env.ComSpec` on
+    Windows.
+  - `signal`
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
+    allows aborting the child process using an AbortSignal.
+  - `timeout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    **Default:** `0`
+  - `maxBuffer`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Largest amount of data in bytes allowed on stdout or stderr. If
+    exceeded, the child process is terminated and any output is
+    truncated. See caveat at [`maxBuffer` and
+    Unicode](#child_process_maxbuffer_and_unicode). **Default:**
+    `1024 * 1024`.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    **Default:** `'SIGTERM'`
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process (see
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process (see
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `windowsHide`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Hide the subprocess console window that would normally be
+    created on Windows systems. **Default:** `false`.
+- `callback`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+  called with the output when process terminates.
+  - `error`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+  - `stdout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+  - `stderr`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+- Returns:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
 
 Spawns a shell then executes the `command` within that shell, buffering
 any generated output. The `command` string passed to the exec function
@@ -323,86 +321,86 @@ child process except the error passed to the callback will be an
     const controller = new AbortController();
     const { signal } = controller;
     const child = exec('grep ssh', { signal }, (error) => {
-      console.log(error); 
+      console.log(error);
     });
     controller.abort();
 
 ### `child_process.execFile(file[, args][, options][, callback])`[\#](#child_process_child_process_execfile_file_args_options_callback)
 
--   `file`
+- `file`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The name or path of the executable file to run.
+- `args`
+  [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  List of string arguments.
+- `options`
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The name or path of the executable file to run.
--   `args`
-    [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    List of string arguments.
--   `options`
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process.
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `encoding`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        **Default:** `'utf8'`
-    -   `timeout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        **Default:** `0`
-    -   `maxBuffer`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Largest amount of data in bytes allowed on stdout or stderr. If
-        exceeded, the child process is terminated and any output is
-        truncated. See caveat at [`maxBuffer` and
-        Unicode](#child_process_maxbuffer_and_unicode). **Default:**
-        `1024 * 1024`.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        **Default:** `'SIGTERM'`
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process (see
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process (see
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `windowsHide`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Hide the subprocess console window that would normally be
-        created on Windows systems. **Default:** `false`.
-    -   `windowsVerbatimArguments`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        No quoting or escaping of arguments is done on Windows. Ignored
-        on Unix. **Default:** `false`.
-    -   `shell`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
-        Unix, and `process.env.ComSpec` on Windows. A different shell
-        can be specified as a string. See [Shell
-        requirements](#child_process_shell_requirements) and [Default
-        Windows shell](#child_process_default_windows_shell).
-        **Default:** `false` (no shell).
-    -   `signal`
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
-        allows aborting the child process using an AbortSignal.
--   `callback`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
-    Called with the output when process terminates.
-    -   `error`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-    -   `stdout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-    -   `stderr`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
--   Returns:
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
+    Current working directory of the child process.
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `encoding`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    **Default:** `'utf8'`
+  - `timeout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    **Default:** `0`
+  - `maxBuffer`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Largest amount of data in bytes allowed on stdout or stderr. If
+    exceeded, the child process is terminated and any output is
+    truncated. See caveat at [`maxBuffer` and
+    Unicode](#child_process_maxbuffer_and_unicode). **Default:**
+    `1024 * 1024`.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    **Default:** `'SIGTERM'`
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process (see
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process (see
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `windowsHide`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Hide the subprocess console window that would normally be
+    created on Windows systems. **Default:** `false`.
+  - `windowsVerbatimArguments`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    No quoting or escaping of arguments is done on Windows. Ignored
+    on Unix. **Default:** `false`.
+  - `shell`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
+    Unix, and `process.env.ComSpec` on Windows. A different shell
+    can be specified as a string. See [Shell
+    requirements](#child_process_shell_requirements) and [Default
+    Windows shell](#child_process_default_windows_shell).
+    **Default:** `false` (no shell).
+  - `signal`
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
+    allows aborting the child process using an AbortSignal.
+- `callback`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+  Called with the output when process terminates.
+  - `error`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+  - `stdout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+  - `stderr`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+- Returns:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
 
 The `child_process.execFile()` function is similar to
 [`child_process.exec()`](#child_process_child_process_exec_command_options_callback)
@@ -462,82 +460,82 @@ child process except the error passed to the callback will be an
     const controller = new AbortController();
     const { signal } = controller;
     const child = execFile('node', ['--version'], { signal }, (error) => {
-      console.log(error); 
+      console.log(error);
     });
     controller.abort();
 
 ### `child_process.fork(modulePath[, args][, options])`[\#](#child_process_child_process_fork_modulepath_args_options)
 
--   `modulePath`
+- `modulePath`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The module to run in the child.
+- `args`
+  [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  List of string arguments.
+- `options`
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The module to run in the child.
--   `args`
+    Current working directory of the child process.
+  - `detached`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Prepare child to run independently of its parent process.
+    Specific behavior depends on the platform, see
+    [`options.detached`](#child_process_options_detached)).
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `execPath`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Executable used to create the child process.
+  - `execArgv`
     [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    List of string arguments.
--   `options`
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process.
-    -   `detached`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Prepare child to run independently of its parent process.
-        Specific behavior depends on the platform, see
-        [`options.detached`](#child_process_options_detached)).
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `execPath`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Executable used to create the child process.
-    -   `execArgv`
-        [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        List of string arguments passed to the executable. **Default:**
-        `process.execArgv`.
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process (see
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `serialization`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Specify the kind of serialization used for sending messages
-        between processes. Possible values are `'json'` and
-        `'advanced'`. See [Advanced
-        serialization](#child_process_advanced_serialization) for more
-        details. **Default:** `'json'`.
-    -   `signal`
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
-        Allows closing the child process using an AbortSignal.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The signal value to be used when the spawned process will be
-        killed by the abort signal. **Default:** `'SIGTERM'`.
-    -   `silent`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        If `true`, stdin, stdout, and stderr of the child will be piped
-        to the parent, otherwise they will be inherited from the parent,
-        see the `'pipe'` and `'inherit'` options for
-        [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)'s
-        [`stdio`](#child_process_options_stdio) for more details.
-        **Default:** `false`.
-    -   `stdio`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        See
-        [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)'s
-        [`stdio`](#child_process_options_stdio). When this option is
-        provided, it overrides `silent`. If the array variant is used,
-        it must contain exactly one item with value `'ipc'` or an error
-        will be thrown. For instance `[0, 1, 2, 'ipc']`.
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process (see
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `windowsVerbatimArguments`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        No quoting or escaping of arguments is done on Windows. Ignored
-        on Unix. **Default:** `false`.
--   Returns:
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
+    List of string arguments passed to the executable. **Default:**
+    `process.execArgv`.
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process (see
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `serialization`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Specify the kind of serialization used for sending messages
+    between processes. Possible values are `'json'` and
+    `'advanced'`. See [Advanced
+    serialization](#child_process_advanced_serialization) for more
+    details. **Default:** `'json'`.
+  - `signal`
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
+    Allows closing the child process using an AbortSignal.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The signal value to be used when the spawned process will be
+    killed by the abort signal. **Default:** `'SIGTERM'`.
+  - `silent`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    If `true`, stdin, stdout, and stderr of the child will be piped
+    to the parent, otherwise they will be inherited from the parent,
+    see the `'pipe'` and `'inherit'` options for
+    [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)'s
+    [`stdio`](#child_process_options_stdio) for more details.
+    **Default:** `false`.
+  - `stdio`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    See
+    [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)'s
+    [`stdio`](#child_process_options_stdio). When this option is
+    provided, it overrides `silent`. If the array variant is used,
+    it must contain exactly one item with value `'ipc'` or an error
+    will be thrown. For instance `[0, 1, 2, 'ipc']`.
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process (see
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `windowsVerbatimArguments`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    No quoting or escaping of arguments is done on Windows. Ignored
+    on Unix. **Default:** `false`.
+- Returns:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
 
 The `child_process.fork()` method is a special case of
 [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)
@@ -591,88 +589,88 @@ child process except the error passed to the callback will be an
       const { signal } = controller;
       const child = fork(__filename, ['child'], { signal });
       child.on('error', (err) => {
-        
+
       });
-      controller.abort(); 
+      controller.abort();
     }
 
 ### `child_process.spawn(command[, args][, options])`[\#](#child_process_child_process_spawn_command_args_options)
 
--   `command`
+- `command`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The command to run.
+
+- `args`
+  [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  List of string arguments.
+
+- `options`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The command to run.
+    Current working directory of the child process.
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `argv0`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Explicitly set the value of `argv[0]` sent to the child process.
+    This will be set to `command` if not specified.
+  - `stdio`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Child's stdio configuration (see
+    [`options.stdio`](#child_process_options_stdio)).
+  - `detached`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Prepare child to run independently of its parent process.
+    Specific behavior depends on the platform, see
+    [`options.detached`](#child_process_options_detached)).
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process (see
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process (see
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `serialization`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Specify the kind of serialization used for sending messages
+    between processes. Possible values are `'json'` and
+    `'advanced'`. See [Advanced
+    serialization](#child_process_advanced_serialization) for more
+    details. **Default:** `'json'`.
+  - `shell`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
+    Unix, and `process.env.ComSpec` on Windows. A different shell
+    can be specified as a string. See [Shell
+    requirements](#child_process_shell_requirements) and [Default
+    Windows shell](#child_process_default_windows_shell).
+    **Default:** `false` (no shell).
+  - `windowsVerbatimArguments`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    No quoting or escaping of arguments is done on Windows. Ignored
+    on Unix. This is set to `true` automatically when `shell` is
+    specified and is CMD. **Default:** `false`.
+  - `windowsHide`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Hide the subprocess console window that would normally be
+    created on Windows systems. **Default:** `false`.
+  - `signal`
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
+    allows aborting the child process using an AbortSignal.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The signal value to be used when the spawned process will be
+    killed by the abort signal. **Default:** `'SIGTERM'`.
 
--   `args`
-    [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    List of string arguments.
-
--   `options`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process.
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `argv0`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Explicitly set the value of `argv[0]` sent to the child process.
-        This will be set to `command` if not specified.
-    -   `stdio`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Child's stdio configuration (see
-        [`options.stdio`](#child_process_options_stdio)).
-    -   `detached`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Prepare child to run independently of its parent process.
-        Specific behavior depends on the platform, see
-        [`options.detached`](#child_process_options_detached)).
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process (see
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process (see
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `serialization`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Specify the kind of serialization used for sending messages
-        between processes. Possible values are `'json'` and
-        `'advanced'`. See [Advanced
-        serialization](#child_process_advanced_serialization) for more
-        details. **Default:** `'json'`.
-    -   `shell`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
-        Unix, and `process.env.ComSpec` on Windows. A different shell
-        can be specified as a string. See [Shell
-        requirements](#child_process_shell_requirements) and [Default
-        Windows shell](#child_process_default_windows_shell).
-        **Default:** `false` (no shell).
-    -   `windowsVerbatimArguments`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        No quoting or escaping of arguments is done on Windows. Ignored
-        on Unix. This is set to `true` automatically when `shell` is
-        specified and is CMD. **Default:** `false`.
-    -   `windowsHide`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Hide the subprocess console window that would normally be
-        created on Windows systems. **Default:** `false`.
-    -   `signal`
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/globals.html#globals_class_abortsignal)
-        allows aborting the child process using an AbortSignal.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The signal value to be used when the spawned process will be
-        killed by the abort signal. **Default:** `'SIGTERM'`.
-
--   Returns:
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
+- Returns:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/child_process.html#child_process_class_childprocess)
 
 The `child_process.spawn()` method spawns a new process using the given
 `command`, with command-line arguments in `args`. If omitted, `args`
@@ -782,9 +780,9 @@ child process except the error passed to the callback will be an
     const { signal } = controller;
     const grep = spawn('grep', ['ssh'], { signal });
     grep.on('error', (err) => {
-      
+
     });
-    controller.abort(); 
+    controller.abort();
 
 #### `options.detached`[\#](#child_process_options_detached)
 
@@ -856,12 +854,12 @@ equivalent to setting the `options.stdio` equal to
 
 For convenience, `options.stdio` may be one of the following strings:
 
--   `'pipe'`: equivalent to `['pipe', 'pipe', 'pipe']` (the default)
--   `'overlapped'`: equivalent to
-    `['overlapped', 'overlapped', 'overlapped']`
--   `'ignore'`: equivalent to `['ignore', 'ignore', 'ignore']`
--   `'inherit'`: equivalent to `['inherit', 'inherit', 'inherit']` or
-    `[0, 1, 2]`
+- `'pipe'`: equivalent to `['pipe', 'pipe', 'pipe']` (the default)
+- `'overlapped'`: equivalent to
+  `['overlapped', 'overlapped', 'overlapped']`
+- `'ignore'`: equivalent to `['ignore', 'ignore', 'ignore']`
+- `'inherit'`: equivalent to `['inherit', 'inherit', 'inherit']` or
+  `[0, 1, 2]`
 
 Otherwise, the value of `options.stdio` is an array where each index
 corresponds to an fd in the child. The fds 0, 1, and 2 correspond to
@@ -935,7 +933,7 @@ one of the following:
     (in other words, stdin, stdout, and stderr) a pipe is created. For
     fd 3 and up, the default is `'ignore'`.
 
-    const { spawn } = require('child\_process');
+    const { spawn } = require('child_process');
 
     spawn('prg', \[\], { stdio: 'inherit' });
 
@@ -943,7 +941,7 @@ one of the following:
 
     spawn('prg', \[\], { stdio: \['pipe', null, null, null, 'pipe'\] });
 
-*It is worth noting that when an IPC channel is established between the
+_It is worth noting that when an IPC channel is established between the
 parent and child processes, and the child is a Node.js process, the
 child is launched with the IPC channel unreferenced (using `unref()`)
 until the child registers an event handler for the
@@ -951,7 +949,7 @@ until the child registers an event handler for the
 event or the
 [`'message'`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/process.html#process_event_message)
 event. This allows the child to exit normally without the process being
-held open by the open IPC channel.*
+held open by the open IPC channel._
 
 On Unix-like operating systems, the
 [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)
@@ -967,8 +965,7 @@ See also:
 and
 [`child_process.fork()`](#child_process_child_process_fork_modulepath_args_options).
 
-Synchronous process creation[\#](#child_process_synchronous_process_creation)
------------------------------------------------------------------------------
+## Synchronous process creation[\#](#child_process_synchronous_process_creation)
 
 The
 [`child_process.spawnSync()`](#child_process_child_process_spawnsync_command_args_options),
@@ -984,82 +981,82 @@ loading/processing of application configuration at startup.
 
 ### `child_process.execFileSync(file[, args][, options])`[\#](#child_process_child_process_execfilesync_file_args_options)
 
--   `file`
+- `file`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The name or path of the executable file to run.
+- `args`
+  [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  List of string arguments.
+- `options`
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The name or path of the executable file to run.
--   `args`
-    [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    List of string arguments.
--   `options`
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process.
-    -   `input`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
-        The value which will be passed as stdin to the spawned process.
-        Supplying this value will override `stdio[0]`.
-    -   `stdio`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-        Child's stdio configuration. `stderr` by default will be output
-        to the parent process' stderr unless `stdio` is specified.
-        **Default:** `'pipe'`.
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process (see
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process (see
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `timeout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        In milliseconds the maximum amount of time the process is
-        allowed to run. **Default:** `undefined`.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        The signal value to be used when the spawned process will be
-        killed. **Default:** `'SIGTERM'`.
-    -   `maxBuffer`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Largest amount of data in bytes allowed on stdout or stderr. If
-        exceeded, the child process is terminated. See caveat at
-        [`maxBuffer` and Unicode](#child_process_maxbuffer_and_unicode).
-        **Default:** `1024 * 1024`.
-    -   `encoding`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The encoding used for all stdio inputs and outputs. **Default:**
-        `'buffer'`.
-    -   `windowsHide`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Hide the subprocess console window that would normally be
-        created on Windows systems. **Default:** `false`.
-    -   `shell`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
-        Unix, and `process.env.ComSpec` on Windows. A different shell
-        can be specified as a string. See [Shell
-        requirements](#child_process_shell_requirements) and [Default
-        Windows shell](#child_process_default_windows_shell).
-        **Default:** `false` (no shell).
--   Returns:
+    Current working directory of the child process.
+  - `input`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
     [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
     \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+    The value which will be passed as stdin to the spawned process.
+    Supplying this value will override `stdio[0]`.
+  - `stdio`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The stdout from the command.
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    Child's stdio configuration. `stderr` by default will be output
+    to the parent process' stderr unless `stdio` is specified.
+    **Default:** `'pipe'`.
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process (see
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process (see
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `timeout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    In milliseconds the maximum amount of time the process is
+    allowed to run. **Default:** `undefined`.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    The signal value to be used when the spawned process will be
+    killed. **Default:** `'SIGTERM'`.
+  - `maxBuffer`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Largest amount of data in bytes allowed on stdout or stderr. If
+    exceeded, the child process is terminated. See caveat at
+    [`maxBuffer` and Unicode](#child_process_maxbuffer_and_unicode).
+    **Default:** `1024 * 1024`.
+  - `encoding`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The encoding used for all stdio inputs and outputs. **Default:**
+    `'buffer'`.
+  - `windowsHide`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Hide the subprocess console window that would normally be
+    created on Windows systems. **Default:** `false`.
+  - `shell`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
+    Unix, and `process.env.ComSpec` on Windows. A different shell
+    can be specified as a string. See [Shell
+    requirements](#child_process_shell_requirements) and [Default
+    Windows shell](#child_process_default_windows_shell).
+    **Default:** `false` (no shell).
+- Returns:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+  \|
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The stdout from the command.
 
 The `child_process.execFileSync()` method is generally identical to
 [`child_process.execFile()`](#child_process_child_process_execfile_file_args_options_callback)
@@ -1084,77 +1081,77 @@ to trigger arbitrary command execution.**
 
 ### `child_process.execSync(command[, options])`[\#](#child_process_child_process_execsync_command_options)
 
--   `command`
+- `command`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The command to run.
+- `options`
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The command to run.
--   `options`
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process.
-    -   `input`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
-        The value which will be passed as stdin to the spawned process.
-        Supplying this value will override `stdio[0]`.
-    -   `stdio`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-        Child's stdio configuration. `stderr` by default will be output
-        to the parent process' stderr unless `stdio` is specified.
-        **Default:** `'pipe'`.
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `shell`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Shell to execute the command with. See [Shell
-        requirements](#child_process_shell_requirements) and [Default
-        Windows shell](#child_process_default_windows_shell).
-        **Default:** `'/bin/sh'` on Unix, `process.env.ComSpec` on
-        Windows.
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process. (See
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process. (See
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `timeout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        In milliseconds the maximum amount of time the process is
-        allowed to run. **Default:** `undefined`.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        The signal value to be used when the spawned process will be
-        killed. **Default:** `'SIGTERM'`.
-    -   `maxBuffer`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Largest amount of data in bytes allowed on stdout or stderr. If
-        exceeded, the child process is terminated and any output is
-        truncated. See caveat at [`maxBuffer` and
-        Unicode](#child_process_maxbuffer_and_unicode). **Default:**
-        `1024 * 1024`.
-    -   `encoding`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The encoding used for all stdio inputs and outputs. **Default:**
-        `'buffer'`.
-    -   `windowsHide`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Hide the subprocess console window that would normally be
-        created on Windows systems. **Default:** `false`.
--   Returns:
+    Current working directory of the child process.
+  - `input`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
     [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
     \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+    The value which will be passed as stdin to the spawned process.
+    Supplying this value will override `stdio[0]`.
+  - `stdio`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The stdout from the command.
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    Child's stdio configuration. `stderr` by default will be output
+    to the parent process' stderr unless `stdio` is specified.
+    **Default:** `'pipe'`.
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `shell`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Shell to execute the command with. See [Shell
+    requirements](#child_process_shell_requirements) and [Default
+    Windows shell](#child_process_default_windows_shell).
+    **Default:** `'/bin/sh'` on Unix, `process.env.ComSpec` on
+    Windows.
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process. (See
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process. (See
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `timeout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    In milliseconds the maximum amount of time the process is
+    allowed to run. **Default:** `undefined`.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    The signal value to be used when the spawned process will be
+    killed. **Default:** `'SIGTERM'`.
+  - `maxBuffer`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Largest amount of data in bytes allowed on stdout or stderr. If
+    exceeded, the child process is terminated and any output is
+    truncated. See caveat at [`maxBuffer` and
+    Unicode](#child_process_maxbuffer_and_unicode). **Default:**
+    `1024 * 1024`.
+  - `encoding`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The encoding used for all stdio inputs and outputs. **Default:**
+    `'buffer'`.
+  - `windowsHide`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Hide the subprocess console window that would normally be
+    created on Windows systems. **Default:** `false`.
+- Returns:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+  \|
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The stdout from the command.
 
 The `child_process.execSync()` method is generally identical to
 [`child_process.exec()`](#child_process_child_process_exec_command_options_callback)
@@ -1177,117 +1174,117 @@ execution.**
 
 ### `child_process.spawnSync(command[, args][, options])`[\#](#child_process_child_process_spawnsync_command_args_options)
 
--   `command`
+- `command`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The command to run.
+- `args`
+  [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  List of string arguments.
+- `options`
+  - `cwd`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The command to run.
--   `args`
-    [\<string\[\]\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    List of string arguments.
--   `options`
-    -   `cwd`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Current working directory of the child process.
-    -   `input`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
-        The value which will be passed as stdin to the spawned process.
-        Supplying this value will override `stdio[0]`.
-    -   `argv0`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        Explicitly set the value of `argv[0]` sent to the child process.
-        This will be set to `command` if not specified.
-    -   `stdio`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-        Child's stdio configuration.
-    -   `env`
-        Environment key-value pairs. **Default:** `process.env`.
-    -   `uid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the user identity of the process (see
-        [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
-    -   `gid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Sets the group identity of the process (see
-        [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
-    -   `timeout`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        In milliseconds the maximum amount of time the process is
-        allowed to run. **Default:** `undefined`.
-    -   `killSignal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        The signal value to be used when the spawned process will be
-        killed. **Default:** `'SIGTERM'`.
-    -   `maxBuffer`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Largest amount of data in bytes allowed on stdout or stderr. If
-        exceeded, the child process is terminated and any output is
-        truncated. See caveat at [`maxBuffer` and
-        Unicode](#child_process_maxbuffer_and_unicode). **Default:**
-        `1024 * 1024`.
-    -   `encoding`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The encoding used for all stdio inputs and outputs. **Default:**
-        `'buffer'`.
-    -   `shell`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
-        Unix, and `process.env.ComSpec` on Windows. A different shell
-        can be specified as a string. See [Shell
-        requirements](#child_process_shell_requirements) and [Default
-        Windows shell](#child_process_default_windows_shell).
-        **Default:** `false` (no shell).
-    -   `windowsVerbatimArguments`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        No quoting or escaping of arguments is done on Windows. Ignored
-        on Unix. This is set to `true` automatically when `shell` is
-        specified and is CMD. **Default:** `false`.
-    -   `windowsHide`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        Hide the subprocess console window that would normally be
-        created on Windows systems. **Default:** `false`.
--   Returns:
-    -   `pid`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        Pid of the child process.
-    -   `output`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-        Array of results from stdio output.
-    -   `stdout`
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The contents of `output[1]`.
-    -   `stderr`
-        [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        The contents of `output[2]`.
-    -   `status`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Null_type)
-        The exit code of the subprocess, or `null` if the subprocess
-        terminated due to a signal.
-    -   `signal`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-        \|
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Null_type)
-        The signal used to kill the subprocess, or `null` if the
-        subprocess did not terminate due to a signal.
-    -   `error`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-        The error object if the child process failed or timed out.
+    Current working directory of the child process.
+  - `input`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+    The value which will be passed as stdin to the spawned process.
+    Supplying this value will override `stdio[0]`.
+  - `argv0`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    Explicitly set the value of `argv[0]` sent to the child process.
+    This will be set to `command` if not specified.
+  - `stdio`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    Child's stdio configuration.
+  - `env`
+    Environment key-value pairs. **Default:** `process.env`.
+  - `uid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the user identity of the process (see
+    [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html)).
+  - `gid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Sets the group identity of the process (see
+    [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html)).
+  - `timeout`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    In milliseconds the maximum amount of time the process is
+    allowed to run. **Default:** `undefined`.
+  - `killSignal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    The signal value to be used when the spawned process will be
+    killed. **Default:** `'SIGTERM'`.
+  - `maxBuffer`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Largest amount of data in bytes allowed on stdout or stderr. If
+    exceeded, the child process is terminated and any output is
+    truncated. See caveat at [`maxBuffer` and
+    Unicode](#child_process_maxbuffer_and_unicode). **Default:**
+    `1024 * 1024`.
+  - `encoding`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The encoding used for all stdio inputs and outputs. **Default:**
+    `'buffer'`.
+  - `shell`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    If `true`, runs `command` inside of a shell. Uses `'/bin/sh'` on
+    Unix, and `process.env.ComSpec` on Windows. A different shell
+    can be specified as a string. See [Shell
+    requirements](#child_process_shell_requirements) and [Default
+    Windows shell](#child_process_default_windows_shell).
+    **Default:** `false` (no shell).
+  - `windowsVerbatimArguments`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    No quoting or escaping of arguments is done on Windows. Ignored
+    on Unix. This is set to `true` automatically when `shell` is
+    specified and is CMD. **Default:** `false`.
+  - `windowsHide`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    Hide the subprocess console window that would normally be
+    created on Windows systems. **Default:** `false`.
+- Returns:
+  - `pid`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    Pid of the child process.
+  - `output`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    Array of results from stdio output.
+  - `stdout`
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The contents of `output[1]`.
+  - `stderr`
+    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/buffer.html#buffer_class_buffer)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    The contents of `output[2]`.
+  - `status`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Null_type)
+    The exit code of the subprocess, or `null` if the subprocess
+    terminated due to a signal.
+  - `signal`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+    \|
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Null_type)
+    The signal used to kill the subprocess, or `null` if the
+    subprocess did not terminate due to a signal.
+  - `error`
+    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+    The error object if the child process failed or timed out.
 
 The `child_process.spawnSync()` method is generally identical to
 [`child_process.spawn()`](#child_process_child_process_spawn_command_args_options)
@@ -1302,13 +1299,12 @@ process has exited.
 to this function. Any input containing shell metacharacters may be used
 to trigger arbitrary command execution.**
 
-Class: `ChildProcess`[\#](#child_process_class_childprocess)
-------------------------------------------------------------
+## Class: `ChildProcess`[\#](#child_process_class_childprocess)
 
 Added in: v2.2.0
 
--   Extends:
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/events.html#events_class_eventemitter)
+- Extends:
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/events.html#events_class_eventemitter)
 
 Instances of the `ChildProcess` represent spawned child processes.
 
@@ -1325,12 +1321,12 @@ methods to create instances of `ChildProcess`.
 
 Added in: v0.7.7
 
--   `code`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-    The exit code if the child exited on its own.
--   `signal`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The signal by which the child process was terminated.
+- `code`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+  The exit code if the child exited on its own.
+- `signal`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The signal by which the child process was terminated.
 
 The `'close'` event is emitted when the stdio streams of a child process
 have been closed. This is distinct from the
@@ -1367,9 +1363,9 @@ is `false`.
 
 ### Event: `'error'`[\#](#child_process_event_error)
 
--   `err`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-    The error.
+- `err`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+  The error.
 
 The `'error'` event is emitted whenever:
 
@@ -1389,12 +1385,12 @@ and
 
 Added in: v0.1.90
 
--   `code`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-    The exit code if the child exited on its own.
--   `signal`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    The signal by which the child process was terminated.
+- `code`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+  The exit code if the child exited on its own.
+- `signal`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  The signal by which the child process was terminated.
 
 The `'exit'` event is emitted after the child process ends. If the
 process exited, `code` is the final exit code of the process, otherwise
@@ -1416,15 +1412,15 @@ See [`waitpid(2)`](http://man7.org/linux/man-pages/man2/waitpid.2.html).
 
 Added in: v0.5.9
 
--   `message`
-    A parsed JSON object or primitive value.
--   `sendHandle`
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_server_listen_handle_backlog_callback)
-    A
-    [`net.Socket`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_class_net_socket)
-    or
-    [`net.Server`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_class_net_server)
-    object, or undefined.
+- `message`
+  A parsed JSON object or primitive value.
+- `sendHandle`
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_server_listen_handle_backlog_callback)
+  A
+  [`net.Socket`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_class_net_socket)
+  or
+  [`net.Server`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_class_net_server)
+  object, or undefined.
 
 The `'message'` event is triggered when a child process uses
 [`process.send()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/process.html#process_process_send_message_sendhandle_options_callback)
@@ -1456,7 +1452,7 @@ fail to spawn `some-command`. This caveat also applies when using
 
 ### `subprocess.channel`[\#](#child_process_subprocess_channel)
 
--   A pipe representing the IPC channel to the child process.
+- A pipe representing the IPC channel to the child process.
 
 The `subprocess.channel` property is a reference to the child's IPC
 channel. If no IPC channel currently exists, this property is
@@ -1480,8 +1476,8 @@ process running, and lets it finish even while the channel is open.
 
 Added in: v0.7.2
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-    Set to `false` after `subprocess.disconnect()` is called.
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+  Set to `false` after `subprocess.disconnect()` is called.
 
 The `subprocess.connected` property indicates whether it is still
 possible to send and receive messages from a child process. When
@@ -1510,7 +1506,7 @@ process to close the IPC channel as well.
 
 ### `subprocess.exitCode`[\#](#child_process_subprocess_exitcode)
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
 
 The `subprocess.exitCode` property indicates the exit code of the child
 process. If the child process is still running, the field will be
@@ -1520,12 +1516,12 @@ process. If the child process is still running, the field will be
 
 Added in: v0.1.90
 
--   `signal`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-    \|
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
--   Returns:
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+- `signal`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+  \|
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+- Returns:
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
 
 The `subprocess.kill()` method sends a signal to the child process. If
 no argument is given, the process will be sent the `'SIGTERM'` signal.
@@ -1580,16 +1576,16 @@ new process in a shell or with the use of the `shell` option of
     );
 
     setTimeout(() => {
-      subprocess.kill(); 
+      subprocess.kill();
     }, 2000);
 
 ### `subprocess.killed`[\#](#child_process_subprocess_killed)
 
 Added in: v0.5.10
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-    Set to `true` after `subprocess.kill()` is used to successfully send
-    a signal to the child process.
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+  Set to `true` after `subprocess.kill()` is used to successfully send
+  a signal to the child process.
 
 The `subprocess.killed` property indicates whether the child process
 successfully received a signal from `subprocess.kill()`. The `killed`
@@ -1599,9 +1595,9 @@ property does not indicate that the child process has been terminated.
 
 Added in: v0.1.90
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
-    \|
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Undefined_type)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type)
+  \|
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Undefined_type)
 
 Returns the process identifier (PID) of the child process. If the child
 process fails to spawn due to errors, then the value is `undefined` and
@@ -1633,23 +1629,24 @@ the parent to wait for the child to exit before exiting itself.
 
 ### `subprocess.send(message[, sendHandle[, options]][, callback])`[\#](#child_process_subprocess_send_message_sendhandle_options_callback)
 
--   `message`
--   `sendHandle`
-    [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_server_listen_handle_backlog_callback)
--   `options`
-    The `options` argument, if present, is an object used to
-    parameterize the sending of certain types of handles. `options`
-    supports the following properties:
-    -   `keepOpen`
-        [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
-        A value that can be used when passing instances of `net.Socket`.
-        When `true`, the socket is kept open in the sending process.
-        **Default:** `false`.
+- `message`
+- `sendHandle`
+  [](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/net.html#net_server_listen_handle_backlog_callback)
+- `options`
+  The `options` argument, if present, is an object used to
+  parameterize the sending of certain types of handles. `options`
+  supports the following properties:
 
--   `callback`
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
--   Returns:
+  - `keepOpen`
     [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+    A value that can be used when passing instances of `net.Socket`.
+    When `true`, the socket is kept open in the sending process.
+    **Default:** `false`.
+
+- `callback`
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+- Returns:
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
 
 When an IPC channel has been established between the parent and child (
 i.e. when using
@@ -1773,12 +1770,12 @@ that each handle connections with "normal" or "special" priority:
     const server = require('net').createServer({ pauseOnConnect: true });
     server.on('connection', (socket) => {
 
-      
+
       if (socket.remoteAddress === '74.125.127.100') {
         special.send('socket', socket);
         return;
       }
-      
+
       normal.send('socket', socket);
     });
     server.listen(1337);
@@ -1789,9 +1786,9 @@ argument passed to the event callback function:
     process.on('message', (m, socket) => {
       if (m === 'socket') {
         if (socket) {
-          
-          
-          
+
+
+
           socket.end(`Request handled with ${process.argv[2]} priority`);
         }
       }
@@ -1806,23 +1803,23 @@ to send the connection to the child.
 
 ### `subprocess.signalCode`[\#](#child_process_subprocess_signalcode)
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
-    \|
-    [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Null_type)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+  \|
+  [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Null_type)
 
 The `subprocess.signalCode` property indicates the signal received by
 the child process if any, else `null`.
 
 ### `subprocess.spawnargs`[\#](#child_process_subprocess_spawnargs)
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 The `subprocess.spawnargs` property represents the full list of
 command-line arguments the child process was launched with.
 
 ### `subprocess.spawnfile`[\#](#child_process_subprocess_spawnfile)
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type)
 
 The `subprocess.spawnfile` property indicates the executable file name
 of the child process that is launched.
@@ -1842,7 +1839,7 @@ launched.
 
 Added in: v0.1.90
 
--   [\<stream.Readable\>](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stream.html#stream_class_stream_readable)
+- [\<stream.Readable\>](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stream.html#stream_class_stream_readable)
 
 A `Readable Stream` that represents the child process's `stderr`.
 
@@ -1859,7 +1856,7 @@ could not be successfully spawned.
 
 Added in: v0.1.90
 
--   [\<stream.Writable\>](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stream.html#stream_class_stream_writable)
+- [\<stream.Writable\>](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stream.html#stream_class_stream_writable)
 
 A `Writable Stream` that represents the child process's `stdin`.
 
@@ -1879,7 +1876,7 @@ could not be successfully spawned.
 
 Added in: v0.7.10
 
--   [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 A sparse array of pipes to the child process, corresponding with
 positions in the [`stdio`](#child_process_options_stdio) option passed
@@ -1900,9 +1897,9 @@ other values in the array are `null`.
 
     const subprocess = child_process.spawn('ls', {
       stdio: [
-        0, 
-        'pipe', 
-        fs.openSync('err.out', 'w'), 
+        0,
+        'pipe',
+        fs.openSync('err.out', 'w'),
       ]
     });
 
@@ -1922,7 +1919,7 @@ could not be successfully spawned.
 
 Added in: v0.1.90
 
--   [\<stream.Readable\>](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stream.html#stream_class_stream_readable)
+- [\<stream.Readable\>](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stream.html#stream_class_stream_readable)
 
 A `Readable Stream` that represents the child process's `stdout`.
 
@@ -1963,8 +1960,7 @@ established IPC channel between the child and the parent.
 
     subprocess.unref();
 
-`maxBuffer` and Unicode[\#](#child_process_maxbuffer_and_unicode)
------------------------------------------------------------------
+## `maxBuffer` and Unicode[\#](#child_process_maxbuffer_and_unicode)
 
 The `maxBuffer` option specifies the largest number of bytes allowed on
 `stdout` or `stderr`. If this value is exceeded, then the child process
@@ -1973,15 +1969,13 @@ encodings such as UTF-8 or UTF-16. For instance,
 `console.log('中文测试')` will send 13 UTF-8 encoded bytes to `stdout`
 although there are only 4 characters.
 
-Shell requirements[\#](#child_process_shell_requirements)
----------------------------------------------------------
+## Shell requirements[\#](#child_process_shell_requirements)
 
 The shell should understand the `-c` switch. If the shell is
 `'cmd.exe'`, it should understand the `/d /s /c` switches and
 command-line parsing should be compatible.
 
-Default Windows shell[\#](#child_process_default_windows_shell)
----------------------------------------------------------------
+## Default Windows shell[\#](#child_process_default_windows_shell)
 
 Although Microsoft specifies `%COMSPEC%` must contain the path to
 `'cmd.exe'` in the root environment, child processes are not always
@@ -1989,8 +1983,7 @@ subject to the same requirement. Thus, in `child_process` functions
 where a shell can be spawned, `'cmd.exe'` is used as a fallback if
 `process.env.ComSpec` is unavailable.
 
-Advanced serialization[\#](#child_process_advanced_serialization)
------------------------------------------------------------------
+## Advanced serialization[\#](#child_process_advanced_serialization)
 
 Added in: v13.2.0, v12.16.0
 

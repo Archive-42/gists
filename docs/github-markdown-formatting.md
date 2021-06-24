@@ -1,5 +1,4 @@
-Advanced Formatting in GitHub Markdown
-======================================
+# Advanced Formatting in GitHub Markdown
 
 GitHub Flavored Markdown lets you create useful documents in
 [GitHub](https://github.com/) and [GitHub
@@ -19,18 +18,17 @@ Check out this excellent
 [cheatsheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 for an overview of standard formatting in GitHub Markdown.
 
--   [Advanced Formatting in GitHub
-    Markdown](#advanced-formatting-in-github-markdown)
-    -   [Images](#images)
-    -   [Dropdowns](#dropdowns)
-    -   [Buttons](#buttons)
-    -   [Anchor links](#anchor-links)
-    -   [Horizontal line](#horizontal-line)
-    -   [Extra space](#extra-space)
-        -   [References](#references)
+- [Advanced Formatting in GitHub
+  Markdown](#advanced-formatting-in-github-markdown)
+  - [Images](#images)
+  - [Dropdowns](#dropdowns)
+  - [Buttons](#buttons)
+  - [Anchor links](#anchor-links)
+  - [Horizontal line](#horizontal-line)
+  - [Extra space](#extra-space)
+    - [References](#references)
 
-Images
-------
+## Images
 
 \
 
@@ -45,7 +43,7 @@ Use:
 
     <img align="left" width="200" src="https://apaskulin.github.io/waxtechnical/images/pup.jpg">
 
-------------------------------------------------------------------------
+---
 
 \
 
@@ -60,7 +58,7 @@ Use:
 
     <img align="right" width="200" src="https://apaskulin.github.io/waxtechnical/images/pup.jpg">
 
-------------------------------------------------------------------------
+---
 
 \
 
@@ -74,12 +72,11 @@ Use:
       <img width="300" src="https://apaskulin.github.io/waxtechnical/images/pup.jpg">
     </p>
 
-------------------------------------------------------------------------
+---
 
 \
 
-Dropdowns
----------
+## Dropdowns
 
 To create a dropdown containing **text**:
 
@@ -90,15 +87,17 @@ Example This is a dropdown with text!
 Use:
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .html}
+
+```{.sourceCode .html}
 <details>
 <summary>Example</summary>
 This is a dropdown with text!
 </details>
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 \
 
@@ -106,24 +105,26 @@ To create a dropdown containing a **list**:
 
 Example
 
--   This dropdown contains
--   a list!
+- This dropdown contains
+- a list!
 
 \
 
 Use:
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .html}
+
+```{.sourceCode .html}
 <details>
 <summary>Example</summary>
 <ul><li>This dropdown contains</li>
 <li>a list!</li></ul>
 </details>
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 \
 
@@ -137,15 +138,17 @@ Example
 Use:
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .html}
+
+```{.sourceCode .html}
 <details>
 <summary>Example</summary>
 <img src="https://apaskulin.github.io/waxtechnical/images/pup.jpg" width="500">
 </details>
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 \
 
@@ -161,59 +164,65 @@ Example
 Use:
 
 ::: {#cb7 .sourceCode}
-``` {.sourceCode .html}
+
+```{.sourceCode .html}
 <details>
 <summary>Example</summary>
 <pre>$ This dropdown contains<br>a code block!</pre>
 </details>
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 \
 
-Buttons
--------
+## Buttons
 
 To create a single button:
 
-  [Click here](https://github.com/)
-  -----------------------------------
+[Click here](https://github.com/)
+
+---
 
 Use:
 
 ::: {#cb8 .sourceCode}
-``` {.sourceCode .md}
+
+```{.sourceCode .md}
 | [Click here](https://github.com/) |
 | --------------------------------- |
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 \
 
 To create a row of buttons:
 
-  [Click here](https://github.com/)   [Or here](https://github.com/)   [Or here](https://github.com/)
-  ----------------------------------- -------------------------------- --------------------------------
+[Click here](https://github.com/) [Or here](https://github.com/) [Or here](https://github.com/)
+
+---
 
 Use:
 
 ::: {#cb9 .sourceCode}
-``` {.sourceCode .md}
+
+```{.sourceCode .md}
 | [Click here](https://github.com/) | [Or here](https://github.com/) | [Or here](https://github.com/) |
 | --------------------------------- | ------------------------------ | ------------------------------ |
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 \
 
-Anchor links
-------------
+## Anchor links
 
 To link to a heading:
 
@@ -223,7 +232,7 @@ Use:
 
     This is an example of an [anchor link](#anchor-links) to a heading.
 
-------------------------------------------------------------------------
+---
 
 \
 
@@ -240,33 +249,31 @@ Use:
 
     See [creating an anchor link anywhere](#manual-anchor).
 
-------------------------------------------------------------------------
+---
 
 \
 
-Horizontal line
----------------
+## Horizontal line
 
 To create a horizontal line:
 
-------------------------------------------------------------------------
+---
 
 Use:
 
     ---
 
-------------------------------------------------------------------------
+---
 
 \
 
-Extra space
------------
+## Extra space
 
 To add extra space, use one or more:
 
     <br>
 
-------------------------------------------------------------------------
+---
 
 \
 

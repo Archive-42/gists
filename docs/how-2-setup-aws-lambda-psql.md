@@ -1,6 +1,6 @@
-| 
+|
 
-| 
+|
 
 Hey Bryan, it's Nate
 from [newline](https://fd338.infusion-links.com/api/v1/click/6626750413275136/5065786733756416) and
@@ -32,8 +32,7 @@ We're going through this process now to become familiar with the steps
 and will delete this database at the end. In the full course we go over
 more steps to make this setup production-ready.
 
-Creating RDS Instances
-----------------------
+## Creating RDS Instances
 
 When you create an RDS instance, it's like telling AWS to host a virtual
 database server for you. You can host one or more databases on an RDS
@@ -46,8 +45,7 @@ So we're going to create an RDS instance
 called `newline-course-zappa` and on that instance, we'll host a
 database called `ZappaCourseDB`.
 
-Step by Step
-------------
+## Step by Step
 
 Here are the steps we're following to create the RDS instance. Not all
 the settings would be appropriate for creating a production RDS
@@ -59,19 +57,19 @@ instance, and I've attempted to note them below.
 2.  For database creation method, select `Standard create`
 3.  For Engine options, select `PostgreSQL`
 
-    -   For the Version, you may select the latest stable version. For
-        this lesson, we'll use `PostgreSQL 12.5-R1`
+    - For the Version, you may select the latest stable version. For
+      this lesson, we'll use `PostgreSQL 12.5-R1`
 
 4.  For Templates, select `Free tier`
 5.  For Settings, use the following:
 
-    -   For DB Instance Identifier, let's use `newline-course-zappa`. Of
-        course, you may choose anything to identify your own RDS
-        instance here.
-    -   For Credentials Setting, you may use the default `postgres` as
-        the username. For increased security, you may want to choose
-        something else. Pick a strong password. **Make sure to record
-        these securely**
+    - For DB Instance Identifier, let's use `newline-course-zappa`. Of
+      course, you may choose anything to identify your own RDS
+      instance here.
+    - For Credentials Setting, you may use the default `postgres` as
+      the username. For increased security, you may want to choose
+      something else. Pick a strong password. **Make sure to record
+      these securely**
 
 6.  For DB Instance Class, `db.t2.micro` should already be selected for
     you (corresponds to the free tier)
@@ -80,17 +78,17 @@ instance, and I've attempted to note them below.
 8.  For Availability and Durability, this section should be disabled due
     to the free tier restrictions.
 
-    -   In production, you'll want to read up on how Multi-AZ will add
-        robustness to your service. This is highly recommended.
+    - In production, you'll want to read up on how Multi-AZ will add
+      robustness to your service. This is highly recommended.
 
 9.  For Connectivity, we need to edit some options
 
-    -   You may leave the default VPC and Subnet group settings.
-    -   Public Access should be set to **yes**. This is the important
-        switch. You normally wouldn't want to use this, but to keep
-        things simple for this lesson, it's fine.
-    -   Keep the default VPC Security Group
-    -   Keep the Availability Zone at `no preference`
+    - You may leave the default VPC and Subnet group settings.
+    - Public Access should be set to **yes**. This is the important
+      switch. You normally wouldn't want to use this, but to keep
+      things simple for this lesson, it's fine.
+    - Keep the default VPC Security Group
+    - Keep the Availability Zone at `no preference`
 
 10. For Database Authentication, select `Password authentication`
 11. Expand Additional Configuration. The initial database name should
@@ -108,8 +106,7 @@ this:
 ![RDS being
 created](https://ci4.googleusercontent.com/proxy/YEbv4R9srQQx384nbIaasWyR1rk8ssc492TjxhZjMBGZ00SwtZDX6fyuy2xduf5Q1wBgrxnnz5W2PEPEHSOvTKCH_o2YiyeWwinRFxYf8hiM1KFKLCyNJ-rLItJTwPdtegkNKd9j_S6-3eE1215Ch_oyiK1aPorYUoJooAHDqxPY25ThkQpL462lUNDsKuch1rWz1RqnNlBe4P1rhw=s0-d-e1-ft#http://email-assets.fullstack.io.s3-website-us-east-1.amazonaws.com/assets/zappa/2021-06-06-postgresql-database-lambda/0_rds_instance.jpg)
 
-Edit Security Group Settings
-----------------------------
+## Edit Security Group Settings
 
 Even though you've set this RDS instance to be public, we'll need to
 open up the security group to allow inbound database network traffic.
@@ -125,8 +122,8 @@ Follow these steps:
 5.  Scroll to the bottom and click on **Add rule**
 6.  Configure the new rule with these settings:
 
-    -   Type is **PostgreSQL**
-    -   Source is **Anywhere**
+    - Type is **PostgreSQL**
+    - Source is **Anywhere**
 
 7.  Then click **Save Rules**
 

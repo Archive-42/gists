@@ -1,16 +1,16 @@
-Ways to Reference Graph Nodes
------------------------------
+## Ways to Reference Graph Nodes
 
-------------------------------------------------------------------------
+---
 
 ### Node Class
 
-------------------------------------------------------------------------
+---
 
 Uses a class to define the neighbors as properties of each node.
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 class GraphNode {
   constructor(val) {
     this.val = val;
@@ -29,48 +29,52 @@ c.neighbors = [b, d];
 e.neighbors = [a];
 f.neighbors = [e];
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ### Adjacency Matrix
 
-------------------------------------------------------------------------
+---
 
 The row index will corespond to the source of an edge and the column
 index will correspond to the edges destination.
 
--   When the edges have a direction, `matrix[i][j]` may not be the same
-    as `matrix[j][i]`
--   It is common to say that a node is adjacent to itself so
-    `matrix[x][x]` is true for any node
--   Will be O(n\^2) space complexity
+- When the edges have a direction, `matrix[i][j]` may not be the same
+  as `matrix[j][i]`
+- It is common to say that a node is adjacent to itself so
+  `matrix[x][x]` is true for any node
+- Will be O(n\^2) space complexity
 
 let matrix = \[
 
           **A**      **B**    **C**    **D**    **E**    **F**
-  ------- ---------- -------- -------- -------- -------- ---------
-  **A**   \[True,    True,    True,    False,   True,    False\]
-  **B**   \[False,   True,    False,   False,   False,   False\]
-  **C**   \[False,   True,    True,    True,    False,   False\]
-  **D**   \[False,   False,   False,   True,    False,   False\]
-  **E**   \[True,    False,   False,   False,   True,    False\]
-  **F**   \[False,   False,   False,   False,   True,    True\]
+
+---
+
+**A** \[True, True, True, False, True, False\]
+**B** \[False, True, False, False, False, False\]
+**C** \[False, True, True, True, False, False\]
+**D** \[False, False, False, True, False, False\]
+**E** \[True, False, False, False, True, False\]
+**F** \[False, False, False, False, True, True\]
 
 \];
 
-------------------------------------------------------------------------
+---
 
 ### Adjacency List
 
-------------------------------------------------------------------------
+---
 
 Seeks to solve the shortcomings of the matrix implementation. It uses an
 object where keys represent node labels and values associated with that
 key are the adjacent node keys held in an array.
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 let graph = {
   a: ["b", "c", "e"],
   b: [],
@@ -80,21 +84,22 @@ let graph = {
   f: ["e"],
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+---
 
-Code Examples
--------------
+## Code Examples
 
-------------------------------------------------------------------------
+---
 
 ### Basic Graph Class
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 class Graph {
   constructor() {
     this.adjList = {};
@@ -164,14 +169,16 @@ class Graph {
     return [...vertices];
   }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ### Node Class Examples
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 class GraphNode {
   constructor(val) {
     this.val = val;
@@ -218,16 +225,18 @@ function maxValue(node, visited = new Set()) {
   return maxValue;
 }
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ### Traversal Examples
 
 #### With Graph Node Class
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function depthFirstRecur(node, visited = new Set()) {
   if (visited.has(node.val)) return;
 
@@ -255,12 +264,14 @@ function depthFirstIter(node) {
   }
 }
 ```
+
 :::
 
 ### With Adjacency List
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function depthFirst(graph) {
   let visited = new Set();
 
@@ -280,4 +291,5 @@ function _depthFirstRecur(node, graph, visited) {
   });
 }
 ```
+
 :::

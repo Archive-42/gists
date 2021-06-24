@@ -3,7 +3,7 @@ reserved.
 
 Try the new cross-platform PowerShell https://aka.ms/pscore6
 
-PS C:32\> Get-WmiObject -Class Win32\_Product
+PS C:32\> Get-WmiObject -Class Win32_Product
 
 IdentifyingNumber : {85D19DA1-199F-4C56-B156-E8AFC3592036} Name :
 ScreenToGif Vendor : Nicke Manarin Version : 2.30.0 Caption :

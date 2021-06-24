@@ -1,15 +1,14 @@
-Do something with a uploaded file and populate a field in the document based on that
-====================================================================================
+# Do something with a uploaded file and populate a field in the document based on that
 
 Consider the following schema, where we describe a route with a gpx map
 file of some sort, and we want to populate a field "bounds" in that
 document computed from the uploaded file.
 
-The schema
-----------
+## The schema
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 import RouteFileInput from "../components/RouteFileInput";
 export default {
   name: "route",
@@ -43,13 +42,14 @@ export default {
   ]
 };
 ```
+
 :::
 
-The input component
--------------------
+## The input component
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 import PropTypes from "prop-types";
 import React from "react";
 import Fieldset from "part:@sanity/components/fieldsets/default";
@@ -93,7 +93,7 @@ class CustomObjectInput extends React.PureComponent {
 
   handleFieldChange = (field, fieldPatchEvent) => {
     const { onChange, type, document } = this.props;
-    
+
     // If we see a set patch that sets the asset, use the file to compute the bounds
     const setAssetPatch = fieldPatchEvent.patches.find(
       patch =>
@@ -173,4 +173,5 @@ class CustomObjectInput extends React.PureComponent {
 
 export default withDocument(CustomObjectInput);
 ```
+
 :::

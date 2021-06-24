@@ -1,8 +1,6 @@
-code-review-tips
-================
+# code-review-tips
 
-Table of Contents
------------------
+## Table of Contents
 
 1.  [Introduction](#introduction)
 2.  [Why Review Code?](#why-review-code)
@@ -15,8 +13,7 @@ Table of Contents
 9.  [Testing](#testing)
 10. [Miscellaneous](#miscellaneous)
 
-Introduction
-------------
+## Introduction
 
 Code reviews can inspire dread in both reviewer and reviewee. Having
 your code analyzed can feel as invasive and uncomfortable. Even worse,
@@ -29,8 +26,7 @@ but the advice should be applicable to any project of any language. This
 is by no means an exhaustive list, but hopefully this will help you
 catch as many bugs as possible long before users ever see your feature.
 
-Why Review Code?
-----------------
+## Why Review Code?
 
 Code reviews are a necessary part of the software engineering process
 because you alone can't catch every problem in a piece of code you
@@ -44,8 +40,7 @@ your codebase. Find a process that works for you and your team. There's
 no one size fits all. The important point is to do code reviews as
 regularly as possible.
 
-Basics
-------
+## Basics
 
 ### Code reviews should be as automated as possible
 
@@ -66,8 +61,7 @@ It's scary to have your code reviewed and it can bring about feelings of
 insecurity in even the most experienced developer. Be positive in your
 language and keep your teammates comfortable and secure in their work!
 
-Readability
------------
+## Readability
 
 ### Typos should be corrected
 
@@ -84,12 +78,14 @@ your teammate out by suggesting a clearer name, if the one you're
 reading doesn't make sense.
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 // This function could be better named as namesToUpperCase
 function u(names) {
   // ...
 }
 ```
+
 :::
 
 ### Functions should be short
@@ -99,7 +95,8 @@ doing too much. Tell your teammate to split out the function into
 multiple different ones.
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 // This is both emailing clients and deciding which are active. Should be
 // 2 different functions.
 function emailClients(clients) {
@@ -111,6 +108,7 @@ function emailClients(clients) {
   });
 }
 ```
+
 :::
 
 ### Files should be cohesive, and ideally short
@@ -128,7 +126,8 @@ below **and** includes functions that don't relate to one another, then
 it should probably be split apart.
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 // Line 1
 import _ from 'lodash';
 function generateFakeNames() {
@@ -140,6 +139,7 @@ function queryRemoteDatabase() {
   // ...
 }
 ```
+
 :::
 
 ### Exported functions should be documented
@@ -148,12 +148,14 @@ If your function is intended to be used by other libraries, it helps to
 add documentation so users of it know what it does.
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 // This needs documentation. What is this function for? How is it used?
 export function networkMonitor(graph, duration, failureCallback) {
   // ...
 }
 ```
+
 :::
 
 ### Complex code should be commented
@@ -162,7 +164,8 @@ If you have named things well and the logic is still confusing, then
 it's time for a comment.
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 function leftPad(str, len, ch) {
   str = str + '';
   len = len - str.length;
@@ -179,15 +182,16 @@ function leftPad(str, len, ch) {
   return pad + str;
 }
 ```
+
 :::
 
-Side Effects
-------------
+## Side Effects
 
 ### Functions should be as pure as possible
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 // Global variable is referenced by the following function.
 // If we had another function that used this name, now it'd be an array and it
 // could break it. Instead it's better to pass in a name parameter
@@ -199,6 +203,7 @@ function splitIntoFirstAndLastName() {
 
 splitIntoFirstAndLastName();
 ```
+
 :::
 
 ### I/O functions should have failure cases handled
@@ -206,7 +211,8 @@ splitIntoFirstAndLastName();
 Any function that does I/O should handle when something goes wrong
 
 ::: {#cb7 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 function getIngredientsFromFile() {
   const onFulfilled = buffer => {
     let lines = buffer.split('\n');
@@ -217,10 +223,10 @@ function getIngredientsFromFile() {
   return readFile('./ingredients.txt').then(onFulfilled);
 }
 ```
+
 :::
 
-Limits
-------
+## Limits
 
 ### Null cases should be handled
 
@@ -232,7 +238,8 @@ every case that can occur. If there's something bad that can happen in
 your code, eventually it will happen.
 
 ::: {#cb8 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 class InventoryList {
   constructor(data) {
     this.data = data;
@@ -261,6 +268,7 @@ class InventoryList {
   }
 }
 ```
+
 :::
 
 ### Large cases should be handled
@@ -273,7 +281,8 @@ volume, especially when it comes to UI programming.
 ### Singular cases should be handled
 
 ::: {#cb9 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 class MoneyDislay {
   constructor(amount) {
     this.amount = amount;
@@ -289,6 +298,7 @@ class MoneyDislay {
   }
 }
 ```
+
 :::
 
 ### User input should be limited
@@ -298,7 +308,8 @@ It's important to set limits if a function takes any kind of user data
 in.
 
 ::: {#cb10 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 router.route('/message').post((req, res) => {
   const message = req.body.content;
 
@@ -307,6 +318,7 @@ router.route('/message').post((req, res) => {
   db.save(message);
 });
 ```
+
 :::
 
 ### Functions should handle unexpected user input
@@ -317,7 +329,8 @@ request from a user. [And don't rely on client-side validation
 alone](https://twitter.com/ryconoclast/status/885523459748487169)
 
 ::: {#cb11 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 router.route('/transfer-money').post((req, res) => {
   const amount = req.body.amount;
   const from = user.id;
@@ -328,10 +341,10 @@ router.route('/transfer-money').post((req, res) => {
   transferMoney(from, to, amount);
 });
 ```
+
 :::
 
-Security
---------
+## Security
 
 Data security is the most important aspect of your application. If users
 can't trust you with their data, then you won't have a business. There
@@ -349,7 +362,8 @@ include it in your page without first properly sanitizing it. This can
 cause your site to execute source code from remote pages.
 
 ::: {#cb12 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 function getBadges() {
   let badge = document.getElementsByClassName('badge');
   let nameQueryParam = getQueryParams('name');
@@ -363,6 +377,7 @@ function getBadges() {
   badge.children[0].innerHTML = nameQueryParam;
 }
 ```
+
 :::
 
 ### Personally Identifiable Information (PII) should not leak
@@ -374,7 +389,8 @@ you greatly hurt your users and your business. Be careful with other
 people's lives!
 
 ::: {#cb13 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 router.route('/bank-user-info').get((req, res) => {
   const name = user.name;
   const id = user.id;
@@ -390,10 +406,10 @@ router.route('/bank-user-info').get((req, res) => {
   });
 });
 ```
+
 :::
 
-Performance
------------
+## Performance
 
 ### Functions should use efficient algorithms and data structures
 
@@ -402,7 +418,8 @@ to see if there are any ways to improve the efficiency of a piece of
 code. Your users will thank you for the faster speeds!
 
 ::: {#cb14 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 // If mentions was a hash data structure, you wouldn't need to iterate through
 // all mentions to find a user. You could simply return the presence of the
 // user key in the mentions hash
@@ -417,6 +434,7 @@ function isUserMentionedInComments(mentions, user) {
   return mentioned;
 }
 ```
+
 :::
 
 ### Important actions should be logged
@@ -427,7 +445,8 @@ what makes sense to keep track of for data analytics. And be sure that
 no personally identifiable information is exposed!
 
 ::: {#cb15 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 router.route('/request-ride').post((req, res) => {
   const currentLocation = req.body.currentLocation;
   const destination = req.body.destination;
@@ -439,10 +458,10 @@ router.route('/request-ride').post((req, res) => {
   });
 });
 ```
+
 :::
 
-Testing
--------
+## Testing
 
 ### New code should be tested
 
@@ -455,7 +474,8 @@ works with the rest of the system.
 ### Tests should actually test all of what the function does
 
 ::: {#cb16 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 function payEmployeeSalary(employeeId, amount, callback) {
   db.get('EMPLOYEES', employeeId)
     .then(user => {
@@ -476,12 +496,14 @@ const result = payEmployeeSalary(employee.id, 1000, callback);
 assert(result.status === enums.SUCCESS);
 // What about the callback? That should be tested
 ```
+
 :::
 
 ### Tests should stress edge cases and limits of a function
 
 ::: {#cb17 .sourceCode}
-``` {.sourceCode .javascript}
+
+```{.sourceCode .javascript}
 function dateAddDays(dateTime, day) {
   // ...
 }
@@ -495,12 +517,12 @@ assert(date1 === '1/6/2017');
 // What happens if we add fractional days: 1.2, 8.7, etc.
 // What happens if we add 1 billion days?
 ```
+
 :::
 
-Miscellaneous
--------------
+## Miscellaneous
 
-> *"Everything can be filed under miscellaneous"*
+> _"Everything can be filed under miscellaneous"_
 
 > George Bernard Shaw
 

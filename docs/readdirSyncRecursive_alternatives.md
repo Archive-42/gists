@@ -1,5 +1,6 @@
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 // simple list files of a folder (not recursive)
 const fs = require('fs');
 const path = require('path');
@@ -20,4 +21,5 @@ function getSubdirectories (baseDir) {
 const glob = require('glob');   // npm install glob
 let subdirs = glob.sync('__dirname',{mark:true}).filter(f=>f.endsWith('/'))   // mark adds '/' at the end of directories
 ```
+
 :::

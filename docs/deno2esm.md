@@ -1,5 +1,4 @@
-The problem
------------
+## The problem
 
 Deno uses imports with `.ts` extension, for which tsc compiler
 complains.
@@ -7,11 +6,11 @@ complains.
 This is a "deno only" solution to convert Deno code to ESM usable by
 Node or browsers (given it doesn't use Deno specifica apis of course)
 
-A Deno only solution
---------------------
+## A Deno only solution
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .ts}
+
+```{.sourceCode .ts}
 // deno2esm.ts
 
 import {walkSync, WalkEntry} from 'https://deno.land/std/fs/walk.ts';
@@ -22,8 +21,8 @@ function slashPath (s:string) : string {
 }
 
 export async function deno2esm (
-  src: string, 
-  dest: string, 
+  src: string,
+  dest: string,
   filter?: (walkEntry:WalkEntry)=>boolean
   // options: CopyOptions = {},   // TODO use std/fs/copy.ts : copyFileSync instead of plain Deno.copyFileSync
 ): Promise<void>
@@ -43,9 +42,9 @@ export async function deno2esm (
       ensureDirSync(destPath);
     }
 
-    if (walkEntry.isFile) { 
+    if (walkEntry.isFile) {
       let sourceContent = Deno.readTextFileSync(walkEntry.path);
-      
+
       let transpiled = await Deno.transpileOnly(
         {"_": sourceContent },
         {sourceMap:false}
@@ -60,4 +59,5 @@ export async function deno2esm (
 // -- example
 deno2esm('zz/src','zz/out');
 ```
+
 :::

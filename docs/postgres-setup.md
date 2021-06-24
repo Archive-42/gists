@@ -11,8 +11,7 @@ running when you boot your computer. Then, when you start the Ubuntu
 installation, it's as if there's a completely separate computer running
 inside your computer. It's like having two completely different laptops.
 
-Installing PostgreSQL 12
-------------------------
+## Installing PostgreSQL 12
 
 To install PostgreSQL 12, you need to download the installer from the
 Internet. PostgreSQL's commercial company, Enterprise DB, offers
@@ -28,29 +27,28 @@ PostgreSQL](https://appacademy-open-assets.s3-us-west-1.amazonaws.com/Module-SQL
 Once that installer downloads, run it. You need to go through the normal
 steps of installing software.
 
--   Yes, Windows, let the installer make changes to *my* device.
--   Thanks for the welcome. Next.
--   Yeah, that's a good place to install it. Next.
--   I don't want that pgAdmin nor the Stack Builder things. Uncheck.
-    Uncheck. Next.
+- Yes, Windows, let the installer make changes to _my_ device.
+- Thanks for the welcome. Next.
+- Yeah, that's a good place to install it. Next.
+- I don't want that pgAdmin nor the Stack Builder things. Uncheck.
+  Uncheck. Next.
 
-    ![Deselect pgAdmin 4 and Stack Builder
-    components](https://appacademy-open-assets.s3-us-west-1.amazonaws.com/Module-SQL/assets/postgresql-installation-uncheck-components.png)
+  ![Deselect pgAdmin 4 and Stack Builder
+components](https://appacademy-open-assets.s3-us-west-1.amazonaws.com/Module-SQL/assets/postgresql-installation-uncheck-components.png)
 
--   Also, great looking directory. Thanks. Next.
--   Oooh! A password! I'll enter **\*\*\*\***. I sure won't forget that
-    because, if I do, I'll have to uninstall and reinstall PostgreSQL
-    and lose all of my hard work. **Seriously, write down this password
-    or use one you will not forget.** Next.
--   Sure. 5432. Good to go. Next.
--   Not even sure what that means. Default! Next.
--   Yep. Looks good. Next.
--   Geez. Really? Thanks. Next.
--   *Time to get a tea.*
--   All right! All done. Finish!
+- Also, great looking directory. Thanks. Next.
+- Oooh! A password! I'll enter **\*\*\*\***. I sure won't forget that
+  because, if I do, I'll have to uninstall and reinstall PostgreSQL
+  and lose all of my hard work. **Seriously, write down this password
+  or use one you will not forget.** Next.
+- Sure. 5432. Good to go. Next.
+- Not even sure what that means. Default! Next.
+- Yep. Looks good. Next.
+- Geez. Really? Thanks. Next.
+- _Time to get a tea._
+- All right! All done. Finish!
 
-Installing PostgreSQL Client Tools on Ubuntu
---------------------------------------------
+## Installing PostgreSQL Client Tools on Ubuntu
 
 Now, to install the PostgreSQL Client tools for Ubuntu. You need to do
 this so that the Node.js (and later Python) programs running on your
@@ -76,7 +74,7 @@ If it does not, try copying and pasting them one at a time.
 
 Now that you've registered the PostgreSQL repositories as a source to
 look for PostgreSQL, you need to update the `apt` registry. You should
-do this before you install *any* software on Ubuntu.
+do this before you install _any_ software on Ubuntu.
 
     sudo apt update
 
@@ -92,8 +90,7 @@ Test that it installed by typing `psql --version`. You should see it
 print out information about the version of the installed tools. If it
 tells you that it can't find the command, try these instructions over.
 
-Configuring the client tools
-----------------------------
+## Configuring the client tools
 
 Since you're going to be accessing the PosgreSQL installation from your
 Ubuntu installation on your Windows installation, you're going to have
@@ -123,7 +120,7 @@ aliases, in that section), type the following.
     alias psql="psql -h localhost"
 
 When you run `psql` from the command line, it will now always add the
-part about wanting to connect to *localhost* every time. You would have
+part about wanting to connect to _localhost_ every time. You would have
 to type that each time, otherwise.
 
 To make sure that you set that up correctly, type
@@ -148,7 +145,7 @@ will use to automatically send your password every time.
 
 Copy and paste the following into your Ubuntu shell. Think of a password
 that you want to use for your user. **Replace the password in the single
-quotes in the command with the password that you want.** It *has* to be
+quotes in the command with the password that you want.** It _has_ to be
 a non-empty string. PostgreSQL doesn't like it when it's not.
 
     psql -U postgres -c "CREATE USER `whoami` WITH PASSWORD 'password' SUPERUSER"
@@ -182,7 +179,7 @@ Studio Code.
 
 The last step you have to take is change the permission on that file so
 that it is only readable by your user. PostgreSQL will ignore it if just
-anyone can read and write to it. This is for *your* security. Change the
+anyone can read and write to it. This is for _your_ security. Change the
 file permissions so only you can read and write to it. You did this once
 upon a time. Here's the command.
 
@@ -200,8 +197,7 @@ added the alias to your startup script, and because you created your
 credentials! Type `\q` and press Enter to exit the PostgreSQL command
 line client.
 
-Installing Postbird
--------------------
+## Installing Postbird
 
 Head over to the [Postbird releases page on
 GitHub](https://github.com/Paxa/postbird/releases). Click the installer
@@ -238,8 +234,7 @@ should properly connect to the running
 You can close it for now. It also installed an icon on your desktop. You
 can launch it from there or your Start Menu at any time.
 
-What you did
-------------
+## What you did
 
 You installed and configured PosgreSQL 12, a relational database
 management system, and tools to use it! Well done!

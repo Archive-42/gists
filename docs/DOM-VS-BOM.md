@@ -1,7 +1,6 @@
-DOM vs BOM
-----------
+## DOM vs BOM
 
-    - the `Document Object Model` is the hierarchy/representation of the objects that comprise a document on the web (i.e. how all elements in a document are organized). The DOM is a part of the `Browser Object Model`, the hierarchy/representation of all browser objects associated with the web browser. 
+    - the `Document Object Model` is the hierarchy/representation of the objects that comprise a document on the web (i.e. how all elements in a document are organized). The DOM is a part of the `Browser Object Model`, the hierarchy/representation of all browser objects associated with the web browser.
 
 **Browser Diagram** User Interface v Browser Engine ---\> Data
 Persistence v Rendering Engine v v v Networking JS interpreter UI
@@ -16,13 +15,13 @@ drawing basic widgets, using operating system UI methods -
 
     - A browser's main role in the request/response cycle is:
         1. Parsing HTML, CSS, JS
-        2. Rendering that information to the user by constructing a DOM tree and rendering it. 
+        2. Rendering that information to the user by constructing a DOM tree and rendering it.
 
 **Request-Response Diagram**
 
     Click --->          Request --->        Server <----> Data
         Browser
-    Page <---           <--- Response      
+    Page <---           <--- Response
 
     Your Computer       The Internet        Data Center
 
@@ -39,23 +38,24 @@ the `Window API` to resize the browser window:
     newWindow.resizeBy(xDelta, yDelta)
     ```
 
--   the `context` of an `anonymous function` fun in the browser will be
-    the `window object`. Remember that every function has a context,
-    which we can think of as which object OWNS the function, and context
-    is most often determined by how a function is invoked.
+- the `context` of an `anonymous function` fun in the browser will be
+  the `window object`. Remember that every function has a context,
+  which we can think of as which object OWNS the function, and context
+  is most often determined by how a function is invoked.
 
 **Running Scripts** - Insert a script via a .js document into an .html
 document:
-`html <html> <head> <script type="text/javascript"         src="dom-ready-script.js"></script> </head>         <body><form> <input type="button" value="Go back!"         onclick="history.back()"> </form> </body>         <html></html> </html>`
+`html <html> <head> <script type="text/javascript" src="dom-ready-script.js"></script> </head> <body><form> <input type="button" value="Go back!" onclick="history.back()"> </form> </body> <html></html> </html>`
+
 - Run the script on DOMContentLoaded (when the doc has been loaded, but
-without waiting for stylesheets, images, and subframes):
-`js window.addEventListener("DOMContentLoaded", event => {         console.log("This script loaded when the DOM was ready."); });`
+  without waiting for stylesheets, images, and subframes):
+  `js window.addEventListener("DOMContentLoaded", event => { console.log("This script loaded when the DOM was ready."); });`
 - Run the script on page load using window.onload (wait for EVERYTHING
-to load):
-`js window.onload = () => { console.log( "This script loaded when all         the resources and the DOM were ready." ); };`
+  to load):
+  `js window.onload = () => { console.log( "This script loaded when all the resources and the DOM were ready." ); };`
 - Three ways to prevent script from running until page loads: 1. Use
-`DOMContentLoaded` 2. Place `script tag` at very bottom of HTML file 3.
-Add attribute like `async` or `defer`
+  `DOMContentLoaded` 2. Place `script tag` at very bottom of HTML file 3.
+  Add attribute like `async` or `defer`
 
 **async vs defer** - `<script>` without any attributes will pause HTML
 parsing, and a request will be made to fetch the file (if it is
@@ -73,31 +73,29 @@ limit. - `localStorage` - stores data w/no expiration date, does not
 transfer data to server, deleted when browser cache is cleared; maximum
 storage limit
 
--   Create a cookie:
-    `js const firstCookie = "favoriteCat=million"; document.cookie =           firstCookie; const secondCookie = "favoriteDog=bambi"; document.cookie           = secondCookie; document.cookie; // Returns "favoriteCat=million;           favoriteDog=bambi"`
--   Delete a cookie by setting a cookie's expiration date to the past
-    (or delete in Developer Tools):
-    `js document.cookie = "favoriteCat=; expires = Thu, 01 Jan 1970           00:00:00 GMT"; document.cookie; // Returns "favoriteDog=bambi"`
--   Create localStorage data:
-    `js //set new localStorage item localStorage.setItem("firstThing",             "firstValue"); //retrieve that localStorage item             localSTorage.getItem("firstThing");`
+- Create a cookie:
+  `js const firstCookie = "favoriteCat=million"; document.cookie = firstCookie; const secondCookie = "favoriteDog=bambi"; document.cookie = secondCookie; document.cookie; // Returns "favoriteCat=million; favoriteDog=bambi"`
+- Delete a cookie by setting a cookie's expiration date to the past
+  (or delete in Developer Tools):
+  `js document.cookie = "favoriteCat=; expires = Thu, 01 Jan 1970 00:00:00 GMT"; document.cookie; // Returns "favoriteDog=bambi"`
+- Create localStorage data:
+  `js //set new localStorage item localStorage.setItem("firstThing", "firstValue"); //retrieve that localStorage item localSTorage.getItem("firstThing");`
 
--   When to use the Web Storage API?
-    -   shopping cart
-    -   input data on forms
-    -   info on user i.e. preferences or buying habits
--   When to use cookies:
-    -   Session cookie, stores session info on user login/validation
-        (lost once browser is closed unless you use a persistent cookie)
--   You can view cookies and web storage info with Developer Tools
-    (inspect -\> Application tab).
+- When to use the Web Storage API?
+  - shopping cart
+  - input data on forms
+  - info on user i.e. preferences or buying habits
+- When to use cookies:
+  - Session cookie, stores session info on user login/validation
+    (lost once browser is closed unless you use a persistent cookie)
+- You can view cookies and web storage info with Developer Tools
+  (inspect -\> Application tab).
 
-Objectives
-----------
+## Objectives
 
-*BROWSER BASICS & STORAGE* 1. ✓ Explain the difference between BOM
+_BROWSER BASICS & STORAGE_ 1. ✓ Explain the difference between BOM
 (browser object model) and the DOM (document object model). 2. ✓ Given a
-diagram of all the different parts of the Browser, identify each part.
-3. ✓ Use the Window API to change the innerHeight of a user's window. 4.
+diagram of all the different parts of the Browser, identify each part. 3. ✓ Use the Window API to change the innerHeight of a user's window. 4.
 ✓ Identify the context of an anonymous function running in the Browser
 (the window). 5. ✓ Given a JS file and an HTML file, use a script tag to
 import the JS file and execute the code therin when all elements on a
@@ -107,8 +105,7 @@ therein when the page loads. 7. ✓ Identify three ways to prevent JS code
 from executing until an entire HTML page is loaded. 8. ✓ Label a diagram
 on the Request/Response cycle. 9. ✓ Explain the Browser's main role in
 the request/response cycle (1. Parsing HTML, CSS, JS; 2. Rendering that
-information to the user by constructing a DOM tree and rendering it.)
-10. ✓ Given several detractors - identify which real-world situations
+information to the user by constructing a DOM tree and rendering it.) 10. ✓ Given several detractors - identify which real-world situations
 could be implemented with the Web Storage API (shopping cart, forms
 savings inputs, etc.). 11. ✓ Given a website to visit that depends on
 cookies (like Amazon), students should be able to go to that site, add
@@ -118,7 +115,7 @@ the value "I \<3 falafel" with the eky "eatz" in the browser's local
 storage. 13. ✓ Write JS to read the value stored in local storage for
 the key "paper-trail".
 
-*ELEMENT SELECTION* 1. Given HTML that includes
+_ELEMENT SELECTION_ 1. Given HTML that includes
 `<div id="catch-me-if-you-can>HI!</div>`, write a JS statement that
 stores a reference to the HTMLDivElement with the id
 "catch-me-if-you-can" in a variable named "divOfInterest".
@@ -133,9 +130,11 @@ stores a reference to the HTMLDivElement with the id
     named \"cloud
 
     ::: {#cb6 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let cloudyNodes = document.querySelectorAll("span.cloudy");
     ```
+
     :::
 
 3.  Given an HTML file with HTML, HEAD, TITLE, and BODY elements, create
@@ -144,19 +143,23 @@ stores a reference to the HTMLDivElement with the id
     the content "Jell-O, Burled!".
 
     ::: {#cb7 .sourceCode}
-    ``` {.sourceCode .html}
+
+    ```{.sourceCode .html}
     <script type="text/javascript" src="location.file"></script>
     ```
+
     :::
 
     ::: {#cb8 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let newHeader = document.createElement("h1");
     newHeader.setAttribute("id", "sleeping-giant");
     newHeader.innerHTML = "Jell-O, Burled!";
     //const newContent = document.createTextNode("Jell-O, Burled!");
     document.body.appendChild(newHeader);
     ```
+
     :::
 
 4.  Given an HTML file with HTML, HEAD, TITLE, SCRIPT, and BODY elements
@@ -165,17 +168,21 @@ stores a reference to the HTMLDivElement with the id
     "lickable-frog" and add it as the last child to the BODY element.
 
     ::: {#cb9 .sourceCode}
-    ``` {.sourceCode .html}
+
+    ```{.sourceCode .html}
     <script type="text/javascript" src="location.file"></script>
     ```
+
     :::
 
     ::: {#cb10 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let newDiv = document.createElement("div");
     newDiv.setAttribute("id", "lickable-frog");
     document.body.appendChild(newDiv);
     ```
+
     :::
 
 5.  Given an HTML file with HTML, HEAD, TITLE, SCRIPT, and BODY elements
@@ -185,7 +192,8 @@ stores a reference to the HTMLDivElement with the id
     and add the UL element as the first child of the BODY element.
 
     ::: {#cb11 .sourceCode}
-    ``` {.sourceCode .html}
+
+    ```{.sourceCode .html}
     <script type="text/javascript">
         let newList = document.createElement("ul");
         let newItem = document.createElement("li");
@@ -194,17 +202,20 @@ stores a reference to the HTMLDivElement with the id
         document.body.prepend(newList);
     </script>
     ```
+
     :::
 
 6.  Write JS to add the CSS class "i-got-loaded" to the BODY element
     when the window fires the DOMContentLoaded event.
 
     ::: {#cb12 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     document.addEventListener("DOMContentLoaded", event => {
        document.body.className("i-got-loaded");
     });
     ```
+
     :::
 
 7.  Given an HTML file with a UL element with the id "your-best-friend"
@@ -212,13 +223,15 @@ stores a reference to the HTMLDivElement with the id
     content of each LI to the console.
 
     ::: {#cb13 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let parentList = document.getElementById("your-best-friend");
     let childNodes = parent.childNodes;
     for (let value of childNodes.values()) {
         console.log(value);
     }
     ```
+
     :::
 
 8.  Given an HTML file with a UL element with the id "your-worst-enemy"
@@ -227,7 +240,8 @@ stores a reference to the HTMLDivElement with the id
     property of ul\#your-worst-enemy to that string.
 
     ::: {#cb14 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     const getRandomInt = max => {
         return Math.floor(Math.random() * Math.floor(max));
     }
@@ -239,6 +253,7 @@ stores a reference to the HTMLDivElement with the id
     const listElement = document.getElementById("your-worst-enemy")
     listElement.innerHTML = liString;
     ```
+
     :::
 
 9.  Write JS to update the title of the document to the current time at
@@ -252,8 +267,8 @@ stores a reference to the HTMLDivElement with the id
 
     }; setInterval(time, 1000); \`\`\`
 
-*EVENT HANDLING* 1. Given an HTML page that includes
-`<button id="increment-count">I have been clicked <span         id="clicked-count">0</span> times</button>`,
+_EVENT HANDLING_ 1. Given an HTML page that includes
+`<button id="increment-count">I have been clicked <span id="clicked-count">0</span> times</button>`,
 write JS that increases the value of the content of `span#clicked-count`
 by 1 every time `button#increment-count` is clicked.
 
@@ -268,13 +283,14 @@ by 1 every time `button#increment-count` is clicked.
     ```
 
 2.  Given an HTML page that includes
-    `<input type="checkbox" id="on-off"><div             id="now-you-see-me">Now you see me</div>`,
+    `<input type="checkbox" id="on-off"><div id="now-you-see-me">Now you see me</div>`,
     write JS that sets the display of div\#now-you-see-me to "none" when
     input\#on-off is checked and "block" when input\#on-off is not
     checked.
 
     ::: {#cb17 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let inputBox = document.getElementById("checkbox");
     let divSee = document.getElementById("now-you-see-me");
     inputBox.addEventListener("click", event => {
@@ -285,16 +301,18 @@ by 1 every time `button#increment-count` is clicked.
         };
     });
     ```
+
     :::
 
 3.  Given an HTML file that includes
-    `<input id="stopper" type="text" placeholder="Quick! Type             STOP">`,
+    `<input id="stopper" type="text" placeholder="Quick! Type STOP">`,
     write JS that will change the background color of the page to cyan
     five seconds after a page loads unless the field input\#stopper
     contains only the text "STOP".
 
     ::: {#cb18 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let inputStopper = document.getElementById("stopper");
     const stopCyanMadness = () => {
         if (inputStopper.value !== "STOP") {
@@ -303,6 +321,7 @@ by 1 every time `button#increment-count` is clicked.
     };
     setTimeout(stopCyanMadness, 5000);
     ```
+
     :::
 
 4.  Given an HTML page that includes
@@ -312,7 +331,8 @@ by 1 every time `button#increment-count` is clicked.
     elsewhere.
 
     ::: {#cb19 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     const input = document.getElementById("fancypands");
     input.addEventListener("focus", event => {
         event.target.style.backgroundColor = "#E8F5E9";
@@ -321,6 +341,7 @@ by 1 every time `button#increment-count` is clicked.
         event.target.style.backgroundColor = "initial";
     })
     ```
+
     :::
 
 5.  Given an HTML page that includes a form with two password fields,
@@ -328,7 +349,8 @@ by 1 every time `button#increment-count` is clicked.
     it if the values in the two password fields differ.
 
     ::: {#cb20 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     let form = document.getElementById("signup-form");
     let passwordOne = document.getElementById("password);
     let passwordTwo = document.getElementById("password);
@@ -341,6 +363,7 @@ by 1 every time `button#increment-count` is clicked.
         }
     })
     ```
+
     :::
 
 6.  Given an HTML page that includes a div styled as a square with a red
@@ -348,18 +371,20 @@ by 1 every time `button#increment-count` is clicked.
     the screen.
 
     1.  Mark the element as draggable:
-        `html <div id="red-square"               draggable="true"></div>`
+        `html <div id="red-square" draggable="true"></div>`
 
 7.  Given HTML page that has 300 DIVs, create one click event
     subscription that will print the id of the element clicked on to the
     console.
 
     ::: {#cb21 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     document.body.addEventListener("click", event => {
         console.log(event.target.id);
     })
     ```
+
     :::
 
 8.  Identify the definition of the bubbling principle.
@@ -367,7 +392,7 @@ by 1 every time `button#increment-count` is clicked.
     When an event happens on an element, it first runs the handlers on
     it, then on its parent, then all the way up on other ancestors.
 
-*JSON* 1. Identify and generate valid JSON-formatted strings.
+_JSON_ 1. Identify and generate valid JSON-formatted strings.
 
     String in JS:   `'this is "text"'`
     String in JSON: `"this is \"text\""`
@@ -378,7 +403,8 @@ by 1 every time `button#increment-count` is clicked.
 2.  Use `JSON.parse` to deserialize JSON-formatted strings.
 
     ::: {#cb23 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     const str = '[1,"hello, \\"world\\"",3.14,{"id":17}]';
     console.log(JSON.parse(str));
         // prints an array with the following entries:
@@ -387,16 +413,19 @@ by 1 every time `button#increment-count` is clicked.
         //   2: 3.14
         //   3: { id: 17 }
     ```
+
     :::
 
 3.  Use `JSON.stringify` to serialize JS objects.
 
     ::: {#cb24 .sourceCode}
-    ``` {.sourceCode .js}
+
+    ```{.sourceCode .js}
     const array = [1, 'hello, "world"', 3.14, { id: 17 }];
     console.log(JSON.stringify(array));
         // prints [1, "hello, \"world\"", 3.14, {"id":17}]
     ```
+
     :::
 
 4.  Correctly identify the definition of "serialize".

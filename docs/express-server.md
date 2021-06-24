@@ -1,8 +1,6 @@
-How to create an express server and utilize it
-==============================================
+# How to create an express server and utilize it
 
-To begin
---------
+## To begin
 
     >> in commandline
 

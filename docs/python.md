@@ -2,8 +2,7 @@ Basics PEP8 : Python Enhancement Proposals, style-guide for Python.
 
 print is the equivalent of console.log.
 
-is used to make comments in your code.
-======================================
+# is used to make comments in your code.
 
 def foo(): \"\"\" The foo function does many amazing things that you
 should not question. Just accept that it exists and use it with caution.
@@ -110,11 +109,11 @@ You can also use "\*" to repeat strings or multiply strings.
 Use the format() function to use placeholders in a string to input
 values later on.
 
-first\_name = "Billy" last\_name = "Bob" print('Your name is {0}
-{1}'.format(first\_name, last\_name)) \# =\> Your name is Billy Bob
+first_name = "Billy" last_name = "Bob" print('Your name is {0}
+{1}'.format(first_name, last_name)) \# =\> Your name is Billy Bob
 
 Shorthand way to use format function is: print(f'Your name is
-{first\_name} {last\_name}')
+{first_name} {last_name}')
 
 Some useful string methods.
 
@@ -180,8 +179,7 @@ Identity vs Equality print (2 == '2') \# =\> False print (2 is '2') \#
 
 print ("2" == '2') \# =\> True print ("2" is '2') \# =\> True
 
-There is a distinction between the number types.
-================================================
+# There is a distinction between the number types.
 
 print (2 == 2.0) \# =\> True print (2 is 2.0) \# =\> False In the Python
 community it is better to use is and is not over == or != If Statements
@@ -195,7 +193,8 @@ not Monica, kiddo.') elif age \> 2000: print('Unlike you, Monica is not
 an undead, immortal vampire.') elif age \> 100: print('You are not
 Monica, grannie.') Remember the order of elif statements matter. While
 Statements spam = 0 while spam \< 5: print('Hello, world.') spam = spam
-+ 1 Break statement also exists in Python.
+
+- 1 Break statement also exists in Python.
 
 spam = 0 while True: print('Hello, world.') spam = spam + 1 if spam \>=
 5: break
@@ -209,14 +208,12 @@ Try/Except Statements Python equivalent to try/catch
 
 a = 321 try: print(len(a)) except: print('Silently handle error here')
 
-Optionally include a correction to the issue
-============================================
+# Optionally include a correction to the issue
 
 a = str(a) print(len(a) a = '321' try: print(len(a)) except:
 print('Silently handle error here')
 
-Optionally include a correction to the issue
-============================================
+# Optionally include a correction to the issue
 
 a = str(a) print(len(a)) You can name an error to give the output more
 specificity.
@@ -302,8 +299,8 @@ supposed to be one-liners.
 toUpper = lambda s: s.upper()
 
 Notes Formatted Strings Remember that in Python join() is called on a
-string with an array/list passed in as the argument. shopping\_list =
-\['bread','milk','eggs'\] print(','.join(shopping\_list)) Python has a
+string with an array/list passed in as the argument. shopping_list =
+\['bread','milk','eggs'\] print(','.join(shopping_list)) Python has a
 very powerful formatting engine. format() is also applied directly to
 strings.
 
@@ -338,7 +335,7 @@ values.
 Dictionaries Sets Iterable : Generic name for a sequence or collection;
 any object that can be iterated through. Can be mutable or immutable.
 Built In Data Types Lists are the python equivalent of arrays.
-empty\_list = \[\] departments =
+empty_list = \[\] departments =
 \['HR','Development','Sales','Finance','IT','Customer Support'\]
 
 You can instantiate specials = list()
@@ -347,7 +344,7 @@ Test if a value is in a list. print(1 in \[1, 2, 3\]) \#\> True print(4
 in \[1, 2, 3\]) \#\> False Tuples : Very similar to lists, but they are
 immutable
 
-Instantiated with parentheses time\_blocks = ('AM','PM')
+Instantiated with parentheses time_blocks = ('AM','PM')
 
 Sometimes instantiated without colors = 'red','blue','green' numbers =
 1, 2, 3
@@ -388,9 +385,9 @@ Intersection, Union, Difference, Symmetric Difference. Standard Set is
 mutable, Python has a immutable version called frozenset. Sets created
 by putting comma seperated values inside braces:
 
-school\_bag =
+school_bag =
 {'book','paper','pencil','pencil','book','book','book','eraser'}
-print(school\_bag)
+print(school_bag)
 
 Also can use set constructor to automatically put it into a set. letters
 = set('abracadabra') print(letters) Built-In Functions Functions using
@@ -464,7 +461,8 @@ for loops as well.
 You can use the range function as the iterable for the for loop.
 
 print('My name is') for i in range(5): print('Carlita Cinco (' + str(i)
-+ ')')
+
+- ')')
 
 total = 0 for num in range(101): total += num print(total) Looping over
 a list in Python for c in \['a', 'b', 'c'\]: print(c)
@@ -499,19 +497,19 @@ in args: total += n return total
 add(1, 2) \# Returns 3
 
 add(2, 3, 4, 5) \# Returns 14 keyword arguments : (\*kwargs) def
-print\_names\_and\_countries(greeting, \*\*kwargs): for k, v in
+print_names_and_countries(greeting, \*\*kwargs): for k, v in
 kwargs.items(): print(greeting, k, "from", v)
 
-print\_names\_and\_countries("Hi", Monica="Sweden", Charles="British
+print_names_and_countries("Hi", Monica="Sweden", Charles="British
 Virgin Islands", Carlo="Portugal")
 
 Prints Hi Monica from Sweden Hi Charles from British Virgin Islands Hi
 Carlo from Portugal When you order arguments within a function or
 function call, the args need to occur in a particular order: formal
 positional args. args keyword args with default values **kwargs def
-example(arg\_1, arg\_2, args,** kwargs): pass
+example(arg_1, arg_2, args,** kwargs): pass
 
-def example2(arg\_1, arg\_2, \*args, kw\_1="shark", kw\_2="blowfish",
+def example2(arg_1, arg_2, \*args, kw_1="shark", kw_2="blowfish",
 \*\*kwargs): pass Importing in Python Modules are similar to packages in
 Node.js Come in different types: Built-In, Third-Party, Custom. All
 loaded using import statements. Terms
@@ -538,139 +536,111 @@ were killed in favor of set() class.
 
 print was a statement in P2, but is a function in P3.
 
-Topics revisited (in python syntax) def say\_hi(name): \"\""\<----
+Topics revisited (in python syntax) def say_hi(name): \"\""\<----
 Multi-Line Comments and Docstrings This is where you put your content
 for help() to inform the user about what your function does and how to
 use it"\"\" print(f"Hello {name}!")
 
-print(say\_hi("Michael")) \# Should get the print inside the function,
+print(say_hi("Michael")) \# Should get the print inside the function,
 then None
 
-Boolean Values
-==============
+# Boolean Values
 
-Work the same as in JS, except they are title case: True and False
-==================================================================
+# Work the same as in JS, except they are title case: True and False
 
 a = True b = False
 
-Logical Operators
-=================
+# Logical Operators
 
-! = not, \|\| = or, && = and
-============================
+# ! = not, \|\| = or, && = and
 
 print(True and True) print(True and not True) print(True or True)
 
-Truthiness - Everything is True except...
-=========================================
+# Truthiness - Everything is True except...
 
-False - None, False, '', \[\], (), set(), range(0)
-==================================================
+# False - None, False, '', \[\], (), set(), range(0)
 
-Number Values
-=============
+# Number Values
 
-Integers are numbers without a floating decimal point
-=====================================================
+# Integers are numbers without a floating decimal point
 
 print(type(3)) \# type returns the type of whatever argument you pass in
 \# Floating Point values are numbers with a floating decimal point
 print(type(3.5))
 
-Type Casting
-============
+# Type Casting
 
-You can convert between ints and floats (along with other types...)
-===================================================================
+# You can convert between ints and floats (along with other types...)
 
 print(float(3)) \# If you convert a float to an int, it will truncate
 the decimal print(int(4.5)) print(type(str(3))) \# Python does not
 automatically convert types like JS \# print(17.0 + ' heyooo ' + 17) \#
 TypeError
 
-Arithmetic Operators
-====================
+# Arithmetic Operators
 
-\*\* - exponent (comparable to Math.pow(num, pow))
-==================================================
+# \*\* - exponent (comparable to Math.pow(num, pow))
 
-// - integer division
-=====================
+# // - integer division
 
-There is no ++ or -- in Python
-==============================
+# There is no ++ or -- in Python
 
-String Values
-=============
+# String Values
 
-We can use single quotes, double quotes, or f'' for string formats
-==================================================================
+# We can use single quotes, double quotes, or f'' for string formats
 
-We can use triple single quotes for multiline strings
-=====================================================
+# We can use triple single quotes for multiline strings
 
 print( \"\""This here's a story All about how My life got twist Turned
 upside down"\"\" )
 
-Three double quotes can also be used, but we typically reserve these for
-========================================================================
+# Three double quotes can also be used, but we typically reserve these for
 
-multi-line comments and function docstrings (refer to lines 6-9)(Nice :D)
-=========================================================================
+# multi-line comments and function docstrings (refer to lines 6-9)(Nice :D)
 
-We use len() to get the length of something
-===========================================
+# We use len() to get the length of something
 
 print(len("Michael")) \# 7 characters print(len(\["hey", "ho", "hey",
 "hey", "ho"\])) \# 5 list items print(len({1, 2, 3, 4, 5, 6, 7, 9})) \#
 8 set items
 
-We can index into strings, list, etc..self.
-===========================================
+# We can index into strings, list, etc..self.
 
 name = "Michael" for i in range(len(name)): print(name\[i\]) \# M, i, c,
 h, a, e, l
 
-We can index starting from the end as well, with negatives
-==========================================================
+# We can index starting from the end as well, with negatives
 
 occupation = "Full Stack Software Engineer" print(occupation\[-3\]) \# e
 
-We can also get ranges in the index with the \[start:stop:step\] syntax
-=======================================================================
+# We can also get ranges in the index with the \[start:stop:step\] syntax
 
 print(occupation\[0:4:1\]) \# step and stop are optional, stop is
 exclusive print(occupation\[::4\]) \# beginning to end, every 4th letter
 print(occupation\[4:14:2\]) \# Let's get weird with it! \# NOTE:
 Indexing out of range will give you an IndexError
 
-We can also get the index og things with the .index() method, similar to indexOf()
-==================================================================================
+# We can also get the index og things with the .index() method, similar to indexOf()
 
 print(occupation.index("Stack")) print(\["Mike", "Barry", "Cole",
 "James", "Mark"\].index("Cole"))
 
-We can count how many times a substring/item appears in something as well
-=========================================================================
+# We can count how many times a substring/item appears in something as well
 
 print(occupation.count("S")) print( \"\""Now this here's a story all
 about how My life got twist turned upside down I forget the rest but the
 the the potato smells like the potato"\"".count("the\" ) )
 
-We concatenate the same as Javascript, but we can also multiply strings
-=======================================================================
+# We concatenate the same as Javascript, but we can also multiply strings
 
 print("dog" + "show") print("ha" \* 10)
 
-We can use format for a multitude of things, from spaces to decimal places
-==========================================================================
+# We can use format for a multitude of things, from spaces to decimal places
 
-first\_name = "Michael" last\_name = "Shuff" print("Your name is {0}
-{1}".format(first\_name, last\_name))
+first_name = "Michael" last_name = "Shuff" print("Your name is {0}
+{1}".format(first_name, last_name))
 
-Useful String Methods
-=====================
+# Useful String Methods
 
 print("Hello".upper()) \# HELLO print("Hello".lower()) \# hello
 print("HELLO".islower()) \# False print("HELLO".isupper()) \# True
@@ -683,169 +653,128 @@ True, must consist of only spaces/tabs/newlines print(\" ".isspace()) \#
 False, index 0 must be upper case and the rest lower
 print("MichaeL".istitle()) print("Michael Lee\".istitle()) \# True!
 
-Duck Typing - If it walks like a duck, and talks like a duck, it must be a duck
-===============================================================================
+# Duck Typing - If it walks like a duck, and talks like a duck, it must be a duck
 
-Assignment - All like JS, but there are no special keywords like let or const
-=============================================================================
+# Assignment - All like JS, but there are no special keywords like let or const
 
 a = 3 b = a c = "heyoo" b = \["reassignment", "is", "fine", "G!"\]
 
-Comparison Operators - Python uses the same equality operators as JS, but no ===
-================================================================================
+# Comparison Operators - Python uses the same equality operators as JS, but no ===
 
-\< - Less than
-==============
+# \< - Less than
 
-\> - Greater than
-=================
+# \> - Greater than
 
-\<= - Less than or Equal
-========================
+# \<= - Less than or Equal
 
-\>= - Greater than or Equal
-===========================
+# \>= - Greater than or Equal
 
-== - Equal to
-=============
+# == - Equal to
 
-!= - Not equal to
-=================
+# != - Not equal to
 
-is - Refers to exact same memory location
-=========================================
+# is - Refers to exact same memory location
 
-not - !
-=======
+# not - !
 
-Precedence - Negative Signs(not) are applied first(part of each number)
-=======================================================================
+# Precedence - Negative Signs(not) are applied first(part of each number)
 
-- Multiplication and Division(and) happen next
-==============================================
+- # Multiplication and Division(and) happen next
 
-- Addition and Subtraction(or) are the last step
-================================================
+- # Addition and Subtraction(or) are the last step
 
-NOTE: Be careful when using not along with ==
-=============================================
+# NOTE: Be careful when using not along with ==
 
 print(not a == b) \# True \# print(a == not b) \# Syntax Error print(a
 == (not b)) \# This fixes it. Answer: False \# Python does short-circuit
 evaluation
 
-Assignment Operators - Mostly the same as JS except Python has \*\*= and //= (int division)
-===========================================================================================
+# Assignment Operators - Mostly the same as JS except Python has \*\*= and //= (int division)
 
-Flow Control Statements - if, while, for
-========================================
+# Flow Control Statements - if, while, for
 
-Note: Python smushes 'else if' into 'elif'!
-===========================================
+# Note: Python smushes 'else if' into 'elif'!
 
 if 10 \< 1: print("We don't get here") elif 10 \< 5: print("Nor
 here...") else: print("Hey there!")
 
-Looping over a string
-=====================
+# Looping over a string
 
 for c in "abcdefgh": print(c)
 
-Looping over a range
-====================
+# Looping over a range
 
 for i in range(5): print(i + 1)
 
-Looping over a list
-===================
+# Looping over a list
 
 lst = \[1, 2, 3, 4\] for i in lst: print(i)
 
-Looping over a dictionary
-=========================
+# Looping over a dictionary
 
 spam = {"color": "red", "age": 42, "items": \[(1, "hey"), (2,
 "hooo!")\]} for v in spam.values(): print(v)
 
-Loop over a list of tuples and destructuring the values
-=======================================================
+# Loop over a list of tuples and destructuring the values
 
-Assuming spam.items returns a list of tuples each containing two items (k, v)
-=============================================================================
+# Assuming spam.items returns a list of tuples each containing two items (k, v)
 
 for k, v in spam.items(): print(f"{k}: {v}")
 
-While loops as long as the condition is True
-============================================
+# While loops as long as the condition is True
 
-- Exit loop early with break
-============================
+- # Exit loop early with break
 
-- Exit iteration early with continue
-====================================
+- # Exit iteration early with continue
 
 spam = 0 while True: print("Heyy girrllll") spam += 1 if spam \< 5:
 continue break
 
-Functions - use def keyword to define a function in Python
-==========================================================
+# Functions - use def keyword to define a function in Python
 
 def printCopyright(): print("Copyright 2020, ya boi, Mike Shuff")
 
-Lambdas are one liners! (Should be at least, you can use parenthesis to disobey)
-================================================================================
+# Lambdas are one liners! (Should be at least, you can use parenthesis to disobey)
 
 avg = lambda num1, num2: print(num1 + num2)
 
 avg(1, 2) \# Calling it with keyword arguments, order does not matter
 avg(num2=20, num1=1252) printCopyright()
 
-We can give parameters default arguments like JS
-================================================
+# We can give parameters default arguments like JS
 
 def greeting(name, saying="Hello"): print(saying, name)
 
 greeting("Mike") \# Hello Mike greeting("Michael", saying="Hello
 there...")
 
-A common gotcha is using a mutable object for a default parameter
-=================================================================
+# A common gotcha is using a mutable object for a default parameter
 
-All invocations of the function reference the same mutable object
-=================================================================
+# All invocations of the function reference the same mutable object
 
-def append\_item(item\_name, item\_list=\[\]): \# Will it obey and give
-us a new list? item\_list.append(item\_name) return item\_list
+def append_item(item_name, item_list=\[\]): \# Will it obey and give
+us a new list? item_list.append(item_name) return item_list
 
-Uses same item list unless otherwise stated which is counterintuitive
-=====================================================================
+# Uses same item list unless otherwise stated which is counterintuitive
 
-print(append\_item("notebook")) print(append\_item("notebook"))
-print(append\_item("notebook", \[\]))
+print(append_item("notebook")) print(append_item("notebook"))
+print(append_item("notebook", \[\]))
 
-Errors - Unlike JS, if we pass the incorrect amount of arguments to a function,
-===============================================================================
+# Errors - Unlike JS, if we pass the incorrect amount of arguments to a function,
 
-it will throw an error
-======================
+# it will throw an error
 
-avg(1) \# TypeError
-===================
+# avg(1) \# TypeError
 
-avg(1, 2, 2) \# TypeError
-=========================
+# avg(1, 2, 2) \# TypeError
 
------------------------------------ DAY 2 ----------------------------------------
-==================================================================================
+# ----------------------------------- DAY 2 ----------------------------------------
 
-Functions - \* to get rest of position arguments as tuple
-=========================================================
+# Functions - \* to get rest of position arguments as tuple
 
-- \*\* to get rest of keyword arguments as a dictionary
-=======================================================
+- # \*\* to get rest of keyword arguments as a dictionary
 
-Variable Length positional arguments
-====================================
+# Variable Length positional arguments
 
 def add(a, b, \*args): \# args is a tuple of the rest of the arguments
 total = a + b for n in args: total += n return total
@@ -853,77 +782,65 @@ total = a + b for n in args: total += n return total
 print(add(1, 2)) \# args is None, returns 3 print(add(1, 2, 3, 4, 5, 6))
 \# args is (3, 4, 5, 6), returns 21
 
-Variable Length Keyword Arguments
-=================================
+# Variable Length Keyword Arguments
 
-def print\_names\_and\_countries(greeting, \*\*kwargs): \# kwargs is a
+def print_names_and_countries(greeting, \*\*kwargs): \# kwargs is a
 dictionary of the rest of the keyword arguments for k, v in
 kwargs.items(): print(greeting, k, "from", v)
 
-print\_names\_and\_countries( "Hey there", Monica="Sweden", Mike="The
+print_names_and_countries( "Hey there", Monica="Sweden", Mike="The
 United States", Mark="China" )
 
-We can combine all of these together
-====================================
+# We can combine all of these together
 
-def example2(arg1, arg2, \*args, kw\_1="cheese", kw\_2="horse",
+def example2(arg1, arg2, \*args, kw_1="cheese", kw_2="horse",
 \*\*kwargs): pass
 
-Lists are mutable arrays
-========================
+# Lists are mutable arrays
 
-empty\_list = \[\] roomates = \["Beau", "Delynn"\] \# List built-in
+empty_list = \[\] roomates = \["Beau", "Delynn"\] \# List built-in
 function makes a list too specials = list() \# We can use 'in' to test
 if something is in the list, like 'includes' in JS print(1 in \[1, 2,
 4\]) \# True print(2 in \[1, 3, 5\]) \# False
 
-Dictionaries - Similar to JS POJO's or Map, containing key value pairs
-======================================================================
+# Dictionaries - Similar to JS POJO's or Map, containing key value pairs
 
 a = {"one": 1, "two": 2, "three": 3} b = dict(one=1, two=2, three=3) \#
 Can use 'in' on dictionaries too (for keys) print("one" in a) \# True
 print(3 in b) \# False
 
-Sets - Just like JS, unordered collection of distinct objects
-=============================================================
+# Sets - Just like JS, unordered collection of distinct objects
 
 bedroom = {"bed", "tv", "computer", "clothes", "playstation 4"} \#
 bedroom = set("bed", "tv", "computer", "clothes", "playstation 5")
-school\_bag = set( \["book", "paper", "pencil", "pencil", "book",
-"book", "book", "eraser"\] ) print(school\_bag) print(bedroom) \# We can
+school_bag = set( \["book", "paper", "pencil", "pencil", "book",
+"book", "book", "eraser"\] ) print(school_bag) print(bedroom) \# We can
 use 'in' on sets as wel print(1 in {1, 2, 3}) \# True print(4 in {1, 3,
 5}) \# False
 
-Tuples are immutable lists of items
-===================================
+# Tuples are immutable lists of items
 
-time\_blocks = ("AM", "PM") colors = "red", "green", "blue" \#
+time_blocks = ("AM", "PM") colors = "red", "green", "blue" \#
 Parenthesis not needed but encouraged \# The tuple built-in function can
 be used to convert things to tuples print(tuple("abc")) print(tuple(\[1,
 2, 3\])) \# 'in' may be used on tuples as well print(1 in (1, 2, 3)) \#
 True print(5 in (1, 4, 3)) \# False
 
-Ranges are immutable lists of numbers, often used with for loops
-================================================================
+# Ranges are immutable lists of numbers, often used with for loops
 
-- start - default: 0, first number in sequence
-==============================================
+- # start - default: 0, first number in sequence
 
-- stop - required, next number past last number in sequence
-===========================================================
+- # stop - required, next number past last number in sequence
 
-- step - default: 1, difference between each number in sequence
-===============================================================
+- # step - default: 1, difference between each number in sequence
 
 range1 = range(5) \# \[0,1,2,3,4\] range2 = range(1, 5) \# \[1,2,3,4\]
 range3 = range(0, 25, 5) \# \[0,5,10,15,20\] range4 = range(0) \# \[\]
 for i in range1: print(i)
 
-Built-in functions:
-===================
+# Built-in functions:
 
-Filter
-======
+# Filter
 
 isOdd = lambda num: num % 2 == 1
 
@@ -931,213 +848,159 @@ filtered = filter(isOdd, \[1, 2, 3, 4\]) print(list(filtered)) for num
 in filtered: print(f"first way: {num}") print("--" \* 20) \[print(f"list
 comprehension: {i}") for i in \[1, 2, 3, 4, 5, 6, 7, 8\] if i % 2 == 1\]
 
-Map
-===
+# Map
 
 def toUpper(str): return str.upper()
 
 upperCased = map(toUpper, \["a", "b", "c", "d"\])
 print(list(upperCased))
 
-Sorted
-======
+# Sorted
 
-sorted\_items = sorted(\["john", "tom", "sonny", "Mike"\])
-print(list(sorted\_items)) \# Notice uppercase comes before lowercase \#
+sorted_items = sorted(\["john", "tom", "sonny", "Mike"\])
+print(list(sorted_items)) \# Notice uppercase comes before lowercase \#
 Using a key function to control the sorting and make it case insensitive
-sorted\_items = sorted(\["john", "tom", "sonny", "Mike"\],
-key=str.lower) print(sorted\_items) \# You can also reverse the sort
-sorted\_items = sorted(\["john", "tom", "sonny", "Mike"\],
-key=str.lower, reverse=True) print(sorted\_items)
+sorted_items = sorted(\["john", "tom", "sonny", "Mike"\],
+key=str.lower) print(sorted_items) \# You can also reverse the sort
+sorted_items = sorted(\["john", "tom", "sonny", "Mike"\],
+key=str.lower, reverse=True) print(sorted_items)
 
-Enumerate creates a tuple with an index for what you're enumerating
-===================================================================
+# Enumerate creates a tuple with an index for what you're enumerating
 
 quarters = \["First", "Second", "Third", "Fourth"\]
 print(list(enumerate(quarters))) print(list(enumerate(quarters,
 start=1)))
 
-Zip takes list and combines them as key value pairs, or really however you need
-===============================================================================
+# Zip takes list and combines them as key value pairs, or really however you need
 
 keys = ("Name", "Email") values = ("Buster", "cheetoh\@johhnydepp.com")
 zipped = zip(keys, values) print(list(zipped)) \# You can zip more than
-2 x\_coords = \[0, 1, 2, 3, 4\] y\_coords = \[4, 6, 10, 9, 10\]
-z\_coords = \[20, 10, 5, 9, 1\] coords = zip(x\_coords, y\_coords,
-z\_coords) print(list(coords))
+2 x_coords = \[0, 1, 2, 3, 4\] y_coords = \[4, 6, 10, 9, 10\]
+z_coords = \[20, 10, 5, 9, 1\] coords = zip(x_coords, y_coords,
+z_coords) print(list(coords))
 
-Len reports the length of strings along with list and any other object data type
-================================================================================
+# Len reports the length of strings along with list and any other object data type
 
-print\_len = lambda item: print(len(item)) \# doing this to save myself
+print_len = lambda item: print(len(item)) \# doing this to save myself
 some typing
 
-print\_len("Mike") print\_len(\[1, 5, 2, 10, 3, 10\]) print\_len({1, 5,
-10, 9, 10}) \# 4 because there is a duplicate here (10) print\_len((1,
+print_len("Mike") print_len(\[1, 5, 2, 10, 3, 10\]) print_len({1, 5,
+10, 9, 10}) \# 4 because there is a duplicate here (10) print_len((1,
 4, 10, 9, 20))
 
-Max will return the max number in a given scenario
-==================================================
+# Max will return the max number in a given scenario
 
 print(max(1, 2, 35, 1012, 1))
 
-Min
-===
+# Min
 
 print(min(1, 5, 2, 10)) print(min(\[1, 4, 7, 10\]))
 
-Sum
-===
+# Sum
 
 print(sum(\[1, 2, 4\]))
 
-Any
-===
+# Any
 
 print(any(\[True, False, False\])) print(any(\[False, False, False\]))
 
-All
-===
+# All
 
 print(all(\[True, True, False\])) print(all(\[True, True, True\]))
 
-Dir returns all the attributes of an object including it's methods and dunder methods
-=====================================================================================
+# Dir returns all the attributes of an object including it's methods and dunder methods
 
 user = {"Name": "Bob", "Email": "bob\@bob.com"} print(dir(user))
 
-Importing packages and modules
-==============================
+# Importing packages and modules
 
-- Module - A Python code in a file or directory
-===============================================
+- # Module - A Python code in a file or directory
 
-- Package - A module which is a directory containing an **init**.py file
-========================================================================
+- # Package - A module which is a directory containing an **init**.py file
 
-- Submodule - A module which is contained within a package
-==========================================================
+- # Submodule - A module which is contained within a package
 
-- Name - An exported function, class, or variable in a module
-=============================================================
+- # Name - An exported function, class, or variable in a module
 
-Unlike JS, modules export ALL names contained within them without any special export key
-========================================================================================
+# Unlike JS, modules export ALL names contained within them without any special export key
 
-Assuming we have the following package with four submodules
-===========================================================
+# Assuming we have the following package with four submodules
 
-math
-====
+# math
 
-\| **init**.py
-==============
+# \| **init**.py
 
-\| addition.py
-==============
+# \| addition.py
 
-\| subtraction.py
-=================
+# \| subtraction.py
 
-\| multiplication.py
-====================
+# \| multiplication.py
 
-\| division.py
-==============
+# \| division.py
 
-If we peek into the addition.py file we see there's an add function
-===================================================================
+# If we peek into the addition.py file we see there's an add function
 
-addition.py
-===========
+# addition.py
 
-We can import 'add' from other places because it's a 'name' and is automatically exported
-=========================================================================================
+# We can import 'add' from other places because it's a 'name' and is automatically exported
 
 def add(num1, num2): return num1 + num2
 
-Notice the . syntax because this package can import it's own submodules.
-========================================================================
+# Notice the . syntax because this package can import it's own submodules.
 
-Our **init**.py has the following files
-=======================================
+# Our **init**.py has the following files
 
-This imports the 'add' function
-===============================
+# This imports the 'add' function
 
-And now it's also re-exported in here as well
-=============================================
+# And now it's also re-exported in here as well
 
-from .addition import add
-=========================
+# from .addition import add
 
-These import and re-export the rest of the functions from the submodule
-=======================================================================
+# These import and re-export the rest of the functions from the submodule
 
-from .subtraction import subtract
-=================================
+# from .subtraction import subtract
 
-from .division import divide
-============================
+# from .division import divide
 
-from .multiplication import multiply
-====================================
+# from .multiplication import multiply
 
-So if we have a script.py and want to import add, we could do it many ways
-==========================================================================
+# So if we have a script.py and want to import add, we could do it many ways
 
-This will load and execute the 'math/**init**.py' file and give
-===============================================================
+# This will load and execute the 'math/**init**.py' file and give
 
-us an object with the exported names in 'math/**init**.py'
-==========================================================
+# us an object with the exported names in 'math/**init**.py'
 
 import math
 
-print(math.add(1,2))
-====================
+# print(math.add(1,2))
 
-This imports JUST the add from 'math/**init**.py'
-=================================================
+# This imports JUST the add from 'math/**init**.py'
 
-from math import add
-====================
+# from math import add
 
-print(add(1, 2))
-================
+# print(add(1, 2))
 
-This skips importing from 'math/**init**.py' (although it still runs)
-=====================================================================
+# This skips importing from 'math/**init**.py' (although it still runs)
 
-and imports directly from the addition.py file
-==============================================
+# and imports directly from the addition.py file
 
-from math.addition import add
-=============================
+# from math.addition import add
 
-This imports all the functions individually from 'math/**init**.py'
-===================================================================
+# This imports all the functions individually from 'math/**init**.py'
 
-from math import add, subtract, multiply, divide
-================================================
+# from math import add, subtract, multiply, divide
 
-print(add(1, 2))
-================
+# print(add(1, 2))
 
-print(subtract(2, 1))
-=====================
+# print(subtract(2, 1))
 
-This imports 'add' renames it to 'add\_some\_numbers'
-=====================================================
+# This imports 'add' renames it to 'add_some_numbers'
 
-from math import add as add\_some\_numbers
-==========================================
+# from math import add as add_some_numbers
 
---------------------------------------- DAY 3 ---------------------------------------
-=====================================================================================
+# --------------------------------------- DAY 3 ---------------------------------------
 
-Classes, Methods, and Properties
-================================
+# Classes, Methods, and Properties
 
 class AngryBird: \# Slots optimize property access and memory usage and
 prevent you \# from arbitrarily assigning new properties the instance
@@ -1181,57 +1044,43 @@ prevent you \# from arbitrarily assigning new properties the instance
     def __repr__(self):
         return f"<AngryBird ({self._x}, {self._y})>"
 
-JS to Python Classes cheat table
-================================
+# JS to Python Classes cheat table
 
-JS Python
-=========
+# JS Python
 
-constructor() def **init**(self):
-=================================
+# constructor() def **init**(self):
 
-super() super().\_\_init\_\_() \# this.property self.property \# this.method self.method() \# method(arg1, arg2){} def method(self, arg1, ...) \# get someProperty(){} [\@property]{.citation data-cites="property"} \# set someProperty(){} [\@someProperty.setter]{.citation data-cites="someProperty.setter"}
-================================================================================================================================================================================================================================================================================================================
+# super() super().\_\_init\_\_() \# this.property self.property \# this.method self.method() \# method(arg1, arg2){} def method(self, arg1, ...) \# get someProperty(){} [\@property]{.citation data-cites="property"} \# set someProperty(){} [\@someProperty.setter]{.citation data-cites="someProperty.setter"}
 
-List Comprehensions are a way to transform a list from one format to another
-============================================================================
+# List Comprehensions are a way to transform a list from one format to another
 
-- Pythonic Alternative to using map or filter
-=============================================
+- # Pythonic Alternative to using map or filter
 
-- Syntax of a list comprehension
-================================
+- # Syntax of a list comprehension
 
-- new\_list = \[value loop condition\]
-======================================
+- # new_list = \[value loop condition\]
 
-Using a for loop
-================
+# Using a for loop
 
 squares = \[\] for i in range(10): squares.append(i \*\* 2)
 print(squares)
 
-value = i \*\* 2
-================
+# value = i \*\* 2
 
-loop = for i in range(10)
-=========================
+# loop = for i in range(10)
 
 squares = \[i \*\* 2 for i in range(10)\] print(list(squares))
 
 sentence = "the rocket came back from mars" vowels = \[character for
 character in sentence if character in "aeiou"\] print(vowels)
 
-You can also use them on dictionaries. We can use the items() method
-====================================================================
+# You can also use them on dictionaries. We can use the items() method
 
-for the dictionary to loop through it getting the keys and values out at once
-=============================================================================
+# for the dictionary to loop through it getting the keys and values out at once
 
 person = {"name": "Corina", "age": 32, "height": 1.4}
 
-This loops through and capitalizes the first letter of all keys
-===============================================================
+# This loops through and capitalizes the first letter of all keys
 
 newPerson = {key.title(): value for key, value in person.items()}
 print(list(newPerson.items()))

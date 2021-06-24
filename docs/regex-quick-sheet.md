@@ -4,13 +4,13 @@ Let regex;
 short for \[0-9\] regex = /D/; // matches non-digits, short for
 \[\^0-9\] regex = /S/; // matches non-white space character regex = /s/;
 // matches any white space character regex = /w/; // matches character,
-short for \[a-zA-Z\_0-9\] regex = /W/; // matches non-word character
+short for \[a-zA-Z_0-9\] regex = /W/; // matches non-word character
 \[\^w\] regex = /b/; // Matches a word boundary where a word character
 is \[a-zA-Z0-9\_\] These meta characters boast a pre-defined meaning and
 make various typical patterns easier to use.
 
-/\* matching using quantifiers */ regex= /X./; // matches any character
-regex= /X*/; // Matches zero or several repetitions of letter X, is
+/\* matching using quantifiers _/ regex= /X./; // matches any character
+regex= /X_/; // Matches zero or several repetitions of letter X, is
 short for {0,} regex= /X+-/; // matches one or more repetitions of
 letter X, is short for {1,} regex= /X?/; // finds no or exactly one
 letter X, is short for is short for {0,1}. regex= // d{3}; // matches

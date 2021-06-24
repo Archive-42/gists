@@ -18,8 +18,7 @@ scripts for `install`, `heroku-postbuild` and `start` scripts to
 install, build your React application, and start the Express production
 server.
 
-Phase 1: Heroku Connection
---------------------------
+## Phase 1: Heroku Connection
 
 If you haven't created a Heroku account yet, create one
 [here](https://signup.heroku.com/).
@@ -45,8 +44,7 @@ dashboard](https://dashboard.heroku.com/).
 Next, you will set up your Express + React application to be deployable
 to Heroku.
 
-Phase 2: Setting up your Express + React application
-----------------------------------------------------
+## Phase 2: Setting up your Express + React application
 
 Right now, your React application is on a different localhost port than
 your Express application. However, since your React application only
@@ -161,8 +159,7 @@ be used for Heroku.
 
 Finally, commit your changes.
 
-Phase 3: Deploy to Heroku
--------------------------
+## Phase 3: Deploy to Heroku
 
 Once you're finished setting this up, navigate to your application's
 Heroku dashboard. Under "Settings" there is a section for "Config Vars".

@@ -1,5 +1,4 @@
-`.gitignore`
-------------
+## `.gitignore`
 
 Before discussing how to configure webpack, be aware that running
 webpack and using npm creates many redundant, large files in your local
@@ -23,8 +22,7 @@ For example:
 You can view a full collection of useful `.gitignore` templates
 [here](https://github.com/github/gitignore).
 
-Configuring Webpack
--------------------
+## Configuring Webpack
 
 Just like with NPM, you can use a configuration file to set up your
 webpack options. You'll have to create this file by hand. It should live

@@ -1,24 +1,25 @@
 Renders an accordion menu with multiple collapsible content elements.
 
--   Define an `AccordionItem` component, that renders a `<button>` which
-    is used to update the component and notify its parent via the
-    `handleClick` callback.
--   Use the `isCollapsed` prop in `AccordionItem` to determine its
-    appearance and set an appropriate `className`.
--   Define an `Accordion` component that uses the `useState()` hook to
-    initialize the value of the `bindIndex` state variable to
-    `defaultIndex`.
--   Filter `children` to remove unnecessary nodes except for
-    `AccordionItem` by identifying the function's name.
--   Use `Array.prototype.map()` on the collected nodes to render the
-    individual collapsible elements.
--   Define `changeItem`, which will be executed when clicking an
-    `AccordionItem`'s `<button>`.
--   `changeItem` executes the passed callback, `onItemClick`, and
-    updates `bindIndex` based on the clicked element.
+- Define an `AccordionItem` component, that renders a `<button>` which
+  is used to update the component and notify its parent via the
+  `handleClick` callback.
+- Use the `isCollapsed` prop in `AccordionItem` to determine its
+  appearance and set an appropriate `className`.
+- Define an `Accordion` component that uses the `useState()` hook to
+  initialize the value of the `bindIndex` state variable to
+  `defaultIndex`.
+- Filter `children` to remove unnecessary nodes except for
+  `AccordionItem` by identifying the function's name.
+- Use `Array.prototype.map()` on the collected nodes to render the
+  individual collapsible elements.
+- Define `changeItem`, which will be executed when clicking an
+  `AccordionItem`'s `<button>`.
+- `changeItem` executes the passed callback, `onItemClick`, and
+  updates `bindIndex` based on the clicked element.
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .accordion-item.collapsed {  display: none; }  .accordion-item.expanded {  display: block; }  .accordion-button {  display: block;  width: 100%; }
 
 ```js
@@ -39,26 +40,28 @@ ReactDOM.render(
   &lt;/Accordion&gt;,
   document.getElementById(&quot;root&quot;)
 );
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders an alert component with `type` prop.
 
--   Use the `useState()` hook to create the `isShown` and `isLeaving`
-    state variables and set both to `false` initially.
--   Define `timeoutId` to keep the timer instance for clearing on
-    component unmount.
--   Use the `useEffect()` hook to update the value of `isShown` to
-    `true` and clear the interval by using `timeoutId` when the
-    component is unmounted.
--   Define a `closeAlert` function to set the component as removed from
-    the DOM by displaying a fading out animation and set `isShown` to
-    `false` via `setTimeout()`.
+- Use the `useState()` hook to create the `isShown` and `isLeaving`
+  state variables and set both to `false` initially.
+- Define `timeoutId` to keep the timer instance for clearing on
+  component unmount.
+- Use the `useEffect()` hook to update the value of `isShown` to
+  `true` and clear the interval by using `timeoutId` when the
+  component is unmounted.
+- Define a `closeAlert` function to set the component as removed from
+  the DOM by displaying a fading out animation and set `isShown` to
+  `false` via `setTimeout()`.
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 @keyframes leave {  0% {  opacity: 1;  }  100% {  opacity: 0;  } }  .alert {  padding: 0.75rem 0.5rem;  margin-bottom: 0.5rem;  text-align: left;  padding-right: 40px;  border-radius: 4px;  font-size: 16px;  position: relative; }  .alert.warning {  color: #856404;  background-color: #fff3cd;  border-color: #ffeeba; }  .alert.error {  color: #721c24;  background-color: #f8d7da;  border-color: #f5c6cb; }  .alert.leaving {  animation: leave 0.5s forwards; }  .alert .close {  position: absolute;  top: 0;  right: 0;  padding: 0 0.75rem;  color: #333;  border: 0;  height: 100%;  cursor: pointer;  background: none;  font-weight: 600;  font-size: 16px; }  .alert .close:after {  content: “x”; }
 
 ```js
@@ -73,22 +76,24 @@ ReactDOM.render(
   &lt;Alert type=&quot;info&quot; message=&quot;This is info&quot; /&gt;,
   document.getElementById(&quot;root&quot;)
 );
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a string as plaintext, with URLs converted to appropriate link
 elements.
 
--   Use `String.prototype.split()` and `String.prototype.match()` with a
-    regular expression to find URLs in a string.
--   Return matched URLs rendered as `<a>` elements, dealing with missing
-    protocol prefixes if necessary.
--   Render the rest of the string as plaintext.
+- Use `String.prototype.split()` and `String.prototype.match()` with a
+  regular expression to find URLs in a string.
+- Return matched URLs rendered as `<a>` elements, dealing with missing
+  protocol prefixes if necessary.
+- Render the rest of the string as plaintext.
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const AutoLink = ({ text }) =&gt; {
   const delimiter =
     /((?:https?:\/\/)?(?:(?:[a-z0-9]?(?:[a-z0-9\-]{1,61}[a-z0-9])?\.[^\.|\s])+[a-z\.]*[a-z]+|(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3})(?::\d{1,5})*[a-z0-9.,_\/~#&amp;=;%+?\-\\(\\)]*)/gi;
@@ -109,61 +114,69 @@ return word;
 );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;AutoLink text=&quot;foo bar baz http://example.org bar&quot; /&gt;,
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a link formatted to call a phone number (`tel:` link).
 
--   Use `phone` to create a `<a>` element with an appropriate `href`
-    attribute.
--   Render the link with `children` as its content.
+- Use `phone` to create a `<a>` element with an appropriate `href`
+  attribute.
+- Render the link with `children` as its content.
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const Callto = ({ phone, children }) =&gt; {
   return &lt;a href={`tel:${phone}`}&gt;{children}&lt;/a&gt;;
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;Callto phone=&quot;+302101234567&quot;&gt;Call me!&lt;/Callto&gt;,
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a carousel component.
 
--   Use the `useState()` hook to create the `active` state variable and
-    give it a value of `0` (index of the first item).
--   Use the `useEffect()` hook to update the value of `active` to the
-    index of the next item, using `setTimeout`.
--   Compute the `className` for each carousel item while mapping over
-    them and applying it accordingly.
--   Render the carousel items using `React.cloneElement()` and pass down
-    `…rest` along with the computed `className`.
+- Use the `useState()` hook to create the `active` state variable and
+  give it a value of `0` (index of the first item).
+- Use the `useEffect()` hook to update the value of `active` to the
+  index of the next item, using `setTimeout`.
+- Compute the `className` for each carousel item while mapping over
+  them and applying it accordingly.
+- Render the carousel items using `React.cloneElement()` and pass down
+  `…rest` along with the computed `className`.
 
 ::: {#cb11 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .carousel {  position: relative; }  .carousel-item {  position: absolute;  visibility: hidden; }  .carousel-item.visible {  visibility: visible; }
 
 ```js
@@ -182,24 +195,26 @@ ReactDOM.render(
   /&gt;,
   document.getElementById(&quot;root&quot;)
 );
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a component with collapsible content.
 
--   Use the `useState()` hook to create the `isCollapsed` state variable
-    with an initial value of `collapsed`.
--   Use the `<button>` to change the component's `isCollapsed` state and
-    the content of the component, passed down via `children`.
--   Determine the appearance of the content, based on `isCollapsed` and
-    apply the appropriate `className`.
--   Update the value of the `aria-expanded` attribute based on
-    `isCollapsed` to make the component accessible.
+- Use the `useState()` hook to create the `isCollapsed` state variable
+  with an initial value of `collapsed`.
+- Use the `<button>` to change the component's `isCollapsed` state and
+  the content of the component, passed down via `children`.
+- Determine the appearance of the content, based on `isCollapsed` and
+  apply the appropriate `className`.
+- Update the value of the `aria-expanded` attribute based on
+  `isCollapsed` to make the component accessible.
 
 ::: {#cb14 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .collapse-button {  display: block;  width: 100%; }  .collapse-content.collapsed {  display: none; }  .collapsed-content.expanded {  display: block; }
 
 ```js
@@ -214,23 +229,25 @@ ReactDOM.render(
   &lt;/Collapse&gt;,
   document.getElementById(&quot;root&quot;)
 );
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a controlled `<input>` element that uses a callback function to
 inform its parent about value updates.
 
--   Use the `value` passed down from the parent as the controlled input
-    field's value.
--   Use the `onChange` event to fire the `onValueChange` callback and
-    send the new value to the parent.
--   The parent must update the input field's `value` prop in order for
-    its value to change on user input.
+- Use the `value` passed down from the parent as the controlled input
+  field's value.
+- Use the `onChange` event to fire the `onValueChange` callback and
+  send the new value to the parent.
+- The parent must update the input field's `value` prop in order for
+  its value to change on user input.
 
 ::: {#cb9 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const ControlledInput = ({ value, onValueChange, ...rest }) =&gt; {
   return (
     &lt;input
@@ -241,12 +258,14 @@ const ControlledInput = ({ value, onValueChange, ...rest }) =&gt; {
   );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb10 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const Form = () =&gt; {
   const [value, setValue] = React.useState(&quot;&quot;);
 
@@ -262,30 +281,32 @@ onValueChange={setValue}
 
 ReactDOM.render(&lt;Form /&gt;, document.getElementById(&quot;root&quot;));
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a countdown timer that prints a message when it reaches zero.
 
--   Use the `useState()` hook to create a state variable to hold the
-    time value, initialize it from the props and destructure it into its
-    components.
--   Use the `useState()` hook to create the `paused` and `over` state
-    variables, used to prevent the timer from ticking if it's paused or
-    the time has run out.
--   Create a method `tick`, that updates the time values based on the
-    current value (i.e. decreasing the time by one second).
--   Create a method `reset`, that resets all state variables to their
-    initial states.
--   Use the the `useEffect()` hook to call the `tick` method every
-    second via the use of `setInterval()` and use `clearInterval()` to
-    clean up when the component is unmounted.
--   Use `String.prototype.padStart()` to pad each part of the time array
-    to two characters to create the visual representation of the timer.
+- Use the `useState()` hook to create a state variable to hold the
+  time value, initialize it from the props and destructure it into its
+  components.
+- Use the `useState()` hook to create the `paused` and `over` state
+  variables, used to prevent the timer from ticking if it's paused or
+  the time has run out.
+- Create a method `tick`, that updates the time values based on the
+  current value (i.e. decreasing the time by one second).
+- Create a method `reset`, that resets all state variables to their
+  initial states.
+- Use the the `useEffect()` hook to call the `tick` method every
+  second via the use of `setInterval()` and use `clearInterval()` to
+  clean up when the component is unmounted.
+- Use `String.prototype.padStart()` to pad each part of the time array
+  to two characters to create the visual representation of the timer.
 
 ::: {#cb11 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const CountDown = ({ hours = 0, minutes = 0, seconds = 0 }) =&gt; {
   const [paused, setPaused] = React.useState(false);
   const [over, setOver] = React.useState(false);
@@ -326,41 +347,47 @@ return (
 );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb12 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;CountDown hours={1} minutes={45} /&gt;,
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a list of elements from an array of primitives.
 
--   Use the value of the `isOrdered` prop to conditionally render an
-    `<ol>` or a `<ul>` list.
--   Use `Array.prototype.map()` to render every item in `data` as a
-    `<li>` element with an appropriate `key`.
+- Use the value of the `isOrdered` prop to conditionally render an
+  `<ol>` or a `<ul>` list.
+- Use `Array.prototype.map()` to render every item in `data` as a
+  `<li>` element with an appropriate `key`.
 
 ::: {#cb13 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const DataList = ({ isOrdered = false, data }) =&gt; {
   const list = data.map((val, i) =&gt; &lt;li key={`${i}_${val}`}&gt;{val}&lt;/li&gt;);
   return isOrdered ? &lt;ol&gt;{list}&lt;/ol&gt; : &lt;ul&gt;{list}&lt;/ul&gt;;
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb14 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const names = [&quot;John&quot;, &quot;Paul&quot;, &quot;Mary&quot;];
 ReactDOM.render(&lt;DataList data={names} /&gt;, document.getElementById(&quot;root&quot;));
 ReactDOM.render(
@@ -368,19 +395,21 @@ ReactDOM.render(
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a table with rows dynamically created from an array of
 primitives.
 
--   Render a `<table>` element with two columns (`ID` and `Value`).
--   Use `Array.prototype.map()` to render every item in `data` as a
-    `<tr>` element with an appropriate `key`.
+- Render a `<table>` element with two columns (`ID` and `Value`).
+- Use `Array.prototype.map()` to render every item in `data` as a
+  `<tr>` element with an appropriate `key`.
 
 ::: {#cb15 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const DataTable = ({ data }) =&gt; {
   return (
     &lt;table&gt;
@@ -402,39 +431,43 @@ const DataTable = ({ data }) =&gt; {
   );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb16 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const people = [&quot;John&quot;, &quot;Jesse&quot;];
 ReactDOM.render(&lt;DataTable data={people} /&gt;, document.getElementById(&quot;root&quot;));
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a file drag and drop component for a single file.
 
--   Create a ref, called `dropRef` and bind it to the component's
-    wrapper.
--   Use the `useState()` hook to create the `drag` and `filename`
-    variables, initialized to `false` and `’’` respectively.
--   The variables `dragCounter` and `drag` are used to determine if a
-    file is being dragged, while `filename` is used to store the dropped
-    file's name.
--   Create the `handleDrag`, `handleDragIn`, `handleDragOut` and
-    `handleDrop` methods to handle drag and drop functionality.
--   `handleDrag` prevents the browser from opening the dragged file,
-    `handleDragIn` and `handleDragOut` handle the dragged file entering
-    and exiting the component, while `handleDrop` handles the file being
-    dropped and passes it to `onDrop`.
--   Use the `useEffect()` hook to handle each of the drag and drop
-    events using the previously created methods.
+- Create a ref, called `dropRef` and bind it to the component's
+  wrapper.
+- Use the `useState()` hook to create the `drag` and `filename`
+  variables, initialized to `false` and `’’` respectively.
+- The variables `dragCounter` and `drag` are used to determine if a
+  file is being dragged, while `filename` is used to store the dropped
+  file's name.
+- Create the `handleDrag`, `handleDragIn`, `handleDragOut` and
+  `handleDrop` methods to handle drag and drop functionality.
+- `handleDrag` prevents the browser from opening the dragged file,
+  `handleDragIn` and `handleDragOut` handle the dragged file entering
+  and exiting the component, while `handleDrop` handles the file being
+  dropped and passes it to `onDrop`.
+- Use the `useEffect()` hook to handle each of the drag and drop
+  events using the previously created methods.
 
 ::: {#cb25 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .filedrop {  min-height: 120px;  border: 3px solid #d3d3d3;  text-align: center;  font-size: 24px;  padding: 32px;  border-radius: 4px; }  .filedrop.drag {  border: 3px dashed #1e90ff; }  .filedrop.ready {  border: 3px solid #32cd32; }
 
 ```js
@@ -451,24 +484,26 @@ ReactDOM.render(
   &lt;FileDrop onDrop={console.log} /&gt;,
   document.getElementById(&quot;root&quot;)
 );
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a textarea component with a character limit.
 
--   Use the `useState()` hook to create the `content` state variable and
-    set its value to that of `value` prop, trimmed down to `limit`
-    characters.
--   Create a method `setFormattedContent`, which trims the content down
-    to `limit` characters and memoize it, using the `useCallback()`
-    hook.
--   Bind the `onChange` event of the `<textarea>` to call
-    `setFormattedContent` with the value of the fired event.
+- Use the `useState()` hook to create the `content` state variable and
+  set its value to that of `value` prop, trimmed down to `limit`
+  characters.
+- Create a method `setFormattedContent`, which trims the content down
+  to `limit` characters and memoize it, using the `useCallback()`
+  hook.
+- Bind the `onChange` event of the `<textarea>` to call
+  `setFormattedContent` with the value of the fired event.
 
 ::: {#cb18 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const LimitedTextarea = ({ rows, cols, value, limit }) =&gt; {
   const [content, setContent] = React.useState(value.slice(0, limit));
 
@@ -494,41 +529,45 @@ value={content}
 );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb19 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;LimitedTextarea limit={32} value=&quot;Hello!&quot; /&gt;,
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a textarea component with a word limit.
 
--   Use the `useState()` hook to create a state variable, containing
-    `content` and `wordCount`, using the `value` prop and `0` as the
-    initial values respectively.
--   Use the `useCallback()` hooks to create a memoized function,
-    `setFormattedContent`, that uses `String.prototype.split()` to turn
-    the input into an array of words.
--   Check if the result of applying `Array.prototype.filter()` combined
-    with `Boolean` has a `length` longer than `limit` and, if so, trim
-    the input, otherwise return the raw input, updating state
-    accordingly in both cases.
--   Use the `useEffect()` hook to call the `setFormattedContent` method
-    on the value of the `content` state variable during the initial
-    render.
--   Bind the `onChange` event of the `<textarea>` to call
-    `setFormattedContent` with the value of `event.target.value`.
+- Use the `useState()` hook to create a state variable, containing
+  `content` and `wordCount`, using the `value` prop and `0` as the
+  initial values respectively.
+- Use the `useCallback()` hooks to create a memoized function,
+  `setFormattedContent`, that uses `String.prototype.split()` to turn
+  the input into an array of words.
+- Check if the result of applying `Array.prototype.filter()` combined
+  with `Boolean` has a `length` longer than `limit` and, if so, trim
+  the input, otherwise return the raw input, updating state
+  accordingly in both cases.
+- Use the `useEffect()` hook to call the `setFormattedContent` method
+  on the value of the `content` state variable during the initial
+  render.
+- Bind the `onChange` event of the `<textarea>` to call
+  `setFormattedContent` with the value of `event.target.value`.
 
 ::: {#cb20 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const LimitedWordTextarea = ({ rows, cols, value, limit }) =&gt; {
   const [{ content, wordCount }, setContent] = React.useState({
     content: value,
@@ -569,29 +608,33 @@ value={content}
 );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb21 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;LimitedWordTextarea limit={5} value=&quot;Hello there!&quot; /&gt;,
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a spinning loader component.
 
--   Render an SVG, whose `height` and `width` are determined by the
-    `size` prop.
--   Use CSS to animate the SVG, creating a spinning animation.
+- Render an SVG, whose `height` and `width` are determined by the
+  `size` prop.
+- Use CSS to animate the SVG, creating a spinning animation.
 
 ::: {#cb32 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .loader {  animation: rotate 2s linear infinite; }  @keyframes rotate {  100% {  transform: rotate(360deg);  } }  .loader circle {  animation: dash 1.5s ease-in-out infinite; }  @keyframes dash {  0% {  stroke-dasharray: 1, 150;  stroke-dashoffset: 0;  }  50% {  stroke-dasharray: 90, 150;  stroke-dashoffset: -35;  }  100% {  stroke-dasharray: 90, 150;  stroke-dashoffset: -124;  } }
 
 ```js
@@ -599,21 +642,23 @@ const Loader = ({ size }) => { return ( <svg className=“loader” xmlns=“htt
 
 
 ReactDOM.render(&lt;Loader size={24} /&gt;, document.getElementById(&quot;root&quot;));
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a link formatted to send an email (`mailto:` link).
 
--   Use the `email`, `subject` and `body` props to create a `<a>`
-    element with an appropriate `href` attribute.
--   Use `encodeURIcomponent` to safely encode the `subject` and `body`
-    into the link URL.
--   Render the link with `children` as its content.
+- Use the `email`, `subject` and `body` props to create a `<a>`
+  element with an appropriate `href` attribute.
+- Use `encodeURIcomponent` to safely encode the `subject` and `body`
+  into the link URL.
+- Render the link with `children` as its content.
 
 ::: {#cb23 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const Mailto = ({ email, subject = &quot;&quot;, body = &quot;&quot;, children }) =&gt; {
   let params = subject || body ? &quot;?&quot; : &quot;&quot;;
   if (subject) params += `subject=${encodeURIComponent(subject)}`;
@@ -622,12 +667,14 @@ const Mailto = ({ email, subject = &quot;&quot;, body = &quot;&quot;, children }
 return &lt;a href={`mailto:${email}${params}`}&gt;{children}&lt;/a&gt;;
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb24 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;Mailto email=&quot;foo@bar.baz&quot; subject=&quot;Hello &amp; Welcome&quot; body=&quot;Hello world!&quot;&gt;
     Mail me!
@@ -635,31 +682,33 @@ ReactDOM.render(
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a table with rows dynamically created from an array of objects
 and a list of property names.
 
--   Use `Object.keys()`, `Array.prototype.filter()`,
-    `Array.prototype.includes()` and `Array.prototype.reduce()` to
-    produce a `filteredData` array, containing all objects with the keys
-    specified in `propertyNames`.
--   Render a `<table>` element with a set of columns equal to the amount
-    of values in `propertyNames`.
--   Use `Array.prototype.map()` to render each value in the
-    `propertyNames` array as a `<th>` element.
--   Use `Array.prototype.map()` to render each object in the
-    `filteredData` array as a `<tr>` element, containing a `<td>` for
-    each key in the object.
+- Use `Object.keys()`, `Array.prototype.filter()`,
+  `Array.prototype.includes()` and `Array.prototype.reduce()` to
+  produce a `filteredData` array, containing all objects with the keys
+  specified in `propertyNames`.
+- Render a `<table>` element with a set of columns equal to the amount
+  of values in `propertyNames`.
+- Use `Array.prototype.map()` to render each value in the
+  `propertyNames` array as a `<th>` element.
+- Use `Array.prototype.map()` to render each object in the
+  `filteredData` array as a `<tr>` element, containing a `<td>` for
+  each key in the object.
 
-*This component does not work with nested objects and will break if
+_This component does not work with nested objects and will break if
 there are nested objects inside any of the properties specified in
-`propertyNames`*
+`propertyNames`_
 
 ::: {#cb25 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const MappedTable = ({ data, propertyNames }) =&gt; {
   let filteredData = data.map((v) =&gt;
     Object.keys(v)
@@ -688,12 +737,14 @@ const MappedTable = ({ data, propertyNames }) =&gt; {
   );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb26 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const people = [
   { name: &quot;John&quot;, surname: &quot;Smith&quot;, age: 42 },
   { name: &quot;Adam&quot;, surname: &quot;Smith&quot;, gender: &quot;male&quot; },
@@ -704,26 +755,28 @@ ReactDOM.render(
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a Modal component, controllable through events.
 
--   Define `keydownHandler`, a method which handles all keyboard events
-    and is used to call `onClose` when the `Esc` key is pressed.
--   Use the `useEffect()` hook to add or remove the `keydown` event
-    listener to the `document`, calling `keydownHandler` for every
-    event.
--   Add a styled `<span>` element that acts as a close button, calling
-    `onClose` when clicked.
--   Use the `isVisible` prop passed down from the parent to determine if
-    the modal should be displayed or not.
--   To use the component, import `Modal` only once and then display it
-    by passing a boolean value to the `isVisible` attribute.
+- Define `keydownHandler`, a method which handles all keyboard events
+  and is used to call `onClose` when the `Esc` key is pressed.
+- Use the `useEffect()` hook to add or remove the `keydown` event
+  listener to the `document`, calling `keydownHandler` for every
+  event.
+- Add a styled `<span>` element that acts as a close button, calling
+  `onClose` when clicked.
+- Use the `isVisible` prop passed down from the parent to determine if
+  the modal should be displayed or not.
+- To use the component, import `Modal` only once and then display it
+  by passing a boolean value to the `isVisible` attribute.
 
 ::: {#cb39 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .modal {  position: fixed;  top: 0;  bottom: 0;  left: 0;  right: 0;  width: 100%;  z-index: 9999;  display: flex;  align-items: center;  justify-content: center;  background-color: rgba(0, 0, 0, 0.25);  animation-name: appear;  animation-duration: 300ms; }  .modal-dialog {  width: 100%;  max-width: 550px;  background: white;  position: relative;  margin: 0 20px;  max-height: calc(100vh - 40px);  text-align: left;  display: flex;  flex-direction: column;  overflow: hidden;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  -webkit-animation-name: animatetop;  -webkit-animation-duration: 0.4s;  animation-name: slide-in;  animation-duration: 0.5s; }  .modal-header, .modal-footer {  display: flex;  align-items: center;  padding: 1rem; }  .modal-header {  border-bottom: 1px solid #dbdbdb;  justify-content: space-between; }  .modal-footer {  border-top: 1px solid #dbdbdb;  justify-content: flex-end; }  .modal-close {  cursor: pointer;  padding: 1rem;  margin: -1rem -1rem -1rem auto; }  .modal-body {  overflow: auto; }  .modal-content {  padding: 1rem; }  @keyframes appear {  from {  opacity: 0;  }  to {  opacity: 1;  } }  @keyframes slide-in {  from {  transform: translateY(-150px);  }  to {  transform: translateY(0);  } }
 
 ```js
@@ -749,25 +802,27 @@ const App = () =&gt; {
 };
 
 ReactDOM.render(&lt;App /&gt;, document.getElementById(&quot;root&quot;));
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a checkbox list that uses a callback function to pass its
 selected value/values to the parent component.
 
--   Use the `useState()` hook to create the `data` state variable and
-    use the `options` prop to initialize its value.
--   Create a `toggle` function that uses the spread operator (`…`) and
-    `Array.prototype.splice()` to update the `data` state variable and
-    call the `onChange` callback with any `checked` options.
--   Use `Array.prototype.map()` to map the `data` state variable to
-    individual `<input type=“checkbox”>` elements, each one wrapped in a
-    `<label>`, binding the `onClick` handler to the `toggle` function.
+- Use the `useState()` hook to create the `data` state variable and
+  use the `options` prop to initialize its value.
+- Create a `toggle` function that uses the spread operator (`…`) and
+  `Array.prototype.splice()` to update the `data` state variable and
+  call the `onChange` callback with any `checked` options.
+- Use `Array.prototype.map()` to map the `data` state variable to
+  individual `<input type=“checkbox”>` elements, each one wrapped in a
+  `<label>`, binding the `onClick` handler to the `toggle` function.
 
 ::: {#cb28 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const MultiselectCheckbox = ({ options, onChange }) =&gt; {
   const [data, setData] = React.useState(options);
 
@@ -798,12 +853,14 @@ onClick={() =&gt; toggle(index)}
 );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb29 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const options = [{ label: &quot;Item One&quot; }, { label: &quot;Item Two&quot; }];
 
 ReactDOM.render(
@@ -816,19 +873,21 @@ console.log(data);
 document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a password input field with a reveal button.
 
--   Use the `useState()` hook to create the `shown` state variable and
-    set its value to `false`.
--   When the `<button>` is clicked, execute `setShown`, toggling the
-    `type` of the `<input>` between `“text”` and `“password”`.
+- Use the `useState()` hook to create the `shown` state variable and
+  set its value to `false`.
+- When the `<button>` is clicked, execute `setShown`, toggling the
+  `type` of the `<input>` between `“text”` and `“password”`.
 
 ::: {#cb30 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const PasswordRevealer = ({ value }) =&gt; {
   const [shown, setShown] = React.useState(false);
   return (
@@ -839,34 +898,38 @@ const PasswordRevealer = ({ value }) =&gt; {
   );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb31 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(&lt;PasswordRevealer /&gt;, document.getElementById(&quot;root&quot;));
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a button that animates a ripple effect when clicked.
 
--   Use the `useState()` hook to create the `coords` and `isRippling`
-    state variables for the pointer's coordinates and the animation
-    state of the button respectively.
--   Use a `useEffect()` hook to change the value of `isRippling` every
-    time the `coords` state variable changes, starting the animation.
--   Use `setTimeout()` in the previous hook to clear the animation after
-    it's done playing.
--   Use a `useEffect()` hook to reset `coords` whenever the `isRippling`
-    state variable is `false.`
--   Handle the `onClick` event by updating the `coords` state variable
-    and calling the passed callback.
+- Use the `useState()` hook to create the `coords` and `isRippling`
+  state variables for the pointer's coordinates and the animation
+  state of the button respectively.
+- Use a `useEffect()` hook to change the value of `isRippling` every
+  time the `coords` state variable changes, starting the animation.
+- Use `setTimeout()` in the previous hook to clear the animation after
+  it's done playing.
+- Use a `useEffect()` hook to reset `coords` whenever the `isRippling`
+  state variable is `false.`
+- Handle the `onClick` event by updating the `coords` state variable
+  and calling the passed callback.
 
 ::: {#cb46 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .ripple-button {  border-radius: 4px;  border: none;  margin: 8px;  padding: 14px 24px;  background: #1976d2;  color: #fff;  overflow: hidden;  position: relative;  cursor: pointer; }  .ripple-button > .ripple {  width: 20px;  height: 20px;  position: absolute;  background: #63a4ff;  display: block;  content: "";  border-radius: 9999px;  opacity: 1;  animation: 0.9s ease 1 forwards ripple-effect; }  @keyframes ripple-effect {  0% {  transform: scale(1);  opacity: 1;  }  50% {  transform: scale(10);  opacity: 0.375;  }  100% {  transform: scale(35);  opacity: 0;  } }  .ripple-button > .content {  position: relative;  z-index: 2; }
 
 ```js
@@ -880,26 +943,28 @@ ReactDOM.render(
   &lt;RippleButton onClick={(e) =&gt; console.log(e)}&gt;Click me&lt;/RippleButton&gt;,
   document.getElementById(&quot;root&quot;)
 );
-```
+````
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders an uncontrolled `<select>` element that uses a callback function
 to pass its value to the parent component.
 
--   Use the the `selectedValue` prop as the `defaultValue` of the
-    `<select>` element to set its initial value..
--   Use the `onChange` event to fire the `onValueChange` callback and
-    send the new value to the parent.
--   Use `Array.prototype.map()` on the `values` array to create an
-    `<option>` element for each passed value.
--   Each item in `values` must be a 2-element array, where the first
-    element is the `value` of the item and the second one is the
-    displayed text for it.
+- Use the the `selectedValue` prop as the `defaultValue` of the
+  `<select>` element to set its initial value..
+- Use the `onChange` event to fire the `onValueChange` callback and
+  send the new value to the parent.
+- Use `Array.prototype.map()` on the `values` array to create an
+  `<option>` element for each passed value.
+- Each item in `values` must be a 2-element array, where the first
+  element is the `value` of the item and the second one is the
+  displayed text for it.
 
 ::: {#cb33 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const Select = ({ values, onValueChange, selectedValue, ...rest }) =&gt; {
   return (
     &lt;select
@@ -916,12 +981,14 @@ const Select = ({ values, onValueChange, selectedValue, ...rest }) =&gt; {
   );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb34 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const choices = [
   [&quot;grapefruit&quot;, &quot;Grapefruit&quot;],
   [&quot;lime&quot;, &quot;Lime&quot;],
@@ -937,22 +1004,24 @@ ReactDOM.render(
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders an uncontrolled range input element that uses a callback
 function to pass its value to the parent component.
 
--   Set the `type` of the `<input>` element to `“range”` to create a
-    slider.
--   Use the `defaultValue` passed down from the parent as the
-    uncontrolled input field's initial value.
--   Use the `onChange` event to fire the `onValueChange` callback and
-    send the new value to the parent.
+- Set the `type` of the `<input>` element to `“range”` to create a
+  slider.
+- Use the `defaultValue` passed down from the parent as the
+  uncontrolled input field's initial value.
+- Use the `onChange` event to fire the `onValueChange` callback and
+  send the new value to the parent.
 
 ::: {#cb35 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 const Slider = ({
   min = 0,
   max = 100,
@@ -972,43 +1041,48 @@ const Slider = ({
   );
 };
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb36 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 ReactDOM.render(
   &lt;Slider onValueChange={(val) =&gt; console.log(val)} /&gt;,
   document.getElementById(&quot;root&quot;)
 );
 ```
+
 :::
 
-------------------------------------------------------------------------
+---
 
 Renders a star rating component.
 
--   Define a component, called `Star` that will render each individual
-    star with the appropriate appearance, based on the parent
-    component's state.
--   In the `StarRating` component, use the `useState()` hook to define
-    the `rating` and `selection` state variables with the appropriate
-    initial values.
--   Create a method, `hoverOver`, that updates `selected` according to
-    the provided `event`, using the .`data-star-id` attribute of the
-    event's target or resets it to `0` if called with a `null` argument.
--   Use `Array.from()` to create an array of `5` elements and
-    `Array.prototype.map()` to create individual `<Star>` components.
--   Handle the `onMouseOver` and `onMouseLeave` events of the wrapping
-    element using `hoverOver` and the `onClick` event using `setRating`.
+- Define a component, called `Star` that will render each individual
+  star with the appropriate appearance, based on the parent
+  component's state.
+- In the `StarRating` component, use the `useState()` hook to define
+  the `rating` and `selection` state variables with the appropriate
+  initial values.
+- Create a method, `hoverOver`, that updates `selected` according to
+  the provided `event`, using the .`data-star-id` attribute of the
+  event's target or resets it to `0` if called with a `null` argument.
+- Use `Array.from()` to create an array of `5` elements and
+  `Array.prototype.map()` to create individual `<Star>` components.
+- Handle the `onMouseOver` and `onMouseLeave` events of the wrapping
+  element using `hoverOver` and the `onClick` event using `setRating`.
 
 ::: {#cb53 .sourceCode}
-``` {.sourceCode .css}
+
+````{.sourceCode .css}
 .star {  color: #ff9933;  cursor: pointer; }
 
 ```js
 const Star = ({ marked, starId }) => { return ( <span data-star-id={starId} className=“star” role=“button”> {marked ? "
 
-```
+````
+
 :::

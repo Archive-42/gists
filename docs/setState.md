@@ -1,14 +1,16 @@
 Unlike the lifecycle methods above (which React calls for you), the
-methods below are the methods *you* can call from your components.
+methods below are the methods _you_ can call from your components.
 
 There are just two of them: `setState()` and `forceUpdate()`.
 
 ### [](https://reactjs.org/docs/react-component.html#setstate)`setState()`
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 setState(updater, [callback])
 ```
+
 :::
 
 `setState()` enqueues changes to the component state and tells React
@@ -16,7 +18,7 @@ that this component and its children need to be re-rendered with the
 updated state. This is the primary method you use to update the user
 interface in response to event handlers and server responses.
 
-Think of `setState()` as a *request* rather than an immediate command to
+Think of `setState()` as a _request_ rather than an immediate command to
 update the component. For better perceived performance, React may delay
 it, and then update several components in a single pass. React does not
 guarantee that the state changes are applied immediately.
@@ -38,9 +40,11 @@ differs from the previous state will avoid unnecessary re-renders.
 The first argument is an `updater` function with the signature:
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 (state, props) => stateChange
 ```
+
 :::
 
 `state` is a reference to the component state at the time the change is
@@ -66,9 +70,11 @@ You may optionally pass an object as the first argument to `setState()`
 instead of a function:
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 setState(stateChange[, callback])
 ```
+
 :::
 
 This performs a shallow merge of `stateChange` into the new state, e.g.,
@@ -82,7 +88,8 @@ attempt to increment an item quantity more than once in the same cycle,
 that will result in the equivalent of:
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 Object.assign(
   previousState,
   {quantity: state.quantity + 1},
@@ -90,6 +97,7 @@ Object.assign(
   ...
 )
 ```
+
 :::
 
 Subsequent calls will override values from previous calls in the same
@@ -98,9 +106,11 @@ depends on the current state, we recommend using the updater function
 form, instead:
 
 ::: {#cb7 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 this.setState((state) => {
   return {quantity: state.quantity + 1};
 });
 ```
+
 :::

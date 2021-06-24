@@ -1,18 +1,15 @@
-web componentes with preact and snowpack
-========================================
+# web componentes with preact and snowpack
 
-index.jsx
----------
+## index.jsx
 
-``` {.jsx}
+```{.jsx}
   const Greeting = ({name = "World"}) => (
     <p>Hello, {name}!</p>
   );
   preactCE(Greeting, "x-greeting", ["name"]);
 ```
 
-index.html
-----------
+## index.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -35,10 +32,9 @@ index.html
     </body>
     </html>
 
-dev and build
--------------
+## dev and build
 
 Having `npm install -g snowpack`
 
--   snowpack dev
--   snowpack build
+- snowpack dev
+- snowpack build

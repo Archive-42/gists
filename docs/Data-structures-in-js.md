@@ -1,5 +1,4 @@
-Data structures in JavaScript
-=============================
+# Data structures in JavaScript
 
 > space The space complexity represents the memory consumption of a data
 > structure. As for most of the things in life, you can't have it all,
@@ -22,20 +21,18 @@ Data structures in JavaScript
 > that you received. To solve this problem we talk about 3 different
 > time complexity.
 
--   \[ \] **The best-case complexity: when the data looks the best**
--   \[ \] **The worst-case complexity: when the data looks the worst**
--   \[ \] **The average-case complexity: when the data looks average**
+- \[ \] **The best-case complexity: when the data looks the best**
+- \[ \] **The worst-case complexity: when the data looks the worst**
+- \[ \] **The average-case complexity: when the data looks average**
 
-Big O notation
---------------
+## Big O notation
 
 The complexity is usually expressed with the Big O notation. The
 wikipedia page about this subject is pretty complex but you can find
 here a good summary of the different complexity for the most famous data
 structures and sorting algorithms.
 
-The Array data structure
-------------------------
+## The Array data structure
 
 Definition An Array data structure, or simply an Array, is a data
 structure consisting of a collection of elements (values or variables),
@@ -47,13 +44,14 @@ Arrays are among the oldest and most important data structures and are
 used by every program. They are also used to implement many other data
 structures.
 
-*Complexity* *Average*\
-*Access Search Insertion Deletion*
+_Complexity_ _Average_\
+_Access Search Insertion Deletion_
 
 O(1) O(n) O(1) O(n)
 
 ::: {#cb1 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
  class ArrayADT {
     constructor() {
         this.array = [];
@@ -112,7 +110,7 @@ console.log("-------------------------------");
 console.log("search 3 gives index 2:", array.search(3));
 console.log("-------------------------------");
 
-console.log("getAtIndex 2 gives 3:", array.getAtIndex(2)); 
+console.log("getAtIndex 2 gives 3:", array.getAtIndex(2));
 console.log("-------------------------------");
 
 console.log("length is 4:", array.length());
@@ -124,16 +122,16 @@ console.log("-------------------------------");
 
 array.add(5);
 array.add(5);
-array.print(); 
+array.print();
 console.log("-------------------------------");
 
 
 array.remove(5);
-array.print(); 
-console.log( 
+array.print();
+console.log(
   "-------------------------------" );
 /*
- ~ final : (master) node 01-array.js 
+ ~ final : (master) node 01-array.js
 const array = new ArrayADT();:  ArrayADT { array: [] }
 -------------------------------
 array.add(1):  undefined
@@ -153,13 +151,13 @@ length is 4: 6
 -------------------------------
 1 4 2 4
 -------------------------------
- ~ final : (master) 
+ ~ final : (master)
  */
 ```
+
 :::
 
-TheHash Table data structure
-----------------------------
+## TheHash Table data structure
 
 > Definition A Hash Table (Hash Map) is a data structure used to
 > implement an associative array, a structure that can map keys to
@@ -173,7 +171,7 @@ and for this reason, they are widely used.
 Complexity Average\
 Access Search Insertion Deletion - O(1) O(1) O(1) \>The code
 
-------------------------------------------------------------------------
+---
 
 Because my calculateHash function is overly simple (mod of the key
 length) I need to be sure that I am able to save more than one value for
@@ -187,7 +185,8 @@ specificity of the Hash Table data structure is to have this special
 calculateHash function.
 
 ::: {#cb2 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
   class HashTable {
     constructor( size ) {
         this.values = {};
@@ -255,7 +254,7 @@ hashTable.remove( "first" );
 hashTable.print(); // => 2 3 5
 console.log( "length gives 3:", hashTable.length() ); // => 3
 /*
-   ~ js-files : (master) node hash.js 
+   ~ js-files : (master) node hash.js
 2 4 1 3 5
 length gives 5: 5
 search second gives 2: 2
@@ -263,10 +262,10 @@ search second gives 2: 2
 length gives 3: 3
 */
 ```
+
 :::
 
-The Set
--------
+## The Set
 
 > Definition A Set is an abstract data type that can store certain
 > values, without any particular order, and no repeated values. It is a
@@ -281,15 +280,16 @@ as union, intersect, etc...
 Complexity Average\
 Access Search Insertion Deletion - O(n) O(n) O(n) \>The code
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb3 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
     function Set() {
       this.values = [];
       this.numberOfValues = 0;
     }
-    
+
     Set.prototype.add = function(value) {
       if(!~this.values.indexOf(value)) {
         this.values.push(value);
@@ -345,7 +345,7 @@ Access Search Insertion Deletion - O(n) O(n) O(n) \>The code
     Set.prototype.print = function() {
       console.log(this.values.join(' '));
     };
-    
+
     let set = new Set();
     set.add(1);
     set.add(2);
@@ -376,10 +376,10 @@ Access Search Insertion Deletion - O(n) O(n) O(n) \>The code
     console.log('set1 length gives 2:', set1.length()); // => 2
     console.log('set3 length gives 3:', set3.length()); // => 3
 ```
+
 :::
 
-The Singly Linked List
-----------------------
+## The Singly Linked List
 
 > Definition A Singly Linked List is a linear collection of data
 > elements, called nodes pointing to the next node by means of pointer.
@@ -395,10 +395,11 @@ any position in the sequence.
 Complexity Average\
 Access Search Insertion Deletion O(n) O(n) O(1) O(1) \>The code
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb4 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function Node(data) {
   this.data = data;
   this.next = null;
@@ -515,10 +516,10 @@ singlyLinkedList.print(); // => 12 13 14 15 16 17 18
 singlyLinkedList.traverse(function(node) { console.log(node.data); }); // => 12 13 14 15 16 17 18
 console.log('length is 7:', singlyLinkedList.length()); // => 7
 ```
+
 :::
 
-TheDoubly Linked List
----------------------
+## TheDoubly Linked List
 
 > Definition A Doubly Linked List is a linked data structure that
 > consists of a set of sequentially linked records called nodes. Each
@@ -532,10 +533,11 @@ than the same operations on a Singly Linked List.
 Complexity Average\
 Access Search Insertion Deletion O(n) O(n) O(1) O(1) \>The code
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb5 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 class Node {
     constructor(data) {
         this.data = data;
@@ -686,7 +688,7 @@ doublyLinkedList.traverseReverse(function (node) {
 doublyLinkedList.print(); // => 12 13 14 15 16 17 18
 console.log("length is 7:", doublyLinkedList.length()); // => 7
 /*
-   ~ js-files : (master) node double-linked-list.js 
+   ~ js-files : (master) node double-linked-list.js
 
 1 2 3 4
 length is 4: 4
@@ -725,13 +727,13 @@ length is 7: 7
 12
 12 13 14 15 16 17 18
 length is 7: 7
- ~ js-files : (master) 
+ ~ js-files : (master)
 */
 ```
+
 :::
 
-The Stack
----------
+## The Stack
 
 > Definition A Stack is an abstract data type that serves as a
 > collection of elements, with two principal operations: push, which
@@ -746,10 +748,11 @@ pushed element without popping it.
 Complexity Average\
 Access Search Insertion Deletion O(n) O(n) O(1) O(1) \>The code
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb6 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function Stack() {
   this.stack = [];
 }
@@ -786,10 +789,10 @@ stack.print(); // => ''
 console.log('peek is undefined:', stack.peek()); // => undefined
 console.log('pop is undefined:', stack.pop()); // => undefined
 ```
+
 :::
 
-The Queue
----------
+## The Queue
 
 > Definition A Queue is a particular kind of abstract data type or
 > collection in which the entities in the collection are kept in order
@@ -807,10 +810,11 @@ dequeuing it.
 Complexity Average\
 Access Search Insertion Deletion O(n) O(n) O(1) O(n) \>The code
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb7 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function Queue() {
   this.queue = [];
 }
@@ -847,10 +851,10 @@ queue.print(); // => ''
 console.log('peek is undefined:', queue.peek()); // => undefined
 console.log('dequeue is undefined:', queue.dequeue()); // => undefined
 ```
+
 :::
 
-The Tree
---------
+## The Tree
 
 > Definition A Tree is a widely used data structure that simulates a
 > hierarchical tree structure, with a root value and subtrees of
@@ -868,10 +872,11 @@ have a look to this excellent Big O cheat sheet.
 
 > The code
 
-------------------------------------------------------------------------
+---
 
 ::: {#cb8 .sourceCode}
-``` {.sourceCode .js}
+
+```{.sourceCode .js}
 function Node(data) {
   this.data = data;
   this.children = [];
@@ -1030,10 +1035,10 @@ tree.print(); // => ceo | cto cfo | dev1 dev2 dev3 accountant
 tree.remove('cfo');
 tree.print(); // => ceo | cto | dev1 dev2 dev3
 ```
+
 :::
 
-The Graph
----------
+## The Graph
 
 > Definition A Graph data structure consists of a finite (and possibly
 > mutable) set of vertices or nodes or points, together with a set of
@@ -1071,7 +1076,7 @@ Graph
 
 > The code
 
-------------------------------------------------------------------------
+---
 
 \`\`\`js //below uses the adjacency list representation.
 

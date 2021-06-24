@@ -1,12 +1,10 @@
 [Source](http://www.fprintf.net/vimCheatSheet.html "Permalink to Vim Commands Cheat Sheet")
 
-Vim Commands Cheat Sheet
-========================
+# Vim Commands Cheat Sheet
 
-------------------------------------------------------------------------
+---
 
-How to Exit
------------
+## How to Exit
 
 :q\[uit\] Quit Vim. This fails when changes have been made.
 
@@ -29,10 +27,9 @@ ZZ Write current file, if modified, and exit.
 
 ZQ Quit current file and exit (same as ":q!").
 
-------------------------------------------------------------------------
+---
 
-Editing a File
---------------
+## Editing a File
 
 :e\[dit\] Edit the current file. This is useful to re-edit the current
 file, when it has been changed outside of Vim.
@@ -48,10 +45,9 @@ buffer.
 gf Edit the file whose name is under or after the cursor. Mnemonic:
 "goto file".
 
-------------------------------------------------------------------------
+---
 
-Inserting Text
---------------
+## Inserting Text
 
 a Append text after the cursor \[count\] times.
 
@@ -69,20 +65,18 @@ times.
 O Begin a new line above the cursor and insert text, repeat \[count\]
 times.
 
-------------------------------------------------------------------------
+---
 
-Inserting a file
-----------------
+## Inserting a file
 
 :r\[ead\] \[name\] Insert the file \[name\] below the cursor.
 
 :r\[ead\] !{cmd} Execute {cmd} and insert its standard output below the
 cursor.
 
-------------------------------------------------------------------------
+---
 
-Deleting Text
--------------
+## Deleting Text
 
 or x Delete \[count\] characters under and after the cursor
 
@@ -107,10 +101,9 @@ text
 :\[range\]d\[elete\] {count} Delete {count} lines, starting with
 \[range\]
 
-------------------------------------------------------------------------
+---
 
-Changing (or Replacing) Text
-----------------------------
+## Changing (or Replacing) Text
 
 r{char} replace the character under the cursor with {char}.
 
@@ -123,10 +116,9 @@ the right. If a \[count\] is given, do that many characters.
 
 {Visual}\~ Switch case of highlighted text
 
-------------------------------------------------------------------------
+---
 
-Substituting
-------------
+## Substituting
 
 :\[range\]s\[ubstitute\]/{pattern}/{string}/\[c\]\[e\]\[g\]\[p\]\[r\]\[i\]\[I\]
 \[count\] For each line in \[range\] replace a match of {pattern} with
@@ -155,10 +147,9 @@ the same flags. You may add extra flags
     [I]  Don't ignore case for the pattern.
     [p]  Print the line containing the last substitute.
 
-------------------------------------------------------------------------
+---
 
-Copying and Moving Text
------------------------
+## Copying and Moving Text
 
 "{a-zA-Z0-9.%\#:-"} Use register {a-zA-Z0-9.%\#:-\"} for next delete,
 yank or put (use uppercase character to append with delete and yank)
@@ -203,10 +194,9 @@ times.
 :\[line\]pu\[t\]! \[x\] Put the text \[from register x\] before \[line\]
 (default current line).
 
-------------------------------------------------------------------------
+---
 
-Undo/Redo/Repeat
-----------------
+## Undo/Redo/Repeat
 
 u Undo \[count\] changes.
 
@@ -220,10 +210,9 @@ U Undo all latest changes on one line. {Vi: while not moved off of it}
 
 . Repeat last change, with count replaced with \[count\].
 
-------------------------------------------------------------------------
+---
 
-Moving Around
--------------
+## Moving Around
 
     Basic motion commands:
 
@@ -273,10 +262,9 @@ V start Visual mode linewise.
 
 exit Visual mode without making any changes
 
-------------------------------------------------------------------------
+---
 
-How to Suspend
---------------
+## How to Suspend
 
 CTRL-Z Suspend Vim, like ":stop". Works in Normal and in Visual mode. In
 Insert and Command-line mode, the CTRL-Z is inserted as a normal
@@ -288,4 +276,4 @@ written out. If the '!' is given or 'autowrite' is not set, changed
 buffers are not written, don't forget to bring Vim back to the
 foreground later!
 
-------------------------------------------------------------------------
+---
