@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>preact-webcomponent-snowpack</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="web-componentes-with-preact-and-snowpack">web componentes with preact and snowpack</h1>
+<h2 id="index.jsx">index.jsx</h2>
+<pre class="jsx"><code>  const Greeting = ({name = &quot;World&quot;}) =&gt; (
+    &lt;p&gt;Hello, {name}!&lt;/p&gt;
+  );
+  preactCE(Greeting, &quot;x-greeting&quot;, [&quot;name&quot;]);</code></pre>
+<h2 id="index.html">index.html</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script type=&quot;module&quot;&gt;
+    // import * as React from &#39;https://cdn.skypack.dev/preact&#39;;
+    import * as React from &#39;https://cdn.skypack.dev/-/preact@v10.5.12-AUHDlG9c8v865CiuCz34/dist=es2020,mode=imports/optimized/preact.js&#39;;
+    // import register from &#39;https://cdn.skypack.dev/preact-custom-element&#39;;
+    import preactCE from &#39;https://cdn.skypack.dev/-/preact-custom-element@v4.2.1-9XWZzR4CIDbspqnjvd2L/dist=es2020,mode=imports/optimized/preact-custom-element.js&#39;;
+    Object.assign(window, {React, preactCE});
+    import(&#39;./index.js&#39;);
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;preact ce&lt;/h1&gt;
+  &lt;x-greeting name=&quot;yey&quot;&gt;&lt;/x-greeting&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="dev-and-build">dev and build</h2>
+<p>Having <code>npm install -g snowpack</code></p>
+<ul>
+<li>snowpack dev</li>
+<li>snowpack build</li>
+</ul>
+</body>
+</html>
