@@ -24,23 +24,18 @@ function tug_o_war(teams) {
   //Code
   const team1 = teams[0].reduce((a, b) => a + b);
   const team2 = teams[1].reduce((a, b) => a + b);
-   
+
   if (team1 > team2) {
     return "Team 1 wins!";
-  }
-  
-  else if (team1 < team2) {
+  } else if (team1 < team2) {
     return "Team 2 wins!";
-  }
-  
-  else {
+  } else {
     const max1 = Math.max(teams[0]);
     const max2 = Math.max(teams[1]);
-    if(max1 < max2) {
+    if (max1 < max2) {
       return "Team 2 wins!";
-    } 
-    else if(max2 < max1) {
-      return "Team 1 wins!"; 
+    } else if (max2 < max1) {
+      return "Team 1 wins!";
     } else {
       return "It's a tie!";
     }

@@ -1,4 +1,3 @@
-
 # FormData
 
 This chapter is about sending HTML forms: with or without files, with additional fields and so on.
@@ -6,6 +5,7 @@ This chapter is about sending HTML forms: with or without files, with additional
 [FormData](https://xhr.spec.whatwg.org/#interface-formdata) objects can help with that. As you might have guessed, it's the object to represent HTML form data.
 
 The constructor is:
+
 ```js
 let formData = new FormData([form]);
 ```
@@ -24,26 +24,26 @@ As you can see, that's almost one-liner:
 
 ```html run autorun
 <form id="formElem">
-  <input type="text" name="name" value="John">
-  <input type="text" name="surname" value="Smith">
-  <input type="submit">
+  <input type="text" name="name" value="John" />
+  <input type="text" name="surname" value="Smith" />
+  <input type="submit" />
 </form>
 
 <script>
-  formElem.onsubmit = async (e) => {
-    e.preventDefault();
+    formElem.onsubmit = async (e) => {
+      e.preventDefault();
 
-    let response = await fetch('/article/formdata/post/user', {
-      method: 'POST',
-*!*
-      body: new FormData(formElem)
-*/!*
-    });
+      let response = await fetch('/article/formdata/post/user', {
+        method: 'POST',
+  *!*
+        body: new FormData(formElem)
+  */!*
+      });
 
-    let result = await response.json();
+      let result = await response.json();
 
-    alert(result.message);
-  };
+      alert(result.message);
+    };
 </script>
 ```
 
@@ -70,11 +70,11 @@ Also we can iterate over formData fields using `for..of` loop:
 
 ```js run
 let formData = new FormData();
-formData.append('key1', 'value1');
-formData.append('key2', 'value2');
+formData.append("key1", "value1");
+formData.append("key2", "value2");
 
 // List key/value pairs
-for(let [name, value] of formData) {
+for (let [name, value] of formData) {
   alert(`${name} = ${value}`); // key1 = value1, then key2 = value2
 }
 ```
@@ -87,26 +87,26 @@ Here's an example with such form:
 
 ```html run autorun
 <form id="formElem">
-  <input type="text" name="firstName" value="John">
-  Picture: <input type="file" name="picture" accept="image/*">
-  <input type="submit">
+  <input type="text" name="firstName" value="John" />
+  Picture: <input type="file" name="picture" accept="image/*" />
+  <input type="submit" />
 </form>
 
 <script>
-  formElem.onsubmit = async (e) => {
-    e.preventDefault();
+    formElem.onsubmit = async (e) => {
+      e.preventDefault();
 
-    let response = await fetch('/article/formdata/post/user-avatar', {
-      method: 'POST',
-*!*
-      body: new FormData(formElem)
-*/!*
-    });
+      let response = await fetch('/article/formdata/post/user-avatar', {
+        method: 'POST',
+  *!*
+        body: new FormData(formElem)
+  */!*
+      });
 
-    let result = await response.json();
+      let result = await response.json();
 
-    alert(result.message);
-  };
+      alert(result.message);
+    };
 </script>
 ```
 
@@ -122,34 +122,38 @@ This example submits an image from `<canvas>`, along with some other fields, as 
 
 ```html run autorun height="90"
 <body style="margin:0">
-  <canvas id="canvasElem" width="100" height="80" style="border:1px solid"></canvas>
+  <canvas
+    id="canvasElem"
+    width="100"
+    height="80"
+    style="border:1px solid"
+  ></canvas>
 
-  <input type="button" value="Submit" onclick="submit()">
+  <input type="button" value="Submit" onclick="submit()" />
 
   <script>
-    canvasElem.onmousemove = function(e) {
-      let ctx = canvasElem.getContext('2d');
-      ctx.lineTo(e.clientX, e.clientY);
-      ctx.stroke();
-    };
+        canvasElem.onmousemove = function(e) {
+          let ctx = canvasElem.getContext('2d');
+          ctx.lineTo(e.clientX, e.clientY);
+          ctx.stroke();
+        };
 
-    async function submit() {
-      let imageBlob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
+        async function submit() {
+          let imageBlob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
 
-*!*
-      let formData = new FormData();
-      formData.append("firstName", "John");
-      formData.append("image", imageBlob, "image.png");
-*/!*    
+    *!*
+          let formData = new FormData();
+          formData.append("firstName", "John");
+          formData.append("image", imageBlob, "image.png");
+    */!*
 
-      let response = await fetch('/article/formdata/post/image-form', {
-        method: 'POST',
-        body: formData
-      });
-      let result = await response.json();
-      alert(result.message);
-    }
-
+          let response = await fetch('/article/formdata/post/image-form', {
+            method: 'POST',
+            body: formData
+          });
+          let result = await response.json();
+          alert(result.message);
+        }
   </script>
 </body>
 ```

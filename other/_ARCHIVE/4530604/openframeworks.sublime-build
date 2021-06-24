@@ -1,14 +1,17 @@
 {
   "cmd": ["xcodebuild"],
-    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
-    "working_dir": "${project_path:${folder}}",
-	"selector": "source.c, source.c++",
+  "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+  "working_dir": "${project_path:${folder}}",
+  "selector": "source.c, source.c++",
 
-	"variants":
-	[
-		{
-			"name": "Run",
-			"cmd": ["bash","-c", "'${project_path:${folder}}/bin/$project_base_name.app/Contents/MacOS/$project_base_name'" ]
-		}
-	]
+  "variants": [
+    {
+      "name": "Run",
+      "cmd": [
+        "bash",
+        "-c",
+        "'${project_path:${folder}}/bin/$project_base_name.app/Contents/MacOS/$project_base_name'"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 const version = 1;
 
-self.addEventListener('install', (ev) => {
+self.addEventListener("install", (ev) => {
   //service worker has been installed.
   //Extendable Event
   ev.waitUntil(
@@ -14,7 +14,7 @@ self.addEventListener('install', (ev) => {
         return teja();
       })
       .then(() => {
-        console.log('installed');
+        console.log("installed");
         //when this then() returns undefiined
         //it goes to the ev.waitUntil
         //which will change our state from installing to installed.
@@ -27,20 +27,20 @@ self.addEventListener('install', (ev) => {
 function teja() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log('teja');
+      console.log("teja");
       resolve();
     }, 2000);
   });
 }
 
 function manuel() {
-  console.log('manuel');
+  console.log("manuel");
 }
 
-self.addEventListener('activate', (ev) => {
+self.addEventListener("activate", (ev) => {
   // when the service worker has been activated to replace an old one.
   //Extendable Event
-  console.log('activated - this worker not used until page reloads');
+  console.log("activated - this worker not used until page reloads");
   // clients.claim().then(() => {
   //   //claim means that the html file will use this new service worker.
   //   console.log(
@@ -49,14 +49,14 @@ self.addEventListener('activate', (ev) => {
   // });
 });
 
-self.addEventListener('fetch', (ev) => {
+self.addEventListener("fetch", (ev) => {
   // ev.request each time the webpage asks for any resource.
   //Extendable Event
-  console.log('fetch request for', ev.request.url, 'from', ev.clientId);
+  console.log("fetch request for", ev.request.url, "from", ev.clientId);
   //check the cache then do a fetch if missing
 });
 
-self.addEventListener('message', (ev) => {
+self.addEventListener("message", (ev) => {
   //message from web page ev.data.
   //Extendable Event
 });

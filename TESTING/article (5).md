@@ -6,7 +6,6 @@ But we need a working environment to run our scripts and, since this book is onl
 
 So first, let's see how we attach a script to a webpage. For server-side environments (like Node.js), you can execute the script with a command like `"node my.js"`.
 
-
 ## The "script" tag
 
 JavaScript programs can be inserted almost anywhere into an HTML document using the `<script>` tag.
@@ -14,23 +13,19 @@ JavaScript programs can be inserted almost anywhere into an HTML document using 
 For instance:
 
 ```html run height=100
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <body>
+    <p>Before the script...</p>
 
-<body>
+    *!*
+    <script>
+      alert("Hello, world!");
+    </script>
+    */!*
 
-  <p>Before the script...</p>
-
-*!*
-  <script>
-    alert( 'Hello, world!' );
-  </script>
-*/!*
-
-  <p>...After the script.</p>
-
-</body>
-
+    <p>...After the script.</p>
+  </body>
 </html>
 ```
 
@@ -39,7 +34,6 @@ You can run the example by clicking the "Play" button in the right-top corner of
 ```
 
 The `<script>` tag contains JavaScript code which is automatically executed when the browser processes the tag.
-
 
 ## Modern markup
 
@@ -61,7 +55,6 @@ Comments before and after scripts.
     ```
 
     This trick isn't used in modern JavaScript. These comments hide JavaScript code from old browsers that didn't know how to process the `<script>` tag. Since browsers released in the last 15 years don't have this issue, this kind of comment can help you identify really old code.
-
 
 ## External scripts
 
@@ -99,8 +92,7 @@ Other pages that reference the same script will take it from the cache instead o
 That reduces traffic and makes pages faster.
 ```
 
-````warn header="If `src` is set, the script content is ignored."
-A single `<script>` tag can't have both the `src` attribute and code inside.
+````warn header="If `src`is set, the script content is ignored." A single`<script>`tag can't have both the`src` attribute and code inside.
 
 This won't work:
 
@@ -120,7 +112,8 @@ The example above can be split into two scripts to work:
   alert(1);
 </script>
 ```
-````
+
+```
 
 ## Summary
 
@@ -130,3 +123,4 @@ The example above can be split into two scripts to work:
 
 
 There is much more to learn about browser scripts and their interaction with the webpage. But let's keep in mind that this part of the tutorial is devoted to the JavaScript language, so we shouldn't distract ourselves with browser-specific implementations of it. We'll be using the browser as a way to run JavaScript, which is very convenient for online reading, but only one of many.
+```

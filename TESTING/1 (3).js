@@ -4,7 +4,7 @@ function Article({ id }) {
   useEffect(() => {
     let cancelToken = new CAF.cancelToken();
 
-    let fetchData = CAF(function *fetchData(signal) {
+    let fetchData = CAF(function* fetchData(signal) {
       const article = yield API.fetchArticle(id);
       setArticle(article);
     });

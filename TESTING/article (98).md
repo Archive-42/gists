@@ -16,8 +16,8 @@ For instance, let's create a new property in `document.body`:
 
 ```js run
 document.body.myData = {
-  name: 'Caesar',
-  title: 'Imperator'
+  name: "Caesar",
+  title: "Imperator",
 };
 
 alert(document.body.myData.title); // Imperator
@@ -26,7 +26,7 @@ alert(document.body.myData.title); // Imperator
 We can add a method as well:
 
 ```js run
-document.body.sayTagName = function() {
+document.body.sayTagName = function () {
   alert(this.tagName);
 };
 
@@ -36,7 +36,7 @@ document.body.sayTagName(); // BODY (the value of "this" in the method is docume
 We can also modify built-in prototypes like `Element.prototype` and add new methods to all elements:
 
 ```js run
-Element.prototype.sayHi = function() {
+Element.prototype.sayHi = function () {
   alert(`Hello, I'm ${this.tagName}`);
 };
 
@@ -51,19 +51,20 @@ So, DOM properties and methods behave just like those of regular JavaScript obje
 
 ## HTML attributes
 
-In HTML, tags may have attributes. When the browser parses the HTML to create DOM objects for tags, it recognizes *standard* attributes and creates DOM properties from them.
+In HTML, tags may have attributes. When the browser parses the HTML to create DOM objects for tags, it recognizes _standard_ attributes and creates DOM properties from them.
 
-So when an element has `id` or another *standard* attribute, the corresponding property gets created. But that doesn't happen if the attribute is non-standard.
+So when an element has `id` or another _standard_ attribute, the corresponding property gets created. But that doesn't happen if the attribute is non-standard.
 
 For instance:
+
 ```html run
 <body id="test" something="non-standard">
   <script>
-    alert(document.body.id); // test
-*!*
-    // non-standard attribute does not yield a property
-    alert(document.body.something); // undefined
-*/!*
+        alert(document.body.id); // test
+    *!*
+        // non-standard attribute does not yield a property
+        alert(document.body.something); // undefined
+    */!*
   </script>
 </body>
 ```
@@ -71,14 +72,15 @@ For instance:
 Please note that a standard attribute for one element can be unknown for another one. For instance, `"type"` is standard for `<input>` ([HTMLInputElement](https://html.spec.whatwg.org/#htmlinputelement)), but not for `<body>` ([HTMLBodyElement](https://html.spec.whatwg.org/#htmlbodyelement)). Standard attributes are described in the specification for the corresponding element class.
 
 Here we can see it:
+
 ```html run
 <body id="body" type="...">
-  <input id="input" type="text">
+  <input id="input" type="text" />
   <script>
-    alert(input.type); // text
-*!*
-    alert(body.type); // undefined: DOM property not created, because it's non-standard
-*/!*
+        alert(input.type); // text
+    *!*
+        alert(body.type); // undefined: DOM property not created, because it's non-standard
+    */!*
   </script>
 </body>
 ```
@@ -101,9 +103,9 @@ Here's a demo of reading a non-standard property:
 ```html run
 <body something="non-standard">
   <script>
-*!*
-    alert(document.body.getAttribute('something')); // non-standard
-*/!*
+    *!*
+        alert(document.body.getAttribute('something')); // non-standard
+    */!*
   </script>
 </body>
 ```
@@ -120,14 +122,15 @@ Here's an extended demo of working with attributes:
   <div id="elem" about="Elephant"></div>
 
   <script>
-    alert( elem.getAttribute('About') ); // (1) 'Elephant', reading
+    alert(elem.getAttribute("About")); // (1) 'Elephant', reading
 
-    elem.setAttribute('Test', 123); // (2), writing
+    elem.setAttribute("Test", 123); // (2), writing
 
-    alert( elem.outerHTML ); // (3), see if the attribute is in HTML (yes)
+    alert(elem.outerHTML); // (3), see if the attribute is in HTML (yes)
 
-    for (let attr of elem.attributes) { // (4) list all
-      alert( `${attr.name} = ${attr.value}` );
+    for (let attr of elem.attributes) {
+      // (4) list all
+      alert(`${attr.name} = ${attr.value}`);
     }
   </script>
 </body>
@@ -147,42 +150,43 @@ When a standard attribute changes, the corresponding property is auto-updated, a
 In the example below `id` is modified as an attribute, and we can see the property changed too. And then the same backwards:
 
 ```html run
-<input>
+<input />
 
 <script>
-  let input = document.querySelector('input');
+  let input = document.querySelector("input");
 
   // attribute => property
-  input.setAttribute('id', 'id');
+  input.setAttribute("id", "id");
   alert(input.id); // id (updated)
 
   // property => attribute
-  input.id = 'newId';
-  alert(input.getAttribute('id')); // newId (updated)
+  input.id = "newId";
+  alert(input.getAttribute("id")); // newId (updated)
 </script>
 ```
 
 But there are exclusions, for instance `input.value` synchronizes only from attribute -> to property, but not back:
 
 ```html run
-<input>
+<input />
 
 <script>
-  let input = document.querySelector('input');
+    let input = document.querySelector('input');
 
-  // attribute => property
-  input.setAttribute('value', 'text');
-  alert(input.value); // text
+    // attribute => property
+    input.setAttribute('value', 'text');
+    alert(input.value); // text
 
-*!*
-  // NOT property => attribute
-  input.value = 'newValue';
-  alert(input.getAttribute('value')); // text (not updated!)
-*/!*
+  *!*
+    // NOT property => attribute
+    input.value = 'newValue';
+    alert(input.getAttribute('value')); // text (not updated!)
+  */!*
 </script>
 ```
 
 In the example above:
+
 - Changing the attribute `value` updates the property.
 - But the property change does not affect the attribute.
 
@@ -193,10 +197,10 @@ That "feature" may actually come in handy, because the user actions may lead to 
 DOM properties are not always strings. For instance, the `input.checked` property (for checkboxes) is a boolean:
 
 ```html run
-<input id="input" type="checkbox" checked> checkbox
+<input id="input" type="checkbox" checked /> checkbox
 
 <script>
-  alert(input.getAttribute('checked')); // the attribute value is: empty string
+  alert(input.getAttribute("checked")); // the attribute value is: empty string
   alert(input.checked); // the property value is: true
 </script>
 ```
@@ -208,7 +212,7 @@ There are other examples. The `style` attribute is a string, but the `style` pro
 
 <script>
   // string
-  alert(div.getAttribute('style')); // color:red;font-size:120%
+  alert(div.getAttribute("style")); // color:red;font-size:120%
 
   // object
   alert(div.style); // [object CSSStyleDeclaration]
@@ -218,7 +222,7 @@ There are other examples. The `style` attribute is a string, but the `style` pro
 
 Most properties are strings though.
 
-Quite rarely, even if a DOM property type is a string, it may differ from the attribute. For instance, the `href` DOM property is always a *full* URL, even if the attribute contains a relative URL or just a `#hash`.
+Quite rarely, even if a DOM property type is a string, it may differ from the attribute. For instance, the `href` DOM property is always a _full_ URL, even if the attribute contains a relative URL or just a `#hash`.
 
 Here's an example:
 
@@ -226,15 +230,14 @@ Here's an example:
 <a id="a" href="#hello">link</a>
 <script>
   // attribute
-  alert(a.getAttribute('href')); // #hello
+  alert(a.getAttribute("href")); // #hello
 
   // property
-  alert(a.href ); // full URL in the form http://site.com/page#hello
+  alert(a.href); // full URL in the form http://site.com/page#hello
 </script>
 ```
 
 If we need the value of `href` or any other attribute exactly as written in the HTML, we can use `getAttribute`.
-
 
 ## Non-standard attributes, dataset
 
@@ -285,17 +288,11 @@ For instance, here for the order state the attribute `order-state` is used:
   }
 </style>
 
-<div class="order" order-state="new">
-  A new order.
-</div>
+<div class="order" order-state="new">A new order.</div>
 
-<div class="order" order-state="pending">
-  A pending order.
-</div>
+<div class="order" order-state="pending">A pending order.</div>
 
-<div class="order" order-state="canceled">
-  A canceled order.
-</div>
+<div class="order" order-state="canceled">A canceled order.</div>
 ```
 
 Why would using an attribute be preferable to having classes like `.order-state-new`, `.order-state-pending`, `.order-state-canceled`?
@@ -304,12 +301,12 @@ Because an attribute is more convenient to manage. The state can be changed as e
 
 ```js
 // a bit simpler than removing old/adding a new class
-div.setAttribute('order-state', 'canceled');
+div.setAttribute("order-state", "canceled");
 ```
 
 But there may be a possible problem with custom attributes. What if we use a non-standard attribute for our purposes and later the standard introduces it and makes it do something? The HTML language is alive, it grows, and more attributes appear to suit the needs of developers. There may be unexpected effects in such case.
 
-To avoid conflicts, there exist [data-*](https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes) attributes.
+To avoid conflicts, there exist [data-\*](https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes) attributes.
 
 **All attributes starting with "data-" are reserved for programmers' use. They are available in the `dataset` property.**
 
@@ -319,9 +316,10 @@ Like this:
 
 ```html run
 <body data-about="Elephants">
-<script>
-  alert(document.body.dataset.about); // Elephants
-</script>
+  <script>
+    alert(document.body.dataset.about); // Elephants
+  </script>
+</body>
 ```
 
 Multiword attributes like `data-order-state` become camel-cased: `dataset.orderState`.
@@ -343,9 +341,7 @@ Here's a rewritten "order state" example:
   }
 </style>
 
-<div id="order" class="order" data-order-state="new">
-  A new order.
-</div>
+<div id="order" class="order" data-order-state="new">A new order.</div>
 
 <script>
   // read
@@ -367,10 +363,10 @@ Please note that we can not only read, but also modify data-attributes. Then CSS
 
 A small comparison:
 
-|            | Properties | Attributes |
-|------------|------------|------------|
-|Type|Any value, standard properties have types described in the spec|A string|
-|Name|Name is case-sensitive|Name is not case-sensitive|
+|      | Properties                                                      | Attributes                 |
+| ---- | --------------------------------------------------------------- | -------------------------- |
+| Type | Any value, standard properties have types described in the spec | A string                   |
+| Name | Name is case-sensitive                                          | Name is not case-sensitive |
 
 Methods to work with attributes are:
 

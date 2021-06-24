@@ -1,7 +1,3 @@
-
-
-
-
 ```
 .
 ├── ./after-new-api-rules

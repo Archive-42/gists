@@ -12,10 +12,10 @@
 // Constants.
 // ==========
 
-const ATTR = 'data-has-css-animation';
-const EVENT = 'DOMContentLoaded';
-const FUNCTION = 'function';
-const NO_PREFERENCE = '(prefers-reduced-motion: no-preference)';
+const ATTR = "data-has-css-animation";
+const EVENT = "DOMContentLoaded";
+const FUNCTION = "function";
+const NO_PREFERENCE = "(prefers-reduced-motion: no-preference)";
 
 const d = document.documentElement;
 const w = window;
@@ -25,14 +25,14 @@ const w = window;
 // ====================
 
 const setFlag = (media = {}) => {
-	// Get match.
-	const { matches } = media;
+  // Get match.
+  const { matches } = media;
 
-	// Get bool.
-	const bool = !!matches;
+  // Get bool.
+  const bool = !!matches;
 
-	// Set attribute.
-	d.setAttribute(ATTR, bool);
+  // Set attribute.
+  d.setAttribute(ATTR, bool);
 };
 
 // =====================
@@ -40,7 +40,7 @@ const setFlag = (media = {}) => {
 // =====================
 
 const unbind = () => {
-	w.removeEventListener(EVENT, handleLoad);
+  w.removeEventListener(EVENT, handleLoad);
 };
 
 // =====================
@@ -48,26 +48,29 @@ const unbind = () => {
 // =====================
 
 const handleLoad = () => {
-	// Prevent doubles.
-	unbind();
+  // Prevent doubles.
+  unbind();
 
-	// Has browser support?
-	if (typeof w.matchMedia === FUNCTION && typeof w.requestAnimationFrame === FUNCTION) {
-		// Wait for next frame.
-		w.requestAnimationFrame(() => {
-			// Get media.
-			const match = w.matchMedia(NO_PREFERENCE);
+  // Has browser support?
+  if (
+    typeof w.matchMedia === FUNCTION &&
+    typeof w.requestAnimationFrame === FUNCTION
+  ) {
+    // Wait for next frame.
+    w.requestAnimationFrame(() => {
+      // Get media.
+      const match = w.matchMedia(NO_PREFERENCE);
 
-			// Kickoff.
-			setFlag(match);
+      // Kickoff.
+      setFlag(match);
 
-			// Prevent doubles.
-			match.removeListener(setFlag);
+      // Prevent doubles.
+      match.removeListener(setFlag);
 
-			// Add event.
-			match.addListener(setFlag);
-		});
-	}
+      // Add event.
+      match.addListener(setFlag);
+    });
+  }
 };
 
 // ==================
@@ -75,11 +78,11 @@ const handleLoad = () => {
 // ==================
 
 const init = () => {
-	// Prevent doubles.
-	unbind();
+  // Prevent doubles.
+  unbind();
 
-	// Add event.
-	w.addEventListener(EVENT, handleLoad);
+  // Add event.
+  w.addEventListener(EVENT, handleLoad);
 };
 
 // ==============
@@ -87,8 +90,8 @@ const init = () => {
 // ==============
 
 const cssAnimation = {
-	init,
-	unbind,
+  init,
+  unbind,
 };
 
 // =======

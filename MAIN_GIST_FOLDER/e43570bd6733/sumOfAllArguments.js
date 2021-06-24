@@ -9,16 +9,15 @@
 */
 
 function sum(...args) {
-
   let total = 0;
 
-  for(let i = 0; i < args.length; i++) {
-    if( args[i] != null && (args[i] >= 0 || args[i] <= 0) ) {
-      total += args[i]; 
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] != null && (args[i] >= 0 || args[i] <= 0)) {
+      total += args[i];
     } else {
-      return false; 
+      return false;
     }
   }
-  
+
   return total;
 }

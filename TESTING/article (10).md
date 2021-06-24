@@ -12,7 +12,7 @@ For example:
 alert("Hello");
 ```
 
-The mini-window with the message is called a *modal window*. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc, until they have dealt with the window. In this case -- until they press "OK".
+The mini-window with the message is called a _modal window_. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc, until they have dealt with the window. In this case -- until they press "OK".
 
 ## prompt
 
@@ -30,9 +30,9 @@ It shows a modal window with a text message, an input field for the visitor, and
 `default`
 : An optional second parameter, the initial value for the input field.
 
-```smart header="The square brackets in syntax `[...]`"
-The square brackets around `default` in the syntax above denote that the parameter is optional, not required.
-```
+```smart header="The square brackets in syntax `[...]`" The square brackets around `default` in the syntax above denote that the parameter is optional, not required.
+
+````
 
 The visitor can type something in the prompt input field and press OK. Then we get that text in the `result`. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key, then we get `null` as the `result`.
 
@@ -44,10 +44,9 @@ For instance:
 let age = prompt('How old are you?', 100);
 
 alert(`You are ${age} years old!`); // You are 100 years old!
-```
+````
 
-````warn header="In IE: always supply a `default`"
-The second parameter is optional, but if we don't supply it, Internet Explorer will insert the text `"undefined"` into the prompt.
+````warn header="In IE: always supply a `default`" The second parameter is optional, but if we don't supply it, Internet Explorer will insert the text `"undefined"` into the prompt.
 
 Run this code in Internet Explorer to see:
 
@@ -58,8 +57,9 @@ let test = prompt("Test");
 So, for prompts to look good in IE, we recommend always providing the second argument:
 
 ```js run
-let test = prompt("Test", ''); // <-- for IE
+let test = prompt("Test", ""); // <-- for IE
 ```
+
 ````
 
 ## confirm
@@ -103,3 +103,4 @@ There are two limitations shared by all the methods above:
 2. The exact look of the window also depends on the browser. We can't modify it.
 
 That is the price for simplicity. There are other ways to show nicer windows and richer interaction with the visitor, but if "bells and whistles" do not matter much, these methods work just fine.
+````

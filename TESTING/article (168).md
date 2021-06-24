@@ -20,7 +20,7 @@ let str = `He said: "She's the one!".`;
 let regexp = /['"](.*?)['"]/g;
 
 // The result is not what we'd like to have
-alert( str.match(regexp) ); // "She'
+alert(str.match(regexp)); // "She'
 ```
 
 As we can see, the pattern found an opening quote `match:"`, then the text is consumed till the other quote `match:'`, that closes the match.
@@ -49,9 +49,9 @@ Similar to that, `pattern:\2` would mean the contents of the second group, `patt
 If we use `?:` in the group, then we can't reference it. Groups that are excluded from capturing `(?:...)` are not memorized by the engine.
 ```
 
-```warn header="Don't mess up: in the pattern `pattern:\1`, in the replacement: `pattern:$1`"
-In the replacement string we use a dollar sign: `pattern:$1`, while in the pattern - a backslash `pattern:\1`.
-```
+```warn header="Don't mess up: in the pattern `pattern:\1`, in the replacement: `pattern:$1`" In the replacement string we use a dollar sign: `pattern:$1`, while in the pattern - a backslash `pattern:\1`.
+
+````
 
 ## Backreference by name: `\k<name>`
 
@@ -69,4 +69,4 @@ let regexp = /(?<quote>['"])(.*?)\k<quote>/g;
 */!*
 
 alert( str.match(regexp) ); // "She's the one!"
-```
+````

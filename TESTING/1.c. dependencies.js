@@ -1,7 +1,7 @@
 // path: /js/dependencies.js
 
-define(["list"], function(list) {
+define(["list"], function (list) {
   return {
-    "a dependency": list
+    "a dependency": list,
   };
 });

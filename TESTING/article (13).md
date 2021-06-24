@@ -23,16 +23,16 @@ All comparison operators return a boolean value:
 For example:
 
 ```js run
-alert( 2 > 1 );  // true (correct)
-alert( 2 == 1 ); // false (wrong)
-alert( 2 != 1 ); // true (correct)
+alert(2 > 1); // true (correct)
+alert(2 == 1); // false (wrong)
+alert(2 != 1); // true (correct)
 ```
 
 A comparison result can be assigned to a variable, just like any value:
 
 ```js run
 let result = 5 > 4; // assign the result of the comparison
-alert( result ); // true
+alert(result); // true
 ```
 
 ## String comparison
@@ -44,9 +44,9 @@ In other words, strings are compared letter-by-letter.
 For example:
 
 ```js run
-alert( 'Z' > 'A' ); // true
-alert( 'Glow' > 'Glee' ); // true
-alert( 'Bee' > 'Be' ); // true
+alert("Z" > "A"); // true
+alert("Glow" > "Glee"); // true
+alert("Bee" > "Be"); // true
 ```
 
 The algorithm to compare two strings is simple:
@@ -78,8 +78,8 @@ When comparing values of different types, JavaScript converts the values to numb
 For example:
 
 ```js run
-alert( '2' > 1 ); // true, string '2' becomes a number 2
-alert( '01' == 1 ); // true, string '01' becomes a number 1
+alert("2" > 1); // true, string '2' becomes a number 2
+alert("01" == 1); // true, string '01' becomes a number 1
 ```
 
 For boolean values, `true` becomes `1` and `false` becomes `0`.
@@ -87,8 +87,8 @@ For boolean values, `true` becomes `1` and `false` becomes `0`.
 For example:
 
 ```js run
-alert( true == 1 ); // true
-alert( false == 0 ); // true
+alert(true == 1); // true
+alert(false == 0); // true
 ```
 
 ````smart header="A funny consequence"
@@ -117,13 +117,13 @@ From JavaScript's standpoint, this result is quite normal. An equality check con
 A regular equality check `==` has a problem. It cannot differentiate `0` from `false`:
 
 ```js run
-alert( 0 == false ); // true
+alert(0 == false); // true
 ```
 
 The same thing happens with an empty string:
 
 ```js run
-alert( '' == false ); // true
+alert("" == false); // true
 ```
 
 This happens because operands of different types are converted to numbers by the equality operator `==`. An empty string, just like `false`, becomes a zero.
@@ -137,7 +137,7 @@ In other words, if `a` and `b` are of different types, then `a === b` immediatel
 Let's try it:
 
 ```js run
-alert( 0 === false ); // false, because the types are different
+alert(0 === false); // false, because the types are different
 ```
 
 There is also a "strict non-equality" operator `!==` analogous to `!=`.
@@ -172,9 +172,9 @@ Now let's see some funny things that happen when we apply these rules. And, what
 Let's compare `null` with a zero:
 
 ```js run
-alert( null > 0 );  // (1) false
-alert( null == 0 ); // (2) false
-alert( null >= 0 ); // (3) *!*true*/!*
+alert(null > 0); // (1) false
+alert(null == 0); // (2) false
+alert(null >= 0); // (3) *!*true*/!*
 ```
 
 Mathematically, that's strange. The last result states that "`null` is greater than or equal to zero", so in one of the comparisons above it must be `true`, but they are both false.
@@ -188,9 +188,9 @@ On the other hand, the equality check `==` for `undefined` and `null` is defined
 The value `undefined` shouldn't be compared to other values:
 
 ```js run
-alert( undefined > 0 ); // false (1)
-alert( undefined < 0 ); // false (2)
-alert( undefined == 0 ); // false (3)
+alert(undefined > 0); // false (1)
+alert(undefined < 0); // false (2)
+alert(undefined == 0); // false (3)
 ```
 
 Why does it dislike zero so much? Always false!

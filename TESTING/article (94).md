@@ -1,6 +1,7 @@
 libs:
-  - d3
-  - domtree
+
+- d3
+- domtree
 
 ---
 
@@ -8,7 +9,7 @@ libs:
 
 The backbone of an HTML document is tags.
 
-According to the Document Object Model (DOM), every HTML tag is an object. Nested tags are  "children" of the enclosing one. The text inside a tag is an object as well.
+According to the Document Object Model (DOM), every HTML tag is an object. Nested tags are "children" of the enclosing one. The text inside a tag is an object as well.
 
 All these objects are accessible using JavaScript, and we can use them to modify the page.
 
@@ -17,9 +18,9 @@ For example, `document.body` is the object representing the `<body>` tag.
 Running this code will make the `<body>` red for 3 seconds:
 
 ```js run
-document.body.style.background = 'red'; // make the background red
+document.body.style.background = "red"; // make the background red
 
-setTimeout(() => document.body.style.background = '', 3000); // return back
+setTimeout(() => (document.body.style.background = ""), 3000); // return back
 ```
 
 Here we used `style.background` to change the background color of `document.body`, but there are many other properties, such as:
@@ -35,14 +36,14 @@ Soon we'll learn more ways to manipulate the DOM, but first we need to know abou
 Let's start with the following simple document:
 
 ```html run no-beautify
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>About elk</title>
-</head>
-<body>
-  The truth about elk.
-</body>
+  <head>
+    <title>About elk</title>
+  </head>
+  <body>
+    The truth about elk.
+  </body>
 </html>
 ```
 
@@ -62,9 +63,9 @@ On the picture above, you can click on element nodes and their children will ope
 
 Every tree node is an object.
 
-Tags are *element nodes* (or just elements) and form the tree structure: `<html>` is at the root, then `<head>` and `<body>` are its children, etc.
+Tags are _element nodes_ (or just elements) and form the tree structure: `<html>` is at the root, then `<head>` and `<body>` are its children, etc.
 
-The text inside elements forms *text nodes*, labelled as `#text`. A text node contains only a string. It may not have children and is always a leaf of the tree.
+The text inside elements forms _text nodes_, labelled as `#text`. A text node contains only a string. It may not have children and is always a leaf of the tree.
 
 For instance, the `<title>` tag has the text `"About elk"`.
 
@@ -76,6 +77,7 @@ Please note the special characters in text nodes:
 Spaces and newlines are totally valid characters, like letters and digits. They form text nodes and become a part of the DOM. So, for instance, in the example above the `<head>` tag contains some spaces before `<title>`, and that text becomes a `#text` node (it contains a newline and some spaces only).
 
 There are only two top-level exclusions:
+
 1. Spaces and newlines before `<head>` are ignored for historical reasons.
 2. If we put something after `</body>`, then that is automatically moved inside the `body`, at the end, as the HTML spec requires that all content must be inside `<body>`. So there can't be any spaces after `</body>`.
 
@@ -84,8 +86,15 @@ In other cases everything's straightforward -- if there are spaces (just like an
 Here are no space-only text nodes:
 
 ```html no-beautify
-<!DOCTYPE HTML>
-<html><head><title>About elk</title></head><body>The truth about elk.</body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About elk</title>
+  </head>
+  <body>
+    The truth about elk.
+  </body>
+</html>
 ```
 
 <div class="domtree"></div>
@@ -112,7 +121,6 @@ For instance, the top tag is always `<html>`. Even if it doesn't exist in the do
 
 As an example, if the HTML file is the single word `"Hello"`, the browser will wrap it into `<html>` and `<body>`, and add the required `<head>`, and the DOM will be:
 
-
 <div class="domtree"></div>
 
 <script>
@@ -126,10 +134,12 @@ While generating the DOM, browsers automatically process errors in the document,
 A document with unclosed tags:
 
 ```html no-beautify
-<p>Hello
-<li>Mom
-<li>and
-<li>Dad
+<p>
+  Hello
+  <li>Mom</li>
+  <li>and</li>
+  <li>Dad</li>
+</p>
 ```
 
 ...will become a normal DOM as the browser reads tags and restores the missing parts:
@@ -142,16 +152,20 @@ let node4 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node4, 'div.domtree', 690, 360);
 </script>
 
-````warn header="Tables always have `<tbody>`"
-An interesting "special case" is tables. By DOM specification they must have `<tbody>` tag, but HTML text may omit it. Then the browser creates `<tbody>` in the DOM automatically.
+````warn header="Tables always have `<tbody>`" An interesting "special case" is tables. By DOM specification they must have `<tbody>`tag, but HTML text may omit it. Then the browser creates`<tbody>` in the DOM automatically.
 
 For the HTML:
 
 ```html no-beautify
-<table id="table"><tr><td>1</td></tr></table>
+<table id="table">
+  <tr>
+    <td>1</td>
+  </tr>
+</table>
 ```
 
 DOM-structure will be:
+
 <div class="domtree"></div>
 
 <script>
@@ -161,6 +175,7 @@ drawHtmlTree(node5,  'div.domtree', 600, 200);
 </script>
 
 You see? The `<tbody>` appeared out of nowhere. We should keep this in mind while working with tables to avoid surprises.
+
 ````
 
 ## Other node types
@@ -280,3 +295,4 @@ We can use developer tools to inspect DOM and modify it manually.
 Here we covered the basics, the most used and important actions to start with. There's an extensive documentation about Chrome Developer Tools at <https://developers.google.com/web/tools/chrome-devtools>. The best way to learn the tools is to click here and there, read menus: most options are obvious. Later, when you know them in general, read the docs and pick up the rest.
 
 DOM nodes have properties and methods that allow us to travel between them, modify them, move around the page, and more. We'll get down to them in the next chapters.
+````

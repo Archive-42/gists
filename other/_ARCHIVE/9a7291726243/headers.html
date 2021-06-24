@@ -7,8 +7,8 @@
     <title>Request Headers</title>
     <style>
       html {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         background-color: #222;
         font-size: 20px;
         line-height: 1.6;
@@ -25,33 +25,33 @@
     <h1>How to Read Headers</h1>
     <h2>From an HTTP Response</h2>
     <script>
-      let url = 'http://127.0.0.1:5500/237-400x300.jpg';
+      let url = "http://127.0.0.1:5500/237-400x300.jpg";
 
       let options = {
-        method: 'GET',
+        method: "GET",
       };
 
       fetch(url, options)
         .then(async (resp) => {
           if (!resp.ok) throw resp.statusText;
           console.log({ resp });
-          console.log(resp.headers.get('content-type'));
+          console.log(resp.headers.get("content-type"));
           //append() delete() get()  has()
           //values() keys() entries() set()
           for (let h of resp.headers) {
             // console.log(h);
           }
-          let type = resp.headers.get('content-type');
+          let type = resp.headers.get("content-type");
           let obj = {
             html: null,
             json: null,
             blob: null,
           };
-          if (type.startsWith('text/html')) {
+          if (type.startsWith("text/html")) {
             obj.html = await resp.text();
-          } else if (type.startsWith('application/json')) {
+          } else if (type.startsWith("application/json")) {
             obj.json = await resp.json();
-          } else if (type.startsWith('image/')) {
+          } else if (type.startsWith("image/")) {
             obj.blob = await resp.blob();
           }
           return obj;
@@ -59,9 +59,9 @@
         .then(({ html, json, blob }) => {
           //handle the contents of the file
           if (html) {
-            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const doc = new DOMParser().parseFromString(html, "text/html");
             // console.log(doc.body);
-            let h1 = doc.querySelector('h1');
+            let h1 = doc.querySelector("h1");
             console.log(h1.textContent);
           }
           if (json) {
@@ -69,7 +69,7 @@
           }
           if (blob) {
             //image
-            let img = document.createElement('img');
+            let img = document.createElement("img");
             let url = URL.createObjectURL(blob);
             img.src = url;
             document.body.append(img);

@@ -1,6 +1,6 @@
 # The clickjacking attack
 
-The "clickjacking" attack allows an evil page to click on a "victim site" *on behalf of the visitor*.
+The "clickjacking" attack allows an evil page to click on a "victim site" _on behalf of the visitor_.
 
 Many sites were hacked this way, including Twitter, Facebook, Paypal and other sites. They have all been fixed, of course.
 
@@ -21,16 +21,16 @@ Here's how the evil page looks. To make things clear, the `<iframe>` is half-tra
 
 ```html run height=120 no-beautify
 <style>
-iframe { /* iframe from the victim site */
-  width: 400px;
-  height: 100px;
-  position: absolute;
-  top:0; left:-20px;
-*!*
-  opacity: 0.5; /* in real opacity:0 */
-*/!*
-  z-index: 1;
-}
+  iframe { /* iframe from the victim site */
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    top:0; left:-20px;
+  *!*
+    opacity: 0.5; /* in real opacity:0 */
+  */!*
+    z-index: 1;
+  }
 </style>
 
 <div>Click to get rich now:</div>
@@ -87,12 +87,12 @@ This not a reliable defence, because there are many ways to hack around it. Let'
 
 ### Blocking top-navigation
 
-We can block the transition caused by changing `top.location` in  [beforeunload](info:onload-ondomcontentloaded#window.onbeforeunload) event handler.
+We can block the transition caused by changing `top.location` in [beforeunload](info:onload-ondomcontentloaded#window.onbeforeunload) event handler.
 
 The top page (enclosing one, belonging to the hacker) sets a preventing handler to it, like this:
 
 ```js
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
   return false;
 };
 ```
@@ -126,7 +126,6 @@ The server-side header `X-Frame-Options` can permit or forbid displaying the pag
 It must be sent exactly as HTTP-header: the browser will ignore it if found in HTML `<meta>` tag. So, `<meta http-equiv="X-Frame-Options"...>` won't do anything.
 
 The header may have 3 values:
-
 
 `DENY`
 : Never ever show the page inside a frame.

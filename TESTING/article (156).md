@@ -2,9 +2,9 @@
 
 The idea behind shadow tree is to encapsulate internal implementation details of a component.
 
-Let's say, a click event happens inside a shadow DOM of `<user-card>` component. But scripts in the main document have no idea about the shadow DOM internals, especially if the component comes from a 3rd-party library.  
+Let's say, a click event happens inside a shadow DOM of `<user-card>` component. But scripts in the main document have no idea about the shadow DOM internals, especially if the component comes from a 3rd-party library.
 
-So, to keep the details encapsulated, the browser *retargets* the event.
+So, to keep the details encapsulated, the browser _retargets_ the event.
 
 **Events that happen in shadow DOM have the host element as the target, when caught outside of the component.**
 
@@ -14,19 +14,21 @@ Here's a simple example:
 <user-card></user-card>
 
 <script>
-customElements.define('user-card', class extends HTMLElement {
-  connectedCallback() {
-    this.attachShadow({mode: 'open'});
-    this.shadowRoot.innerHTML = `<p>
+  customElements.define(
+    "user-card",
+    class extends HTMLElement {
+      connectedCallback() {
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.innerHTML = `<p>
       <button>Click me</button>
     </p>`;
-    this.shadowRoot.firstElementChild.onclick =
-      e => alert("Inner target: " + e.target.tagName);
-  }
-});
+        this.shadowRoot.firstElementChild.onclick = (e) =>
+          alert("Inner target: " + e.target.tagName);
+      }
+    }
+  );
 
-document.onclick =
-  e => alert("Outer target: " + e.target.tagName);
+  document.onclick = (e) => alert("Outer target: " + e.target.tagName);
 </script>
 ```
 
@@ -35,7 +37,7 @@ If you click on the button, the messages are:
 1. Inner target: `BUTTON` -- internal event handler gets the correct target, the element inside shadow DOM.
 2. Outer target: `USER-CARD` -- document event handler gets shadow host as the target.
 
-Event retargeting is a great thing to have, because the outer document doesn't have to know  about component internals. From its point of view, the event happened on `<user-card>`.
+Event retargeting is a great thing to have, because the outer document doesn't have to know about component internals. From its point of view, the event happened on `<user-card>`.
 
 **Retargeting does not occur if the event occurs on a slotted element, that physically lives in the light DOM.**
 
@@ -43,25 +45,28 @@ For example, if a user clicks on `<span slot="username">` in the example below, 
 
 ```html run autorun="no-epub" untrusted height=60
 <user-card id="userCard">
-*!*
+  *!*
   <span slot="username">John Smith</span>
-*/!*
+  */!*
 </user-card>
 
 <script>
-customElements.define('user-card', class extends HTMLElement {
-  connectedCallback() {
-    this.attachShadow({mode: 'open'});
-    this.shadowRoot.innerHTML = `<div>
+  customElements.define(
+    "user-card",
+    class extends HTMLElement {
+      connectedCallback() {
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.innerHTML = `<div>
       <b>Name:</b> <slot name="username"></slot>
     </div>`;
 
-    this.shadowRoot.firstElementChild.onclick =
-      e => alert("Inner target: " + e.target.tagName);
-  }
-});
+        this.shadowRoot.firstElementChild.onclick = (e) =>
+          alert("Inner target: " + e.target.tagName);
+      }
+    }
+  );
 
-userCard.onclick = e => alert(`Outer target: ${e.target.tagName}`);
+  userCard.onclick = (e) => alert(`Outer target: ${e.target.tagName}`);
 </script>
 ```
 
@@ -82,23 +87,22 @@ In the example above, the flattened DOM is:
 ```html
 <user-card id="userCard">
   #shadow-root
-    <div>
-      <b>Name:</b>
-      <slot name="username">
-        <span slot="username">John Smith</span>
-      </slot>
-    </div>
+  <div>
+    <b>Name:</b>
+    <slot name="username">
+      <span slot="username">John Smith</span>
+    </slot>
+  </div>
 </user-card>
 ```
 
-
 So, for a click on `<span slot="username">`, a call to `event.composedPath()` returns an array: [`span`, `slot`, `div`, `shadow-root`, `user-card`, `body`, `html`, `document`, `window`]. That's exactly the parent chain from the target element in the flattened DOM, after the composition.
 
-```warn header="Shadow tree details are only provided for `{mode:'open'}` trees"
-If the shadow tree was created with `{mode: 'closed'}`, then the composed path starts from the host: `user-card` and upwards.
+```warn header="Shadow tree details are only provided for `{mode:'open'}`trees" If the shadow tree was created with`{mode: 'closed'}`, then the composed path starts from the host: `user-card` and upwards.
 
 That's the similar principle as for other methods that work with shadow DOM. Internals of closed trees are completely hidden.
-```
+
+````
 
 
 ## event.composed
@@ -165,7 +169,7 @@ inner.dispatchEvent(new CustomEvent('test', {
   detail: "not composed"
 }));
 </script>
-```
+````
 
 ## Summary
 

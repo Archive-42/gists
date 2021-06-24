@@ -9,16 +9,16 @@ let options = {
   ignoreVary: false,
 };
 //starter html and css and js files
-let assets = ['/', '/index.html', '/css/main.css', '/js/app.js'];
+let assets = ["/", "/index.html", "/css/main.css", "/js/app.js"];
 //starter images
 let imageAssets = [
-  '/img/1011-800x600.jpg',
-  '/img/1011-800x600.jpg?id=one',
-  '/img/1011-800x600.jpg?id=two',
-  '/img/1011-800x600.jpg?id=three',
+  "/img/1011-800x600.jpg",
+  "/img/1011-800x600.jpg?id=one",
+  "/img/1011-800x600.jpg?id=two",
+  "/img/1011-800x600.jpg?id=three",
 ];
 
-self.addEventListener('install', (ev) => {
+self.addEventListener("install", (ev) => {
   // service worker has been installed.
   //Extendable Event
   console.log(`Version ${version} installed`);
@@ -52,10 +52,10 @@ self.addEventListener('install', (ev) => {
   );
 });
 
-self.addEventListener('activate', (ev) => {
+self.addEventListener("activate", (ev) => {
   // when the service worker has been activated to replace an old one.
   //Extendable Event
-  console.log('activated');
+  console.log("activated");
   // delete old versions of caches.
   ev.waitUntil(
     caches.keys().then((keys) => {
@@ -75,7 +75,7 @@ self.addEventListener('activate', (ev) => {
   );
 });
 
-self.addEventListener('fetch', (ev) => {
+self.addEventListener("fetch", (ev) => {
   // ev.request each time the webpage asks for any resource.
   //Extendable Event
   console.log(`fetch request for: ${ev.request.url}`);
@@ -99,7 +99,7 @@ self.addEventListener('fetch', (ev) => {
       return (
         cacheRes ||
         fetch(ev.request).then((fetchResponse) => {
-          let type = fetchResponse.headers.get('content-type');
+          let type = fetchResponse.headers.get("content-type");
           if (
             (type && type.match(/^text\/css/i)) ||
             ev.request.url.match(/fonts.googleapis.com/i)
@@ -140,7 +140,7 @@ self.addEventListener('fetch', (ev) => {
   );
 });
 
-self.addEventListener('message', (ev) => {
+self.addEventListener("message", (ev) => {
   //message from web page ev.data.
   //Extendable Event
 });

@@ -8,9 +8,9 @@
  only by itself and 1.
 */
 
-function PrimeTest(a){
-  if (isNaN(a) || !isFinite(a) || a % 1 || a < 2) return false; 
-   const m = Math.sqrt(a);
-   for (let i = 2; i <= m; i++) if (a % i==0) return false;
-   return true;
-};
+function PrimeTest(a) {
+  if (isNaN(a) || !isFinite(a) || a % 1 || a < 2) return false;
+  const m = Math.sqrt(a);
+  for (let i = 2; i <= m; i++) if (a % i == 0) return false;
+  return true;
+}

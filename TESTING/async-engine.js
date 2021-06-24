@@ -1,5 +1,5 @@
 const compile = (input, helpers, thisArg) => {
-  return async data => {
+  return async (data) => {
     let ctx = { ...thisArg, ...data };
     let keys = [];
     let vals = [];
@@ -19,15 +19,19 @@ const compile = (input, helpers, thisArg) => {
       }
     }
 
-    let isPromise = val => typeof val === 'function' || val instanceof Promise;
+    let isPromise = (val) =>
+      typeof val === "function" || val instanceof Promise;
     let resolve = (input, ctx) => {
-      return typeof input === 'function' ? input.call(ctx, ctx) : input;
+      return typeof input === "function" ? input.call(ctx, ctx) : input;
     };
 
     ctx.compile = compile;
     ctx.render = (str, locals) => compile(str)({ ...ctx, ...locals });
     while (isPromise(input)) input = await resolve(input, ctx);
-    let source = `return ((async () => \`${input.replace(/\${/g, '${await ')}\`))()`;
+    let source = `return ((async () => \`${input.replace(
+      /\${/g,
+      "${await "
+    )}\`))()`;
     return await Function(keys, source).apply(ctx, vals);
   };
 };

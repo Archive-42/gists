@@ -1,4 +1,3 @@
-
 # Optional chaining '?.'
 
 [recent browser="new"]
@@ -29,7 +28,7 @@ In many practical cases we'd prefer to get `undefined` instead of an error here 
 
 ```js run
 // document.querySelector('.elem') is null if there's no element
-let html = document.querySelector('.elem').innerHTML; // error if it's null
+let html = document.querySelector(".elem").innerHTML; // error if it's null
 ```
 
 Once again, if the element doesn't exist, we'll get an error accessing `.innerHTML` of `null`. And in some cases, when the absence of the element is normal, we'd like to avoid the error and just accept `html = null` as the result.
@@ -53,7 +52,9 @@ We need to check both `user.address` and `user.address.street`:
 ```js
 let user = {}; // user has no address
 
-alert(user.address ? user.address.street ? user.address.street.name : null : null);
+alert(
+  user.address ? (user.address.street ? user.address.street.name : null) : null
+);
 ```
 
 That's just awful, one may even have problems understanding such code.
@@ -63,7 +64,7 @@ Don't even care to, as there's a better way to write it, using the `&&` operator
 ```js run
 let user = {}; // user has no address
 
-alert( user.address && user.address.street && user.address.street.name ); // undefined (no error)
+alert(user.address && user.address.street && user.address.street.name); // undefined (no error)
 ```
 
 AND'ing the whole path to the property ensures that all components exist (if not, the evaluation stops), but also isn't ideal.
@@ -79,6 +80,7 @@ The optional chaining `?.` stops the evaluation if the value before `?.` is `und
 **Further in this article, for brevity, we'll be saying that something "exists" if it's not `null` and not `undefined`.**
 
 In other words, `value?.prop`:
+
 - works as `value.prop`, if `value` exists,
 - otherwise (when `value` is `undefined/null`) it returns `undefined`.
 
@@ -87,7 +89,7 @@ Here's the safe way to access `user.address.street` using `?.`:
 ```js run
 let user = {}; // user has no address
 
-alert( user?.address?.street ); // undefined (no error)
+alert(user?.address?.street); // undefined (no error)
 ```
 
 The code is short and clean, there's no duplication at all.
@@ -97,8 +99,8 @@ Reading the address with `user?.address` works even if `user` object doesn't exi
 ```js run
 let user = null;
 
-alert( user?.address ); // undefined
-alert( user?.address.street ); // undefined
+alert(user?.address); // undefined
+alert(user?.address.street); // undefined
 ```
 
 Please note: the `?.` syntax makes optional the value before it, but not any further.
@@ -113,15 +115,16 @@ For example, if according to our coding logic `user` object must exist, but `add
 So, if `user` happens to be undefined due to a mistake, we'll see a programming error about it and fix it. Otherwise, coding errors can be silenced where not appropriate, and become more difficult to debug.
 ```
 
-````warn header="The variable before `?.` must be declared"
-If there's no variable `user` at all, then `user?.anything` triggers an error:
+````warn header="The variable before `?.`must be declared" If there's no variable`user`at all, then`user?.anything` triggers an error:
 
 ```js run
 // ReferenceError: user is not defined
 user?.address;
 ```
+
 The variable must be declared (e.g. `let/const/var user` or as a function parameter). The optional chaining works only for declared variables.
-````
+
+`````
 
 ## Short-circuiting
 
@@ -179,7 +182,7 @@ let user1 = {
   firstName: "John"
 };
 
-let user2 = null; 
+let user2 = null;
 
 alert( user1?.[key] ); // John
 alert( user2?.[key] ); // undefined
@@ -203,7 +206,7 @@ user?.name = "John"; // Error, doesn't work
 ```
 
 It's just not that smart.
-````
+`````
 
 ## Summary
 

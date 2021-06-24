@@ -24,8 +24,8 @@ If we want to execute more than one statement, we have to wrap our code block in
 
 ```js
 if (year == 2015) {
-  alert( "That's correct!" );
-  alert( "You're so smart!" );
+  alert("That's correct!");
+  alert("You're so smart!");
 }
 ```
 
@@ -71,13 +71,17 @@ if (cond) {
 The `if` statement may contain an optional "else" block. It executes when the condition is falsy.
 
 For example:
+
 ```js run
-let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+let year = prompt(
+  "In which year was the ECMAScript-2015 specification published?",
+  ""
+);
 
 if (year == 2015) {
-  alert( 'You guessed it right!' );
+  alert("You guessed it right!");
 } else {
-  alert( 'How can you be so wrong?' ); // any value except 2015
+  alert("How can you be so wrong?"); // any value except 2015
 }
 ```
 
@@ -88,14 +92,17 @@ Sometimes, we'd like to test several variants of a condition. The `else if` clau
 For example:
 
 ```js run
-let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+let year = prompt(
+  "In which year was the ECMAScript-2015 specification published?",
+  ""
+);
 
 if (year < 2015) {
-  alert( 'Too early...' );
+  alert("Too early...");
 } else if (year > 2015) {
-  alert( 'Too late' );
+  alert("Too late");
 } else {
-  alert( 'Exactly!' );
+  alert("Exactly!");
 }
 ```
 
@@ -129,6 +136,7 @@ The so-called "conditional" or "question mark" operator lets us do that in a sho
 The operator is represented by a question mark `?`. Sometimes it's called "ternary", because the operator has three operands. It is actually the one and only operator in JavaScript which has that many.
 
 The syntax is:
+
 ```js
 let result = condition ? value1 : value2;
 ```
@@ -138,7 +146,7 @@ The `condition` is evaluated: if it's truthy then `value1` is returned, otherwis
 For example:
 
 ```js
-let accessAllowed = (age > 18) ? true : false;
+let accessAllowed = age > 18 ? true : false;
 ```
 
 Technically, we can omit the parentheses around `age > 18`. The question mark operator has a low precedence, so it executes after the comparison `>`.
@@ -167,15 +175,20 @@ let accessAllowed = age > 18;
 A sequence of question mark operators `?` can return a value that depends on more than one condition.
 
 For instance:
+
 ```js run
-let age = prompt('age?', 18);
+let age = prompt("age?", 18);
 
-let message = (age < 3) ? 'Hi, baby!' :
-  (age < 18) ? 'Hello!' :
-  (age < 100) ? 'Greetings!' :
-  'What an unusual age!';
+let message =
+  age < 3
+    ? "Hi, baby!"
+    : age < 18
+    ? "Hello!"
+    : age < 100
+    ? "Greetings!"
+    : "What an unusual age!";
 
-alert( message );
+alert(message);
 ```
 
 It may be difficult at first to grasp what's going on. But after a closer look, we can see that it's just an ordinary sequence of tests:
@@ -189,13 +202,13 @@ Here's how this looks using `if..else`:
 
 ```js
 if (age < 3) {
-  message = 'Hi, baby!';
+  message = "Hi, baby!";
 } else if (age < 18) {
-  message = 'Hello!';
+  message = "Hello!";
 } else if (age < 100) {
-  message = 'Greetings!';
+  message = "Greetings!";
 } else {
-  message = 'What an unusual age!';
+  message = "What an unusual age!";
 }
 ```
 

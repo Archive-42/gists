@@ -1,5 +1,5 @@
 // path: /js/list.js
 
-define(function() {
+define(function () {
   return ["a", "list"];
 });

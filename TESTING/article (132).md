@@ -1,4 +1,3 @@
-
 # Fetch
 
 JavaScript can send network requests to the server and load new information whenever it's needed.
@@ -21,7 +20,7 @@ The `fetch()` method is modern and versatile, so we'll start with it. It's not s
 The basic syntax is:
 
 ```js
-let promise = fetch(url, [options])
+let promise = fetch(url, [options]);
 ```
 
 - **`url`** -- the URL to access.
@@ -49,7 +48,8 @@ For example:
 ```js
 let response = await fetch(url);
 
-if (response.ok) { // if HTTP-status is 200-299
+if (response.ok) {
+  // if HTTP-status is 200-299
   // get the response body (the method explained below)
   let json = await response.json();
 } else {
@@ -84,19 +84,23 @@ alert(commits[0].author.login);
 Or, the same without `await`, using pure promises syntax:
 
 ```js run
-fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
-  .then(response => response.json())
-  .then(commits => alert(commits[0].author.login));
+fetch(
+  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+)
+  .then((response) => response.json())
+  .then((commits) => alert(commits[0].author.login));
 ```
 
 To get the response text, `await response.text()` instead of `.json()`:
 
 ```js run async
-let response = await fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits');
+let response = await fetch(
+  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+);
 
 let text = await response.text(); // read response body as text
 
-alert(text.slice(0, 80) + '...');
+alert(text.slice(0, 80) + "...");
 ```
 
 As a show-case for reading in binary format, let's fetch and show a logo image of ["fetch" specification](https://fetch.spec.whatwg.org) (see chapter [Blob](info:blob) for details about operations on `Blob`):
@@ -140,10 +144,12 @@ The response headers are available in a Map-like headers object in `response.hea
 It's not exactly a Map, but it has similar methods to get individual headers by name or iterate over them:
 
 ```js run async
-let response = await fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits');
+let response = await fetch(
+  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+);
 
 // get one header
-alert(response.headers.get('Content-Type')); // application/json; charset=utf-8
+alert(response.headers.get("Content-Type")); // application/json; charset=utf-8
 
 // iterate over all headers
 for (let [key, value] of response.headers) {
@@ -158,8 +164,8 @@ To set a request header in `fetch`, we can use the `headers` option. It has an o
 ```js
 let response = fetch(protectedUrl, {
   headers: {
-    Authentication: 'secret'
-  }
+    Authentication: "secret",
+  },
 });
 ```
 
@@ -235,29 +241,35 @@ In this example, there's a `<canvas>` where we can draw by moving a mouse over i
 
 ```html run autorun height="90"
 <body style="margin:0">
-  <canvas id="canvasElem" width="100" height="80" style="border:1px solid"></canvas>
+  <canvas
+    id="canvasElem"
+    width="100"
+    height="80"
+    style="border:1px solid"
+  ></canvas>
 
-  <input type="button" value="Submit" onclick="submit()">
+  <input type="button" value="Submit" onclick="submit()" />
 
   <script>
-    canvasElem.onmousemove = function(e) {
-      let ctx = canvasElem.getContext('2d');
+    canvasElem.onmousemove = function (e) {
+      let ctx = canvasElem.getContext("2d");
       ctx.lineTo(e.clientX, e.clientY);
       ctx.stroke();
     };
 
     async function submit() {
-      let blob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
-      let response = await fetch('/article/fetch/post/image', {
-        method: 'POST',
-        body: blob
+      let blob = await new Promise((resolve) =>
+        canvasElem.toBlob(resolve, "image/png")
+      );
+      let response = await fetch("/article/fetch/post/image", {
+        method: "POST",
+        body: blob,
       });
 
       // the server responds with confirmation and the image size
       let result = await response.json();
       alert(result.message);
     }
-
   </script>
 </body>
 ```
@@ -268,14 +280,14 @@ The `submit()` function can be rewritten without `async/await` like this:
 
 ```js
 function submit() {
-  canvasElem.toBlob(function(blob) {        
-    fetch('/article/fetch/post/image', {
-      method: 'POST',
-      body: blob
+  canvasElem.toBlob(function (blob) {
+    fetch("/article/fetch/post/image", {
+      method: "POST",
+      body: blob,
     })
-      .then(response => response.json())
-      .then(result => alert(JSON.stringify(result, null, 2)))
-  }, 'image/png');
+      .then((response) => response.json())
+      .then((result) => alert(JSON.stringify(result, null, 2)));
+  }, "image/png");
 }
 ```
 
@@ -297,11 +309,13 @@ fetch(url, options)
 ```
 
 Response properties:
+
 - `response.status` -- HTTP code of the response,
 - `response.ok` -- `true` is the status is 200-299.
 - `response.headers` -- Map-like object with HTTP headers.
 
 Methods to get response body:
+
 - **`response.text()`** -- return the response as text,
 - **`response.json()`** -- parse the response as JSON object,
 - **`response.formData()`** -- return the response as `FormData` object (form/multipart encoding, see the next chapter),
@@ -309,6 +323,7 @@ Methods to get response body:
 - **`response.arrayBuffer()`** -- return the response as [ArrayBuffer](info:arraybuffer-binary-arrays) (low-level binary data),
 
 Fetch options so far:
+
 - `method` -- HTTP-method,
 - `headers` -- an object with request headers (not any header is allowed),
 - `body` -- the data to send (request body) as `string`, `FormData`, `BufferSource`, `Blob` or `UrlSearchParams` object.

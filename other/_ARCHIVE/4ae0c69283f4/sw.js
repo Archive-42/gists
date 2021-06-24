@@ -1,14 +1,14 @@
 const version = 6;
 const preCacheName = `static-${version}`;
-const preCache = ['/', '/index.html', '/404.html'];
+const preCache = ["/", "/index.html", "/404.html"];
 
-self.addEventListener('install', (ev) => {
+self.addEventListener("install", (ev) => {
   //installed
   ev.waitUntil(
     caches
       .open(preCacheName)
       .then((cache) => {
-        console.log('caching the static files');
+        console.log("caching the static files");
         cache.addAll(preCache);
       })
       .catch(console.warn)
@@ -16,7 +16,7 @@ self.addEventListener('install', (ev) => {
   //load pre-cache
 });
 
-self.addEventListener('activate', (ev) => {
+self.addEventListener("activate", (ev) => {
   //activating
   ev.waitUntil(
     caches
@@ -33,7 +33,7 @@ self.addEventListener('activate', (ev) => {
   //delete old caches
 });
 
-self.addEventListener('fetch', (ev) => {
+self.addEventListener("fetch", (ev) => {
   //fetch request received
   //send back a response from cache or fetch
   ev.respondWith(
@@ -48,10 +48,10 @@ self.addEventListener('fetch', (ev) => {
             //network failure
             //send something else from the cache?
             if (
-              ev.request.url.indexOf('.html') > -1 ||
-              ev.request.mode == 'navigation'
+              ev.request.url.indexOf(".html") > -1 ||
+              ev.request.mode == "navigation"
             ) {
-              return caches.match('/404.html');
+              return caches.match("/404.html");
             }
           }
         )
@@ -60,11 +60,11 @@ self.addEventListener('fetch', (ev) => {
   );
 });
 
-self.addEventListener('message', (ev) => {
+self.addEventListener("message", (ev) => {
   //message received
   //do things based on message props
   let data = ev.data;
-  console.log('SW received', data);
+  console.log("SW received", data);
 });
 
 const sendMessage = async (msg) => {

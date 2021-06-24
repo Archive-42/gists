@@ -1,6 +1,6 @@
 const APP = {
   SW: null,
-  cacheName: 'assetCache1',
+  cacheName: "assetCache1",
   init() {
     //called after DOMContentLoaded
     // if ('serviceWorker' in navigator) {
@@ -24,8 +24,8 @@ const APP = {
     APP.startCaching();
 
     document
-      .querySelector('header>h2')
-      .addEventListener('click', APP.deleteCache);
+      .querySelector("header>h2")
+      .addEventListener("click", APP.deleteCache);
   },
   startCaching() {
     //open a cache and save some responses
@@ -34,13 +34,13 @@ const APP = {
       .then((cache) => {
         console.log(`Cache ${APP.cacheName} opened`);
 
-        let urlString = '/img/1011-800x600.jpg?id=one';
+        let urlString = "/img/1011-800x600.jpg?id=one";
         cache.add(urlString); //add = fetch + put
 
-        let url = new URL('http://127.0.0.1:5500/img/1011-800x600.jpg?id=two');
+        let url = new URL("http://127.0.0.1:5500/img/1011-800x600.jpg?id=two");
         cache.add(url);
 
-        let req = new Request('/img/1011-800x600.jpg?id=three');
+        let req = new Request("/img/1011-800x600.jpg?id=three");
         cache.add(req);
 
         cache.keys().then((keys) => {
@@ -59,21 +59,21 @@ const APP = {
         //search for files in caches
         // cache.match() cache.matchAll()
         // caches.match() - look in all caches
-        let urlString = '/img/1016-800x600.jpg';
+        let urlString = "/img/1016-800x600.jpg";
         return caches.match(urlString).then((cacheResponse) => {
           if (
             cacheResponse &&
             cacheResponse.status < 400 &&
-            cacheResponse.headers.has('content-type') &&
-            cacheResponse.headers.get('content-type').match(/^image\//i)
+            cacheResponse.headers.has("content-type") &&
+            cacheResponse.headers.get("content-type").match(/^image\//i)
           ) {
             //not an error if not found
-            console.log('found in the cache');
+            console.log("found in the cache");
             // console.log(cacheResponse);
             return cacheResponse;
           } else {
             //no match found
-            console.log('not in cache');
+            console.log("not in cache");
             return fetch(urlString).then((fetchResponse) => {
               if (!fetchResponse.ok) throw fetchResponse.statusText;
               //we have a valid fetch
@@ -85,14 +85,14 @@ const APP = {
       })
       .then((response) => {
         console.log(response);
-        document.querySelector('output').textContent = response.url;
+        document.querySelector("output").textContent = response.url;
         return response.blob();
       })
       .then((blob) => {
         let url = URL.createObjectURL(blob);
-        let img = document.createElement('img');
+        let img = document.createElement("img");
         img.src = url;
-        document.querySelector('output').append(img);
+        document.querySelector("output").append(img);
       });
   },
   deleteCache() {
@@ -111,4 +111,4 @@ const APP = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', APP.init);
+document.addEventListener("DOMContentLoaded", APP.init);

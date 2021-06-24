@@ -1,7 +1,7 @@
-export default function Modal (id) {
-  id = id || 'modal' + Math.random().toString().slice(2,6);
+export default function Modal(id) {
+  id = id || "modal" + Math.random().toString().slice(2, 6);
 
-  let template = (content)=>/*html*/`
+  let template = (content) => /*html*/ `
     <style>
       #${id} .fade {
         position:fixed;
@@ -46,23 +46,28 @@ export default function Modal (id) {
 
   function hide() {
     let el = document.getElementById(id);
-    if (el) { el.parentNode.removeChild(el); }
+    if (el) {
+      el.parentNode.removeChild(el);
+    }
   }
 
   function show(content) {
     hide();
-    let el = document.createElement('div');
+    let el = document.createElement("div");
     el.id = id;
     el.innerHTML = template(content);
     document.body.appendChild(el);
-    el.addEventListener('click', (ev)=>{
-      console.log('modal click', ev.target.dataset);
-      if (ev.target.dataset.hasOwnProperty('modalclose')) { hide() }
-    })
+    el.addEventListener("click", (ev) => {
+      console.log("modal click", ev.target.dataset);
+      if (ev.target.dataset.hasOwnProperty("modalclose")) {
+        hide();
+      }
+    });
     setTimeout(
-      ()=>el.querySelector('.content').classList.add('content-transition')
-    , 0);
+      () => el.querySelector(".content").classList.add("content-transition"),
+      0
+    );
   }
 
-  return {show, hide, id};
+  return { show, hide, id };
 }

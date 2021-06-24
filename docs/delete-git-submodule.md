@@ -1,0 +1,9 @@
+To remove a submodule you need to:
+
+-   Delete the relevant section from the .gitmodules file.
+-   Stage the .gitmodules changes git add .gitmodules
+-   Delete the relevant section from .git/config.
+-   Run git rm --cached path\_to\_submodule (no trailing slash).
+-   Run rm -rf .git/modules/path\_to\_submodule (no trailing slash).
+-   Commit git commit -m "Removed submodule "
+-   Delete the now untracked submodule files rm -rf pat

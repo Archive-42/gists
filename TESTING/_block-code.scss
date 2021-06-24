@@ -5,7 +5,7 @@
 code,
 pre,
 pre .token[class] {
-	font-family: $font-family-mono;
+  font-family: $font-family-mono;
 }
 
 // ==============
@@ -13,26 +13,26 @@ pre .token[class] {
 // ==============
 
 code {
-	color: color(inline-code);
-	word-break: break-word;
+  color: color(inline-code);
+  word-break: break-word;
 }
 
 pre > code,
 pre > code[class] {
-	outline: 0;
+  outline: 0;
 
-	border-radius: $code-border-radius;
-	display: block;
+  border-radius: $code-border-radius;
+  display: block;
 
-	font-size: 13px;
-	tab-size: 2;
+  font-size: 13px;
+  tab-size: 2;
 
-	padding: 1em;
-	overflow-x: auto;
+  padding: 1em;
+  overflow-x: auto;
 }
 
 pre > code:focus {
-	box-shadow: $code-box-shadow-focus;
+  box-shadow: $code-box-shadow-focus;
 }
 
 // ====================================
@@ -40,8 +40,8 @@ pre > code:focus {
 // ====================================
 
 pre > code:not(.hljs) {
-	background-color: color(block-code-background);
-	color: color(block-code);
+  background-color: color(block-code-background);
+  color: color(block-code);
 }
 
 // =======================================
@@ -49,12 +49,12 @@ pre > code:not(.hljs) {
 // =======================================
 
 *[class] > pre.hljs[class] {
-	& {
-		overflow: hidden;
-		padding: 0;
-	}
+  & {
+    overflow: hidden;
+    padding: 0;
+  }
 
-	& > code:not(.hljs) {
-		background-color: transparent;
-	}
+  & > code:not(.hljs) {
+    background-color: transparent;
+  }
 }

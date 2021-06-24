@@ -1,9 +1,9 @@
 function createAdder() {
-    let counter = 0;
-    return function () {
-        counter++;
-        return counter;
-    }
+  let counter = 0;
+  return function () {
+    counter++;
+    return counter;
+  };
 }
 let addOne = createAdder();
 let result1 = addOne();

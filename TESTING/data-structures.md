@@ -9,9 +9,9 @@ determine the average of those numbers.
 
 Calculating a mean would be useful in these situations:
 
--   Determining the average score for all players of a video game level.
--   Finding the average grade for tests that a student took this semester.
--   Determining the average size of all files in a directory/folder.
+- Determining the average score for all players of a video game level.
+- Finding the average grade for tests that a student took this semester.
+- Determining the average size of all files in a directory/folder.
 
 ## Steps
 
@@ -49,6 +49,7 @@ Divide the sum of all the numbers by the count of the numbers.
 sum = 160
 count = 7
 ```
+
 If we ignore significant digits: `sum / count = `22.<u>857142</u>
 
 If we properly consider significant digits: `sum / count = 23`
@@ -59,15 +60,16 @@ Return the value of 22.<u>857142</u> or `23`.
 
 ## Implementation
 
--   [Python](https://github.com/TheAlgorithms/Python/blob/master/maths/average_mean.py)
+- [Python](https://github.com/TheAlgorithms/Python/blob/master/maths/average_mean.py)
 
 ## Video URL
 
--   [Mean on Khan Academy](https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-center-quantitative/v/mean-median-and-mode)
+- [Mean on Khan Academy](https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-center-quantitative/v/mean-median-and-mode)
 
 ## Others
 
--   [Mean on Wikipedia](https://en.wikipedia.org/wiki/Mean)
+- [Mean on Wikipedia](https://en.wikipedia.org/wiki/Mean)
+
 # Bellman-Ford
 
 #### Problem Statement
@@ -81,7 +83,7 @@ Given a weighted directed graph G(V,E) and a source vertex s ∈ V, determine fo
 - Create an array dist[] of size |V| with all values as infinite except dist[s].
 - Repeat the following |V| - 1 times. Where |V| is number of vertices.
 - Create another loop to go through each edge (u, v) in E and do the following:
-	1. dist[v] = minimum(dist[v], dist[u] + weight of edge).
+  1.  dist[v] = minimum(dist[v], dist[u] + weight of edge).
 - Lastly iterate through all edges on last time to make sure there are no negatively weighted cycles.
 
 #### Time Complexity
@@ -100,7 +102,7 @@ O(V^2)
 
 ```
     # of vertices in graph = 5 [A, B, C, D, E]
-    # of edges in graph = 8 
+    # of edges in graph = 8
 
     edges  [A->B, A->C, B->C, B->D, B->E, D->C, D->B, E->D]
     weight [ -1,    4,    3,    2,    2,    5,    1,   -4 ]
@@ -108,44 +110,44 @@ O(V^2)
 
 
 
-    // edge A->B 
-    graph->edge[0].src = A 
-    graph->edge[0].dest = B 
-    graph->edge[0].weight = -1 
-  
-    // edge A->C 
-    graph->edge[1].src = A 
-    graph->edge[1].dest = C 
-    graph->edge[1].weight = 4 
-  
-    // edge B->C 
-    graph->edge[2].src = B 
-    graph->edge[2].dest = C 
-    graph->edge[2].weight = 3 
-  
-    // edge B->D 
-    graph->edge[3].src = B 
-    graph->edge[3].dest = D 
-    graph->edge[3].weight = 2 
-  
-    // edge B->E 
-    graph->edge[4].src = B 
-    graph->edge[4].dest = E 
-    graph->edge[4].weight = 2 
-  
-    // edge D->C 
+    // edge A->B
+    graph->edge[0].src = A
+    graph->edge[0].dest = B
+    graph->edge[0].weight = -1
+
+    // edge A->C
+    graph->edge[1].src = A
+    graph->edge[1].dest = C
+    graph->edge[1].weight = 4
+
+    // edge B->C
+    graph->edge[2].src = B
+    graph->edge[2].dest = C
+    graph->edge[2].weight = 3
+
+    // edge B->D
+    graph->edge[3].src = B
+    graph->edge[3].dest = D
+    graph->edge[3].weight = 2
+
+    // edge B->E
+    graph->edge[4].src = B
+    graph->edge[4].dest = E
+    graph->edge[4].weight = 2
+
+    // edge D->C
     graph->edge[5].src = D
-    graph->edge[5].dest = C 
-    graph->edge[5].weight = 5 
-  
-    // edge D->B 
+    graph->edge[5].dest = C
+    graph->edge[5].weight = 5
+
+    // edge D->B
     graph->edge[6].src = D
-    graph->edge[6].dest = B 
-    graph->edge[6].weight = 1 
-  
-    // edge E->D 
+    graph->edge[6].dest = B
+    graph->edge[6].weight = 1
+
+    // edge E->D
     graph->edge[7].src = E
-    graph->edge[7].dest = D 
+    graph->edge[7].dest = D
     graph->edge[7].weight = -3
 
     for source = A
@@ -156,8 +158,7 @@ O(V^2)
 	C                2 				A->B->C = -1 + 3
 	D                -2				A->B->E->D = -1 + 2 + -3
 	E                1				A->B->E = -1 + 2
- ```
-
+```
 
 #### Code Implementation Links
 
@@ -173,13 +174,15 @@ O(V^2)
 #### Others
 
 Sources Used:
+
 - https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/
 - https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm
+
 # Binary Search (A divide and conquer algorithm)
 
 #### Problem Statement
 
-Given a sorted  array of n elements, write a function to search for the index of a given element (target)
+Given a sorted array of n elements, write a function to search for the index of a given element (target)
 
 #### Approach
 
@@ -193,25 +196,25 @@ Given a sorted  array of n elements, write a function to search for the index of
 
 #### Time Complexity
 
-O(log n) Worse Case     
+O(log n) Worse Case  
 O(1) Best Case (If middle element of initial array is the target element)
 
 #### Space Complexity
 
-O(1) For iterative approach          
+O(1) For iterative approach  
 O(log n) For recursive approach due to recursion call stack
 
 #### Example
 
 ```
-arr = [1,2,3,4,5,6,7]  
+arr = [1,2,3,4,5,6,7]
 
 target = 2
 Initially the element at middle index is 4 which is greater than 2. Therefore we search the left half of the
 array i.e. [1,2,3].
 Here we find the middle element equal to target element so we return its index i.e. 1
 
-target = 9          
+target = 9
 Binary Search should return -1 as 9 is not present in the array
 ```
 
@@ -230,6 +233,7 @@ Binary Search should return -1 as 9 is not present in the array
 #### Animation Explanation
 
 - [Tute Board](https://boardhub.github.io/tute/?wd=binarySearchAlgo2)
+
 # Bubble Sort
 
 #### Problem Statement
@@ -265,7 +269,7 @@ Given an unsorted array of n elements, write a function to sort the array
 
 ```
 arr[] = {10, 80, 40, 30}
-Indexes: 0   1   2   3    
+Indexes: 0   1   2   3
 
 1. Index = 0, Number = 10
 2. 10 < 80, do nothing and continue
@@ -281,7 +285,7 @@ Indexes: 0   1   2   3
 Repeat the Above Steps again
 
 arr[] = {10, 40, 30, 80}
-Indexes: 0   1   2   3   
+Indexes: 0   1   2   3
 
 1. Index = 0, Number = 10
 2. 10 < 40, do nothing and continue
@@ -297,7 +301,7 @@ Indexes: 0   1   2   3
 Repeat the Above Steps again
 
 arr[] = {10, 30, 40, 80}
-Indexes: 0   1   2   3   
+Indexes: 0   1   2   3
 
 1. Index = 0, Number = 10
 2. 10 < 30, do nothing and continue
@@ -334,18 +338,22 @@ Bubble sort is also known as Sinking sort.
 #### Animation Explanation
 
 - [Tute Board](https://boardhub.github.io/tute/?wd=bubbleSortAlgo2)
+
 # Coin Change
 
 #### Problem Statement
+
 Given a value `N`, if we want to make change for `N` cents, and we have infinite supply of each of `S = {S1, S2, .. , Sm}` valued coins, how many ways can we make the change? The order of coins doesn't matter.
 
 #### Approach
+
 Let the `dp[i]` be the length of the coin change of prefix `N[1..i]`. Our answer is `dp[N]`.
 We fill `dp[0]` as 1 because there is only one way to get 0 coins (We pick no coins).
 
-Now let's try calculate `dp[i]` for any `i`. `dp[0..i]` will store each sub problems from `0` to `N`. That's why the answer will be `dp[N]`. First, we need to iterate each coin types to pick them one-by-one. Then we iterate the sub problems from current coin that we pick before  to `N` cents. That's why we must make dp table with `N` columns.
+Now let's try calculate `dp[i]` for any `i`. `dp[0..i]` will store each sub problems from `0` to `N`. That's why the answer will be `dp[N]`. First, we need to iterate each coin types to pick them one-by-one. Then we iterate the sub problems from current coin that we pick before to `N` cents. That's why we must make dp table with `N` columns.
 
 This is the codes for the Coin Change algorithm:
+
 ```
     for coin_val in S:
         for i in range(coin_val, n + 1):
@@ -355,40 +363,53 @@ This is the codes for the Coin Change algorithm:
 In the second iteration, for every cent that can be exchanged, we take it by subtracting the i-th column by the value of the coin we take and adding it into the current column. So `dp[i]` will store the current sub problem.
 
 #### Time Complexity
+
 `O(N * S)` in any case
 
 #### Space Complexity
+
 `O(N)` - simple implementation. We only need 1D array to store the answer.
 
 #### Example
+
 Let's say we have 3 coin types `[1,2,3]` and we want to change for `7` cents. So we will define our table like this.
+
 ```
 [1, 0, 0, 0, 0, 0, 0, 0]
 ```
+
 0th column will store 1 since there is only one way to get 0 cents.
 
-* For the first iteration we take a coin that has a value of 1. Then for all sub problems, there is only one way to make change. For 7 cents, the only way is `{1,1,1,1,1,1,1}`. On the final iteration, our table be like:
+- For the first iteration we take a coin that has a value of 1. Then for all sub problems, there is only one way to make change. For 7 cents, the only way is `{1,1,1,1,1,1,1}`. On the final iteration, our table be like:
+
 ```
 [1, 1, 1, 1, 1, 1, 1, 1]
 ```
 
-* For the second iteration, we take a coin that has a value of 2. From here, all sub problems that can be divided by 2 will store another new way to make change. So, when the iteration stopped at 2nd column it will be like `dp[2] += dp[0]`. We know that `dp[0]` stored a value of 1. Thus, dp[2] will store the value of `1 + 1 = 2`. From here we know that for 2 cents, there are 2 ways `{1,1}` and `{2}`. And this operation will continue. Now our table be like:
+- For the second iteration, we take a coin that has a value of 2. From here, all sub problems that can be divided by 2 will store another new way to make change. So, when the iteration stopped at 2nd column it will be like `dp[2] += dp[0]`. We know that `dp[0]` stored a value of 1. Thus, dp[2] will store the value of `1 + 1 = 2`. From here we know that for 2 cents, there are 2 ways `{1,1}` and `{2}`. And this operation will continue. Now our table be like:
+
 ```
 [1, 1, 2, 2, 3, 3, 4, 4]
 ```
+
 4 ways to make 7 cents using value of 1 and 2. `{{1,1,1,1,1,1,1}, {1,1,1,1,1,2}, {1,1,1,2,2}, {1,2,2,2}}`
 
-* For the final iteration (3rd iteration), we take a coin that has a value of 3. Like before, now all the columns that can be devided by 3 will store another new way. And the final result will be like:
+- For the final iteration (3rd iteration), we take a coin that has a value of 3. Like before, now all the columns that can be devided by 3 will store another new way. And the final result will be like:
+
 ```
 [1, 1, 2, 3, 4, 5, 7, 8]
 ```
+
 So the final answer is **8**. 8 ways to make change of 7 cents using all coin types. `{{1,1,1,1,1,1,1}, {1,1,1,1,1,2}, {1,1,1,2,2}, {1,2,2,2}, {1,1,1,1,3}, {1,3,3}, {2,2,3}, {1,1,2,3}}`
 
 #### Code Implementation Link
+
 [Python](https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/coin_change.py)
 
 #### Video Explanation
+
 [Total Unique Ways To Make Change by Back To Back SWE](https://www.youtube.com/watch?v=DJ4a7cmjZY0)
+
 # Doubly Linked List
 
 Singly Linked List is a linear and connected data structure made of Nodes. Each node is composed of a variable `data` where its content is stored and a pointer to the next Node on the list. The Linked List has a pointer to the first element of this Node sequence and may also have another pointer to the last Node to make operations at the far end less time-consuming. You can also store a `length` variable to store the total length.
@@ -396,23 +417,25 @@ Singly Linked List is a linear and connected data structure made of Nodes. Each 
 A **Doubly Linked List (DLL)** contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
 
 ### Advantages over singly linked list
+
 - A DLL can be traversed in both forward and backward direction.
 - The delete operation in DLL is more efficient if pointer to the node to be deleted is given.
 - We can quickly insert a new node before a given node.
-In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. In DLL, we can get the previous node using previous pointer.
+  In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. In DLL, we can get the previous node using previous pointer.
 
 ### Disadvantages over singly linked list
+
 - Every node of DLL Require extra space for an previous pointer. It is possible to implement DLL with single pointer though (See this and this).
 - All operations require an extra pointer previous to be maintained. For example, in insertion, we need to modify previous pointers together with next pointers. For example in following functions for insertions at different positions, we need 1 or 2 extra steps to set previous pointer.
 
 ### Time Complexity
 
 | Operation | Average | Worst |
-|-----------|---------|-------|
-| Access    |   Θ(n)  |  O(n) |
-| Search    |   Θ(n)  |  O(n) |
-| Insertion |   Θ(1)  |  O(1) |
-| Deletion  |   Θ(1)  |  O(1) |
+| --------- | ------- | ----- |
+| Access    | Θ(n)    | O(n)  |
+| Search    | Θ(n)    | O(n)  |
+| Insertion | Θ(1)    | O(1)  |
+| Deletion  | Θ(1)    | O(1)  |
 
 ## Example
 
@@ -502,6 +525,7 @@ class LinkedList {
 ## Video Explanation
 
 [A CS50 video explaining the Doubly Linked List Data Structure](https://www.youtube.com/watch?v=FHMPswJDCvU)
+
 # Exponential Search
 
 #### Prerequisites
@@ -510,11 +534,11 @@ class LinkedList {
 
 #### Problem Statement
 
-Given a sorted array of *n* elements, write a function to search for the index of a given element (target)
+Given a sorted array of _n_ elements, write a function to search for the index of a given element (target)
 
 #### Approach
 
-- Search for the **range** within which the target is included increasing *index* by powers of 2
+- Search for the **range** within which the target is included increasing _index_ by powers of 2
 - If this range exists in array apply the Binary Search algorithm over it
 - Else return -1
 
@@ -525,14 +549,15 @@ arr = [1, 2, 3, 4, 5, 6, 7, ... 998, 999, 1_000]
 
 target = 998
 index = 0
+
 1. SEARCHING FOR THE RANGE
-index = 1, 2, 4, 8, 16, 32, 64, ..., 512, ..., 1_024
-after 10 iteration we have the index at 1_024 and outside of the array 
+   index = 1, 2, 4, 8, 16, 32, 64, ..., 512, ..., 1_024
+   after 10 iteration we have the index at 1_024 and outside of the array
 2. BINARY SEARCH
-Now we can apply the binary search on the subarray from 512 and 1_000.
+   Now we can apply the binary search on the subarray from 512 and 1_000.
 ```
 
-***Note***: we apply the Binary Search from 512 to 1_000 because at `i = 2^10 = 1_024` the array is finisced and the target number is less than the latest index of the array ( 1_000 ).
+**_Note_**: we apply the Binary Search from 512 to 1_000 because at `i = 2^10 = 1_024` the array is finisced and the target number is less than the latest index of the array ( 1_000 ).
 
 #### Time Complexity
 
@@ -542,8 +567,8 @@ Now we can apply the binary search on the subarray from 512 and 1_000.
 
 #### Complexity Explanation
 
-- The complexity of the first part of the algorithm is **O( log *i* )** because if *i* is the position of the target in the array, after doubling the search *index* `⌈log(i)⌉` times, the algorithm will be at a search index that is greater than or equal to *i*. We can write `2^⌈log(i)⌉ >= i`
-- The complexity of the second part of the algorithm also is **O ( log *i* )** because that is a simple Binary Search. The Binary Search complexity ( as explained [here](https://github.com/faridevnz/Algorithms-Explanation/blob/master/en/Search%20Algorithms/Binary%20Search.md) ) is O( *n* ) where *n* is the length of the array. In the Exponential Search, the length of the array on which the algorithm is applied is `2^i - 2^(i-1)`, put into words it means '( the length of the array from start to *i* ) - ( the part of array skipped until the previous iteration )'. Is simple verify that `2^i - 2^(i-1) = 2^(i-1) ` 
+- The complexity of the first part of the algorithm is **O( log _i_ )** because if _i_ is the position of the target in the array, after doubling the search _index_ `⌈log(i)⌉` times, the algorithm will be at a search index that is greater than or equal to _i_. We can write `2^⌈log(i)⌉ >= i`
+- The complexity of the second part of the algorithm also is **O ( log _i_ )** because that is a simple Binary Search. The Binary Search complexity ( as explained [here](https://github.com/faridevnz/Algorithms-Explanation/blob/master/en/Search%20Algorithms/Binary%20Search.md) ) is O( _n_ ) where _n_ is the length of the array. In the Exponential Search, the length of the array on which the algorithm is applied is `2^i - 2^(i-1)`, put into words it means '( the length of the array from start to _i_ ) - ( the part of array skipped until the previous iteration )'. Is simple verify that `2^i - 2^(i-1) = 2^(i-1) `
 
 After this detailed explanation we can say that the the complexity of the Exponential Search is:
 
@@ -562,19 +587,20 @@ Let's take a look at this comparison with a less theoretical example. Imagine we
 
 - [C++](https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/search/exponential_search.cpp)
 - [JavaScript](https://github.com/TheAlgorithms/Javascript/blob/master/Search/ExponentialSearch.js)
+
 # Calculating Fibonacci numbers
 
-In mathematics, the Fibonacci numbers commonly denoted F(n), form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1.  The Sequence looks like this:
+In mathematics, the Fibonacci numbers commonly denoted F(n), form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. The Sequence looks like this:
 
-`[0, 1, 1, 2, 3, 5, 8, 13, 21, 34,  ...]`
+`[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...]`
 
 ## Applications
 
 Finding
-```N-th``` member of this sequence would be useful in many Applications:
+`N-th` member of this sequence would be useful in many Applications:
 
--   Recently Fibonacci sequence and the golden ratio are of great interest to researchers in many fields of
-science including high energy physics, quantum mechanics, Cryptography and Coding.
+- Recently Fibonacci sequence and the golden ratio are of great interest to researchers in many fields of
+  science including high energy physics, quantum mechanics, Cryptography and Coding.
 
 ## Steps
 
@@ -584,39 +610,49 @@ science including high energy physics, quantum mechanics, Cryptography and Codin
 
 ## Example
 
-Find ```8-th``` member of Fibonacci
+Find `8-th` member of Fibonacci
 
 ### Step 0
- ```
+
+```
 | F(n+1)  F(n)  |
 | F(n)    F(n-1)|
 ```
 
 ### Step 1
- ```
- Calculate matrix^1
+
+```
+Calculate matrix^1
 | 1 1 |
 | 1 0 |
 ```
+
 ### Step 2
+
 ```
 Calculate matrix^2
 | 2 1 |
 | 1 1 |
 ```
+
 ### Step 3
+
 ```
 Calculate matrix^4
 | 5 3 |
 | 3 2 |
 ```
+
 ### Step 4
+
 ```
 Calculate matrix^8
 | 34 21 |
 | 21 13 |
 ```
+
 ### Step 5
+
 F(8)=21
 
 ## Implementation
@@ -633,6 +669,7 @@ F(8)=21
 ## Others
 
 - [Proof](https://brilliant.org/wiki/fast-fibonacci-transform/)
+
 # Harris Detector
 
 ## Problem Statement
@@ -654,7 +691,7 @@ Given image $I$, $n\times n$ size Gaussian Kernel $G_{n\times n}$,
 
 ## Reference
 
-C. Harris and M. Stephens, “A Combined Corner and Edge Detector,” in *Procedings of the Alvey Vision Conference 1988*, Manchester, 1988, pp. 23.1-23.6.
+C. Harris and M. Stephens, “A Combined Corner and Edge Detector,” in _Procedings of the Alvey Vision Conference 1988_, Manchester, 1988, pp. 23.1-23.6.
 
 # Heap Sort
 
@@ -681,35 +718,35 @@ or O(n) (equal keys) Best-case performance
 
 `O(1)` Worst case auxiliary
 
-
 #### Example
- ```
+
+```
 Input data: 4, 10, 3, 5, 1
-         4(0)
-        /   \
-     10(1)   3(2)
-    /   \
- 5(3)    1(4)
+        4(0)
+       /   \
+    10(1)   3(2)
+   /   \
+5(3)    1(4)
 
 The numbers in bracket represent the indices in the array
 representation of data.
 
 Applying heapify procedure to index 1:
-         4(0)
-        /   \
-    10(1)    3(2)
-    /   \
+        4(0)
+       /   \
+   10(1)    3(2)
+   /   \
 5(3)    1(4)
 
 Applying heapify procedure to index 0:
-        10(0)
-        /  \
-     5(1)  3(2)
-    /   \
- 4(3)    1(4)
+       10(0)
+       /  \
+    5(1)  3(2)
+   /   \
+4(3)    1(4)
 The heapify procedure calls itself recursively to build heap
- in top down manner.
-  ```
+in top down manner.
+```
 
 ![heap-image](https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif "Heap Sort")
 
@@ -727,6 +764,7 @@ The heapify procedure calls itself recursively to build heap
 #### Video Explanation
 
 [A video explaining the Selection Sort Algorithm](https://www.youtube.com/watch?v=MtQL_ll5KhQ)
+
 # Insertion Sort
 
 #### Problem Statement
@@ -790,6 +828,7 @@ and elements from 11 to 13 will move one position ahead of their current positio
 #### Video Explanation
 
 [A CS50 video explaining the Insertion Search Algorithm](https://www.youtube.com/watch?v=DFG-XuyPYUQ)
+
 # Linear Search
 
 #### Problem Statement
@@ -806,7 +845,7 @@ Given an array of n elements, write a function to search for the index of a give
 
 #### Time Complexity
 
-O(n) Worse Case     
+O(n) Worse Case  
 O(1) Best Case (If first element of array is the target element)
 
 #### Space Complexity
@@ -816,12 +855,12 @@ O(1)
 #### Example
 
 ```
-arr = [1, 3, 9, 5, 0, 2]  
+arr = [1, 3, 9, 5, 0, 2]
 
 target = 5
-Linear Search should return index 3 as 5 is on index 3     
+Linear Search should return index 3 as 5 is on index 3
 
-target = 6           
+target = 6
 Linear Search should return -1 as 6 is not present in the array
 ```
 
@@ -838,6 +877,7 @@ Linear Search should return -1 as 6 is not present in the array
 #### Animation Explanation
 
 - [Tute Board](https://boardhub.github.io/tute/?wd=linearSearchAlgo)
+
 # Longest Common Subsequence
 
 #### Problem Statement
@@ -848,7 +888,7 @@ Given two strings `S` and `T`, find the length of the longest common subsequence
 
 Let the `dp[i][j]` be the length of the longest common subsequence of prefixes `S[1..i]` and `T[1..j]`. Our answer (the length of LCS) is `dp[|S|][|T|]` since the prefix of the length of string is the string itself.
 
-Both `dp[0][i]` and `dp[i][0]` are `0` for any `i` since the LCS of empty prefix and anything else is an empty string.     
+Both `dp[0][i]` and `dp[i][0]` are `0` for any `i` since the LCS of empty prefix and anything else is an empty string.
 
 Now let's try to calculate `dp[i][j]` for any `i`, `j`. Let's say `S[1..i] = *A` and `T[1..j] = *B` where `*` stands for any sequence of letters (could be different for `S` and `T`), `A` stands for any letter and `B` stands for any letter different from `A`. Since `A != B`, our LCS doesn't include `A` or `B` as a last character. So we could try to throw away `A` or `B` character. If we throw `A`, our LCS length will be `dp[i - 1][j]` (since we have prefixes `S[1..i - 1]` and `T[1..j]`). If we try to throw `B` character, we will have prefixes `S[1..i]` and `T[1..j - 1]` so the length of LCS will be `dp[i][j - 1]`. As we are looking for the <b>Longest</b> common subsequence, we will pick <b>the maximum value</b> from `dp[i][j - 1]` and `dp[i - 1][j]`.
 
@@ -859,6 +899,7 @@ We could see that we can fill our `dp` table row by row, column by column. So ou
 - Let's say that we have strings `S` of the length N and `T` of the length M (numbered from 1). Let's create the table `dp` of size `(N + 1) x (M + 1)` numbered from 0.
 - Let's fill the 0th row and the 0th column of `dp` with 0.
 - Then, we follow the algorithm:
+
 ```
 for i in range(1..N):
     for j in range(1..M):
@@ -868,10 +909,9 @@ for i in range(1..N):
             dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 ```
 
-
 #### Time Complexity
 
-`O(N * M)` In any case     
+`O(N * M)` In any case
 
 #### Space Complexity
 
@@ -881,6 +921,7 @@ for i in range(1..N):
 #### Example
 
 Let's say we have strings `ABCB` and `BBCB`. We will build such a table:
+
 ```
 # # A B C B
 # 0 0 0 0 0
@@ -889,7 +930,9 @@ B 0 ? ? ? ?
 C 0 ? ? ? ?
 B 0 ? ? ? ?
 ```
+
 Now we will start to fill our table from 1st row. Since `S[1] = A` and `T[1] = B`, the `dp[1][1]` will be tha maximal value of `dp[0][1] = 0` and `dp[1][0] = 0`. So `dp[1][1] = 0`. But now `S[2] = B = T[1]`, so `dp[1][2] = dp[0][1] + 1 = 1`. `dp[1][3]` is `1` since `A != C` and we pick `max{dp[1][2], dp[0][3]}`. And `dp[1][4] = dp[0][3] + 1 = 1`.
+
 ```
 # # A B C B
 # 0 0 0 0 0
@@ -898,7 +941,9 @@ B 0 ? ? ? ?
 C 0 ? ? ? ?
 B 0 ? ? ? ?
 ```
+
 Now let's fill the other part of the table:
+
 ```
 # # A B C B
 # 0 0 0 0 0
@@ -907,6 +952,7 @@ B 0 0 1 1 2
 C 0 0 1 2 2
 B 0 0 1 2 3
 ```
+
 So the length of LCS is `dp[4][4] = 3`.
 
 #### Code Implementation Links
@@ -918,6 +964,7 @@ So the length of LCS is `dp[4][4] = 3`.
 #### Video Explanation
 
 [Video explanation by Tushar Roy](https://youtu.be/NnD96abizww)
+
 # Merge Sort (Divide and Conquer Algorithm)
 
 #### Problem Statement
@@ -941,7 +988,7 @@ Given an array of n elements, write a function to sort the array
 #### Example
 
 ```
-arr = [1, 3, 9, 5, 0, 2]  
+arr = [1, 3, 9, 5, 0, 2]
 
 Divide the array in two halves [1, 3, 9] and [5, 0, 2]
 
@@ -963,11 +1010,13 @@ Now merge both these halves to get the sorted array [0, 1, 2, 3, 5, 9]
 #### Video Explanation
 
 [A CS50 video explaining the Merge Sort Algorithm](https://www.youtube.com/watch?v=EeQ8pwjQxTM)
+
 # Quick Sort
 
 #### Problem Statement
 
 Given an unsorted array of n elements, write a function to sort the array
+
 #### Approach
 
 - Make the right-most index value pivot
@@ -1041,19 +1090,20 @@ it.
 #### Video Explanation
 
 [A video explaining the Quick Sort Algorithm](https://www.youtube.com/watch?v=COk73cpQbFQ)
+
 # Radix Sort
 
-The lower bound for Comparison based sorting algorithm (Merge Sort, Heap Sort, Quick-Sort .. etc) is `Ω(nlogn)`, i.e., they cannot do better than `nlogn`. 
+The lower bound for Comparison based sorting algorithm (Merge Sort, Heap Sort, Quick-Sort .. etc) is `Ω(nlogn)`, i.e., they cannot do better than `nlogn`.
 
 Counting sort is a linear time sorting algorithm that sort in `O(n+k)` time when elements are in the range from 1 to k.
 
-What if the elements are in the range from 1 to n2? We can't use counting sort because counting sort will take `O(n2)` which is worse than comparison-based sorting algorithms. Can we sort such an array in linear time? 
+What if the elements are in the range from 1 to n2? We can't use counting sort because counting sort will take `O(n2)` which is worse than comparison-based sorting algorithms. Can we sort such an array in linear time?
 
 Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. Radix sort uses counting sort as a subroutine to sort.
 
-## The Radix Sort Algorithm 
+## The Radix Sort Algorithm
 
-Do following for each digit i where i varies from least significant digit to the most significant digit. 
+Do following for each digit i where i varies from least significant digit to the most significant digit.
 Sort input array using counting sort (or any stable sort) according to the i'th digit.
 
 Example:
@@ -1063,11 +1113,11 @@ Original, unsorted list:
 
 Sorting by least significant digit (1s place) gives:
 
-[*Notice that we keep 802 before 2, because 802 occurred 
-before 2 in the original list, and similarly for pairs 
+[*Notice that we keep 802 before 2, because 802 occurred
+before 2 in the original list, and similarly for pairs
 170 & 90 and 45 & 75.]
 
-Sorting by next digit (10s place) gives: 
+Sorting by next digit (10s place) gives:
 
 [*Notice that 802 again comes before 2 as 802 comes before 2 in the previous list.]
 
@@ -1076,20 +1126,21 @@ Sorting by next digit (10s place) gives:
 Sorting by the most significant digit (100s place) gives:
 `2, 24, 45, 66, 75, 90, 170, 802`
 
-## What is the running time of Radix Sort? 
+## What is the running time of Radix Sort?
 
 Let there be d digits in input integers. Radix Sort takes `O(d*(n+b))` time where b is the base for representing numbers, for example, for the decimal system, b is 10.
-What is the value of d? If `k` is the maximum possible value, then d would be `O(logb(k))`. So overall time complexity is `O((n+b) * logb(k))`. Which looks more than the 
-time complexity of comparison-based sorting algorithms for a large k. Let us first limit k. Let k <= nc where c is a constant. In that case, the complexity becomes 
-`O(n logb(n))`. But it still doesn't beat comparison-based sorting algorithms. 
+What is the value of d? If `k` is the maximum possible value, then d would be `O(logb(k))`. So overall time complexity is `O((n+b) * logb(k))`. Which looks more than the
+time complexity of comparison-based sorting algorithms for a large k. Let us first limit k. Let k <= nc where c is a constant. In that case, the complexity becomes
+`O(n logb(n))`. But it still doesn't beat comparison-based sorting algorithms.
 
-## Is Radix Sort preferable to Comparison based sorting algorithms like Quick-Sort? 
+## Is Radix Sort preferable to Comparison based sorting algorithms like Quick-Sort?
 
-If we have `log2n` bits for every digit, the running time of Radix appears to be better than Quick Sort for a wide range of input numbers. The constant factors hidden in 
+If we have `log2n` bits for every digit, the running time of Radix appears to be better than Quick Sort for a wide range of input numbers. The constant factors hidden in
 asymptotic notation are higher for Radix Sort and Quick-Sort uses hardware caches more effectively. Also, Radix sort uses counting sort as a subroutine and counting sort
 takes extra space to sort numbers.
 
 Video reference: https://youtu.be/nu4gDuFabIM
+
 # Recursive Bubble Sort
 
 Bubble Sort is one of the simplest sorting algorithms that compares two elements at a time and swaps them if they are in the wrong order. This process is repeated until the entire sequence is in order.
@@ -1163,6 +1214,7 @@ void bubbleSort(arr[], n)
 ## Video Explanation
 
 [A video explaining iterative as well as recursive bubble sort](https://www.youtube.com/watch?v=gDMDVLBfCI0)
+
 # Selection Sort
 
 #### Problem Statement
@@ -1194,7 +1246,7 @@ Given an unsorted array of n elements, write a function to sort the array
 
 ```
 arr[] = {80, 10, 40, 30}
-Indexes: 0   1   2   3    
+Indexes: 0   1   2   3
 
 1. Index = 0
 	Select the minimum number from the array (between index 0-3), ie, 10
@@ -1232,6 +1284,7 @@ The array is now sorted.
 #### Animation Explanation
 
 - [Tute Board](https://boardhub.github.io/tute/?wd=selectSortAlgo2)
+
 # Shell Sort
 
 #### Problem Statement
@@ -1241,12 +1294,13 @@ Given an unsorted array of n elements, write a function to sort the array
 #### Approach
 
 - start with the initial gap, g
-- go through the first (n - g) elements in the array  
+- go through the first (n - g) elements in the array
 - compare the element with the next element that is g distance away
 - swap the two elements if the first element is bigger
 - decrease the gap and repeat until gap = 1
 
 #### Time Complexity
+
 Time complexity is dependent on the gap sequences.
 Below time complexities are based on the gap sequences of n/2^k.
 
@@ -1268,7 +1322,7 @@ Donald Shell
 
 ```
 arr[] = {61, 109, 149, 111, 34, 2, 24, 119}
-Initial Gap: 4   
+Initial Gap: 4
 
 1.  Index = 0, Next element index = 4
 2.  61 > 34, swap 61 and 34
@@ -1306,9 +1360,10 @@ Initial Gap: 4
 #### Others
 
 Shell sort is also known as diminishing increment sort.
+
 # Singly Linked List
 
-Singly Linked List is a linear and connected data structure made of Nodes. Each node is composed of a variable ```data``` where its content is stored and a pointer to the next Node on the list. The Linked List has a pointer to the first element of this Node sequence and may also have another pointer to the last Node to make operations at the far end less time-consuming. You can also store a ```length``` variable to store the total length.
+Singly Linked List is a linear and connected data structure made of Nodes. Each node is composed of a variable `data` where its content is stored and a pointer to the next Node on the list. The Linked List has a pointer to the first element of this Node sequence and may also have another pointer to the last Node to make operations at the far end less time-consuming. You can also store a `length` variable to store the total length.
 
 ### Advantages over Arrays
 
@@ -1323,11 +1378,11 @@ Singly Linked List is a linear and connected data structure made of Nodes. Each 
 ### Time Complexity
 
 | Operation | Average | Worst |
-|-----------|---------|-------|
-| Access    |   O(n)  |  O(n) |
-| Search    |   O(n)  |  O(n) |
-| Insertion |   O(1)  |  O(1) |
-| Deletion  |   O(1)  |  O(1) |
+| --------- | ------- | ----- |
+| Access    | O(n)    | O(n)  |
+| Search    | O(n)    | O(n)  |
+| Insertion | O(1)    | O(1)  |
+| Deletion  | O(1)    | O(1)  |
 
 ## Example
 
@@ -1343,7 +1398,7 @@ class LinkedList {
         Node next;  // Pointer to the next node on the list
     }
 }
- ```
+```
 
 ## Code Implementation Links
 
@@ -1355,6 +1410,7 @@ class LinkedList {
 ## Video Explanation
 
 [A CS50 video explaining the Linked List Data Structure](https://www.youtube.com/watch?v=5nsKtQuT6E8)
+
 # Caesar Cipher
 
 The Caesar cipher is a simple cipher and one of the best known encryption algorithms. It is very simple to encrypt, decrypt and intercept. The Caesar cipher is a substitution cipher where each letter in the plain-text (decoded text) is replaced by a letter a certain number of spaces to the right of the letter in the alphabet. (The amount of spaces is called the key or shift and is only known by the sender and intended receiver).
@@ -1362,37 +1418,40 @@ The Caesar cipher is a simple cipher and one of the best known encryption algori
 **Disclaimer: Do not attempt to encrypt personal data or serious messages with this cipher!!! It takes only half a second to crack by a computer!**
 
 1. It takes a very small amount of time to encode and decode messages. (Less than a second, usually)
-3. No real applications exist for the cipher as it is the most insecure out there.
-4. This cipher was invented by Julius Caesar as a way to send messages of high military significance.
+2. No real applications exist for the cipher as it is the most insecure out there.
+3. This cipher was invented by Julius Caesar as a way to send messages of high military significance.
 
 ## Steps
 
 ### Encryption
+
 1. Choose the alphabet you are going to use.
 2. Choose a secret key (shift) that you are going to use in this case `n`.
 3. For every letter in the plain-text, replace it by a letter of the alphabet that is `n` letters away from the letter. (Ex: for a key of `1`, `a` would become `b`, `z` would become `a`, etc.)
 4. The message should now be encoded.
 
 ### Decryption
+
 1. Choose the alphabet that the message was encrypted with.
 2. Let `n` be the secret key the message is encoded in.
 3. For every letter in the cipher-text, replace it by a letter of the alphabet that is `n` letters behind in the alphabet from the letter.
-`c` would be `b`, `a` would be `z` with a key of `1`.
+   `c` would be `b`, `a` would be `z` with a key of `1`.
 4. The message should now be decoded
 
 ## Example
 
 ### An example of encryption
+
 Let us say we are sending a secret message to a friend.
 
-* We first write out our message. In this case: `The Caesar cipher is a fun substitution cipher`
-* Our alphabet will be: `abcdefghijklmnopqrstuvwxyz`. For the uses of this tutorial, case doesn't matter. (On a shift of `1`: `A` will become `B`, `a` will become `b`)
-* Let our key be 6.
-* Starting with the first letter: `T`. The letter 6 letters away is `Z`. We add `Z` to the message.
-* The second letter is `h`. The letter 6 letters away is `n`. Our message is now `Zn`
-* We continue like that until the end. Our final message is: `Znk Igkygx iovnkx oy g lat yahyzozazout iovnkx.`
-* Decryption is the same way, except instead of going to the right in the alphabet, we go backwards.
+- We first write out our message. In this case: `The Caesar cipher is a fun substitution cipher`
+- Our alphabet will be: `abcdefghijklmnopqrstuvwxyz`. For the uses of this tutorial, case doesn't matter. (On a shift of `1`: `A` will become `B`, `a` will become `b`)
+- Let our key be 6.
+- Starting with the first letter: `T`. The letter 6 letters away is `Z`. We add `Z` to the message.
+- The second letter is `h`. The letter 6 letters away is `n`. Our message is now `Zn`
+- We continue like that until the end. Our final message is: `Znk Igkygx iovnkx oy g lat yahyzozazout iovnkx.`
+- Decryption is the same way, except instead of going to the right in the alphabet, we go backwards.
 
 ## Implementation
 
-* [Python](https://github.com/TheAlgorithms/Python/blob/master/ciphers/caesar_cipher.py)
+- [Python](https://github.com/TheAlgorithms/Python/blob/master/ciphers/caesar_cipher.py)

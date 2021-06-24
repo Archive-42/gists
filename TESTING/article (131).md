@@ -7,32 +7,33 @@ There are two ways to obtain it.
 First, there's a constructor, similar to `Blob`:
 
 ```js
-new File(fileParts, fileName, [options])
+new File(fileParts, fileName, [options]);
 ```
 
 - **`fileParts`** -- is an array of Blob/BufferSource/String values.
 - **`fileName`** -- file name string.
 - **`options`** -- optional object:
-    - **`lastModified`** -- the timestamp (integer date) of last modification.
+  - **`lastModified`** -- the timestamp (integer date) of last modification.
 
 Second, more often we get a file from `<input type="file">` or drag'n'drop or other browser interfaces. In that case, the file gets this information from OS.
 
 As `File` inherits from `Blob`, `File` objects have the same properties, plus:
+
 - `name` -- the file name,
 - `lastModified` -- the timestamp of last modification.
 
 That's how we can get a `File` object from `<input type="file">`:
 
 ```html run
-<input type="file" onchange="showFile(this)">
+<input type="file" onchange="showFile(this)" />
 
 <script>
-function showFile(input) {
-  let file = input.files[0];
+  function showFile(input) {
+    let file = input.files[0];
 
-  alert(`File name: ${file.name}`); // e.g my.png
-  alert(`Last modified: ${file.lastModified}`); // e.g 1552830408824
-}
+    alert(`File name: ${file.name}`); // e.g my.png
+    alert(`Last modified: ${file.lastModified}`); // e.g 1552830408824
+  }
 </script>
 ```
 
@@ -66,6 +67,7 @@ The choice of `read*` method depends on which format we prefer, how we're going 
 - `readAsDataURL` -- when we'd like to use this data in `src` for `img` or another tag. There's an alternative to reading a file for that, as discussed in chapter <info:blob>: `URL.createObjectURL(file)`.
 
 As the reading proceeds, there are events:
+
 - `loadstart` -- loading started.
 - `progress` -- occurs during reading.
 - `load` -- no errors, reading complete.
@@ -74,6 +76,7 @@ As the reading proceeds, there are events:
 - `loadend` -- reading finished with either success or failure.
 
 When the reading is finished, we can access the result as:
+
 - `reader.result` is the result (if successful)
 - `reader.error` is the error (if failed).
 
@@ -82,36 +85,36 @@ The most widely used events are for sure `load` and `error`.
 Here's an example of reading a file:
 
 ```html run
-<input type="file" onchange="readFile(this)">
+<input type="file" onchange="readFile(this)" />
 
 <script>
-function readFile(input) {
-  let file = input.files[0];
+  function readFile(input) {
+    let file = input.files[0];
 
-  let reader = new FileReader();
+    let reader = new FileReader();
 
-  reader.readAsText(file);
+    reader.readAsText(file);
 
-  reader.onload = function() {
-    console.log(reader.result);
-  };
+    reader.onload = function () {
+      console.log(reader.result);
+    };
 
-  reader.onerror = function() {
-    console.log(reader.error);
-  };
-
-}
+    reader.onerror = function () {
+      console.log(reader.error);
+    };
+  }
 </script>
 ```
 
-```smart header="`FileReader` for blobs"
-As mentioned in the chapter <info:blob>, `FileReader` can read not just files, but any blobs.
+```smart header="`FileReader`for blobs" As mentioned in the chapter <info:blob>,`FileReader` can read not just files, but any blobs.
 
 We can use it to convert a blob to another format:
+
 - `readAsArrayBuffer(blob)` -- to `ArrayBuffer`,
 - `readAsText(blob, [encoding])` -- to string (an alternative to `TextDecoder`),
 - `readAsDataURL(blob)` -- to base64 data url.
-```
+
+````
 
 
 ```smart header="`FileReaderSync` is available inside Web Workers"
@@ -120,7 +123,7 @@ For Web Workers, there also exists a synchronous variant of `FileReader`, called
 Its reading methods `read*` do not generate events, but rather return a result, as regular functions do.
 
 That's only inside a Web Worker though, because delays in synchronous calls, that are possible while reading from files, in Web Workers are less important. They do not affect the page.
-```
+````
 
 ## Summary
 
@@ -129,6 +132,7 @@ That's only inside a Web Worker though, because delays in synchronous calls, tha
 In addition to `Blob` methods and properties, `File` objects also have `name` and `lastModified` properties, plus the internal ability to read from filesystem. We usually get `File` objects from user input, like `<input>` or Drag'n'Drop events (`ondragend`).
 
 `FileReader` objects can read from a file or a blob, in one of three formats:
+
 - String (`readAsText`).
 - `ArrayBuffer` (`readAsArrayBuffer`).
 - Data url, base-64 encoded (`readAsDataURL`).

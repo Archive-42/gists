@@ -18,13 +18,13 @@ const APP = {
   },
   checkCustom() {
     //are we on the character page?
-    if (location.pathname.indexOf('character.html') > -1) {
+    if (location.pathname.indexOf("character.html") > -1) {
       //Do we have a name in the queryString
       let params = new URL(location).searchParams;
-      if (params.has('char')) {
-        let value = params.get('char').split('web+bob:')[1];
+      if (params.has("char")) {
+        let value = params.get("char").split("web+bob:")[1];
         console.log(value);
-        let h2 = document.querySelector('header h2');
+        let h2 = document.querySelector("header h2");
         if (h2) {
           h2.textContent = value.toUpperCase();
         }
@@ -32,4 +32,4 @@ const APP = {
     }
   },
 };
-document.addEventListener('DOMContentLoaded', APP.init);
+document.addEventListener("DOMContentLoaded", APP.init);

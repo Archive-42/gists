@@ -9,9 +9,9 @@ determine the average of those numbers.
 
 Calculating a mean would be useful in these situations:
 
--   Determining the average score for all players of a video game level.
--   Finding the average grade for tests that a student took this semester.
--   Determining the average size of all files in a directory/folder.
+- Determining the average score for all players of a video game level.
+- Finding the average grade for tests that a student took this semester.
+- Determining the average size of all files in a directory/folder.
 
 ## Steps
 
@@ -49,6 +49,7 @@ Divide the sum of all the numbers by the count of the numbers.
 sum = 160
 count = 7
 ```
+
 If we ignore significant digits: `sum / count = `22.<u>857142</u>
 
 If we properly consider significant digits: `sum / count = 23`
@@ -59,12 +60,12 @@ Return the value of 22.<u>857142</u> or `23`.
 
 ## Implementation
 
--   [Python](https://github.com/TheAlgorithms/Python/blob/master/maths/average_mean.py)
+- [Python](https://github.com/TheAlgorithms/Python/blob/master/maths/average_mean.py)
 
 ## Video URL
 
--   [Mean on Khan Academy](https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-center-quantitative/v/mean-median-and-mode)
+- [Mean on Khan Academy](https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-center-quantitative/v/mean-median-and-mode)
 
 ## Others
 
--   [Mean on Wikipedia](https://en.wikipedia.org/wiki/Mean)
+- [Mean on Wikipedia](https://en.wikipedia.org/wiki/Mean)

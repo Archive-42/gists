@@ -7,22 +7,21 @@ This chapter briefly recaps the features of JavaScript that we've learned by now
 Statements are delimited with a semicolon:
 
 ```js run no-beautify
-alert('Hello'); alert('World');
+alert("Hello");
+alert("World");
 ```
 
 Usually, a line-break is also treated as a delimiter, so that would also work:
 
 ```js run no-beautify
-alert('Hello')
-alert('World')
+alert("Hello");
+alert("World");
 ```
 
 That's called "automatic semicolon insertion". Sometimes it doesn't work, for instance:
 
 ```js run
-alert("There will be an error after this message")
-
-[1, 2].forEach(alert)
+alert("There will be an error after this message")[(1, 2)].forEach(alert);
 ```
 
 Most codestyle guides agree that we should put a semicolon after each statement.
@@ -34,7 +33,7 @@ function f() {
   // no semicolon needed after function declaration
 }
 
-for(;;) {
+for (;;) {
   // no semicolon needed after the loop
 }
 ```
@@ -70,6 +69,7 @@ Can be declared using:
 - `var` (old-style, will see later)
 
 A variable name can include:
+
 - Letters and digits, but the first character may not be a digit.
 - Characters `$` and `_` are normal, on par with letters.
 - Non-Latin alphabets and hieroglyphs are also allowed, but commonly not used.
@@ -92,9 +92,10 @@ There are 8 data types:
 - `object` and `symbol` -- for complex data structures and unique identifiers, we haven't learnt them yet.
 
 The `typeof` operator returns the type for a value, with two exceptions:
+
 ```js
-typeof null == "object" // error in the language
-typeof function(){} == "function" // functions are treated specially
+typeof null == "object"; // error in the language
+typeof function () {} == "function"; // functions are treated specially
 ```
 
 More in: <info:variables> and <info:types>.
@@ -112,7 +113,7 @@ We're using a browser as a working environment, so basic UI functions will be:
 [`alert(message)`](mdn:api/Window/alert)
 : Output a `message`.
 
-All these functions are *modal*, they pause the code execution and prevent the visitor from interacting with the page until they answer.
+All these functions are _modal_, they pause the code execution and prevent the visitor from interacting with the page until they answer.
 
 For instance:
 
@@ -120,8 +121,8 @@ For instance:
 let userName = prompt("Your name?", "Alice");
 let isTeaWanted = confirm("Do you want some tea?");
 
-alert( "Visitor: " + userName ); // Alice
-alert( "Tea wanted: " + isTeaWanted ); // true
+alert("Visitor: " + userName); // Alice
+alert("Tea wanted: " + isTeaWanted); // true
 ```
 
 More in: <info:alert-prompt-confirm>.
@@ -180,22 +181,22 @@ More in: <info:operators>, <info:comparison>, <info:logical-operators>, <info:nu
 
 - We covered 3 types of loops:
 
-    ```js
-    // 1
-    while (condition) {
-      ...
-    }
+  ```js
+  // 1
+  while (condition) {
+    ...
+  }
 
-    // 2
-    do {
-      ...
-    } while (condition);
+  // 2
+  do {
+    ...
+  } while (condition);
 
-    // 3
-    for(let i = 0; i < 10; i++) {
-      ...
-    }
-    ```
+  // 3
+  for(let i = 0; i < 10; i++) {
+    ...
+  }
+  ```
 
 - The variable declared in `for(let...)` loop is visible only inside the loop. But we can also omit `let` and reuse an existing variable.
 - Directives `break/continue` allow to exit the whole loop/current iteration. Use labels to break nested loops.
@@ -211,7 +212,7 @@ The "switch" construct can replace multiple `if` checks. It uses `===` (strict e
 For instance:
 
 ```js run
-let age = prompt('Your age?', 18);
+let age = prompt("Your age?", 18);
 
 switch (age) {
   case 18:
@@ -235,43 +236,42 @@ We covered three ways to create a function in JavaScript:
 
 1. Function Declaration: the function in the main code flow
 
-    ```js
-    function sum(a, b) {
-      let result = a + b;
+   ```js
+   function sum(a, b) {
+     let result = a + b;
 
-      return result;
-    }
-    ```
+     return result;
+   }
+   ```
 
 2. Function Expression: the function in the context of an expression
 
-    ```js
-    let sum = function(a, b) {
-      let result = a + b;
+   ```js
+   let sum = function (a, b) {
+     let result = a + b;
 
-      return result;
-    };
-    ```
+     return result;
+   };
+   ```
 
 3. Arrow functions:
 
-    ```js
-    // expression at the right side
-    let sum = (a, b) => a + b;
+   ```js
+   // expression at the right side
+   let sum = (a, b) => a + b;
 
-    // or multi-line syntax with { ... }, need return here:
-    let sum = (a, b) => {
-      // ...
-      return a + b;
-    }
+   // or multi-line syntax with { ... }, need return here:
+   let sum = (a, b) => {
+     // ...
+     return a + b;
+   };
 
-    // without arguments
-    let sayHi = () => alert("Hello");
+   // without arguments
+   let sayHi = () => alert("Hello");
 
-    // with a single argument
-    let double = n => n * 2;
-    ```
-
+   // with a single argument
+   let double = (n) => n * 2;
+   ```
 
 - Functions may have local variables: those declared inside its body or its parameter list. Such variables are only visible inside the function.
 - Parameters can have default values: `function sum(a = 1, b = 2) {...}`.

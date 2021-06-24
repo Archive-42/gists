@@ -5,11 +5,11 @@ Objects are usually created to represent entities of the real world, like users,
 ```js
 let user = {
   name: "John",
-  age: 30
+  age: 30,
 };
 ```
 
-And, in the real world, a user can *act*: select something from the shopping cart, login, logout etc.
+And, in the real world, a user can _act_: select something from the shopping cart, login, logout etc.
 
 Actions are represented in JavaScript by functions in properties.
 
@@ -36,7 +36,7 @@ Here we've just used a Function Expression to create a function and assign it to
 
 Then we can call it as `user.sayHi()`. The user can now speak!
 
-A function that is a property of an object is called its *method*.
+A function that is a property of an object is called its _method_.
 
 So, here we've got a method `sayHi` of the object `user`.
 
@@ -65,6 +65,7 @@ When we write our code using objects to represent entities, that's called [objec
 
 OOP is a big thing, an interesting science of its own. How to choose the right entities? How to organize the interaction between them? That's architecture, and there are great books on that topic, like "Design Patterns: Elements of Reusable Object-Oriented Software" by E. Gamma, R. Helm, R. Johnson, J. Vissides or "Object-Oriented Analysis and Design with Applications" by G. Booch, and more.
 ```
+
 ### Method shorthand
 
 There exists a shorter syntax for methods in an object literal:
@@ -220,9 +221,10 @@ sayHi(); // undefined
 
 In this case `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error.
 
-In non-strict mode the value of `this` in such case will be the *global object* (`window` in a browser, we'll get to it later in the chapter [](info:global-object)). This is a historical behavior that `"use strict"` fixes.
+In non-strict mode the value of `this` in such case will be the _global object_ (`window` in a browser, we'll get to it later in the chapter [](info:global-object)). This is a historical behavior that `"use strict"` fixes.
 
 Usually such call is a programming error. If there's `this` inside a function, it expects to be called in an object context.
+
 ````
 
 ```smart header="The consequences of unbound `this`"
@@ -268,3 +270,4 @@ The value of `this` is defined at run-time.
 - When a function is called in the "method" syntax: `object.method()`, the value of `this` during the call is `object`.
 
 Please note that arrow functions are special: they have no `this`. When `this` is accessed inside an arrow function, it is taken from outside.
+````

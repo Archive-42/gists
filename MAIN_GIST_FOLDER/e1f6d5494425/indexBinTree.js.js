@@ -1,4 +1,6 @@
-const isInteger = Number.isInteger || (v => typeof v === 'number' && isFinite(v) && Math.floor(v) === v);
+const isInteger =
+  Number.isInteger ||
+  ((v) => typeof v === "number" && isFinite(v) && Math.floor(v) === v);
 
 function mostSignificantBit(value) {
   let result = value;
@@ -18,7 +20,6 @@ function mostSignificantBit(value) {
  * Class BinaryIndexedTree
  */
 class BinaryIndexedTree {
-
   /**
    * @param {Object} options
    * @param {number} options.maxVal - The maximum value which will have non-zero frequency
@@ -62,10 +63,10 @@ class BinaryIndexedTree {
 
   _checkIndex(index) {
     if (!isInteger(index)) {
-      throw new Error('Invalid index');
+      throw new Error("Invalid index");
     }
     if (index < 0 || index >= this._maxVal) {
-      throw new Error('Index out of range');
+      throw new Error("Index out of range");
     }
   }
 
@@ -86,9 +87,9 @@ class BinaryIndexedTree {
 
   _changed(freqCur, freqNew) {
     if (freqCur < 0 && freqNew >= 0) {
-      this._countNeg --;
+      this._countNeg--;
     } else if (freqCur >= 0 && freqNew < 0) {
-      this._countNeg ++;
+      this._countNeg++;
     }
   }
 
@@ -97,7 +98,7 @@ class BinaryIndexedTree {
 
     while (index <= this._maxVal) {
       this._addTree(index, delta);
-      index += (index & -index);
+      index += index & -index;
     }
   }
 
@@ -180,7 +181,7 @@ class BinaryIndexedTree {
    */
   read(count) {
     if (!isInteger(count)) {
-      throw new Error('Invalid count');
+      throw new Error("Invalid count");
     }
     return this._read(Math.max(Math.min(count, this._maxVal), 0));
   }
@@ -193,7 +194,7 @@ class BinaryIndexedTree {
    */
   lowerBound(sum) {
     if (this._countNeg > 0) {
-      throw new Error('Sequence is not non-descending');
+      throw new Error("Sequence is not non-descending");
     }
     return this._find(sum, (x, y) => x < y);
   }
@@ -206,11 +207,10 @@ class BinaryIndexedTree {
    */
   upperBound(sum) {
     if (this._countNeg > 0) {
-      throw new Error('Sequence is not non-descending');
+      throw new Error("Sequence is not non-descending");
     }
     return this._find(sum, (x, y) => x <= y);
   }
-
 }
 
 export default BinaryIndexedTree;

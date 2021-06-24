@@ -9,25 +9,25 @@
 */
 
 (function () {
-  const { forEach } = Array.prototype
+  const { forEach } = Array.prototype;
 
-  const $ = str => {
-    return document.querySelectorAll('.' + str)
-  }
+  const $ = (str) => {
+    return document.querySelectorAll("." + str);
+  };
 
   const cx = {
-    blur: 'blurred-row',
-    upsell: 'new-upsell-wrapper'
-  }
+    blur: "blurred-row",
+    upsell: "new-upsell-wrapper",
+  };
 
-  const rows = $(cx.blur)
-  const upsell = $(cx.upsell)
+  const rows = $(cx.blur);
+  const upsell = $(cx.upsell);
 
   if (upsell.length) {
-    upsell[0].remove()
+    upsell[0].remove();
   }
 
-  forEach.call(rows, item => {
-    item.classList.remove(cx.blur)
-  })
-})()
+  forEach.call(rows, (item) => {
+    item.classList.remove(cx.blur);
+  });
+})();

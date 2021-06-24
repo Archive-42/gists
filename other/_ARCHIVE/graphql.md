@@ -1,4 +1,3 @@
-
 # GraphQL Workshop
 
 Welcome! We're really glad you're here! Below you'll find all of the resources that we'll use throughout this course. If you're looking for slides, samples, links, etc., this is the place to look.
@@ -24,8 +23,8 @@ Welcome! We're really glad you're here! Below you'll find all of the resources t
 
 ### Schema Slides
 
-* [Schema Slides](https://slides.com/moonhighway/schema-definition-language)
-* [Schema Cheatsheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png)
+- [Schema Slides](https://slides.com/moonhighway/schema-definition-language)
+- [Schema Cheatsheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png)
 
 ### Building a GraphQL API
 

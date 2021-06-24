@@ -5,6 +5,7 @@ In web-development we meet binary data mostly while dealing with files (create, 
 That's all possible in JavaScript, and binary operations are high-performant.
 
 Although, there's a bit of confusion, because there are many classes. To name a few:
+
 - `ArrayBuffer`, `Uint8Array`, `DataView`, `Blob`, `File`, etc.
 
 Binary data in JavaScript is implemented in a non-standard way, compared to other languages. But when we sort things out, everything becomes fairly simple.
@@ -12,6 +13,7 @@ Binary data in JavaScript is implemented in a non-standard way, compared to othe
 **The basic binary object is `ArrayBuffer` -- a reference to a fixed-length contiguous memory area.**
 
 We create it like this:
+
 ```js run
 let buffer = new ArrayBuffer(16); // create a buffer of length 16
 alert(buffer.byteLength); // 16
@@ -19,12 +21,13 @@ alert(buffer.byteLength); // 16
 
 This allocates a contiguous memory area of 16 bytes and pre-fills it with zeroes.
 
-```warn header="`ArrayBuffer` is not an array of something"
-Let's eliminate a possible source of confusion. `ArrayBuffer` has nothing in common with `Array`:
+```warn header="`ArrayBuffer`is not an array of something" Let's eliminate a possible source of confusion.`ArrayBuffer`has nothing in common with`Array`:
+
 - It has a fixed length, we can't increase or decrease it.
 - It takes exactly that much space in the memory.
 - To access individual bytes, another "view" object is needed, not `buffer[index]`.
-```
+
+````
 
 `ArrayBuffer` is a memory area. What's stored in it? It has no clue. Just a raw sequence of bytes.
 
@@ -67,7 +70,7 @@ for(let num of view) {
   alert(num); // 123456, then 0, 0, 0 (4 values total)
 }
 
-```
+````
 
 ## TypedArray
 
@@ -93,51 +96,56 @@ new TypedArray();
 
 1. If an `ArrayBuffer` argument is supplied, the view is created over it. We used that syntax already.
 
-    Optionally we can provide `byteOffset` to start from (0 by default) and the `length` (till the end of the buffer by default), then the view will cover only a part of the `buffer`.
+   Optionally we can provide `byteOffset` to start from (0 by default) and the `length` (till the end of the buffer by default), then the view will cover only a part of the `buffer`.
 
 2. If an `Array`, or any array-like object is given, it creates a typed array of the same length and copies the content.
 
-    We can use it to pre-fill the array with the data:
-    ```js run
-    *!*
-    let arr = new Uint8Array([0, 1, 2, 3]);
-    */!*
-    alert( arr.length ); // 4, created binary array of the same length
-    alert( arr[1] ); // 1, filled with 4 bytes (unsigned 8-bit integers) with given values
-    ```
+   We can use it to pre-fill the array with the data:
+
+   ```js run
+   *!*
+   let arr = new Uint8Array([0, 1, 2, 3]);
+   */!*
+   alert( arr.length ); // 4, created binary array of the same length
+   alert( arr[1] ); // 1, filled with 4 bytes (unsigned 8-bit integers) with given values
+   ```
+
 3. If another `TypedArray` is supplied, it does the same: creates a typed array of the same length and copies values. Values are converted to the new type in the process, if needed.
-    ```js run
-    let arr16 = new Uint16Array([1, 1000]);
-    *!*
-    let arr8 = new Uint8Array(arr16);
-    */!*
-    alert( arr8[0] ); // 1
-    alert( arr8[1] ); // 232, tried to copy 1000, but can't fit 1000 into 8 bits (explanations below)
-    ```
+
+   ```js run
+   let arr16 = new Uint16Array([1, 1000]);
+   *!*
+   let arr8 = new Uint8Array(arr16);
+   */!*
+   alert( arr8[0] ); // 1
+   alert( arr8[1] ); // 232, tried to copy 1000, but can't fit 1000 into 8 bits (explanations below)
+   ```
 
 4. For a numeric argument `length` -- creates the typed array to contain that many elements. Its byte length will be `length` multiplied by the number of bytes in a single item `TypedArray.BYTES_PER_ELEMENT`:
-    ```js run
-    let arr = new Uint16Array(4); // create typed array for 4 integers
-    alert( Uint16Array.BYTES_PER_ELEMENT ); // 2 bytes per integer
-    alert( arr.byteLength ); // 8 (size in bytes)
-    ```
+
+   ```js run
+   let arr = new Uint16Array(4); // create typed array for 4 integers
+   alert(Uint16Array.BYTES_PER_ELEMENT); // 2 bytes per integer
+   alert(arr.byteLength); // 8 (size in bytes)
+   ```
 
 5. Without arguments, creates an zero-length typed array.
 
 We can create a `TypedArray` directly, without mentioning `ArrayBuffer`. But a view cannot exist without an underlying `ArrayBuffer`, so gets created automatically in all these cases except the first one (when provided).
 
 To access the `ArrayBuffer`, there are properties:
+
 - `arr.buffer` -- references the `ArrayBuffer`.
 - `arr.byteLength` -- the length of the `ArrayBuffer`.
 
 So, we can always move from one view to another:
+
 ```js
 let arr8 = new Uint8Array([0, 1, 2, 3]);
 
 // another view on the same data
 let arr16 = new Uint16Array(arr8.buffer);
 ```
-
 
 Here's the list of typed arrays:
 
@@ -146,11 +154,11 @@ Here's the list of typed arrays:
 - `Int8Array`, `Int16Array`, `Int32Array` -- for signed integer numbers (can be negative).
 - `Float32Array`, `Float64Array` -- for signed floating-point numbers of 32 and 64 bits.
 
-```warn header="No `int8` or similar single-valued types"
-Please note, despite of the names like `Int8Array`, there's no single-value type like `int`, or `int8` in JavaScript.
+```warn header="No `int8`or similar single-valued types" Please note, despite of the names like`Int8Array`, there's no single-value type like `int`, or `int8` in JavaScript.
 
 That's logical, as `Int8Array` is not an array of these individual values, but rather a view on `ArrayBuffer`.
-```
+
+````
 
 ### Out-of-bounds behavior
 
@@ -183,7 +191,7 @@ uint8array[1] = 257;
 
 alert(uint8array[0]); // 0
 alert(uint8array[1]); // 1
-```
+````
 
 `Uint8ClampedArray` is special in this aspect, its behavior is different. It saves 255 for any number that is greater than 255, and 0 for any negative number. That behavior is useful for image processing.
 
@@ -205,8 +213,6 @@ There are two additional methods:
 
 These methods allow us to copy typed arrays, mix them, create new arrays from existing ones, and so on.
 
-
-
 ## DataView
 
 [DataView](mdn:/JavaScript/Reference/Global_Objects/DataView) is a special super-flexible "untyped" view over `ArrayBuffer`. It allows to access the data on any offset in any format.
@@ -217,7 +223,7 @@ These methods allow us to copy typed arrays, mix them, create new arrays from ex
 The syntax:
 
 ```js
-new DataView(buffer, [byteOffset], [byteLength])
+new DataView(buffer, [byteOffset], [byteLength]);
 ```
 
 - **`buffer`** -- the underlying `ArrayBuffer`. Unlike typed arrays, `DataView` doesn't create a buffer on its own. We need to have it ready.
@@ -233,13 +239,13 @@ let buffer = new Uint8Array([255, 255, 255, 255]).buffer;
 let dataView = new DataView(buffer);
 
 // get 8-bit number at offset 0
-alert( dataView.getUint8(0) ); // 255
+alert(dataView.getUint8(0)); // 255
 
 // now get 16-bit number at offset 0, it consists of 2 bytes, together interpreted as 65535
-alert( dataView.getUint16(0) ); // 65535 (biggest 16-bit unsigned int)
+alert(dataView.getUint16(0)); // 65535 (biggest 16-bit unsigned int)
 
 // get 32-bit number at offset 0
-alert( dataView.getUint32(0) ); // 4294967295 (biggest 32-bit unsigned int)
+alert(dataView.getUint32(0)); // 4294967295 (biggest 32-bit unsigned int)
 
 dataView.setUint32(0, 0); // set 4-byte number to zero, thus setting all bytes to 0
 ```
@@ -253,15 +259,16 @@ dataView.setUint32(0, 0); // set 4-byte number to zero, thus setting all bytes t
 To do almost any operation on `ArrayBuffer`, we need a view.
 
 - It can be a `TypedArray`:
-    - `Uint8Array`, `Uint16Array`, `Uint32Array` -- for unsigned integers of 8, 16, and 32 bits.
-    - `Uint8ClampedArray` -- for 8-bit integers, "clamps" them on assignment.
-    - `Int8Array`, `Int16Array`, `Int32Array` -- for signed integer numbers (can be negative).
-    - `Float32Array`, `Float64Array` -- for signed floating-point numbers of 32 and 64 bits.
+  - `Uint8Array`, `Uint16Array`, `Uint32Array` -- for unsigned integers of 8, 16, and 32 bits.
+  - `Uint8ClampedArray` -- for 8-bit integers, "clamps" them on assignment.
+  - `Int8Array`, `Int16Array`, `Int32Array` -- for signed integer numbers (can be negative).
+  - `Float32Array`, `Float64Array` -- for signed floating-point numbers of 32 and 64 bits.
 - Or a `DataView` -- the view that uses methods to specify a format, e.g. `getUint8(offset)`.
 
 In most cases we create and operate directly on typed arrays, leaving `ArrayBuffer` under cover, as a "common denominator". We can access it as `.buffer` and make another view if needed.
 
 There are also two additional terms, that are used in descriptions of methods that operate on binary data:
+
 - `ArrayBufferView` is an umbrella term for all these kinds of views.
 - `BufferSource` is an umbrella term for `ArrayBuffer` or `ArrayBufferView`.
 

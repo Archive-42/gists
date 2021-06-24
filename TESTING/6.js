@@ -1,3 +1,5 @@
-var x = function () { x = '' };
+var x = function () {
+  x = "";
+};
 
-typeof new x < typeof x
+typeof new x() < typeof x;

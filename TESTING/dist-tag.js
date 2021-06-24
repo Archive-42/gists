@@ -22,7 +22,7 @@ function add(spec, tag, opts) {
 
   opts.log.verbose("dist-tag add", cleanTag, "to", `${name}@${version}`);
 
-  return fetchTags(opts).then(tags => {
+  return fetchTags(opts).then((tags) => {
     if (tags[cleanTag] === version) {
       opts.log.warn("dist-tag add", cleanTag, "already set to", version);
       return;
@@ -58,11 +58,16 @@ function remove(spec, tag, opts) {
 
   opts.log.verbose("dist-tag del", tag, "from", opts.spec.name);
 
-  return fetchTags(opts).then(tags => {
+  return fetchTags(opts).then((tags) => {
     const version = tags[tag];
 
     if (!version) {
-      opts.log.info("dist-tag del", tag, "is not a dist-tag on", opts.spec.name);
+      opts.log.info(
+        "dist-tag del",
+        tag,
+        "is not a dist-tag on",
+        opts.spec.name
+      );
       return;
     }
 
@@ -89,11 +94,11 @@ function list(spec, opts) {
   });
 
   return fetchTags(opts)
-    .then(tags => {
+    .then((tags) => {
       // eslint-disable-next-line no-console
       console.log(
         Object.keys(tags)
-          .map(k => `${k}: ${tags[k]}`)
+          .map((k) => `${k}: ${tags[k]}`)
           .sort()
           .join("\n")
       );

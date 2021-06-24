@@ -1,8 +1,10 @@
 # javascript date stuff (mine field ahead)
+
 - https://momentjs.com/guides/
 - https://medium.com/@toastui/handling-time-zone-in-javascript-547e67aa842d
 
 ## new Date()
+
 date object of **UTC Time** (not locale!)
 
 So .toISOString returns date in UTC time
@@ -12,19 +14,23 @@ BUT .getHours() or .setHours() do get/set **locale** time, be careful. Can use .
 (see dateToISOLocale function bellow for a locale .toISOString())
 
 ## Date.now() === new Date().getTime()
+
 number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
 
-## Unix time 
+## Unix time
+
 number of SECONDS elapsed since January 1, 1970 00:00:00 UTC.
 
 unixtimestamp = jsdate.getTime()/1000
 
-## .getMonth() 
+## .getMonth()
+
 0 === january
 
 ## iso vs standard date weirdness:
+
 ```
-> new Date('2020-03-15')    // ISO, UTC 
+> new Date('2020-03-15')    // ISO, UTC
 2020-03-15T00:00:00.000Z
 
 > new Date("2020-03-15T00:00")  // ISO, Locale!!!
@@ -41,6 +47,7 @@ unixtimestamp = jsdate.getTime()/1000
 ```
 
 ## no problem here: locale conversion works ok even with DLS (daylight saving) changes
+
 ```
 // example for Spain, with DSL change between dates
 > new Date('2020-03-21T12:00:00.000Z').getHours()
@@ -50,7 +57,8 @@ unixtimestamp = jsdate.getTime()/1000
 ```
 
 ## cool: toLocaleString & toLocaleDateString
-- toLocaleDateString() converts only the date of a Date object into a string 
+
+- toLocaleDateString() converts only the date of a Date object into a string
 - toLocaleString() converts date and time to a string
 
 ```
@@ -67,11 +75,11 @@ unixtimestamp = jsdate.getTime()/1000
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
 
-
 ## npm date libraries
+
 https://www.npmtrends.com/date-fns-vs-moment
 
-- date-fns  (more modular)
+- date-fns (more modular)
 - luxon
 - moment
 

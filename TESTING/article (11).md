@@ -39,7 +39,7 @@ Numeric conversion happens in mathematical functions and expressions automatical
 For example, when division `/` is applied to non-numbers:
 
 ```js run
-alert( "6" / "2" ); // 3, strings are converted to numbers
+alert("6" / "2"); // 3, strings are converted to numbers
 ```
 
 We can use the `Number(value)` function to explicitly convert a `value` to a number:
@@ -65,20 +65,20 @@ alert(age); // NaN, conversion failed
 
 Numeric conversion rules:
 
-| Value |  Becomes... |
-|-------|-------------|
-|`undefined`|`NaN`|
-|`null`|`0`|
-|<code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
-| `string` | Whitespaces from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
+| Value                                 | Becomes...                                                                                                                                                                  |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `undefined`                           | `NaN`                                                                                                                                                                       |
+| `null`                                | `0`                                                                                                                                                                         |
+| <code>true&nbsp;and&nbsp;false</code> | `1` and `0`                                                                                                                                                                 |
+| `string`                              | Whitespaces from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
 
 Examples:
 
 ```js run
-alert( Number("   123   ") ); // 123
-alert( Number("123z") );      // NaN (error reading a number at "z")
-alert( Number(true) );        // 1
-alert( Number(false) );       // 0
+alert(Number("   123   ")); // 123
+alert(Number("123z")); // NaN (error reading a number at "z")
+alert(Number(true)); // 1
+alert(Number(false)); // 0
 ```
 
 Please note that `null` and `undefined` behave differently here: `null` becomes zero while `undefined` becomes `NaN`.
@@ -99,21 +99,21 @@ The conversion rule:
 For instance:
 
 ```js run
-alert( Boolean(1) ); // true
-alert( Boolean(0) ); // false
+alert(Boolean(1)); // true
+alert(Boolean(0)); // false
 
-alert( Boolean("hello") ); // true
-alert( Boolean("") ); // false
+alert(Boolean("hello")); // true
+alert(Boolean("")); // false
 ```
 
-````warn header="Please note: the string with zero `\"0\"` is `true`"
-Some languages (namely PHP) treat `"0"` as `false`. But in JavaScript, a non-empty string is always `true`.
+````warn header="Please note: the string with zero `\"0\"`is`true`" Some languages (namely PHP) treat `"0"`as`false`. But in JavaScript, a non-empty string is always `true`.
 
 ```js run
-alert( Boolean("0") ); // true
-alert( Boolean(" ") ); // spaces, also true (any non-empty string is true)
+alert(Boolean("0")); // true
+alert(Boolean(" ")); // spaces, also true (any non-empty string is true)
 ```
-````
+
+```
 
 ## Summary
 
@@ -148,3 +148,4 @@ Most of these rules are easy to understand and memorize. The notable exceptions 
 - `"0"` and space-only strings like `"   "` are true as a boolean.
 
 Objects aren't covered here. We'll return to them later in the chapter <info:object-toprimitive> that is devoted exclusively to objects after we learn more basic things about JavaScript.
+```

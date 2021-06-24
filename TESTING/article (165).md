@@ -1,8 +1,8 @@
-# Quantifiers +, *, ? and {n}
+# Quantifiers +, \*, ? and {n}
 
 Let's say we have a string like `+7(903)-123-45-67` and want to find all numbers in it. But unlike before, we are interested not in single digits, but full numbers: `7, 903, 123, 45, 67`.
 
-A number is a sequence of 1 or more digits `pattern:\d`. To mark how many we need, we can append a *quantifier*.
+A number is a sequence of 1 or more digits `pattern:\d`. To mark how many we need, we can append a _quantifier_.
 
 ## Quantity {n}
 
@@ -101,34 +101,35 @@ Quantifiers are used very often. They serve as the main "building block" of comp
 **Regexp for decimal fractions (a number with a floating point): `pattern:\d+\.\d+`**
 
 In action:
+
 ```js run
-alert( "0 1 12.345 7890".match(/\d+\.\d+/g) ); // 12.345
+alert("0 1 12.345 7890".match(/\d+\.\d+/g)); // 12.345
 ```
 
 **Regexp for an "opening HTML-tag without attributes", such as `<span>` or `<p>`.**
 
 1. The simplest one: `pattern:/<[a-z]+>/i`
 
-    ```js run
-    alert( "<body> ... </body>".match(/<[a-z]+>/gi) ); // <body>
-    ```
+   ```js run
+   alert("<body> ... </body>".match(/<[a-z]+>/gi)); // <body>
+   ```
 
-    The regexp looks for character `pattern:'<'` followed by one or more Latin letters, and then  `pattern:'>'`.
+   The regexp looks for character `pattern:'<'` followed by one or more Latin letters, and then `pattern:'>'`.
 
 2. Improved: `pattern:/<[a-z][a-z0-9]*>/i`
 
-    According to the standard, HTML tag name may have a digit at any position except the first one, like `<h1>`.
+   According to the standard, HTML tag name may have a digit at any position except the first one, like `<h1>`.
 
-    ```js run
-    alert( "<h1>Hi!</h1>".match(/<[a-z][a-z0-9]*>/gi) ); // <h1>
-    ```
+   ```js run
+   alert("<h1>Hi!</h1>".match(/<[a-z][a-z0-9]*>/gi)); // <h1>
+   ```
 
 **Regexp "opening or closing HTML-tag without attributes": `pattern:/<\/?[a-z][a-z0-9]*>/i`**
 
 We added an optional slash `pattern:/?` near the beginning of the pattern. Had to escape it with a backslash, otherwise JavaScript would think it is the pattern end.
 
 ```js run
-alert( "<h1>Hi!</h1>".match(/<\/?[a-z][a-z0-9]*>/gi) ); // <h1>, </h1>
+alert("<h1>Hi!</h1>".match(/<\/?[a-z][a-z0-9]*>/gi)); // <h1>, </h1>
 ```
 
 ```smart header="To make a regexp more precise, we often need make it more complex"

@@ -9,20 +9,20 @@
  implement a method that will take as an argument an array of strings 
  containing fruits and should return an array of strings where all the 
  rotten fruits are replaced by good ones.
-*/ 
+*/
 
-function removeRotten(bagOfFruits){
-  var newBagOfFruits = []; 
-  
+function removeRotten(bagOfFruits) {
+  var newBagOfFruits = [];
+
   if (bagOfFruits == null) {
-    return []; 
+    return [];
   }
-  
-  bagOfFruits.map(function(item) {
-    newBagOfFruits.push(item.replace(/rotten/i, '').toLowerCase()); 
+
+  bagOfFruits.map(function (item) {
+    newBagOfFruits.push(item.replace(/rotten/i, "").toLowerCase());
   });
-  
-  return newBagOfFruits; 
+
+  return newBagOfFruits;
 }
 /* ---------
  * Challenge
@@ -33,10 +33,10 @@ function removeRotten(bagOfFruits){
 */
 
 function isDivisible(n, x, y) {
-  if(n % x == 0 && n % y == 0) {
+  if (n % x == 0 && n % y == 0) {
     return true;
   } else {
-    return false; 
+    return false;
   }
 }
 /* ---------
@@ -46,9 +46,9 @@ function isDivisible(n, x, y) {
  * Create a function that returns True if a given number is divisible by 4, otherwise it should return False.
 */
 
-function divisibleByFour (num) {
+function divisibleByFour(num) {
   return num % 4 === 0 ? true : false;
-} 
+}
 /* Challenge
 
 Kids drink toddy.
@@ -73,8 +73,16 @@ peopleWithAgeDrink(30); // => drink whisky
 
 */
 
-var peopleWithAgeDrink = function(old) {
-  return old < 14 ? "drink toddy" : old < 18 ? "drink coke" : old < 21 ? "drink beer" : old > 21 ? "drink whisky" : "drink whisky";
+var peopleWithAgeDrink = function (old) {
+  return old < 14
+    ? "drink toddy"
+    : old < 18
+    ? "drink coke"
+    : old < 21
+    ? "drink beer"
+    : old > 21
+    ? "drink whisky"
+    : "drink whisky";
 };
 /* ---------
  * Challenge
@@ -85,30 +93,24 @@ var peopleWithAgeDrink = function(old) {
  Return true if it is a factor or false if it is not.
 */
 
-function checkForFactor (base, factor) {
-  return base % factor == 0 ? true : false; 
+function checkForFactor(base, factor) {
+  return base % factor == 0 ? true : false;
 }
 /* ---------
  * Challenge
  * ---------
  * Rewrite the code of the function factorial
  * in a way to use recursion
-*/
+ */
 
-function factorial(num)
-{
-
-    if (num < 0) {
-        return -1;
-    }
-
-    else if (num == 0) {
-        return 1;
-    }
-
-    else {
-        return (num * factorial(num - 1));
-    }
+function factorial(num) {
+  if (num < 0) {
+    return -1;
+  } else if (num == 0) {
+    return 1;
+  } else {
+    return num * factorial(num - 1);
+  }
 }
 /* ---------
  * Challenge
@@ -123,23 +125,15 @@ function factorial(num)
  then 15. Check the example test codes for examples of the outputs and inputs.
 */
 
-
-function multiples(x){
-  
+function multiples(x) {
   if (x % 49 == 0 && x % 3 == 0) {
     return "Fang";
-  }
-  
-  else if (x % 7 == 0) {
-    return "Fizz"; 
-  }
-  
-  else if (x % 15 == 0) {
+  } else if (x % 7 == 0) {
+    return "Fizz";
+  } else if (x % 15 == 0) {
     return "Foo";
-  }
-  
-  else {
-    return "Far"; 
+  } else {
+    return "Far";
   }
 }
 /* Challenge 
@@ -151,14 +145,14 @@ arguments are given, it should return -1.
 
 */
 
-function findSum(){
+function findSum() {
   var total = 0;
-  if(arguments) {
-    for(var i = 0; i < arguments.length; i++) {
-       if(arguments[i] < 0) {
-         return -1;
-       }
-       total += arguments[i];
+  if (arguments) {
+    for (var i = 0; i < arguments.length; i++) {
+      if (arguments[i] < 0) {
+        return -1;
+      }
+      total += arguments[i];
     }
     return total;
   } else {
@@ -176,8 +170,8 @@ function findSum(){
  flatten([[1],[2],[3],[4]]) == [1,2,3,4]
 */
 
-function flatten(l){
-  return [].concat.apply([], l); 
+function flatten(l) {
+  return [].concat.apply([], l);
 }
 /* ---------
  * Challenge
@@ -185,27 +179,25 @@ function flatten(l){
  * We give you an Array of friend's list.
  * Write a method called greetingForAllFriends which returns:
  * Message sample: for the friend "Bilal" we get "Hello, Bilal!"
- * 
+ *
  * Rules:
- * If the argument is null, the method should return null/nil/None according to 
+ * If the argument is null, the method should return null/nil/None according to
  * the given language (null for JS, None for Python and so on)
  * If the argument is an empty array, the method should return null/nil/None, as stated above
- * If the argument is a valide array of strings, the method should return a 
+ * If the argument is a valide array of strings, the method should return a
  * hello message for every array entry
-*/
+ */
 
-function greetingForAllFriends(friends){
-    if (friends == null || friends.length == 0) {
-        return null;
-    }
-    
-    else {
-        var messages = [];
-        friends.map(function(friend) {
-            messages.push("Hello, " + friend + "!");
-        });
-        return messages; 
-    }
+function greetingForAllFriends(friends) {
+  if (friends == null || friends.length == 0) {
+    return null;
+  } else {
+    var messages = [];
+    friends.map(function (friend) {
+      messages.push("Hello, " + friend + "!");
+    });
+    return messages;
+  }
 }
 /* ---------
  * Challenge
@@ -217,12 +209,12 @@ function greetingForAllFriends(friends){
  only by itself and 1.
 */
 
-function PrimeTest(a){
-  if (isNaN(a) || !isFinite(a) || a % 1 || a < 2) return false; 
-   var m = Math.sqrt(a);
-   for (var i = 2; i <= m; i++) if (a % i==0) return false;
-   return true;
-};
+function PrimeTest(a) {
+  if (isNaN(a) || !isFinite(a) || a % 1 || a < 2) return false;
+  var m = Math.sqrt(a);
+  for (var i = 2; i <= m; i++) if (a % i == 0) return false;
+  return true;
+}
 /* ---------
  * Challenge
  * ---------
@@ -244,51 +236,45 @@ function PrimeTest(a){
 	For example an input of 10,13 should generate a response of ['FIVE', 11, 'THREE', 13].
 */
 
-function getNumber(number){
+function getNumber(number) {
   //your code here
   if (number % 5 == 0 && number % 3 == 0) {
-      return "BOTH";
+    return "BOTH";
+  } else if (number % 3 == 0) {
+    return "THREE";
+  } else if (number % 5 == 0) {
+    return "FIVE";
+  } else {
+    return number;
   }
-  
-  else if (number % 3 == 0) {
-      return "THREE";
+}
+
+function getNumberRange(first, last) {
+  var list = [];
+
+  if (first < last) {
+    for (var i = first; i <= last; i++) {
+      list.push(i);
+    }
   }
-  
-  else if (number % 5 == 0) {
-      return "FIVE";
-  }
-  
+
+  // Last is greater
   else {
-      return number;
+    for (var i = last; i <= first; i++) {
+      list.push(i);
+    }
+    if (last < 0) {
+      list = list.reverse();
+    }
   }
-};
 
-function getNumberRange(first, last){
-    var list = [];
+  var response = [];
+  for (var i = 0; i < list.length; i++) {
+    response.push(getNumber(list[i]));
+  }
 
-    if (first < last) {
-      for(var i = first; i <= last; i++) {
-        list.push(i);
-      }
-    } 
-
-    // Last is greater 
-    else {
-        for(var i = last; i <= first; i++) {
-          list.push(i);
-        }
-        if (last < 0) {
-          list = list.reverse(); 
-        }
-    }
-    
-    var response = [];
-    for(var i = 0; i < list.length; i++) {
-        response.push(getNumber(list[i]));
-    }
-
-    return response; 
-};
+  return response;
+}
 /* ---------
  * Challenge
  * ---------
@@ -299,8 +285,7 @@ function getNumberRange(first, last){
  with a number the number 1 should be appended to the new string.
 */
 
-function incrementString (string) {
-
+function incrementString(string) {
   var numberPattern = /\d+/g;
   lastChar = parseInt(string.substr(string.length - 1), 10);
 
@@ -308,13 +293,13 @@ function incrementString (string) {
     var matches = parseInt(string.match(numberPattern)[0]) + 1;
     var slicer = matches.toString().length * -1;
 
-    if(string.match(numberPattern)[0].length < matches.toString().length) {
-      slicer += 1; 
-    };   
-    
-    return string.slice(0, slicer) + matches; 
+    if (string.match(numberPattern)[0].length < matches.toString().length) {
+      slicer += 1;
+    }
+
+    return string.slice(0, slicer) + matches;
   } else {
-    return string + 1; 
+    return string + 1;
   }
 }
 /* ---------
@@ -328,17 +313,16 @@ function incrementString (string) {
 */
 
 function sum() {
-
   var total = 0;
 
-  for(var i = 0; i < arguments.length; i++) {
-    if( arguments[i] != null && (arguments[i] >= 0 || arguments[i] <= 0) ) {
-      total += arguments[i]; 
+  for (var i = 0; i < arguments.length; i++) {
+    if (arguments[i] != null && (arguments[i] >= 0 || arguments[i] <= 0)) {
+      total += arguments[i];
     } else {
-      return false; 
+      return false;
     }
   }
-  
+
   return total;
 }
 /* ---------
@@ -359,24 +343,22 @@ function sum() {
 	GetSum(-1, 0) == -1
 */
 
-function GetSum( a, b ) {
+function GetSum(a, b) {
   var list = [];
-  
-  if ( a < b ) {
-    for(var i = a; i <= b; i++) {
+
+  if (a < b) {
+    for (var i = a; i <= b; i++) {
+      list.push(i);
+    }
+  } else {
+    for (var i = b; i <= a; i++) {
       list.push(i);
     }
   }
-  
-  else {
-    for(var i = b; i <= a; i++) {
-      list.push(i);
-    }
-  }
-  
+
   // ES6 to the rescue
   var sum = list.reduce((a, b) => a + b);
-  return sum; 
+  return sum;
 }
 /* ---------
  * Challenge
@@ -404,23 +386,18 @@ function tug_o_war(teams) {
   //Code
   var team1 = teams[0].reduce((a, b) => a + b);
   var team2 = teams[1].reduce((a, b) => a + b);
-   
+
   if (team1 > team2) {
     return "Team 1 wins!";
-  }
-  
-  else if (team1 < team2) {
+  } else if (team1 < team2) {
     return "Team 2 wins!";
-  }
-  
-  else {
+  } else {
     var max1 = Math.max(teams[0]);
     var max2 = Math.max(teams[1]);
-    if(max1 < max2) {
+    if (max1 < max2) {
       return "Team 2 wins!";
-    } 
-    else if(max2 < max1) {
-      return "Team 1 wins!"; 
+    } else if (max2 < max1) {
+      return "Team 1 wins!";
     } else {
       return "It's a tie!";
     }
@@ -435,11 +412,11 @@ function tug_o_war(teams) {
  Note: You may not use the + and - operators within a subroutine, or use eval or new Function.
 */
 
-function add (x, y) {
- while(y) {
-   x^=y, y=(y&x^y)<<1;   
- } 
- return x;
+function add(x, y) {
+  while (y) {
+    (x ^= y), (y = ((y & x) ^ y) << 1);
+  }
+  return x;
 }
 /* ---------
  * Challenge
@@ -459,39 +436,35 @@ function add (x, y) {
 	[1, -9] would return null/nil/None (according to the language implemented).
 */
 
-function upArray(arr){ 
+function upArray(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
 
-  
-  if(arr.length == 0) {
-    return null; 
-  }
-  
-  if(arr.length > 16) {
+  if (arr.length > 16) {
     val = arr[arr.length - 1];
-    arr[arr.length - 1] = val + 1; 
-    return arr; 
+    arr[arr.length - 1] = val + 1;
+    return arr;
   }
-  
-  for(var i = 0; i < arr.length; i++) {
-    if(arr[i] < 0 || arr[i].toString().length > 1) {
-      return null; 
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < 0 || arr[i].toString().length > 1) {
+      return null;
     }
   }
-  
+
   var strings = "";
-  arr.map(function(item) {
+  arr.map(function (item) {
     strings += item;
   });
-  
 
-  var newValue = (parseInt(strings) + 1).toString(); 
-  console.log(newValue); 
+  var newValue = (parseInt(strings) + 1).toString();
+  console.log(newValue);
   var output = [];
-  
-  for(var i = 0; i < newValue.length; i++) {
-    output.push(parseInt(newValue.charAt(i))); 
+
+  for (var i = 0; i < newValue.length; i++) {
+    output.push(parseInt(newValue.charAt(i)));
   }
-  
-  return output; 
-  
+
+  return output;
 }

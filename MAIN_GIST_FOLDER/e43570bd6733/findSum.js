@@ -9,12 +9,12 @@ arguments are given, it should return -1.
 
 function findSum(...args) {
   let total = 0;
-  if(args) {
-    for(let i = 0; i < args.length; i++) {
-       if(args[i] < 0) {
-         return -1;
-       }
-       total += args[i];
+  if (args) {
+    for (let i = 0; i < args.length; i++) {
+      if (args[i] < 0) {
+        return -1;
+      }
+      total += args[i];
     }
     return total;
   } else {

@@ -6,10 +6,10 @@ class Boundary extends Component {
 
   unstable_handleError(err) {
     report(err);
-    this.setState({ err })
+    this.setState({ err });
   }
-  
-  render() { 
+
+  render() {
     return this.state.err ? <ErrorPage /> : this.props.children;
   }
 }

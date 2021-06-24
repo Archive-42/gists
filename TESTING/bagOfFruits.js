@@ -9,18 +9,18 @@
  implement a method that will take as an argument an array of strings 
  containing fruits and should return an array of strings where all the 
  rotten fruits are replaced by good ones.
-*/ 
+*/
 
-function removeRotten(bagOfFruits){
-  const newBagOfFruits = []; 
-  
+function removeRotten(bagOfFruits) {
+  const newBagOfFruits = [];
+
   if (bagOfFruits == null) {
-    return []; 
+    return [];
   }
-  
-  bagOfFruits.map(item => {
-    newBagOfFruits.push(item.replace(/rotten/i, '').toLowerCase()); 
+
+  bagOfFruits.map((item) => {
+    newBagOfFruits.push(item.replace(/rotten/i, "").toLowerCase());
   });
-  
-  return newBagOfFruits; 
+
+  return newBagOfFruits;
 }

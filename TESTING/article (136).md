@@ -6,15 +6,15 @@ For instance, let's try fetching `http://example.com`:
 
 ```js run async
 try {
-  await fetch('http://example.com');
-} catch(err) {
+  await fetch("http://example.com");
+} catch (err) {
   alert(err); // Failed to fetch
 }
 ```
 
 Fetch fails, as expected.
 
-The core concept here is *origin* -- a domain/port/protocol triplet.
+The core concept here is _origin_ -- a domain/port/protocol triplet.
 
 Cross-origin requests -- those sent to another domain (even a subdomain) or protocol or port -- require special headers from the remote side.
 
@@ -47,8 +47,7 @@ One way to communicate with another server was to submit a `<form>` there. Peopl
 <!-- a form could be dynamically generated and submited by JavaScript -->
 *!*
 <form target="iframe" method="POST" action="http://another.com/…">
-*/!*
-  ...
+  */!* ...
 </form>
 ```
 
@@ -68,27 +67,29 @@ Let's say we, at our site, need to get the data from `http://another.com`, such 
 
 1. First, in advance, we declare a global function to accept the data, e.g. `gotWeather`.
 
-    ```js
-    // 1. Declare the function to process the weather data
-    function gotWeather({ temperature, humidity }) {
-      alert(`temperature: ${temperature}, humidity: ${humidity}`);
-    }
-    ```
+   ```js
+   // 1. Declare the function to process the weather data
+   function gotWeather({ temperature, humidity }) {
+     alert(`temperature: ${temperature}, humidity: ${humidity}`);
+   }
+   ```
+
 2. Then we make a `<script>` tag with `src="http://another.com/weather.json?callback=gotWeather"`, using the name of our function as the `callback` URL-parameter.
 
-    ```js
-    let script = document.createElement('script');
-    script.src = `http://another.com/weather.json?callback=gotWeather`;
-    document.body.append(script);
-    ```
+   ```js
+   let script = document.createElement("script");
+   script.src = `http://another.com/weather.json?callback=gotWeather`;
+   document.body.append(script);
+   ```
+
 3. The remote server `another.com` dynamically generates a script that calls `gotWeather(...)` with the data it wants us to receive.
-    ```js
-    // The expected answer from the server looks like this:
-    gotWeather({
-      temperature: 25,
-      humidity: 78
-    });
-    ```
+   ```js
+   // The expected answer from the server looks like this:
+   gotWeather({
+     temperature: 25,
+     humidity: 78,
+   });
+   ```
 4. When the remote script loads and executes, `gotWeather` runs, and, as it's our function, we have the data.
 
 That works, and doesn't violate security, because both sides agreed to pass the data this way. And, when both sides agree, it's definitely not a hack. There are still services that provide such access, as it works even for very old browsers.
@@ -110,10 +111,10 @@ A request is safe if it satisfies two conditions:
 
 1. [Safe method](https://fetch.spec.whatwg.org/#cors-safelisted-method): GET, POST or HEAD
 2. [Safe headers](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) -- the only allowed custom headers are:
-    - `Accept`,
-    - `Accept-Language`,
-    - `Content-Language`,
-    - `Content-Type` with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+   - `Accept`,
+   - `Accept-Language`,
+   - `Content-Language`,
+   - `Content-Type` with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
 
 Any other request is considered "unsafe". For instance, a request with `PUT` method or with an `API-Key` HTTP-header does not fit the limitations.
 
@@ -149,12 +150,14 @@ As you can see, the `Origin` header contains exactly the origin (domain/protocol
 The server can inspect the `Origin` and, if it agrees to accept such a request, add a special header `Access-Control-Allow-Origin` to the response. That header should contain the allowed origin (in our case `https://javascript.info`), or a star `*`. Then the response is successful, otherwise it's an error.
 
 The browser plays the role of a trusted mediator here:
+
 1. It ensures that the correct `Origin` is sent with a cross-origin request.
 2. It checks for permitting `Access-Control-Allow-Origin` in the response, if it exists, then JavaScript is allowed to access the response, otherwise it fails with an error.
 
 ![](xhr-another-domain.svg)
 
 Here's an example of a permissive server response:
+
 ```http
 200 OK
 Content-Type:text/html; charset=UTF-8
@@ -224,16 +227,17 @@ If the server agrees to serve the requests, then it should respond with empty bo
 Let's see how it works step-by-step on the example of a cross-origin `PATCH` request (this method is often used to update data):
 
 ```js
-let response = await fetch('https://site.com/service.json', {
-  method: 'PATCH',
+let response = await fetch("https://site.com/service.json", {
+  method: "PATCH",
   headers: {
-    'Content-Type': 'application/json',
-    'API-Key': 'secret'
-  }
+    "Content-Type": "application/json",
+    "API-Key": "secret",
+  },
 });
 ```
 
 There are three reasons why the request is unsafe (one is enough):
+
 - Method `PATCH`
 - `Content-Type` is not one of: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
 - "Unsafe" `API-Key` header.
@@ -253,13 +257,14 @@ Access-Control-Request-Headers: Content-Type,API-Key
 - Method: `OPTIONS`.
 - The path -- exactly the same as the main request: `/service.json`.
 - Cross-origin special headers:
-    - `Origin` -- the source origin.
-    - `Access-Control-Request-Method` -- requested method.
-    - `Access-Control-Request-Headers` -- a comma-separated list of "unsafe" headers.
+  - `Origin` -- the source origin.
+  - `Access-Control-Request-Method` -- requested method.
+  - `Access-Control-Request-Headers` -- a comma-separated list of "unsafe" headers.
 
 ### Step 2 (preflight response)
 
 The server should respond with status 200 and the headers:
+
 - `Access-Control-Allow-Origin: https://javascript.info`
 - `Access-Control-Allow-Methods: PATCH`
 - `Access-Control-Allow-Headers: Content-Type,API-Key`.
@@ -318,7 +323,7 @@ A cross-origin request initiated by JavaScript code by default does not bring an
 
 That's uncommon for HTTP-requests. Usually, a request to `http://site.com` is accompanied by all cookies from that domain. Cross-origin requests made by JavaScript methods on the other hand are an exception.
 
-For example, `fetch('http://another.com')` does not send any cookies, even those  (!) that belong to `another.com` domain.
+For example, `fetch('http://another.com')` does not send any cookies, even those (!) that belong to `another.com` domain.
 
 Why?
 
@@ -329,14 +334,14 @@ Does the server really trust the script that much? Then it must explicitly allow
 To send credentials in `fetch`, we need to add the option `credentials: "include"`, like this:
 
 ```js
-fetch('http://another.com', {
-  credentials: "include"
+fetch("http://another.com", {
+  credentials: "include",
 });
 ```
 
 Now `fetch` sends cookies originating from `another.com` with request to that site.
 
-If the server agrees to accept the request *with credentials*, it should add a header `Access-Control-Allow-Credentials: true` to the response, in addition to `Access-Control-Allow-Origin`.
+If the server agrees to accept the request _with credentials_, it should add a header `Access-Control-Allow-Credentials: true` to the response, in addition to `Access-Control-Allow-Origin`.
 
 For example:
 
@@ -353,12 +358,13 @@ Please note: `Access-Control-Allow-Origin` is prohibited from using a star `*` f
 From the browser point of view, there are two kinds of cross-origin requests: "safe" and all the others.
 
 "Safe" requests must satisfy the following conditions:
+
 - Method: GET, POST or HEAD.
 - Headers -- we can set only:
-    - `Accept`
-    - `Accept-Language`
-    - `Content-Language`
-    - `Content-Type` to the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+  - `Accept`
+  - `Accept-Language`
+  - `Content-Language`
+  - `Content-Type` to the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
 
 The essential difference is that safe requests were doable since ancient times using `<form>` or `<script>` tags, while unsafe were impossible for browsers for a long time.
 
@@ -368,20 +374,20 @@ So, the practical difference is that safe requests are sent right away, with the
 
 - → The browser sends the `Origin` header with the origin.
 - ← For requests without credentials (not sent by default), the server should set:
-    - `Access-Control-Allow-Origin` to `*` or same value as `Origin`
+  - `Access-Control-Allow-Origin` to `*` or same value as `Origin`
 - ← For requests with credentials, the server should set:
-    - `Access-Control-Allow-Origin` to same value as `Origin`
-    - `Access-Control-Allow-Credentials` to `true`
+  - `Access-Control-Allow-Origin` to same value as `Origin`
+  - `Access-Control-Allow-Credentials` to `true`
 
-Additionally, to grant JavaScript access to any response headers except `Cache-Control`,  `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` or `Pragma`, the server should list the allowed ones in `Access-Control-Expose-Headers` header.
+Additionally, to grant JavaScript access to any response headers except `Cache-Control`, `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` or `Pragma`, the server should list the allowed ones in `Access-Control-Expose-Headers` header.
 
 **For unsafe requests, a preliminary "preflight" request is issued before the requested one:**
 
 - → The browser sends an `OPTIONS` request to the same URL, with the headers:
-    - `Access-Control-Request-Method` has requested method.
-    - `Access-Control-Request-Headers` lists unsafe requested headers.
+  - `Access-Control-Request-Method` has requested method.
+  - `Access-Control-Request-Headers` lists unsafe requested headers.
 - ← The server should respond with status 200 and the headers:
-    - `Access-Control-Allow-Methods` with a list of allowed methods,
-    - `Access-Control-Allow-Headers` with a list of allowed headers,
-    - `Access-Control-Max-Age` with a number of seconds to cache the permissions.
+  - `Access-Control-Allow-Methods` with a list of allowed methods,
+  - `Access-Control-Allow-Headers` with a list of allowed headers,
+  - `Access-Control-Max-Age` with a number of seconds to cache the permissions.
 - Then the actual request is sent, and the previous "safe" scheme is applied.

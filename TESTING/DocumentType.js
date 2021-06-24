@@ -24,10 +24,10 @@ const fetchDocuments = () =>
     { oldType: OLD_TYPE }
   );
 
-const buildMutations = docs => {
+const buildMutations = (docs) => {
   const mutations = [];
 
-  docs.forEach(doc => {
+  docs.forEach((doc) => {
     console.log("movie", doc._id);
     // Updating an document _type field isn't allowed, we have to create a new and delete the old
     const newDocId = `${doc._id}-migrated`;
@@ -38,23 +38,23 @@ const buildMutations = docs => {
     mutations.push({ create: newDocument });
 
     // Patch each of the incoming references
-    doc.incomingReferences.forEach(referencingDocument => {
+    doc.incomingReferences.forEach((referencingDocument) => {
       console.log("ref", referencingDocument._id);
       // ⚠️ We're assuming the field is named the same as the type!
       // There might be another structure involved, perhaps an array, that needs patching
       const updatedReference = {
         [NEW_TYPE]: {
           _ref: newDocId,
-          _type: "reference"
-        }
+          _type: "reference",
+        },
       };
       mutations.push({
         id: referencingDocument._id,
         patch: {
           set: updatedReference,
           unset: [OLD_TYPE],
-          ifRevisionID: referencingDocument._rev
-        }
+          ifRevisionID: referencingDocument._rev,
+        },
       });
     });
 
@@ -64,7 +64,7 @@ const buildMutations = docs => {
   return mutations.filter(Boolean);
 };
 
-const createTransaction = mutations => {
+const createTransaction = (mutations) => {
   return mutations.reduce((tx, mutation) => {
     if (mutation.patch) {
       return tx.patch(mutation.id, mutation.patch);
@@ -90,7 +90,7 @@ const migrateNextBatch = async () => {
   return migrateNextBatch();
 };
 
-migrateNextBatch().catch(err => {
+migrateNextBatch().catch((err) => {
   console.error(JSON.stringify(err, null, 2));
   process.exit(1);
 });

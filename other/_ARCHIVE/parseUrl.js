@@ -1,27 +1,30 @@
 function parseUrl(url) {
   // Berners Lee url parsing: https://tools.ietf.org/html/rfc3986#appendix-B
-  let re = new RegExp('^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?')
+  let re = new RegExp(
+    "^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?"
+  );
 
   let parsed = url.match(re);
   let result = {
-    url : url,
+    url: url,
     protocol: parsed[2],
     origin: parsed[4],
-    pathname: (parsed[5]||'').replace(/^\//,'').replace(/\/$/,''),
-    hash: ((parsed[9]||'').split('?')[0]||'').replace(/^\//,'').replace(/\/$/,''),
-    search : (url||'').split('?')[1],
-    searchProps : {}
-  }
+    pathname: (parsed[5] || "").replace(/^\//, "").replace(/\/$/, ""),
+    hash: ((parsed[9] || "").split("?")[0] || "")
+      .replace(/^\//, "")
+      .replace(/\/$/, ""),
+    search: (url || "").split("?")[1],
+    searchProps: {},
+  };
 
   if (result.search) {
-    result.search.split(';').map(entry=>{
-      let [key,value] = entry.split('=');
+    result.search.split(";").map((entry) => {
+      let [key, value] = entry.split("=");
       result.searchProps[decodeURIComponent(key)] = decodeURIComponent(value);
     });
   }
 
-  return result
-
+  return result;
 }
 export default parseUrl;
 

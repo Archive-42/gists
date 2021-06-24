@@ -10,7 +10,7 @@ Different DOM nodes may have different properties. For instance, an element node
 
 Each DOM node belongs to the corresponding built-in class.
 
-The root of the hierarchy is [EventTarget](https://dom.spec.whatwg.org/#eventtarget), that is inherited by  [Node](http://dom.spec.whatwg.org/#interface-node), and other DOM nodes inherit from it.
+The root of the hierarchy is [EventTarget](https://dom.spec.whatwg.org/#eventtarget), that is inherited by [Node](http://dom.spec.whatwg.org/#interface-node), and other DOM nodes inherit from it.
 
 Here's the picture, explanations to follow:
 
@@ -19,13 +19,13 @@ Here's the picture, explanations to follow:
 The classes are:
 
 - [EventTarget](https://dom.spec.whatwg.org/#eventtarget) -- is the root "abstract" class. Objects of that class are never created. It serves as a base, so that all DOM nodes support so-called "events", we'll study them later.
-- [Node](http://dom.spec.whatwg.org/#interface-node) -- is also an "abstract" class, serving as a base  for DOM nodes. It provides the core tree functionality: `parentNode`, `nextSibling`, `childNodes` and so on (they are getters). Objects of `Node` class are never created. But there are concrete node classes that inherit from it, namely: `Text` for text nodes, `Element` for element nodes and more exotic ones like `Comment` for comment nodes.
+- [Node](http://dom.spec.whatwg.org/#interface-node) -- is also an "abstract" class, serving as a base for DOM nodes. It provides the core tree functionality: `parentNode`, `nextSibling`, `childNodes` and so on (they are getters). Objects of `Node` class are never created. But there are concrete node classes that inherit from it, namely: `Text` for text nodes, `Element` for element nodes and more exotic ones like `Comment` for comment nodes.
 - [Element](http://dom.spec.whatwg.org/#interface-element) -- is a base class for DOM elements. It provides element-level navigation like `nextElementSibling`, `children` and searching methods like `getElementsByTagName`, `querySelector`. A browser supports not only HTML, but also XML and SVG. The `Element` class serves as a base for more specific classes: `SVGElement`, `XMLElement` and `HTMLElement`.
 - [HTMLElement](https://html.spec.whatwg.org/multipage/dom.html#htmlelement) -- is finally the basic class for all HTML elements. It is inherited by concrete HTML elements:
-    - [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement) -- the class for `<input>` elements,
-    - [HTMLBodyElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement) -- the class for `<body>` elements,
-    - [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) -- the class for `<a>` elements,
-    - ...and so on, each tag has its own class that may provide specific properties and methods.
+  - [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement) -- the class for `<input>` elements,
+  - [HTMLBodyElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement) -- the class for `<body>` elements,
+  - [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) -- the class for `<a>` elements,
+  - ...and so on, each tag has its own class that may provide specific properties and methods.
 
 So, the full set of properties and methods of a given node comes as the result of the inheritance.
 
@@ -43,31 +43,30 @@ It gets properties and methods as a superposition of (listed in inheritance orde
 To see the DOM node class name, we can recall that an object usually has the `constructor` property. It references the class constructor, and `constructor.name` is its name:
 
 ```js run
-alert( document.body.constructor.name ); // HTMLBodyElement
+alert(document.body.constructor.name); // HTMLBodyElement
 ```
 
 ...Or we can just `toString` it:
 
 ```js run
-alert( document.body ); // [object HTMLBodyElement]
+alert(document.body); // [object HTMLBodyElement]
 ```
 
 We also can use `instanceof` to check the inheritance:
 
 ```js run
-alert( document.body instanceof HTMLBodyElement ); // true
-alert( document.body instanceof HTMLElement ); // true
-alert( document.body instanceof Element ); // true
-alert( document.body instanceof Node ); // true
-alert( document.body instanceof EventTarget ); // true
+alert(document.body instanceof HTMLBodyElement); // true
+alert(document.body instanceof HTMLElement); // true
+alert(document.body instanceof Element); // true
+alert(document.body instanceof Node); // true
+alert(document.body instanceof EventTarget); // true
 ```
 
 As we can see, DOM nodes are regular JavaScript objects. They use prototype-based classes for inheritance.
 
 That's also easy to see by outputting an element with `console.dir(elem)` in a browser. There in the console you can see `HTMLElement.prototype`, `Element.prototype` and so on.
 
-```smart header="`console.dir(elem)` versus `console.log(elem)`"
-Most browsers support two commands in their developer tools: `console.log` and `console.dir`. They output their arguments to the console. For JavaScript objects these commands usually do the same.
+```smart header="`console.dir(elem)`versus`console.log(elem)`" Most browsers support two commands in their developer tools: `console.log`and`console.dir`. They output their arguments to the console. For JavaScript objects these commands usually do the same.
 
 But for DOM elements they are different:
 
@@ -75,7 +74,8 @@ But for DOM elements they are different:
 - `console.dir(elem)` shows the element as a DOM object, good to explore its properties.
 
 Try it on `document.body`.
-```
+
+`````
 
 ````smart header="IDL in the spec"
 In the specification, DOM classes aren't described by using JavaScript, but a special [Interface description language](https://en.wikipedia.org/wiki/Interface_description_language) (IDL), that is usually easy to understand.
@@ -111,7 +111,8 @@ interface HTMLInputElement: HTMLElement {
   void select();
   ...
 }
-```
+`````
+
 ````
 
 ## The "nodeType" property
@@ -128,7 +129,7 @@ For instance:
 
 ```html run
 <body>
-  <script>  
+  <script>
   let elem = document.body;
 
   // let's examine what it is?
@@ -497,3 +498,4 @@ Main DOM node properties are:
 DOM nodes also have other properties depending on their class. For instance, `<input>` elements (`HTMLInputElement`) support `value`, `type`, while `<a>` elements (`HTMLAnchorElement`) support `href` etc. Most standard HTML attributes have a corresponding DOM property.
 
 However, HTML attributes and DOM properties are not always the same, as we'll see in the next chapter.
+````

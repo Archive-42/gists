@@ -36,15 +36,13 @@ That task is just an example: there's the `**` operator in JavaScript that can d
 
 Before creating the code of `pow`, we can imagine what the function should do and describe it.
 
-Such description is called a *specification* or, in short, a spec, and contains descriptions of use cases together with tests for them, like this:
+Such description is called a _specification_ or, in short, a spec, and contains descriptions of use cases together with tests for them, like this:
 
 ```js
-describe("pow", function() {
-
-  it("raises to n-th power", function() {
+describe("pow", function () {
+  it("raises to n-th power", function () {
     assert.equal(pow(2, 3), 8);
   });
-
 });
 ```
 
@@ -54,7 +52,7 @@ A spec has three main building blocks that you can see above:
 : What functionality we're describing. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
 
 `it("use case description", function() { ... })`
-: In the title of `it` we *in a human-readable way* describe the particular use case, and the second argument is a function that tests it.
+: In the title of `it` we _in a human-readable way_ describe the particular use case, and the second argument is a function that tests it.
 
 `assert.equal(value1, value2)`
 : The code inside `it` block, if the implementation is correct, should execute without errors.
@@ -75,7 +73,7 @@ The flow of development usually looks like this:
 6. Go to 3, update the implementation till tests give no errors.
 7. Repeat steps 3-6 till the functionality is ready.
 
-So, the development is *iterative*. We write the spec, implement it, make sure tests pass, then write more tests, make sure they work etc. At the end we have both a working implementation and tests for it.
+So, the development is _iterative_. We write the spec, implement it, make sure tests pass, then write more tests, make sure they work etc. At the end we have both a working implementation and tests for it.
 
 Let's see this development flow in our practical case.
 
@@ -94,6 +92,7 @@ These libraries are suitable for both in-browser and server-side testing. Here w
 The full HTML page with these frameworks and `pow` spec:
 
 ```html src="index.html"
+
 ```
 
 The page can be divided into five parts:
@@ -138,33 +137,32 @@ We can select one of two ways to organize the test here:
 
 1. The first variant -- add one more `assert` into the same `it`:
 
-    ```js
-    describe("pow", function() {
+   ```js
+   describe("pow", function() {
 
-      it("raises to n-th power", function() {
-        assert.equal(pow(2, 3), 8);
-    *!*
-        assert.equal(pow(3, 4), 81);
-    */!*
-      });
+     it("raises to n-th power", function() {
+       assert.equal(pow(2, 3), 8);
+   *!*
+       assert.equal(pow(3, 4), 81);
+   */!*
+     });
 
-    });
-    ```
+   });
+   ```
+
 2. The second -- make two tests:
 
-    ```js
-    describe("pow", function() {
+   ```js
+   describe("pow", function () {
+     it("2 raised to power 3 is 8", function () {
+       assert.equal(pow(2, 3), 8);
+     });
 
-      it("2 raised to power 3 is 8", function() {
-        assert.equal(pow(2, 3), 8);
-      });
-
-      it("3 raised to power 4 is 81", function() {
-        assert.equal(pow(3, 4), 81);
-      });
-
-    });
-    ```
+     it("3 raised to power 4 is 81", function () {
+       assert.equal(pow(3, 4), 81);
+     });
+   });
+   ```
 
 The principal difference is that when `assert` triggers an error, the `it` block immediately terminates. So, in the first variant if the first `assert` fails, then we'll never see the result of the second `assert`.
 
@@ -203,11 +201,10 @@ function pow(x, n) {
 To be sure that the function works well, let's test it for more values. Instead of writing `it` blocks manually, we can generate them in `for`:
 
 ```js
-describe("pow", function() {
-
+describe("pow", function () {
   function makeTest(x) {
     let expected = x * x * x;
-    it(`${x} in the power 3 is ${expected}`, function() {
+    it(`${x} in the power 3 is ${expected}`, function () {
       assert.equal(pow(x, 3), expected);
     });
   }
@@ -215,7 +212,6 @@ describe("pow", function() {
   for (let x = 1; x <= 5; x++) {
     makeTest(x);
   }
-
 });
 ```
 
@@ -261,23 +257,20 @@ The nested `describe` defines a new "subgroup" of tests. In the output we can se
 
 In the future we can add more `it` and `describe` on the top level with helper functions of their own, they won't see `makeTest`.
 
-````smart header="`before/after` and `beforeEach/afterEach`"
-We can setup `before/after` functions that execute before/after running tests, and also `beforeEach/afterEach` functions that execute before/after *every* `it`.
+````smart header="`before/after`and`beforeEach/afterEach`" We can setup `before/after`functions that execute before/after running tests, and also`beforeEach/afterEach`functions that execute before/after *every*`it`.
 
 For instance:
 
 ```js no-beautify
-describe("test", function() {
-
+describe("test", function () {
   before(() => alert("Testing started – before all tests"));
   after(() => alert("Testing finished – after all tests"));
 
   beforeEach(() => alert("Before a test – enter a test"));
   afterEach(() => alert("After a test – exit a test"));
 
-  it('test 1', () => alert(1));
-  it('test 2', () => alert(2));
-
+  it("test 1", () => alert(1));
+  it("test 2", () => alert(2));
 });
 ```
 
@@ -297,6 +290,7 @@ Testing finished – after all tests (after)
 [edit src="beforeafter" title="Open the example in the sandbox."]
 
 Usually, `beforeEach/afterEach` and `before/after` are used to perform initialization, zero out counters or do something else between the tests (or test groups).
+
 ````
 
 ## Extending the spec
@@ -322,7 +316,7 @@ describe("pow", function() {
 
   it("for non-integer n the result is NaN", function() {
 *!*
-    assert.isNaN(pow(2, 1.5));    
+    assert.isNaN(pow(2, 1.5));
 */!*
   });
 
@@ -407,3 +401,4 @@ In real life that's sometimes not that easy. Sometimes it's difficult to write a
 Later in the tutorial you will meet many tasks with tests baked-in. So you'll see more practical examples.
 
 Writing tests requires good JavaScript knowledge. But we're just starting to learn it. So, to settle down everything, as of now you're not required to write tests, but you should already be able to read them even if they are a little bit more complex than in this chapter.
+````

@@ -2,9 +2,9 @@
 
 I hereby claim:
 
-  * I am anders on github.
-  * I am andersman (https://keybase.io/andersman) on keybase.
-  * I have a public key ASCaFkdoO8GLMgCbAoW5N7LpFbe9iz-I9R-t1xPANdhC7wo
+- I am anders on github.
+- I am andersman (https://keybase.io/andersman) on keybase.
+- I have a public key ASCaFkdoO8GLMgCbAoW5N7LpFbe9iz-I9R-t1xPANdhC7wo
 
 To claim this, I am signing this object:
 

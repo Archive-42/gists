@@ -1,4 +1,3 @@
-
 # Fetch API
 
 So far, we know quite a bit about `fetch`.
@@ -53,6 +52,7 @@ Usually that header is set automatically and contains the url of the page that m
 **The `referrer` option allows to set any `Referer` (within the current origin) or remove it.**
 
 To send no referer, set an empty string:
+
 ```js
 fetch('/page', {
 *!*
@@ -96,16 +96,16 @@ Possible values are described in the [Referrer Policy specification](https://w3c
 
 Here's a table with all combinations:
 
-| Value | To same origin | To another origin | HTTPS→HTTP |
-|-------|----------------|-------------------|------------|
-| `"no-referrer"` | - | - | - |
-| `"no-referrer-when-downgrade"` or `""` (default) | full | full | - |
-| `"origin"` | origin | origin | origin |
-| `"origin-when-cross-origin"` | full | origin | origin |
-| `"same-origin"` | full | - | - |
-| `"strict-origin"` | origin | origin | - |
-| `"strict-origin-when-cross-origin"` | full | origin | - |
-| `"unsafe-url"` | full | full | full |
+| Value                                            | To same origin | To another origin | HTTPS→HTTP |
+| ------------------------------------------------ | -------------- | ----------------- | ---------- |
+| `"no-referrer"`                                  | -              | -                 | -          |
+| `"no-referrer-when-downgrade"` or `""` (default) | full           | full              | -          |
+| `"origin"`                                       | origin         | origin            | origin     |
+| `"origin-when-cross-origin"`                     | full           | origin            | origin     |
+| `"same-origin"`                                  | full           | -                 | -          |
+| `"strict-origin"`                                | origin         | origin            | -          |
+| `"strict-origin-when-cross-origin"`              | full           | origin            | -          |
+| `"unsafe-url"`                                   | full           | full              | full       |
 
 Let's say we have an admin zone with a URL structure that shouldn't be known from outside of the site.
 
@@ -116,9 +116,9 @@ E.g. `Referer: https://javascript.info/admin/secret/paths`.
 If we'd like other websites know only the origin part, not the URL-path, we can set the option:
 
 ```js
-fetch('https://another.com/page', {
+fetch("https://another.com/page", {
   // ...
-  referrerPolicy: "origin-when-cross-origin" // Referer: https://javascript.info
+  referrerPolicy: "origin-when-cross-origin", // Referer: https://javascript.info
 });
 ```
 
@@ -126,11 +126,11 @@ We can put it to all `fetch` calls, maybe integrate into JavaScript library of o
 
 Its only difference compared to the default behavior is that for requests to another origin `fetch` sends only the origin part of the URL (e.g. `https://javascript.info`, without path). For requests to our origin we still get the full `Referer` (maybe useful for debugging purposes).
 
-```smart header="Referrer policy is not only for `fetch`"
-Referrer policy, described in the [specification](https://w3c.github.io/webappsec-referrer-policy/), is not just for `fetch`, but more global.
+```smart header="Referrer policy is not only for `fetch`" Referrer policy, described in the [specification](https://w3c.github.io/webappsec-referrer-policy/), is not just for `fetch`, but more global.
 
 In particular, it's possible to set the default policy for the whole page using the `Referrer-Policy` HTTP header, or per-link, with `<a rel="noreferrer">`.
-```
+
+````
 
 ## mode
 
@@ -187,7 +187,7 @@ We can put it in the `integrity` option, like this:
 fetch('http://site.com/file', {
   integrity: 'sha256-abcdef'
 });
-```
+````
 
 Then `fetch` will calculate SHA-256 on its own and compare it with our string. In case of a mismatch, an error is triggered.
 
@@ -218,7 +218,7 @@ Normally, when a document is unloaded, all associated network requests are abort
 It has a few limitations:
 
 - We can't send megabytes: the body limit for `keepalive` requests is 64KB.
-    - If we need to gather a lot of statistics about the visit, we should send it out regularly in packets, so that there won't be a lot left for the last `onunload` request.
-    - This limit applies to all `keepalive` requests together. In other words, we can perform multiple `keepalive` requests in parallel, but the sum of their body lengths should not exceed 64KB.
+  - If we need to gather a lot of statistics about the visit, we should send it out regularly in packets, so that there won't be a lot left for the last `onunload` request.
+  - This limit applies to all `keepalive` requests together. In other words, we can perform multiple `keepalive` requests in parallel, but the sum of their body lengths should not exceed 64KB.
 - We can't handle the server response if the document is unloaded. So in our example `fetch` will succeed due to `keepalive`, but subsequent functions won't work.
-    - In most cases, such as sending out statistics, it's not a problem, as the server just accepts the data and usually sends an empty response to such requests.
+  - In most cases, such as sending out statistics, it's not a problem, as the server just accepts the data and usually sends an empty response to such requests.

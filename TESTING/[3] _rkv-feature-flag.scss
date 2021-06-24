@@ -1,4 +1,4 @@
-@mixin rkv-feature-flag($flag: '') {
+@mixin rkv-feature-flag($flag: "") {
   @if map-get($-rkv-merged-feature-map, $flag) == true {
     @content;
   }

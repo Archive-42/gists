@@ -10,7 +10,7 @@
     <h1>Alternative Fetch Syntax</h1>
     <script>
       //standard fetch
-      let url = 'https://jsonplaceholder.typicode.com/posts';
+      let url = "https://jsonplaceholder.typicode.com/posts";
 
       // fetch(url)
       //   .then((response) => response.json())
@@ -50,7 +50,7 @@
           (err) => {
             //first interrupt
             //the fetch failing
-            console.log('Network Error');
+            console.log("Network Error");
             //talk to the indexedDB to get cached data
           }
         )
@@ -63,7 +63,7 @@
           }
         )
         .catch((err) => {
-          console.warn('NOT resp.ok');
+          console.warn("NOT resp.ok");
         });
     </script>
   </body>

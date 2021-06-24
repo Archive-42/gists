@@ -2,7 +2,7 @@
 
 The JavaScript language was initially created for web browsers. Since then it has evolved and become a language with many uses and platforms.
 
-A platform may be a browser, or a web-server or another *host*, even a "smart" coffee machine, if it can run JavaScript. Each of them provides platform-specific functionality. The JavaScript specification calls that a *host environment*.
+A platform may be a browser, or a web-server or another _host_, even a "smart" coffee machine, if it can run JavaScript. Each of them provides platform-specific functionality. The JavaScript specification calls that a _host environment_.
 
 A host environment provides own objects and functions additional to the language core. Web browsers give a means to control web pages. Node.js provides server-side features, and so on.
 
@@ -41,12 +41,13 @@ Document Object Model, or DOM for short, represents all page content as objects 
 The `document` object is the main "entry point" to the page. We can change or create anything on the page using it.
 
 For instance:
+
 ```js run
 // change the background color to red
 document.body.style.background = "red";
 
 // change it back after 1 second
-setTimeout(() => document.body.style.background = "", 1000);
+setTimeout(() => (document.body.style.background = ""), 1000);
 ```
 
 Here we used `document.body.style`, but there's much, much more. Properties and methods are described in the specification: [DOM Living Standard](https://dom.spec.whatwg.org).

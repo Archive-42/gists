@@ -5,18 +5,18 @@ const APP = {
     //register our service worker
     APP.registerSW();
     document
-      .getElementById('colorForm')
-      .addEventListener('submit', APP.saveColor);
+      .getElementById("colorForm")
+      .addEventListener("submit", APP.saveColor);
 
-    document.querySelector('h2').addEventListener('click', (ev) => {
+    document.querySelector("h2").addEventListener("click", (ev) => {
       //send a message to the service worker
       //have it bounce back to all pages sharing that sw
     });
   },
   registerSW() {
-    if ('serviceWorker' in navigator) {
+    if ("serviceWorker" in navigator) {
       // Register a service worker hosted at the root of the site
-      navigator.serviceWorker.register('/sw.js').then(
+      navigator.serviceWorker.register("/sw.js").then(
         (registration) => {
           APP.SW =
             registration.installing ||
@@ -24,23 +24,23 @@ const APP = {
             registration.active;
         },
         (error) => {
-          console.log('Service worker registration failed:', error);
+          console.log("Service worker registration failed:", error);
         }
       );
       //listen for the latest sw
-      navigator.serviceWorker.addEventListener('controllerchange', async () => {
+      navigator.serviceWorker.addEventListener("controllerchange", async () => {
         APP.SW = navigator.serviceWorker.controller;
       });
       //listen for messages from the service worker
-      navigator.serviceWorker.addEventListener('message', APP.onMessage);
+      navigator.serviceWorker.addEventListener("message", APP.onMessage);
     } else {
-      console.log('Service workers are not supported.');
+      console.log("Service workers are not supported.");
     }
   },
   saveColor(ev) {
     ev.preventDefault();
-    let name = document.getElementById('name');
-    let color = document.getElementById('color');
+    let name = document.getElementById("name");
+    let color = document.getElementById("color");
     let strName = name.value.trim();
     let strColor = color.value.trim();
     if (strName && strColor) {
@@ -49,7 +49,7 @@ const APP = {
         name: strName,
         color: strColor,
       };
-      console.log('Save', person);
+      console.log("Save", person);
       //send the data to the service worker
       //, otherAction: 'hello'
       APP.sendMessage({ addPerson: person });
@@ -63,8 +63,8 @@ const APP = {
   },
   onMessage({ data }) {
     //got a message from the service worker
-    console.log('Web page receiving', data);
+    console.log("Web page receiving", data);
   },
 };
 
-document.addEventListener('DOMContentLoaded', APP.init);
+document.addEventListener("DOMContentLoaded", APP.init);

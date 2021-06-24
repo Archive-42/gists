@@ -5,5 +5,5 @@
 
 define({
   this: "is",
-  just: ["an", "object"]
+  just: ["an", "object"],
 });

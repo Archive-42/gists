@@ -10,8 +10,8 @@ const APP = {
   },
   getCacheSize() {
     //let's see how much storage we are using
-    if ('storage' in navigator) {
-      if ('estimate' in navigator.storage) {
+    if ("storage" in navigator) {
+      if ("estimate" in navigator.storage) {
         //get the total storage and current usage
         navigator.storage.estimate().then(({ usage, quota }) => {
           //returned numbers are in bytes
@@ -25,17 +25,17 @@ const APP = {
           console.log(`Browser grants persistent permission: ${isPer}`);
         });
       } else {
-        console.log('No support for StorageManager methods');
+        console.log("No support for StorageManager methods");
       }
     }
     //look at individual files and their sizes
-    caches.open('imageCache-2').then((cache) => {
+    caches.open("imageCache-2").then((cache) => {
       cache.matchAll().then((matches) => {
         //matches is an Array of Response objects
         let total = 0;
         matches.forEach((response) => {
-          if (response.headers.has('content-length')) {
-            total += parseInt(response.headers.get('content-length'));
+          if (response.headers.has("content-length")) {
+            total += parseInt(response.headers.get("content-length"));
             console.log(`Adding size for ${response.url}`);
           }
         });
@@ -44,9 +44,9 @@ const APP = {
     });
   },
   registerSW() {
-    if ('serviceWorker' in navigator) {
+    if ("serviceWorker" in navigator) {
       // Register a service worker hosted at the root of the site
-      navigator.serviceWorker.register('/sw.js').then(
+      navigator.serviceWorker.register("/sw.js").then(
         (registration) => {
           APP.SW =
             registration.installing ||
@@ -54,24 +54,24 @@ const APP = {
             registration.active;
         },
         (error) => {
-          console.log('Service worker registration failed:', error);
+          console.log("Service worker registration failed:", error);
         }
       );
     } else {
-      console.log('Service workers are not supported.');
+      console.log("Service workers are not supported.");
     }
   },
   addImage(ev) {
-    let img = document.createElement('img');
-    img.src = '/img/1016-800x600.jpg';
-    img.alt = 'dynamically added image';
-    let p = document.createElement('p');
+    let img = document.createElement("img");
+    img.src = "/img/1016-800x600.jpg";
+    img.alt = "dynamically added image";
+    let p = document.createElement("p");
     p.append(img);
-    document.querySelector('main').append(p);
+    document.querySelector("main").append(p);
   },
 };
 
-document.addEventListener('DOMContentLoaded', APP.init);
+document.addEventListener("DOMContentLoaded", APP.init);
 
 let options = {
   ignoreSearch: false,

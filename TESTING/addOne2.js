@@ -1,7 +1,7 @@
 function addOne() {
-    // this time, we define counter within our function
-    let counter = 0;
-    counter++;
+  // this time, we define counter within our function
+  let counter = 0;
+  counter++;
 }
 // what do we expect to happen here?
 console.log(counter); // <Fill in Expected Result>

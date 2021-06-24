@@ -1,5 +1,4 @@
-Front-end Frameworks v2.6
-====================
+# Front-end Frameworks v2.6
 
 A collection of best front-end frameworks for faster and easier web development.
 
@@ -14,15 +13,15 @@ You can **Compare** all front-end frameworks here: http://usablica.github.com/fr
 **Website:** http://html5-ninja.com/icecream
 
 ## Formee Framework for forms
->  Formee is nothing but a framework to help you develop and customize web based forms.
->  Crossbrowser: Don't worry about having your form being rendered differently in the major browsers.
->  Flexible:It fits into your project, it's flexible enough to adapt to the width you have available for the form.
->  Customizable:You can easily change between a stylish form or a minimalist one. It comes with the basic needed for you to put your touch in it.
+
+> Formee is nothing but a framework to help you develop and customize web based forms.
+> Crossbrowser: Don't worry about having your form being rendered differently in the major browsers.
+> Flexible:It fits into your project, it's flexible enough to adapt to the width you have available for the form.
+> Customizable:You can easily change between a stylish form or a minimalist one. It comes with the basic needed for you to put your touch in it.
 
 **Responsive:** No
 
 **Website:** http://www.formee.org/
-
 
 ## 1kb grid
 
@@ -140,7 +139,7 @@ Easy is a CSS/HTML/JavaScript framework started as a personal project and then g
 
 ## elastiCSS
 
-A simple css framework to layout web-based interfaces, based on the printed layout techniques of 4 columns but with capabilities to  unlimited column combinations. and capacity to make elastic, fixed and liquid layout easily
+A simple css framework to layout web-based interfaces, based on the printed layout techniques of 4 columns but with capabilities to unlimited column combinations. and capacity to make elastic, fixed and liquid layout easily
 
 **Responsive:** No
 
@@ -180,7 +179,7 @@ FEM CSS Framework is a 960px width + 12 column grid system + CSS common styles, 
 
 **Website:** http://flaminwork.com/
 
-## Fluid 
+## Fluid
 
 The Fluid 960 Grid System templates have been built upon the work of Nathan Smith and his 960 Grid System using effects from the MooTools and jQuery JavaScript libraries.
 
@@ -344,7 +343,7 @@ RÖCSSTI is a CSS micro-framework which includes accessibility notions, typo set
 
 Semantic empowers designers and developers by creating a language for sharing UI.
 
-Pure is ridiculously tiny. The entire set of modules clocks in at 4.5KB* minified and gzipped. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
+Pure is ridiculously tiny. The entire set of modules clocks in at 4.5KB\* minified and gzipped. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
 
 **Responsive:** Yes
 
@@ -361,7 +360,6 @@ Everything is straight forward, all of the code is commented and gives you instr
 **Responsive:** Yes
 
 **Website:** https://github.com/AdamMarsBar/Crumpet
-
 
 ## Jeet
 

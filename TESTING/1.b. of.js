@@ -1,5 +1,5 @@
 // path: /js/of.js
 
-define(function() {
+define(function () {
   return "the word 'of'";
 });

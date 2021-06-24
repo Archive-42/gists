@@ -2,7 +2,7 @@
 
 #### Problem Statement
 
-Given a sorted  array of n elements, write a function to search for the index of a given element (target)
+Given a sorted array of n elements, write a function to search for the index of a given element (target)
 
 #### Approach
 
@@ -16,25 +16,25 @@ Given a sorted  array of n elements, write a function to search for the index of
 
 #### Time Complexity
 
-O(log n) Worse Case     
+O(log n) Worse Case  
 O(1) Best Case (If middle element of initial array is the target element)
 
 #### Space Complexity
 
-O(1) For iterative approach          
+O(1) For iterative approach  
 O(log n) For recursive approach due to recursion call stack
 
 #### Example
 
 ```
-arr = [1,2,3,4,5,6,7]  
+arr = [1,2,3,4,5,6,7]
 
 target = 2
 Initially the element at middle index is 4 which is greater than 2. Therefore we search the left half of the
 array i.e. [1,2,3].
 Here we find the middle element equal to target element so we return its index i.e. 1
 
-target = 9          
+target = 9
 Binary Search should return -1 as 9 is not present in the array
 ```
 

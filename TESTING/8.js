@@ -1,18 +1,18 @@
 // option 7:
 switch (true) {
-  case (x === 0): {
+  case x === 0: {
     // ..
     break;
   }
-  case (x === 1): {
+  case x === 1: {
     // ..
     break;
   }
-  case (x === 2): {
+  case x === 2: {
     // ..
     break;
   }
-  case (x === 3):
+  case x === 3:
   default: {
     // ..
   }

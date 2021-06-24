@@ -6,13 +6,13 @@ That range is not big enough to encode all possible characters, that's why some 
 
 Here are the Unicode values of some characters:
 
-| Character  | Unicode | Bytes count in Unicode  |
-|------------|---------|--------|
-| a | `0x0061` |  2 |
-| ≈ | `0x2248` |  2 |
-|𝒳| `0x1d4b3` | 4 |
-|𝒴| `0x1d4b4` | 4 |
-|😄| `0x1f604` | 4 |
+| Character | Unicode   | Bytes count in Unicode |
+| --------- | --------- | ---------------------- |
+| a         | `0x0061`  | 2                      |
+| ≈         | `0x2248`  | 2                      |
+| 𝒳         | `0x1d4b3` | 4                      |
+| 𝒴         | `0x1d4b4` | 4                      |
+| 😄        | `0x1f604` | 4                      |
 
 So characters like `a` and `≈` occupy 2 bytes, while codes for `𝒳`, `𝒴` and `😄` are longer, they have 4 bytes.
 
@@ -21,8 +21,8 @@ Long time ago, when JavaScript language was created, Unicode encoding was simple
 For instance, `length` thinks that here are two characters:
 
 ```js run
-alert('😄'.length); // 2
-alert('𝒳'.length); // 2
+alert("😄".length); // 2
+alert("𝒳".length); // 2
 ```
 
 ...But we can see that there's only one, right? The point is that `length` treats 4 bytes as two 2-byte characters. That's incorrect, because they must be considered only together (so-called "surrogate pair", you can read about them in the article <info:string>).
@@ -46,8 +46,8 @@ In the example below three kinds of letters will be found: English, Georgian and
 ```js run
 let str = "A ბ ㄱ";
 
-alert( str.match(/\p{L}/gu) ); // A,ბ,ㄱ
-alert( str.match(/\p{L}/g) ); // null (no matches, \p doesn't work without the flag "u")
+alert(str.match(/\p{L}/gu)); // A,ბ,ㄱ
+alert(str.match(/\p{L}/g)); // null (no matches, \p doesn't work without the flag "u")
 ```
 
 Here's the main character categories and their subcategories:
@@ -90,10 +90,10 @@ Here's the main character categories and their subcategories:
   - private use `Co`,
   - surrogate `Cs`.
 
-
 So, e.g. if we need letters in lower case, we can write `pattern:\p{Ll}`, punctuation signs: `pattern:\p{P}` and so on.
 
 There are also other derived categories, like:
+
 - `Alphabetic` (`Alpha`), includes Letters `L`, plus letter numbers `Nl` (e.g. Ⅻ - a character for the roman number 12), plus some other symbols `Other_Alphabetic` (`OAlpha`).
 - `Hex_Digit` includes hexadecimal digits: `0-9`, `a-f`.
 - ...And so on.
@@ -121,7 +121,7 @@ alert("number: xAF".match(regexp)); // xAF
 
 Let's look for Chinese hieroglyphs.
 
-There's a Unicode property `Script` (a writing system), that may have a value: `Cyrillic`, `Greek`, `Arabic`, `Han` (Chinese) and so on, [here's the full list](https://en.wikipedia.org/wiki/Script_(Unicode)).
+There's a Unicode property `Script` (a writing system), that may have a value: `Cyrillic`, `Greek`, `Arabic`, `Han` (Chinese) and so on, [here's the full list](<https://en.wikipedia.org/wiki/Script_(Unicode)>).
 
 To look for characters in a given writing system we should use `pattern:Script=<value>`, e.g. for Cyrillic letters: `pattern:\p{sc=Cyrillic}`, for Chinese hieroglyphs: `pattern:\p{sc=Han}`, and so on:
 
@@ -130,21 +130,21 @@ let regexp = /\p{sc=Han}/gu; // returns Chinese hieroglyphs
 
 let str = `Hello Привет 你好 123_456`;
 
-alert( str.match(regexp) ); // 你,好
+alert(str.match(regexp)); // 你,好
 ```
 
 ### Example: currency
 
-Characters that denote a currency, such as `$`, `€`, `¥`, have Unicode property  `pattern:\p{Currency_Symbol}`, the short alias: `pattern:\p{Sc}`.
+Characters that denote a currency, such as `$`, `€`, `¥`, have Unicode property `pattern:\p{Currency_Symbol}`, the short alias: `pattern:\p{Sc}`.
 
 Let's use it to look for prices in the format "currency, followed by a digit":
 
 ```js run
 let regexp = /\p{Sc}\d/gu;
 
-let  str = `Prices: $2, €1, ¥9`;
+let str = `Prices: $2, €1, ¥9`;
 
-alert( str.match(regexp) ); // $2,€1,¥9
+alert(str.match(regexp)); // $2,€1,¥9
 ```
 
 Later, in the article <info:regexp-quantifiers> we'll see how to look for numbers that contain many digits.

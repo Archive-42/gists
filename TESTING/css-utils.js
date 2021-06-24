@@ -3,7 +3,7 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+  value: true,
 });
 exports.isUnitless = isUnitless;
 exports.getUnit = getUnit;
@@ -13,7 +13,9 @@ exports.alignProperty = alignProperty;
 exports.fontGrid = fontGrid;
 exports.responsiveProperty = responsiveProperty;
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+var _defineProperty2 = _interopRequireDefault(
+  require("@babel/runtime/helpers/defineProperty")
+);
 
 function isUnitless(value) {
   return String(parseFloat(value)).length === String(value).length;
@@ -21,17 +23,14 @@ function isUnitless(value) {
 // https://github.com/Compass/compass/blob/master/core/stylesheets/compass/typography/_units.scss
 // Emulate the sass function "unit"
 
-
 function getUnit(input) {
-  return String(input).match(/[\d.\-+]*\s*(.*)/)[1] || '';
+  return String(input).match(/[\d.\-+]*\s*(.*)/)[1] || "";
 } // Emulate the sass function "unitless"
-
 
 function toUnitless(length) {
   return parseFloat(length);
 } // Convert any CSS <length> or <percentage> value to any another.
 // From https://github.com/KyleAMathews/convert-css-length
-
 
 function convertLength(baseFontSize) {
   return function (length, toUnit) {
@@ -41,25 +40,23 @@ function convertLength(baseFontSize) {
       return length;
     } // Convert input length to pixels.
 
-
     var pxLength = toUnitless(length);
 
-    if (fromUnit !== 'px') {
-      if (fromUnit === 'em') {
+    if (fromUnit !== "px") {
+      if (fromUnit === "em") {
         pxLength = toUnitless(length) * toUnitless(baseFontSize);
-      } else if (fromUnit === 'rem') {
+      } else if (fromUnit === "rem") {
         pxLength = toUnitless(length) * toUnitless(baseFontSize);
         return length;
       }
     } // Convert length in pixels to the output unit
 
-
     var outputLength = pxLength;
 
-    if (toUnit !== 'px') {
-      if (toUnit === 'em') {
+    if (toUnit !== "px") {
+      if (toUnit === "em") {
         outputLength = pxLength / toUnitless(baseFontSize);
-      } else if (toUnit === 'rem') {
+      } else if (toUnit === "rem") {
         outputLength = pxLength / toUnitless(baseFontSize);
       } else {
         return length;
@@ -72,19 +69,18 @@ function convertLength(baseFontSize) {
 
 function alignProperty(_ref) {
   var size = _ref.size,
-      grid = _ref.grid;
-  var sizeBelow = size - size % grid;
+    grid = _ref.grid;
+  var sizeBelow = size - (size % grid);
   var sizeAbove = sizeBelow + grid;
   return size - sizeBelow < sizeAbove - size ? sizeBelow : sizeAbove;
 } // fontGrid finds a minimal grid (in rem) for the fontSize values so that the
 // lineHeight falls under a x pixels grid, 4px in the case of Material Design,
 // without changing the relative line height
 
-
 function fontGrid(_ref2) {
   var lineHeight = _ref2.lineHeight,
-      pixels = _ref2.pixels,
-      htmlFontSize = _ref2.htmlFontSize;
+    pixels = _ref2.pixels,
+    htmlFontSize = _ref2.htmlFontSize;
   return pixels / (lineHeight * htmlFontSize);
 }
 /**
@@ -120,18 +116,22 @@ function fontGrid(_ref2) {
  * @returns {Object} responsive styles for {params.cssProperty}
  */
 
-
 function responsiveProperty(_ref3) {
   var cssProperty = _ref3.cssProperty,
-      min = _ref3.min,
-      max = _ref3.max,
-      _ref3$unit = _ref3.unit,
-      unit = _ref3$unit === void 0 ? 'rem' : _ref3$unit,
-      _ref3$breakpoints = _ref3.breakpoints,
-      breakpoints = _ref3$breakpoints === void 0 ? [600, 960, 1280] : _ref3$breakpoints,
-      _ref3$transform = _ref3.transform,
-      transform = _ref3$transform === void 0 ? null : _ref3$transform;
-  var output = (0, _defineProperty2.default)({}, cssProperty, "".concat(min).concat(unit));
+    min = _ref3.min,
+    max = _ref3.max,
+    _ref3$unit = _ref3.unit,
+    unit = _ref3$unit === void 0 ? "rem" : _ref3$unit,
+    _ref3$breakpoints = _ref3.breakpoints,
+    breakpoints =
+      _ref3$breakpoints === void 0 ? [600, 960, 1280] : _ref3$breakpoints,
+    _ref3$transform = _ref3.transform,
+    transform = _ref3$transform === void 0 ? null : _ref3$transform;
+  var output = (0, _defineProperty2.default)(
+    {},
+    cssProperty,
+    "".concat(min).concat(unit)
+  );
   var factor = (max - min) / breakpoints[breakpoints.length - 1];
   breakpoints.forEach(function (breakpoint) {
     var value = min + factor * breakpoint;
@@ -140,7 +140,12 @@ function responsiveProperty(_ref3) {
       value = transform(value);
     }
 
-    output["@media (min-width:".concat(breakpoint, "px)")] = (0, _defineProperty2.default)({}, cssProperty, "".concat(Math.round(value * 10000) / 10000).concat(unit));
+    output["@media (min-width:".concat(breakpoint, "px)")] = (0,
+    _defineProperty2.default)(
+      {},
+      cssProperty,
+      "".concat(Math.round(value * 10000) / 10000).concat(unit)
+    );
   });
   return output;
 }

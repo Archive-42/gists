@@ -1,25 +1,25 @@
 class User {
-  constructor ({ name = 'Anonymous' }) {
+  constructor({ name = "Anonymous" }) {
     this.name = name;
   }
-  login () {
-    console.log(`${ this.name } logged in.`);
+  login() {
+    console.log(`${this.name} logged in.`);
   }
-};
+}
 
 class Student extends User {
-  constructor (options) {
+  constructor(options) {
     super(options);
     this.completedLessons = [];
   }
-  completeLesson (id) {
+  completeLesson(id) {
     this.completedLessons.push(id);
-    console.log(`${ this.name } completed lesson: ${ id }`);
+    console.log(`${this.name} completed lesson: ${id}`);
   }
 }
 
 const echo = new Student({
-  name: 'Echo'
+  name: "Echo",
 });
 
 echo.login(); // "Echo logged in."

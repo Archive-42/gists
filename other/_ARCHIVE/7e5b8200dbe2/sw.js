@@ -8,11 +8,11 @@ let options = {
   ignoreVary: false,
 };
 //starter html and css and js files
-let assets = ['/', '/index.html', '/css/main.css', '/js/app.js', '/404.html'];
+let assets = ["/", "/index.html", "/css/main.css", "/js/app.js", "/404.html"];
 //starter images
-let imageAssets = ['/img/1011-800x600.jpg', '/img/distracted-boyfriend.jpg'];
+let imageAssets = ["/img/1011-800x600.jpg", "/img/distracted-boyfriend.jpg"];
 
-self.addEventListener('install', (ev) => {
+self.addEventListener("install", (ev) => {
   // service worker has been installed.
   //Extendable Event
   console.log(`Version ${version} installed`);
@@ -46,10 +46,10 @@ self.addEventListener('install', (ev) => {
   );
 });
 
-self.addEventListener('activate', (ev) => {
+self.addEventListener("activate", (ev) => {
   // when the service worker has been activated to replace an old one.
   //Extendable Event
-  console.log('activated');
+  console.log("activated");
   // delete old versions of caches.
   ev.waitUntil(
     caches.keys().then((keys) => {
@@ -69,7 +69,7 @@ self.addEventListener('activate', (ev) => {
   );
 });
 
-self.addEventListener('fetch', (ev) => {
+self.addEventListener("fetch", (ev) => {
   // Extendable Event.
   console.log(`MODE: ${ev.request.mode} for ${ev.request.url}`);
 
@@ -80,12 +80,12 @@ self.addEventListener('fetch', (ev) => {
         Promise.resolve().then(() => {
           let opts = {
             mode: ev.request.mode, //cors, no-cors, same-origin, navigate
-            cache: 'no-cache',
+            cache: "no-cache",
           };
           if (!ev.request.url.startsWith(location.origin)) {
             //not on the same domain as my html file
-            opts.mode = 'cors';
-            opts.credentials = 'omit';
+            opts.mode = "cors";
+            opts.credentials = "omit";
           }
           return fetch(ev.request.url, opts).then(
             (fetchResponse) => {
@@ -97,7 +97,7 @@ self.addEventListener('fetch', (ev) => {
               if (fetchResponse.status == 404) {
                 if (ev.request.url.match(/\.html/i)) {
                   return caches.open(staticName).then((cache) => {
-                    return cache.match('/404.html');
+                    return cache.match("/404.html");
                   });
                 }
                 if (
@@ -105,7 +105,7 @@ self.addEventListener('fetch', (ev) => {
                   ev.request.url.match(/\.png$/i)
                 ) {
                   return caches.open(imageName).then((cache) => {
-                    return cache.match('/img/distracted-boyfriend.jpg');
+                    return cache.match("/img/distracted-boyfriend.jpg");
                   });
                 }
               }
@@ -115,7 +115,7 @@ self.addEventListener('fetch', (ev) => {
               //return the 404.html file if it is a request for an html file
               if (ev.request.url.match(/\.html/i)) {
                 return caches.open(staticName).then((cache) => {
-                  return cache.match('/404.html');
+                  return cache.match("/404.html");
                 });
               }
             }
@@ -128,7 +128,7 @@ self.addEventListener('fetch', (ev) => {
 }); //end of fetch listener
 
 const handleFetchResponse = (fetchResponse, request) => {
-  let type = fetchResponse.headers.get('content-type');
+  let type = fetchResponse.headers.get("content-type");
   // console.log('handle request for', type, request.url);
   if (type && type.match(/^image\//i)) {
     //save the image in image cache
@@ -147,7 +147,7 @@ const handleFetchResponse = (fetchResponse, request) => {
   }
 };
 
-self.addEventListener('message', (ev) => {
+self.addEventListener("message", (ev) => {
   //message from web page ev.data.
   //Extendable Event
 });

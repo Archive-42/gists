@@ -8,13 +8,13 @@ let options = {
   ignoreVary: false,
 };
 //starter html and css and js files
-let assets = ['/', '/index.html', '/css/main.css', '/js/app.js', '/404.html'];
+let assets = ["/", "/index.html", "/css/main.css", "/js/app.js", "/404.html"];
 //starter images
-let imageAssets = ['/img/1011-800x600.jpg', '/img/distracted-boyfriend.jpg'];
+let imageAssets = ["/img/1011-800x600.jpg", "/img/distracted-boyfriend.jpg"];
 //TODO:
 let DB = null;
 
-self.addEventListener('install', (ev) => {
+self.addEventListener("install", (ev) => {
   // service worker has been installed.
   //Extendable Event
   console.log(`Version ${version} installed`);
@@ -48,10 +48,10 @@ self.addEventListener('install', (ev) => {
   );
 });
 
-self.addEventListener('activate', (ev) => {
+self.addEventListener("activate", (ev) => {
   // when the service worker has been activated to replace an old one.
   //Extendable Event
-  console.log('activated');
+  console.log("activated");
   // delete old versions of caches.
   ev.waitUntil(
     caches.keys().then((keys) => {
@@ -73,7 +73,7 @@ self.addEventListener('activate', (ev) => {
   );
 });
 
-self.addEventListener('fetch', (ev) => {
+self.addEventListener("fetch", (ev) => {
   // Extendable Event.
   ev.respondWith(
     caches.match(ev.request).then((cacheRes) => {
@@ -82,12 +82,12 @@ self.addEventListener('fetch', (ev) => {
         Promise.resolve().then(() => {
           let opts = {
             mode: ev.request.mode, //cors, no-cors, same-origin, navigate
-            cache: 'no-cache',
+            cache: "no-cache",
           };
           if (!ev.request.url.startsWith(location.origin)) {
             //not on the same domain as my html file
-            opts.mode = 'cors';
-            opts.credentials = 'omit';
+            opts.mode = "cors";
+            opts.credentials = "omit";
           }
           return fetch(ev.request.url, opts).then(
             (fetchResponse) => {
@@ -99,7 +99,7 @@ self.addEventListener('fetch', (ev) => {
               if (fetchResponse.status == 404) {
                 if (ev.request.url.match(/\.html/i)) {
                   return caches.open(staticName).then((cache) => {
-                    return cache.match('/404.html');
+                    return cache.match("/404.html");
                   });
                 }
                 if (
@@ -107,7 +107,7 @@ self.addEventListener('fetch', (ev) => {
                   ev.request.url.match(/\.png$/i)
                 ) {
                   return caches.open(imageName).then((cache) => {
-                    return cache.match('/img/distracted-boyfriend.jpg');
+                    return cache.match("/img/distracted-boyfriend.jpg");
                   });
                 }
               }
@@ -117,7 +117,7 @@ self.addEventListener('fetch', (ev) => {
               //return the 404.html file if it is a request for an html file
               if (ev.request.url.match(/\.html/i)) {
                 return caches.open(staticName).then((cache) => {
-                  return cache.match('/404.html');
+                  return cache.match("/404.html");
                 });
               }
             }
@@ -129,7 +129,7 @@ self.addEventListener('fetch', (ev) => {
 }); //end of fetch listener
 
 const handleFetchResponse = (fetchResponse, request) => {
-  let type = fetchResponse.headers.get('content-type');
+  let type = fetchResponse.headers.get("content-type");
   // console.log('handle request for', type, request.url);
   if (type && type.match(/^image\//i)) {
     //save the image in image cache
@@ -148,12 +148,12 @@ const handleFetchResponse = (fetchResponse, request) => {
   }
 };
 
-self.addEventListener('message', (ev) => {
+self.addEventListener("message", (ev) => {
   let data = ev.data;
   //console.log({ ev });
   let clientId = ev.source.id;
   // console.log('Service Worker received', data, clientId);
-  if ('addPerson' in data) {
+  if ("addPerson" in data) {
     //TODO: really do something with the data
     //TODO: open the database and wait for success
     //TODO: start a transaction
@@ -169,8 +169,8 @@ self.addEventListener('message', (ev) => {
     }
   }
 
-  if ('otherAction' in data) {
-    let msg = 'Hola';
+  if ("otherAction" in data) {
+    let msg = "Hola";
     sendMessage({
       code: 0,
       message: msg,
@@ -180,13 +180,13 @@ self.addEventListener('message', (ev) => {
 
 const savePerson = (person, clientId) => {
   if (person && DB) {
-    let tx = DB.transaction('colorStore', 'readwrite');
+    let tx = DB.transaction("colorStore", "readwrite");
     tx.onerror = (err) => {
       //failed transaction
     };
     tx.oncomplete = (ev) => {
       //finished saving... send the message
-      let msg = 'Thanks. The data was saved.';
+      let msg = "Thanks. The data was saved.";
       sendMessage(
         {
           code: 0,
@@ -196,7 +196,7 @@ const savePerson = (person, clientId) => {
         clientId
       );
     };
-    let store = tx.objectStore('colorStore');
+    let store = tx.objectStore("colorStore");
     let req = store.put(person);
     req.onsuccess = (ev) => {
       //saved the person
@@ -204,7 +204,7 @@ const savePerson = (person, clientId) => {
       //and will trigger tx.oncomplete next
     };
   } else {
-    let msg = 'No data was provided.';
+    let msg = "No data was provided.";
     sendMessage(
       {
         code: 0,
@@ -232,7 +232,7 @@ const sendMessage = async (msg, clientId) => {
 };
 
 const openDB = (callback) => {
-  let req = indexedDB.open('colorDB', version);
+  let req = indexedDB.open("colorDB", version);
   req.onerror = (err) => {
     //could not open db
     console.warn(err);
@@ -240,15 +240,15 @@ const openDB = (callback) => {
   };
   req.onupgradeneeded = (ev) => {
     let db = ev.target.result;
-    if (!db.objectStoreNames.contains('colorStore')) {
-      db.createObjectStore('colorStore', {
-        keyPath: 'id',
+    if (!db.objectStoreNames.contains("colorStore")) {
+      db.createObjectStore("colorStore", {
+        keyPath: "id",
       });
     }
   };
   req.onsuccess = (ev) => {
     DB = ev.target.result;
-    console.log('db opened and upgraded as needed');
+    console.log("db opened and upgraded as needed");
     if (callback) {
       callback();
     }

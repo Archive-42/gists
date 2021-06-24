@@ -1,20 +1,19 @@
-Deploy React and Express to Heroku
-==================================
+# Deploy React and Express to Heroku
 
 MAY 18, 2018
 
-*Updated May 18, 2018*
+_Updated May 18, 2018_
 
 You've got a React app, and an API server written in Express or something else. Now -- how do you deploy them both to a server?
 
 There are a few ways to do this:
 
--   Keep them together -- Express and React files sit on the same machine, and Express does double duty: it serves the React files, and it also serves API requests.
-    -   e.g., a DigitalOcean VPS running Express on port 80
--   Split them apart -- Host the Express API on one machine, and the React app on another.
-    -   e.g., React app served by Amazon S3, API server running on a DigitalOcean VPS
--   Put the API behind a proxy -- Express and React app files sit on the same machine, but served by different servers
-    -   e.g., NGINX webserver proxies API requests to the API server, and also serves React static files
+- Keep them together -- Express and React files sit on the same machine, and Express does double duty: it serves the React files, and it also serves API requests.
+  - e.g., a DigitalOcean VPS running Express on port 80
+- Split them apart -- Host the Express API on one machine, and the React app on another.
+  - e.g., React app served by Amazon S3, API server running on a DigitalOcean VPS
+- Put the API behind a proxy -- Express and React app files sit on the same machine, but served by different servers
+  - e.g., NGINX webserver proxies API requests to the API server, and also serves React static files
 
 This article will cover how to keep them together. We'll build the Express server to serve React's static files in addition to providing an API, and then deploy it to [Heroku](https://heroku.com/). Heroku is easy to deploy to and free to get started with.
 
@@ -26,8 +25,7 @@ If you don't have one already, go [here](https://heroku.com/) and sign up. It'
 
 Heroku comes with a commandline command they call a "toolbelt." Follow the instructions [here](https://devcenter.heroku.com/articles/heroku-cli) to install it. (On a Mac with [Homebrew](https://brew.sh/), just `brew install heroku`).
 
-The App
--------
+## The App
 
 We'll build a password generator. Every time you load the app or click Get More you'll get 5 random paswords.
 
@@ -35,8 +33,7 @@ We'll build a password generator. Every time you load the app or click Get More 
 
 Just a quick disclaimer: this is just meant as a demo! I don't recommend using some random internet thing that generates passwords *on the server* to generate your own real passwords ;)
 
-Create the Express App
-----------------------
+## Create the Express App
 
 Make a parent directory to contain everything. Call it `rando` or whatever you want.
 
@@ -128,8 +125,7 @@ Open up your browser and go to <http://localhost:5000/api/passwords>. You shoul
 
 ![Password generator working](https://daveceddia.com/images/password-generator-working.png)
 
-Set Up Heroku
--------------
+## Set Up Heroku
 
 Now we'll deploy the app to Heroku, make sure it works, and then we'll add React to the mix.
 
@@ -168,8 +164,7 @@ Now you can go to `<your url>/api/passwords` and make sure it works.
 
 Woohoo! You've got an app live on the real internet! Except it's not very nice to use, yet. Let's add a React frontend now.
 
-Create the React App
---------------------
+## Create the React App
 
 We're going to use [Create React App](https://github.com/facebookincubator/create-react-app) to generate a project. Remember that we decided the React app would live in the "client" folder? (we did, back when we set up Express to point to "client/build" for static assets).
 
@@ -307,13 +302,12 @@ Make sure the Express app is running too: run `yarn start` from its folder as 
 
 Go to [http://localhost:3000](http://localhost:3000/) and the app should be working! Now we can deploy the whole thing to Heroku.
 
-Deploying to Heroku
--------------------
+## Deploying to Heroku
 
 When you deploy the app with the `git push heroku master` command, git copies all the checked-in files up to Heroku. There are two complications now:
 
--   We need to check in the new `client` code
--   Express depends on the *built* client code in `client/build`, which we don't have yet, and which we'd rather not check in to git.
+- We need to check in the new `client` code
+- Express depends on the *built* client code in `client/build`, which we don't have yet, and which we'd rather not check in to git.
 
 What we'll do is tell Heroku to build the React app after we push up the code, and we can do that by adding a "heroku-postbuild" script in the top-level (Express app's) package.json.
 
@@ -345,8 +339,7 @@ This tells Heroku "hey, after you're done doing what you do, go into the client 
 
 Thanks to Matthew Locke and Babajide Ibiayo in the comments for how to get this working with NPM.
 
-Time to Deploy
---------------
+## Time to Deploy
 
 Once you have configured the `heroku-postbuild` step for Yarn (or NPM), add everything to git and commit it. Make sure to run this from the top-level `rando` directory, not inside `client`:
 
@@ -367,8 +360,7 @@ It again prints out your app's hostname. Mine is <https://glacial-brook-33351.h
 
 Congrats, you've got a React + Express app in production ;)
 
-Get the Code
-------------
+## Get the Code
 
 The complete app can be found [on Github](https://github.com/dceddia/rando), and the README there explains how to deploy it.
 

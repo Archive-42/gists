@@ -1,15 +1,15 @@
-const like = item => ({
+const like = (item) => ({
   type: like.type,
-  payload: item
+  payload: item,
 });
-like.type = 'user/like';
+like.type = "user/like";
 
 const initialState = {
-  name: 'Anonymous',
-  avatar: 'Anonymous',
-  email: '',
-  walletAddress: '',
-  likes: {}
+  name: "Anonymous",
+  avatar: "Anonymous",
+  email: "",
+  walletAddress: "",
+  likes: {},
 };
 
 // Before immer
@@ -20,8 +20,8 @@ const reducer = (state = initialState, { type, payload } = {}) => {
         ...state,
         likes: {
           ...state.likes,
-          [payload.id]: payload
-        }
+          [payload.id]: payload,
+        },
       };
     }
     default:

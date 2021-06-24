@@ -6,11 +6,11 @@ Similar to `WebSocket`, the connection is persistent.
 
 But there are several important differences:
 
-| `WebSocket` | `EventSource` |
-|-------------|---------------|
+| `WebSocket`                                                  | `EventSource`                           |
+| ------------------------------------------------------------ | --------------------------------------- |
 | Bi-directional: both client and server can exchange messages | One-directional: only server sends data |
-| Binary and text data | Only text |
-| WebSocket protocol | Regular HTTP |
+| Binary and text data                                         | Only text                               |
+| WebSocket protocol                                           | Regular HTTP                            |
 
 `EventSource` is a less-powerful way of communicating with the server than `WebSocket`.
 
@@ -18,7 +18,7 @@ Why should one ever use it?
 
 The main reason: it's simpler. In many applications, the power of `WebSocket` is a little bit too much.
 
-We need to receive a stream of data from server: maybe chat messages or market prices, or whatever. That's what `EventSource` is good at. Also it supports auto-reconnect, something  we need to implement manually with `WebSocket`. Besides, it's a plain old HTTP, not a new protocol.
+We need to receive a stream of data from server: maybe chat messages or market prices, or whatever. That's what `EventSource` is good at. Also it supports auto-reconnect, something we need to implement manually with `WebSocket`. Besides, it's a plain old HTTP, not a new protocol.
 
 ## Getting messages
 
@@ -56,7 +56,7 @@ For each such message, the `message` event is generated:
 ```js
 let eventSource = new EventSource("/events/subscribe");
 
-eventSource.onmessage = function(event) {
+eventSource.onmessage = function (event) {
   console.log("New message", event.data);
   // will log 3 times for the data stream above
 };
@@ -78,12 +78,11 @@ To pass credentials, we should set the additional option `withCredentials`, like
 
 ```js
 let source = new EventSource("https://another-site.com/events", {
-  withCredentials: true
+  withCredentials: true,
 });
 ```
 
 Please see the chapter <info:fetch-crossorigin> for more details about cross-origin headers.
-
 
 ## Reconnection
 
@@ -142,9 +141,9 @@ When a message with `id:` is received, the browser:
 - Sets the property `eventSource.lastEventId` to its value.
 - Upon reconnection sends the header `Last-Event-ID` with that `id`, so that the server may re-send following messages.
 
-```smart header="Put `id:` after `data:`"
-Please note: the `id` is appended below message `data` by the server, to ensure that `lastEventId` is updated after the message is received.
-```
+```smart header="Put `id:`after`data:`" Please note: the `id`is appended below message`data`by the server, to ensure that`lastEventId` is updated after the message is received.
+
+````
 
 ## Connection status: readyState
 
@@ -154,7 +153,7 @@ The `EventSource` object has `readyState` property, that has one of three values
 EventSource.CONNECTING = 0; // connecting or reconnecting
 EventSource.OPEN = 1;       // connected
 EventSource.CLOSED = 2;     // connection closed
-```
+````
 
 When an object is created, or the connection is down, it's always `EventSource.CONNECTING` (equals `0`).
 
@@ -185,15 +184,15 @@ data: Bob
 To handle custom events, we must use `addEventListener`, not `onmessage`:
 
 ```js
-eventSource.addEventListener('join', event => {
+eventSource.addEventListener("join", (event) => {
   alert(`Joined ${event.data}`);
 });
 
-eventSource.addEventListener('message', event => {
+eventSource.addEventListener("message", (event) => {
   alert(`Said: ${event.data}`);
 });
 
-eventSource.addEventListener('leave', event => {
+eventSource.addEventListener("leave", (event) => {
   alert(`Left ${event.data}`);
 });
 ```
@@ -211,6 +210,7 @@ Then the browser automatically reconnects.
 `EventSource` object automatically establishes a persistent connection and allows the server to send messages over it.
 
 It offers:
+
 - Automatic reconnect, with tunable `retry` timeout.
 - Message ids to resume events, the last received identifier is sent in `Last-Event-ID` header upon reconnection.
 - The current state is in the `readyState` property.
