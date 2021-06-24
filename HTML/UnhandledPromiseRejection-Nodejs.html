@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>UnhandledPromiseRejection-Nodejs</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="nodejs-weirdness-ahead">nodejs weirdness ahead</h2>
+<p>https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a</p>
+<h2 id="tldr">TL;DR:</h2>
+<p>To prevent throw’s inside async’s exiting with code 0 despite the error, <strong>ALWAYS</strong> call the top level async function this way:</p>
+<pre><code>async function start () { ... };
+start().catch(e=&gt;{console.log(e);process.exit(1);})
+// note that try-catch wont work here, must use .catch (see explanation bellow)</code></pre>
+<p>or</p>
+<pre><code>;(async ()=&gt;{
+  // your code here
+})().catch(e=&gt;{console.log(e);process.exit(1);})</code></pre>
+<h3 id="async-throw-exits-with-code-0-no-error">async throw exits with code 0 (no error)</h3>
+<pre><code>async function thrower() { throw new Error(&#39;async throw&#39;) }
+thrower();
+// shows stack trace as expected + some unhandled promise warning... but who cares, right? WRONG!, because:
+// exit code: 0   &lt;- echo $?  or  echo %errorlevel%
+// with &#39;node --no-warnings&#39;, exit code still 0, but also no stack trace !!!???</code></pre>
+<h3 id="try-catch-does-nothing">try catch does nothing</h3>
+<pre><code>try {
+  thrower();
+} catch (e) {console.log(&quot;catched?... NO!&quot;)}
+// still unhandled warning and exit code0</code></pre>
+<h3 id="solution-1-but-.catch-does">SOLUTION 1: but .catch() does</h3>
+<pre><code>thrower().catch(e=&gt;console.log(&quot;catched this time&quot;, e); process.exit(1););</code></pre>
+<h3 id="explanation">explanation</h3>
+<p>the <strong>.catch()</strong> catches the ‘reject’ of the promise AND any throw inside an async function is considered a “reject”, not a standard throw… ???, hence the catch of the try catches nothing, but the .catch does.</p>
+<p>In fact doing <strong>return Promise.reject()</strong> behaves in the same manner of <strong>throw new Error(’’)</strong></p>
+<h3 id="solution-2-but-i-see-try-catch-with-await-all-the-time-in-everyones-code">SOLUTION 2: but I see try catch with await all the time in everyone’s code!!!</h3>
+<p>Right, because it works <strong>when the try-catch is inside an async fuction itself</strong></p>
+<pre><code>;(async ()=&gt;{
+
+  try {
+    await thrower();
+  } catch (e) {console.log(&quot;catched!!&quot;,e); process.exit(1)}
+
+})();</code></pre>
+</body>
+</html>
