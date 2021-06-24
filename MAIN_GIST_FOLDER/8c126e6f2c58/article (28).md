@@ -1,4 +1,3 @@
-
 # Polyfills and transpilers
 
 The JavaScript language steadily evolves. New proposals to the language appear regularly, they are analyzed and, if considered worthy, are appended to the list at <https://tc39.github.io/ecma262/> and then progress to the [specification](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
@@ -33,14 +32,14 @@ A transpiler would analyze our code and rewrite `height ?? 100` into `(height !=
 height = height ?? 100;
 
 // after running the transpiler
-height = (height !== undefined && height !== null) ? height : 100;
+height = height !== undefined && height !== null ? height : 100;
 ```
 
 Now the rewritten code is suitable for older JavaScript engines.
 
 Usually, a developer runs the transpiler on their own computer, and then deploys the transpiled code to the server.
 
-Speaking of names, [Babel](https://babeljs.io) is one of the most prominent transpilers out there. 
+Speaking of names, [Babel](https://babeljs.io) is one of the most prominent transpilers out there.
 
 Modern project build systems, such as [webpack](http://webpack.github.io/), provide means to run transpiler automatically on every code change, so it's very easy to integrate into development process.
 
@@ -59,9 +58,10 @@ A script that updates/adds new functions is called "polyfill". It "fills in" the
 For this particular case, the polyfill for `Math.trunc` is a script that implements it, like this:
 
 ```js
-if (!Math.trunc) { // if no such function
+if (!Math.trunc) {
+  // if no such function
   // implement it
-  Math.trunc = function(number) {
+  Math.trunc = function (number) {
     // Math.ceil and Math.floor exist even in ancient JavaScript engines
     // they are covered later in the tutorial
     return number < 0 ? Math.ceil(number) : Math.floor(number);
@@ -69,12 +69,12 @@ if (!Math.trunc) { // if no such function
 }
 ```
 
-JavaScript is a highly dynamic language, scripts may add/modify any functions, even including built-in ones. 
+JavaScript is a highly dynamic language, scripts may add/modify any functions, even including built-in ones.
 
 Two interesting libraries of polyfills are:
+
 - [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
 - [polyfill.io](http://polyfill.io) service that provides a script with polyfills, depending on the features and user's browser.
-
 
 ## Summary
 
@@ -85,8 +85,8 @@ Just don't forget to use transpiler (if using modern syntax or operators) and po
 For example, later when you're familiar with JavaScript, you can setup a code build system based on [webpack](http://webpack.github.io/) with [babel-loader](https://github.com/babel/babel-loader) plugin.
 
 Good resources that show the current state of support for various features:
+
 - <https://kangax.github.io/compat-table/es6/> - for pure JavaScript.
 - <https://caniuse.com/> - for browser-related functions.
 
 P.S. Google Chrome is usually the most up-to-date with language features, try it if a tutorial demo fails. Most tutorial demos work with any modern browser though.
-

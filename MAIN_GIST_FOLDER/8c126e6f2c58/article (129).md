@@ -5,6 +5,7 @@ What if the binary data is actually a string? For instance, we received a file w
 The build-in [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) object allows to read the value into an actual JavaScript string, given the buffer and the encoding.
 
 We first need to create it:
+
 ```js
 let decoder = new TextDecoder([label], [options]);
 ```
@@ -29,18 +30,16 @@ For instance:
 ```js run
 let uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
 
-alert( new TextDecoder().decode(uint8Array) ); // Hello
+alert(new TextDecoder().decode(uint8Array)); // Hello
 ```
-
 
 ```js run
 let uint8Array = new Uint8Array([228, 189, 160, 229, 165, 189]);
 
-alert( new TextDecoder().decode(uint8Array) ); // 你好
+alert(new TextDecoder().decode(uint8Array)); // 你好
 ```
 
 We can decode a part of the buffer by creating a subarray view for it:
-
 
 ```js run
 let uint8Array = new Uint8Array([0, 72, 101, 108, 108, 111, 0]);
@@ -49,7 +48,7 @@ let uint8Array = new Uint8Array([0, 72, 101, 108, 108, 111, 0]);
 // create a new view over it, without copying anything
 let binaryString = uint8Array.subarray(1, -1);
 
-alert( new TextDecoder().decode(binaryString) ); // Hello
+alert(new TextDecoder().decode(binaryString)); // Hello
 ```
 
 ## TextEncoder
@@ -65,6 +64,7 @@ let encoder = new TextEncoder();
 The only encoding it supports is "utf-8".
 
 It has two methods:
+
 - **`encode(str)`** -- returns `Uint8Array` from a string.
 - **`encodeInto(str, destination)`** -- encodes `str` into `destination` that must be `Uint8Array`.
 

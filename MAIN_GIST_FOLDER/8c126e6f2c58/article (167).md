@@ -18,7 +18,7 @@ Without parentheses, the pattern `pattern:go+` means `subject:g` character, foll
 Parentheses group characters together, so `pattern:(go)+` means `match:go`, `match:gogo`, `match:gogogo` and so on.
 
 ```js run
-alert( 'Gogogo now!'.match(/(go)+/ig) ); // "Gogogo"
+alert("Gogogo now!".match(/(go)+/gi)); // "Gogogo"
 ```
 
 ### Example: domain
@@ -40,7 +40,7 @@ In regular expressions that's `pattern:(\w+\.)+\w+`:
 ```js run
 let regexp = /(\w+\.)+\w+/g;
 
-alert( "site.com my.site.com".match(regexp) ); // site.com,my.site.com
+alert("site.com my.site.com".match(regexp)); // site.com,my.site.com
 ```
 
 The search works, but the pattern can't match a domain with a hyphen, e.g. `my-site.com`, because the hyphen does not belong to class `pattern:\w`.
@@ -81,12 +81,12 @@ Let's wrap the inner content into parentheses, like this: `pattern:<(.*?)>`.
 Now we'll get both the tag as a whole `match:<h1>` and its contents `match:h1` in the resulting array:
 
 ```js run
-let str = '<h1>Hello, world!</h1>';
+let str = "<h1>Hello, world!</h1>";
 
 let tag = str.match(/<(.*?)>/);
 
-alert( tag[0] ); // <h1>
-alert( tag[1] ); // h1
+alert(tag[0]); // <h1>
+alert(tag[1]); // h1
 ```
 
 ### Nested groups
@@ -138,12 +138,12 @@ For instance, let's consider the regexp `pattern:a(z)?(c)?`. It looks for `"a"` 
 If we run it on the string with a single letter `subject:a`, then the result is:
 
 ```js run
-let match = 'a'.match(/a(z)?(c)?/);
+let match = "a".match(/a(z)?(c)?/);
 
-alert( match.length ); // 3
-alert( match[0] ); // a (whole match)
-alert( match[1] ); // undefined
-alert( match[2] ); // undefined
+alert(match.length); // 3
+alert(match[0]); // a (whole match)
+alert(match[1]); // undefined
+alert(match[2]); // undefined
 ```
 
 The array has the length of `3`, but all groups are empty.
@@ -151,23 +151,23 @@ The array has the length of `3`, but all groups are empty.
 And here's a more complex match for the string `subject:ac`:
 
 ```js run
-let match = 'ac'.match(/a(z)?(c)?/)
+let match = "ac".match(/a(z)?(c)?/);
 
-alert( match.length ); // 3
-alert( match[0] ); // ac (whole match)
-alert( match[1] ); // undefined, because there's nothing for (z)?
-alert( match[2] ); // c
+alert(match.length); // 3
+alert(match[0]); // ac (whole match)
+alert(match[1]); // undefined, because there's nothing for (z)?
+alert(match[2]); // c
 ```
 
 The array length is permanent: `3`. But there's nothing for the group `pattern:(z)?`, so the result is `["ac", undefined, "c"]`.
 
 ## Searching for all matches with groups: matchAll
 
-```warn header="`matchAll` is a new method, polyfill may be needed"
-The method `matchAll` is not supported in old browsers.
+```warn header="`matchAll`is a new method, polyfill may be needed" The method`matchAll` is not supported in old browsers.
 
 A polyfill may be required, such as <https://github.com/ljharb/String.prototype.matchAll>.
-```
+
+````
 
 When we search for all matches (flag `pattern:g`), the `match` method does not return contents for groups.
 
@@ -179,7 +179,7 @@ let str = '<h1> <h2>';
 let tags = str.match(/<(.*?)>/g);
 
 alert( tags ); // <h1>,<h2>
-```
+````
 
 The result is an array of matches, but without details about each of them. But in practice we usually need contents of capturing groups in the result.
 
@@ -196,7 +196,7 @@ Just like `match`, it looks for matches, but there are 3 differences:
 For instance:
 
 ```js run
-let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
+let results = "<h1> <h2>".matchAll(/<(.*?)>/gi);
 
 // results - is not an array, but an iterable object
 alert(results); // [object RegExp String Iterator]
@@ -214,9 +214,9 @@ As we can see, the first difference is very important, as demonstrated in the li
 There's no need in `Array.from` if we're looping over results:
 
 ```js run
-let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
+let results = "<h1> <h2>".matchAll(/<(.*?)>/gi);
 
-for(let result of results) {
+for (let result of results) {
   alert(result);
   // first alert: <h1>,h1
   // second: <h2>,h2
@@ -226,20 +226,20 @@ for(let result of results) {
 ...Or using destructuring:
 
 ```js
-let [tag1, tag2] = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
+let [tag1, tag2] = "<h1> <h2>".matchAll(/<(.*?)>/gi);
 ```
 
 Every match, returned by `matchAll`, has the same format as returned by `match` without flag `pattern:g`: it's an array with additional properties `index` (match index in the string) and `input` (source string):
 
 ```js run
-let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
+let results = "<h1> <h2>".matchAll(/<(.*?)>/gi);
 
 let [tag1, tag2] = results;
 
-alert( tag1[0] ); // <h1>
-alert( tag1[1] ); // h1
-alert( tag1.index ); // 0
-alert( tag1.input ); // <h1> <h2>
+alert(tag1[0]); // <h1>
+alert(tag1[1]); // h1
+alert(tag1.index); // 0
+alert(tag1.input); // <h1> <h2>
 ```
 
 ```smart header="Why is a result of `matchAll` an iterable object, not an array?"
@@ -250,7 +250,8 @@ The call to `matchAll` does not perform the search. Instead, it returns an itera
 So, there will be found as many results as needed, not more.
 
 E.g. there are potentially 100 matches in the text, but in a `for..of` loop we found 5 of them, then decided it's enough and made a `break`. Then the engine won't spend time finding other 95 matches.
-```
+
+````
 
 ## Named groups
 
@@ -271,7 +272,7 @@ let groups = str.match(dateRegexp).groups;
 alert(groups.year); // 2019
 alert(groups.month); // 04
 alert(groups.day); // 30
-```
+````
 
 As you can see, the groups reside in the `.groups` property of the match.
 
@@ -286,8 +287,8 @@ let str = "2019-10-30 2020-01-01";
 
 let results = str.matchAll(dateRegexp);
 
-for(let result of results) {
-  let {year, month, day} = result.groups;
+for (let result of results) {
+  let { year, month, day } = result.groups;
 
   alert(`${day}.${month}.${year}`);
   // first alert: 30.10.2019
@@ -305,7 +306,7 @@ For example,
 let str = "John Bull";
 let regexp = /(\w+) (\w+)/;
 
-alert( str.replace(regexp, '$2, $1') ); // Bull, John
+alert(str.replace(regexp, "$2, $1")); // Bull, John
 ```
 
 For named parentheses the reference will be `pattern:$<name>`.
@@ -317,7 +318,7 @@ let regexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/g;
 
 let str = "2019-10-30, 2020-01-01";
 
-alert( str.replace(regexp, '$<day>.$<month>.$<year>') );
+alert(str.replace(regexp, "$<day>.$<month>.$<year>"));
 // 30.10.2019, 01.01.2020
 ```
 
@@ -350,7 +351,7 @@ alert( result.length ); // 2 (no more items in the array)
 
 Parentheses group together a part of the regular expression, so that the quantifier applies to it as a whole.
 
-Parentheses groups are numbered left-to-right, and can optionally be named with  `(?<name>...)`.
+Parentheses groups are numbered left-to-right, and can optionally be named with `(?<name>...)`.
 
 The content, matched by a group, can be obtained in the results:
 

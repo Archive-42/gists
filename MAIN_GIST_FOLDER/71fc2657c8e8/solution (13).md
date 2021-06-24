@@ -6,7 +6,6 @@ We can run and check:
 
 ```js run
 if ("0") {
-  alert( 'Hello' );
+  alert("Hello");
 }
 ```
-

@@ -1,46 +1,43 @@
-'use strict';
-const os = require('os');
-const path = require('path');
-const arrify = require('arrify');
-const mergeWith = require('lodash.mergewith');
-const multimatch = require('multimatch');
-const pathExists = require('path-exists');
-const pkgConf = require('pkg-conf');
-const resolveFrom = require('resolve-from');
-const prettier = require('prettier');
-const semver = require('semver');
+"use strict";
+const os = require("os");
+const path = require("path");
+const arrify = require("arrify");
+const mergeWith = require("lodash.mergewith");
+const multimatch = require("multimatch");
+const pathExists = require("path-exists");
+const pkgConf = require("pkg-conf");
+const resolveFrom = require("resolve-from");
+const prettier = require("prettier");
+const semver = require("semver");
 
 const DEFAULT_IGNORE = [
-	'**/node_modules/**',
-	'**/bower_components/**',
-	'flow-typed/**',
-	'coverage/**',
-	'{tmp,temp}/**',
-	'**/*.min.js',
-	'**/bundle.js',
-	'fixture{-*,}.{js,jsx}',
-	'fixture{s,}/**',
-	'{test,tests,spec,__tests__}/fixture{s,}/**',
-	'vendor/**',
-	'dist/**'
+  "**/node_modules/**",
+  "**/bower_components/**",
+  "flow-typed/**",
+  "coverage/**",
+  "{tmp,temp}/**",
+  "**/*.min.js",
+  "**/bundle.js",
+  "fixture{-*,}.{js,jsx}",
+  "fixture{s,}/**",
+  "{test,tests,spec,__tests__}/fixture{s,}/**",
+  "vendor/**",
+  "dist/**",
 ];
 
-const DEFAULT_EXTENSION = [
-	'js',
-	'jsx'
-];
+const DEFAULT_EXTENSION = ["js", "jsx"];
 
 const DEFAULT_CONFIG = {
-	useEslintrc: false,
-	cache: true,
-	cacheLocation: path.join(os.homedir() || os.tmpdir(), '.xo-cache/'),
-	baseConfig: {
-		extends: [
-			'xo',
-			path.join(__dirname, '../config/overrides.js'),
-			path.join(__dirname, '../config/plugins.js')
-		]
-	}
+  useEslintrc: false,
+  cache: true,
+  cacheLocation: path.join(os.homedir() || os.tmpdir(), ".xo-cache/"),
+  baseConfig: {
+    extends: [
+      "xo",
+      path.join(__dirname, "../config/overrides.js"),
+      path.join(__dirname, "../config/plugins.js"),
+    ],
+  },
 };
 
 /**
@@ -66,222 +63,259 @@ const DEFAULT_CONFIG = {
  * With `engines.node` set to `>=8` the rule `plugin/rule` will be used with the config `{prop: 'node-8-conf'}`.
  */
 const ENGINE_RULES = {
-	'promise/prefer-await-to-then': {
-		'7.6.0': 'error'
-	}
+  "promise/prefer-await-to-then": {
+    "7.6.0": "error",
+  },
 };
 
 // Keep the same behaviour in mergeWith as deepAssign
 const mergeFn = (prev, val) => {
-	if (Array.isArray(prev) && Array.isArray(val)) {
-		return val;
-	}
+  if (Array.isArray(prev) && Array.isArray(val)) {
+    return val;
+  }
 };
 
-const normalizeOpts = opts => {
-	opts = Object.assign({}, opts);
+const normalizeOpts = (opts) => {
+  opts = Object.assign({}, opts);
 
-	// Aliases for humans
-	const aliases = [
-		'env',
-		'global',
-		'ignore',
-		'plugin',
-		'rule',
-		'setting',
-		'extend',
-		'extension'
-	];
+  // Aliases for humans
+  const aliases = [
+    "env",
+    "global",
+    "ignore",
+    "plugin",
+    "rule",
+    "setting",
+    "extend",
+    "extension",
+  ];
 
-	for (const singular of aliases) {
-		const plural = singular + 's';
-		let value = opts[plural] || opts[singular];
+  for (const singular of aliases) {
+    const plural = singular + "s";
+    let value = opts[plural] || opts[singular];
 
-		delete opts[singular];
+    delete opts[singular];
 
-		if (value === undefined) {
-			continue;
-		}
+    if (value === undefined) {
+      continue;
+    }
 
-		if (singular !== 'rule' && singular !== 'setting') {
-			value = arrify(value);
-		}
+    if (singular !== "rule" && singular !== "setting") {
+      value = arrify(value);
+    }
 
-		opts[plural] = value;
-	}
+    opts[plural] = value;
+  }
 
-	return opts;
+  return opts;
 };
 
-const mergeWithPkgConf = opts => {
-	opts = Object.assign({cwd: process.cwd()}, opts);
-	opts.cwd = path.resolve(opts.cwd);
-	const conf = pkgConf.sync('xo', {cwd: opts.cwd, skipOnFalse: true});
-  const pkgPath = pkgConf.filepath(conf)
-  const engines = pkgConf.sync('engines', {cwd: opts.cwd});
+const mergeWithPkgConf = (opts) => {
+  opts = Object.assign({ cwd: process.cwd() }, opts);
+  opts.cwd = path.resolve(opts.cwd);
+  const conf = pkgConf.sync("xo", { cwd: opts.cwd, skipOnFalse: true });
+  const pkgPath = pkgConf.filepath(conf);
+  const engines = pkgConf.sync("engines", { cwd: opts.cwd });
   const overridesRoot = pkgPath ? path.dirname(pkgPath) : undefined;
-  const overridesPrefix = pkgPath ? path.relative(overridesRoot, opts.cwd) : undefined;
-	const r = Object.assign({}, conf, {engines, overridesRoot, overridesPrefix}, opts);
+  const overridesPrefix = pkgPath
+    ? path.relative(overridesRoot, opts.cwd)
+    : undefined;
+  const r = Object.assign(
+    {},
+    conf,
+    { engines, overridesRoot, overridesPrefix },
+    opts
+  );
   if (overridesRoot && r.ignores === conf.ignores) {
-    r.ignoresRoot = overridesRoot
-    r.ignoresPrefix = overridesPrefix
+    r.ignoresRoot = overridesRoot;
+    r.ignoresPrefix = overridesPrefix;
   }
   return r;
 };
 
-const normalizeSpaces = opts => typeof opts.space === 'number' ? opts.space : 2;
+const normalizeSpaces = (opts) =>
+  typeof opts.space === "number" ? opts.space : 2;
 
 const mergeWithPrettierConf = (opts, prettierOpts) => {
-	if ((opts.semicolon === true && prettierOpts.semi === false) ||
-		(opts.semicolon === false && prettierOpts.semi === true)) {
-		throw new Error(`The Prettier config \`semi\` is ${prettierOpts.semi} while XO \`semicolon\` is ${opts.semicolon}`);
-	}
+  if (
+    (opts.semicolon === true && prettierOpts.semi === false) ||
+    (opts.semicolon === false && prettierOpts.semi === true)
+  ) {
+    throw new Error(
+      `The Prettier config \`semi\` is ${prettierOpts.semi} while XO \`semicolon\` is ${opts.semicolon}`
+    );
+  }
 
-	if (((opts.space === true || typeof opts.space === 'number') && prettierOpts.useTabs === false) ||
-		((opts.space === false || typeof opts.space === 'number') && prettierOpts.useTabs === true)) {
-		throw new Error(`The Prettier config \`useTabs\` is ${prettierOpts.useTabs} while XO \`space\` is ${opts.space}`);
-	}
+  if (
+    ((opts.space === true || typeof opts.space === "number") &&
+      prettierOpts.useTabs === false) ||
+    ((opts.space === false || typeof opts.space === "number") &&
+      prettierOpts.useTabs === true)
+  ) {
+    throw new Error(
+      `The Prettier config \`useTabs\` is ${prettierOpts.useTabs} while XO \`space\` is ${opts.space}`
+    );
+  }
 
-	if (typeof opts.space === 'number' && typeof prettierOpts.tabWidth === 'number' && opts.space !== prettierOpts.tabWidth) {
-		throw new Error(`The Prettier config \`tabWidth\` is ${prettierOpts.tabWidth} while XO \`space\` is ${opts.space}`);
-	}
+  if (
+    typeof opts.space === "number" &&
+    typeof prettierOpts.tabWidth === "number" &&
+    opts.space !== prettierOpts.tabWidth
+  ) {
+    throw new Error(
+      `The Prettier config \`tabWidth\` is ${prettierOpts.tabWidth} while XO \`space\` is ${opts.space}`
+    );
+  }
 
-	return mergeWith(
-		{},
-		{
-			singleQuote: true,
-			bracketSpacing: false,
-			jsxBracketSameLine: false,
-			trailingComma: 'none',
-			tabWidth: normalizeSpaces(opts),
-			useTabs: !opts.space,
-			semi: opts.semicolon !== false
-		},
-		prettierOpts,
-		mergeFn
-	);
+  return mergeWith(
+    {},
+    {
+      singleQuote: true,
+      bracketSpacing: false,
+      jsxBracketSameLine: false,
+      trailingComma: "none",
+      tabWidth: normalizeSpaces(opts),
+      useTabs: !opts.space,
+      semi: opts.semicolon !== false,
+    },
+    prettierOpts,
+    mergeFn
+  );
 };
 
 // Define the shape of deep properties for mergeWith
 const emptyOptions = () => ({
-	rules: {},
-	settings: {},
-	globals: [],
-	envs: [],
-	plugins: [],
-	extends: []
+  rules: {},
+  settings: {},
+  globals: [],
+  envs: [],
+  plugins: [],
+  extends: [],
 });
 
-const buildConfig = opts => {
-	const config = mergeWith(
-		emptyOptions(),
-		DEFAULT_CONFIG,
-		opts,
-		mergeFn
-	);
-	const spaces = normalizeSpaces(opts);
+const buildConfig = (opts) => {
+  const config = mergeWith(emptyOptions(), DEFAULT_CONFIG, opts, mergeFn);
+  const spaces = normalizeSpaces(opts);
 
-	if (opts.engines && opts.engines.node && semver.validRange(opts.engines.node)) {
-		for (const rule of Object.keys(ENGINE_RULES)) {
-			// Use the rule value for the highest version that is lower or equal to the oldest version of Node.js supported
-			for (const minVersion of Object.keys(ENGINE_RULES[rule]).sort(semver.compare)) {
-				if (!semver.intersects(opts.engines.node, `<${minVersion}`)) {
-					config.rules[rule] = ENGINE_RULES[rule][minVersion];
-				}
-			}
-		}
-	}
+  if (
+    opts.engines &&
+    opts.engines.node &&
+    semver.validRange(opts.engines.node)
+  ) {
+    for (const rule of Object.keys(ENGINE_RULES)) {
+      // Use the rule value for the highest version that is lower or equal to the oldest version of Node.js supported
+      for (const minVersion of Object.keys(ENGINE_RULES[rule]).sort(
+        semver.compare
+      )) {
+        if (!semver.intersects(opts.engines.node, `<${minVersion}`)) {
+          config.rules[rule] = ENGINE_RULES[rule][minVersion];
+        }
+      }
+    }
+  }
 
-	if (opts.space && !opts.prettier) {
-		config.rules.indent = ['error', spaces, {SwitchCase: 1}];
+  if (opts.space && !opts.prettier) {
+    config.rules.indent = ["error", spaces, { SwitchCase: 1 }];
 
-		// Only apply if the user has the React plugin
-		if (opts.cwd && resolveFrom.silent(opts.cwd, 'eslint-plugin-react')) {
-			config.plugins = config.plugins.concat('react');
-			config.rules['react/jsx-indent-props'] = ['error', spaces];
-			config.rules['react/jsx-indent'] = ['error', spaces];
-		}
-	}
+    // Only apply if the user has the React plugin
+    if (opts.cwd && resolveFrom.silent(opts.cwd, "eslint-plugin-react")) {
+      config.plugins = config.plugins.concat("react");
+      config.rules["react/jsx-indent-props"] = ["error", spaces];
+      config.rules["react/jsx-indent"] = ["error", spaces];
+    }
+  }
 
-	if (opts.semicolon === false && !opts.prettier) {
-		config.rules.semi = ['error', 'never'];
-		config.rules['semi-spacing'] = ['error', {
-			before: false,
-			after: true
-		}];
-	}
+  if (opts.semicolon === false && !opts.prettier) {
+    config.rules.semi = ["error", "never"];
+    config.rules["semi-spacing"] = [
+      "error",
+      {
+        before: false,
+        after: true,
+      },
+    ];
+  }
 
-	if (opts.esnext !== false) {
-		config.baseConfig.extends = [
-			'xo/esnext',
-			path.join(__dirname, '../config/plugins.js')
-		];
-	}
+  if (opts.esnext !== false) {
+    config.baseConfig.extends = [
+      "xo/esnext",
+      path.join(__dirname, "../config/plugins.js"),
+    ];
+  }
 
-	if (opts.rules) {
-		Object.assign(config.rules, opts.rules);
-	}
+  if (opts.rules) {
+    Object.assign(config.rules, opts.rules);
+  }
 
-	if (opts.settings) {
-		config.baseConfig.settings = opts.settings;
-	}
+  if (opts.settings) {
+    config.baseConfig.settings = opts.settings;
+  }
 
-	if (opts.parser) {
-		config.baseConfig.parser = opts.parser;
-	}
+  if (opts.parser) {
+    config.baseConfig.parser = opts.parser;
+  }
 
-	if (opts.extends && opts.extends.length > 0) {
-		// TODO: This logic needs to be improved, preferably use the same code as ESLint
-		// user's configs must be resolved to their absolute paths
-		const configs = opts.extends.map(name => {
-			// Don't do anything if it's a filepath
-			if (pathExists.sync(name)) {
-				return name;
-			}
+  if (opts.extends && opts.extends.length > 0) {
+    // TODO: This logic needs to be improved, preferably use the same code as ESLint
+    // user's configs must be resolved to their absolute paths
+    const configs = opts.extends.map((name) => {
+      // Don't do anything if it's a filepath
+      if (pathExists.sync(name)) {
+        return name;
+      }
 
-			// Don't do anything if it's a config from a plugin
-			if (name.startsWith('plugin:')) {
-				return name;
-			}
+      // Don't do anything if it's a config from a plugin
+      if (name.startsWith("plugin:")) {
+        return name;
+      }
 
-			if (!name.includes('eslint-config-')) {
-				name = `eslint-config-${name}`;
-			}
+      if (!name.includes("eslint-config-")) {
+        name = `eslint-config-${name}`;
+      }
 
-			const ret = resolveFrom(opts.cwd, name);
+      const ret = resolveFrom(opts.cwd, name);
 
-			if (!ret) {
-				throw new Error(`Couldn't find ESLint config: ${name}`);
-			}
+      if (!ret) {
+        throw new Error(`Couldn't find ESLint config: ${name}`);
+      }
 
-			return ret;
-		});
+      return ret;
+    });
 
-		config.baseConfig.extends = config.baseConfig.extends.concat(configs);
-	}
+    config.baseConfig.extends = config.baseConfig.extends.concat(configs);
+  }
 
-	// If the user sets the `prettier` options then add the `prettier` plugin and config
-	if (opts.prettier) {
-		// Disable formatting rules conflicting with Prettier
-		config.rules['unicorn/number-literal-case'] = 'off';
-		// The prettier plugin uses Prettier to format the code with `--fix`
-		config.plugins = config.plugins.concat('prettier');
-		// The prettier config overrides ESLint stylistic rules that are handled by Prettier
-		config.baseConfig.extends = config.baseConfig.extends.concat('prettier');
-		// The `prettier/prettier` rule reports errors if the code is not formatted in accordance to Prettier
-		config.rules['prettier/prettier'] = [
-			'error', mergeWithPrettierConf(opts, prettier.resolveConfig.sync(opts.cwd || process.cwd()) || {})
-		];
-		// If the user has the React, Flowtype or Standard plugin, add the corresponding Prettier rule overrides
-		// See https://github.com/prettier/eslint-config-prettier for the list of plugins overrrides
-		for (const override of ['react', 'flowtype', 'standard']) {
-			if (opts.cwd && resolveFrom.silent(opts.cwd, `eslint-plugin-${override}`)) {
-				config.baseConfig.extends = config.baseConfig.extends.concat(`prettier/${override}`);
-			}
-		}
-	}
+  // If the user sets the `prettier` options then add the `prettier` plugin and config
+  if (opts.prettier) {
+    // Disable formatting rules conflicting with Prettier
+    config.rules["unicorn/number-literal-case"] = "off";
+    // The prettier plugin uses Prettier to format the code with `--fix`
+    config.plugins = config.plugins.concat("prettier");
+    // The prettier config overrides ESLint stylistic rules that are handled by Prettier
+    config.baseConfig.extends = config.baseConfig.extends.concat("prettier");
+    // The `prettier/prettier` rule reports errors if the code is not formatted in accordance to Prettier
+    config.rules["prettier/prettier"] = [
+      "error",
+      mergeWithPrettierConf(
+        opts,
+        prettier.resolveConfig.sync(opts.cwd || process.cwd()) || {}
+      ),
+    ];
+    // If the user has the React, Flowtype or Standard plugin, add the corresponding Prettier rule overrides
+    // See https://github.com/prettier/eslint-config-prettier for the list of plugins overrrides
+    for (const override of ["react", "flowtype", "standard"]) {
+      if (
+        opts.cwd &&
+        resolveFrom.silent(opts.cwd, `eslint-plugin-${override}`)
+      ) {
+        config.baseConfig.extends = config.baseConfig.extends.concat(
+          `prettier/${override}`
+        );
+      }
+    }
+  }
 
-	return config;
+  return config;
 };
 
 // Builds a list of overrides for a particular path, and a hash value.
@@ -289,66 +323,73 @@ const buildConfig = opts => {
 //
 // If overrides.length === 4, and only the first and third elements apply, then our hash is: 1010 (in binary)
 const findApplicableOverrides = (path, overrides) => {
-	let hash = 0;
-	const applicable = [];
+  let hash = 0;
+  const applicable = [];
 
-	for (const override of overrides) {
-		hash <<= 1;
+  for (const override of overrides) {
+    hash <<= 1;
 
-		if (multimatch(path, override.files).length > 0) {
-			applicable.push(override);
-			hash |= 1;
-		}
-	}
+    if (multimatch(path, override.files).length > 0) {
+      applicable.push(override);
+      hash |= 1;
+    }
+  }
 
-	return {
-		hash,
-		applicable
-	};
+  return {
+    hash,
+    applicable,
+  };
 };
 
 const mergeApplicableOverrides = (baseOptions, applicableOverrides) => {
-	applicableOverrides = applicableOverrides.map(override => normalizeOpts(override));
-	const overrides = [emptyOptions(), baseOptions].concat(applicableOverrides, mergeFn);
-	return mergeWith(...overrides);
+  applicableOverrides = applicableOverrides.map((override) =>
+    normalizeOpts(override)
+  );
+  const overrides = [emptyOptions(), baseOptions].concat(
+    applicableOverrides,
+    mergeFn
+  );
+  return mergeWith(...overrides);
 };
 
 // Creates grouped sets of merged options together with the paths they apply to.
 const groupConfigs = (paths, baseOptions, overrides) => {
-	const map = {};
-	const arr = [];
+  const map = {};
+  const arr = [];
 
-	for (const x of paths) {
-		const data = findApplicableOverrides(x, overrides);
+  for (const x of paths) {
+    const data = findApplicableOverrides(x, overrides);
 
-		if (!map[data.hash]) {
-			const mergedOpts = mergeApplicableOverrides(baseOptions, data.applicable);
-			delete mergedOpts.files;
+    if (!map[data.hash]) {
+      const mergedOpts = mergeApplicableOverrides(baseOptions, data.applicable);
+      delete mergedOpts.files;
 
-			arr.push(map[data.hash] = {
-				opts: mergedOpts,
-				paths: []
-			});
-		}
+      arr.push(
+        (map[data.hash] = {
+          opts: mergedOpts,
+          paths: [],
+        })
+      );
+    }
 
-		map[data.hash].paths.push(x);
-	}
+    map[data.hash].paths.push(x);
+  }
 
-	return arr;
+  return arr;
 };
 
-const getIgnores = opts => {
-	opts.ignores = DEFAULT_IGNORE.concat(opts.ignores || []);
-	return opts;
+const getIgnores = (opts) => {
+  opts.ignores = DEFAULT_IGNORE.concat(opts.ignores || []);
+  return opts;
 };
 
-const preprocess = opts => {
-	opts = mergeWithPkgConf(opts);
-	opts = normalizeOpts(opts);
-	opts = getIgnores(opts);
-	opts.extensions = DEFAULT_EXTENSION.concat(opts.extensions || []);
+const preprocess = (opts) => {
+  opts = mergeWithPkgConf(opts);
+  opts = normalizeOpts(opts);
+  opts = getIgnores(opts);
+  opts.extensions = DEFAULT_EXTENSION.concat(opts.extensions || []);
 
-	return opts;
+  return opts;
 };
 
 module.exports.DEFAULT_IGNORE = DEFAULT_IGNORE;

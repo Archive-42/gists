@@ -12,85 +12,85 @@ A method to derive Maven/Nexus-compatible versions from git tags.
 
 module.exports = promisedVersion;
 
-var Promise = require('bluebird');
-var execSync = Promise.promisify(require('child_process').exec);
+var Promise = require("bluebird");
+var execSync = Promise.promisify(require("child_process").exec);
 
 // Utilities ----------------------------------------------------------------
 
 function trimStdout(stdout) {
-    return String(stdout).trim();
+  return String(stdout).trim();
 }
 
 function getOutput(command) {
-    return execSync(command).spread(trimStdout);
+  return execSync(command).spread(trimStdout);
 }
 
 function cleanBranchName(stdout) {
-    return stdout.replace(/\//g, '_');
+  return stdout.replace(/\//g, "_");
 }
 
 function parseLongDescribe(stdout) {
-    var meta = {};
+  var meta = {};
 
-    // v1.0-6608-g09e4ce6
-    var splat = stdout.split('-');
+  // v1.0-6608-g09e4ce6
+  var splat = stdout.split("-");
 
-    var commit = splat.pop()
-        .substr(1); // removes 'g' prefix
+  var commit = splat.pop().substr(1); // removes 'g' prefix
 
-    meta.commit = commit;
+  meta.commit = commit;
 
-    var countSinceTag = splat.pop();
+  var countSinceTag = splat.pop();
 
-    var tagged = splat.pop()
-        .substr(1)  // removes 'v' prefix
-        .split('.');
+  var tagged = splat
+    .pop()
+    .substr(1) // removes 'v' prefix
+    .split(".");
 
-    meta.major = tagged[0];
-    meta.minor = tagged[1];
-    // ignores 'patch', if present
+  meta.major = tagged[0];
+  meta.minor = tagged[1];
+  // ignores 'patch', if present
 
-    return meta;
+  return meta;
 }
 
 // Promises -----------------------------------------------------------------
 
 function getBranchName() {
-    return getOutput('git symbolic-ref --short HEAD').then(cleanBranchName);
+  return getOutput("git symbolic-ref --short HEAD").then(cleanBranchName);
 }
 
 function getVersionMeta() {
-    return getOutput('git describe --long --match v*').then(parseLongDescribe);
+  return getOutput("git describe --long --match v*").then(parseLongDescribe);
 }
 
 function getRevCount() {
-    return getOutput('git rev-list --count HEAD');
+  return getOutput("git rev-list --count HEAD");
 }
 
 function finish(branchName, versionMeta, revCount) {
-    var version,
-        major = 0,
-        minor = 0,
-        micro = revCount,
-        qualifier = [branchName, versionMeta.commit].join('.');
+  var version,
+    major = 0,
+    minor = 0,
+    micro = revCount,
+    qualifier = [branchName, versionMeta.commit].join(".");
 
-    if ((/(master|release|hotfix)/i).test(branchName)) {
-        major = versionMeta.major;
-        minor = versionMeta.minor;
-    }
+  if (/(master|release|hotfix)/i.test(branchName)) {
+    major = versionMeta.major;
+    minor = versionMeta.minor;
+  }
 
-    version = [major, minor, micro].join('.');
-    version += '-' + qualifier;
+  version = [major, minor, micro].join(".");
+  version += "-" + qualifier;
 
-    return version;
+  return version;
 }
 
 // Main ---------------------------------------------------------------------
 
 function promisedVersion() {
-    return Promise.join(getBranchName(), getVersionMeta(), getRevCount(), finish);
+  return Promise.join(getBranchName(), getVersionMeta(), getRevCount(), finish);
 }
 
 if (require.main === module) {
-    promisedVersion().then(console.log);
+  promisedVersion().then(console.log);
 }

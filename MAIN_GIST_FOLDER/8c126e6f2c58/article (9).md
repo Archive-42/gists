@@ -21,7 +21,7 @@ let n = 123;
 n = 12.345;
 ```
 
-The *number* type represents both integer and floating point numbers.
+The _number_ type represents both integer and floating point numbers.
 
 There are many operations for numbers, e.g. multiplication `*`, division `/`, addition `+`, subtraction `-`, and so on.
 
@@ -29,30 +29,31 @@ Besides regular numbers, there are so-called "special numeric values" which also
 
 - `Infinity` represents the mathematical [Infinity](https://en.wikipedia.org/wiki/Infinity) ∞. It is a special value that's greater than any number.
 
-    We can get it as a result of division by zero:
+  We can get it as a result of division by zero:
 
-    ```js run
-    alert( 1 / 0 ); // Infinity
-    ```
+  ```js run
+  alert(1 / 0); // Infinity
+  ```
 
-    Or just reference it directly:
+  Or just reference it directly:
 
-    ```js run
-    alert( Infinity ); // Infinity
-    ```
+  ```js run
+  alert(Infinity); // Infinity
+  ```
+
 - `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance:
 
-    ```js run
-    alert( "not a number" / 2 ); // NaN, such division is erroneous
-    ```
+  ```js run
+  alert("not a number" / 2); // NaN, such division is erroneous
+  ```
 
-    `NaN` is sticky. Any further operation on `NaN` returns `NaN`:
+  `NaN` is sticky. Any further operation on `NaN` returns `NaN`:
 
-    ```js run
-    alert( "not a number" / 2 + 5 ); // NaN
-    ```
+  ```js run
+  alert("not a number" / 2 + 5); // NaN
+  ```
 
-    So, if there's a `NaN` somewhere in a mathematical expression, it propagates to the whole result.
+  So, if there's a `NaN` somewhere in a mathematical expression, it propagates to the whole result.
 
 ```smart header="Mathematical operations are safe"
 Doing maths is "safe" in JavaScript. We can do anything: divide by zero, treat non-numeric strings as numbers, etc.
@@ -81,12 +82,11 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 As `BigInt` numbers are rarely needed, we don't cover them here, but devoted them a separate chapter <info:bigint>. Read it when you need such big numbers.
 
-
 ```smart header="Compatibility issues"
 Right now, `BigInt` is supported in Firefox/Chrome/Edge/Safari, but not in IE.
 ```
 
-You can check [*MDN* BigInt compatibility table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) to know which versions of a browser are supported.
+You can check [_MDN_ BigInt compatibility table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) to know which versions of a browser are supported.
 
 ## String
 
@@ -94,7 +94,7 @@ A string in JavaScript must be surrounded by quotes.
 
 ```js
 let str = "Hello";
-let str2 = 'Single quotes are ok too';
+let str2 = "Single quotes are ok too";
 let phrase = `can embed another ${str}`;
 ```
 
@@ -112,17 +112,18 @@ Backticks are "extended functionality" quotes. They allow us to embed variables 
 let name = "John";
 
 // embed a variable
-alert( `Hello, *!*${name}*/!*!` ); // Hello, John!
+alert(`Hello, *!*${name}*/!*!`); // Hello, John!
 
 // embed an expression
-alert( `the result is *!*${1 + 2}*/!*` ); // the result is 3
+alert(`the result is *!*${1 + 2}*/!*`); // the result is 3
 ```
 
 The expression inside `${…}` is evaluated and the result becomes a part of the string. We can put anything in there: a variable like `name` or an arithmetical expression like `1 + 2` or something more complex.
 
 Please note that this can only be done in backticks. Other quotes don't have this embedding functionality!
+
 ```js run
-alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)
+alert("the result is ${1 + 2}"); // the result is ${1 + 2} (double quotes do nothing)
 ```
 
 We'll cover strings more thoroughly in the chapter <info:string>.
@@ -151,7 +152,7 @@ Boolean values also come as a result of comparisons:
 ```js run
 let isGreater = 4 > 1;
 
-alert( isGreater ); // true (the comparison result is "yes")
+alert(isGreater); // true (the comparison result is "yes")
 ```
 
 We'll cover booleans more deeply in the chapter <info:logical-operators>.

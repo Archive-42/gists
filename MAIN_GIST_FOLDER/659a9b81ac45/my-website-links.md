@@ -47,5 +47,3 @@
 47. [docusaurus](https://documentation-site-react2.vercel.app/)
 48. [stackbit](https://app.stackbit.com/studio/609b2d7c71a5dd0016f36326)
 49. [NEW BLOG](https://best-celery-b2d7c.netlify.app/)
-
-

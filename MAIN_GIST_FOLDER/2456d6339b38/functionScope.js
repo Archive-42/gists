@@ -2,16 +2,16 @@
 // local scope. argumentVariable is part of the
 // function's scope, as it is an argument in its
 // definition.
-function parentFunction(argumentVariable){
+function parentFunction(argumentVariable) {
   // functionVariable and anotherVariable are both
   // part of parentFunction's local scope.
   var functionVariable = 10;
   let anotherVariable = 15;
-  
+
   // This is another function enclosed inside the
   // first one. It also defines its own scope, but
   // it has access to its parent function's scope.
-  function childFunction(){
+  function childFunction() {
     // childVariable is part of childFunction's local
     // scope.
     var childVariable = 20;
@@ -29,7 +29,7 @@ function parentFunction(argumentVariable){
     console.log(childVariable);
     console.log(anotherVariable);
   }
-  
+
   // parentFunction does not have access to variables
   // defined in childFunction, thus it cannot access
   // childVariable and it can only see its definition
@@ -37,7 +37,7 @@ function parentFunction(argumentVariable){
   console.log("Parent function: ");
   console.log(functionVariable);
   console.log(anotherVariable);
-  
+
   childFunction();
 }
 

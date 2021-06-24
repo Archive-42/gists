@@ -1,8 +1,8 @@
 // I want addOne() to be the only way to access/alter the 'counter'
 function addOne() {
-    let counter = 0;
-    counter++;
-    return counter;
+  let counter = 0;
+  counter++;
+  return counter;
 }
 let result1 = addOne();
 let result2 = addOne();

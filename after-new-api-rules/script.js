@@ -2,41 +2,41 @@
 
 var APP = {};
 
-document.documentElement.addEventListener('mousedown', () => {
-  if (Tone.context.state !== 'running') Tone.context.resume();
+document.documentElement.addEventListener("mousedown", () => {
+  if (Tone.context.state !== "running") Tone.context.resume();
 });
 
 // There's a bug that happens occasionally. Intercept it.
 // a seed that triggers it: d12d21ddd
-window.ABCJS.parse.each = function(a, d, c) {
-  var e = (a === undefined) ? 0 : a.length;
+window.ABCJS.parse.each = function (a, d, c) {
+  var e = a === undefined ? 0 : a.length;
   // for (var b = 0, e = a.length; b < e; b++) {
-  // ^^ this is the code that gets around it  
+  // ^^ this is the code that gets around it
   for (var b = 0; b < e; b++) {
-    d.apply(c, [a[b], b])
+    d.apply(c, [a[b], b]);
   }
-}
+};
 
-document.getElementById("load").addEventListener("click", function(e) {
+document.getElementById("load").addEventListener("click", function (e) {
   var seed = document.getElementById("seed").value;
-  if(seed) {
+  if (seed) {
     // if(seed.match(/^[A-Za-z0-9]+$/g)) {
-      document.getElementById("intro").style.display = "none";
-      APP.MusicGenerator.init(seed);
-      document.getElementById("play").focus();
-      document.getElementById("play").addEventListener("click", function(e) {
-        var $el = e.target;
-        if($el.getAttribute("data-playing") === "true") {
-          APP.MusicGenerator.pause();
-          $el.setAttribute("data-playing", "false");
-          $el.innerHTML = "Play";
-          APP.MusicGenerator.report();
-        } else {
-          APP.MusicGenerator.play();
-          $el.innerHTML = "Pause";
-          $el.setAttribute("data-playing", "true");
-        }
-      });
+    document.getElementById("intro").style.display = "none";
+    APP.MusicGenerator.init(seed);
+    document.getElementById("play").focus();
+    document.getElementById("play").addEventListener("click", function (e) {
+      var $el = e.target;
+      if ($el.getAttribute("data-playing") === "true") {
+        APP.MusicGenerator.pause();
+        $el.setAttribute("data-playing", "false");
+        $el.innerHTML = "Play";
+        APP.MusicGenerator.report();
+      } else {
+        APP.MusicGenerator.play();
+        $el.innerHTML = "Pause";
+        $el.setAttribute("data-playing", "true");
+      }
+    });
     // } else {
     //   alert("Letters and numbers only");
     // }
@@ -45,52 +45,50 @@ document.getElementById("load").addEventListener("click", function(e) {
   }
 });
 
-
-(function() {
-
+(function () {
   APP.MusicGenerator = {};
 
-  var _v_key      = "WeAddaBabyEetsABoy"; // change this to refresh the seed
-  var _roots      = "C Db D Eb E F F# G Ab A Bb".split(" ");
-  var _modes      = "maj min".split(" ");
-  var _hold       = "HOLD";
-  var _container  = document.getElementById("staff-container");
-  var _staff      = document.getElementById("staff");
-  var _midi       = document.getElementById("midi");
-  var _min_oct    = 2;
-  var _max_oct    = 5;
-  var _playing    = false;
-  var _res        = 8;
-  var _curr_meas  = 0;
-  var _curr_note  = 0;
-  var _scale      = [];
-  var _measures   = [];
-  var _abc        = "";
-  var _total_abc  = "";
-  var _treb_abc   = "";
-  var _bass_abc   = "";
-  var _gen_meas   = 0;
-  var _meas_gen   = 4;
-  var _first_one  = true;
+  var _v_key = "WeAddaBabyEetsABoy"; // change this to refresh the seed
+  var _roots = "C Db D Eb E F F# G Ab A Bb".split(" ");
+  var _modes = "maj min".split(" ");
+  var _hold = "HOLD";
+  var _container = document.getElementById("staff-container");
+  var _staff = document.getElementById("staff");
+  var _midi = document.getElementById("midi");
+  var _min_oct = 2;
+  var _max_oct = 5;
+  var _playing = false;
+  var _res = 8;
+  var _curr_meas = 0;
+  var _curr_note = 0;
+  var _scale = [];
+  var _measures = [];
+  var _abc = "";
+  var _total_abc = "";
+  var _treb_abc = "";
+  var _bass_abc = "";
+  var _gen_meas = 0;
+  var _meas_gen = 4;
+  var _first_one = true;
 
-  var _bpm        = null;
-  var _generator  = null;
-  var _len_seqs   = null;
-  var _mode       = null;
-  var _output     = null;
-  var _root       = null;
-  var _seed       = null;
-  var _synth      = null;
+  var _bpm = null;
+  var _generator = null;
+  var _len_seqs = null;
+  var _mode = null;
+  var _output = null;
+  var _root = null;
+  var _seed = null;
+  var _synth = null;
 
-  APP.MusicGenerator.init = function(seed) {
+  APP.MusicGenerator.init = function (seed) {
     _staff.innerHTML = "";
     _seed = seed + _v_key;
     _setGenerator(_seed);
     _setKey();
-    if(!_synth) _setSynth();
+    if (!_synth) _setSynth();
     _setTransport();
     _genStaff();
-    _renderStaff();    
+    _renderStaff();
 
     _genLengthSequences();
     _genScale();
@@ -120,17 +118,17 @@ document.getElementById("load").addEventListener("click", function(e) {
   // reporting the data
   function reportData() {
     _output = {
-      root: _root, mode: _mode, resolution: _res,
-      scale: _scale, measures: _measures, abc: _total_abc
+      root: _root,
+      mode: _mode,
+      resolution: _res,
+      scale: _scale,
+      measures: _measures,
+      abc: _total_abc,
     };
-    ABCJS.renderMidi(_midi, _total_abc , {}, {}, {});
+    ABCJS.renderMidi(_midi, _total_abc, {}, {}, {});
     console.log(_total_abc);
     console.log(_output);
   }
-  
-  
-  
-  
 
   //////////////
   // PRIVATE METHODS
@@ -152,29 +150,29 @@ document.getElementById("load").addEventListener("click", function(e) {
   // play the bass and treble notes
   function _playSong() {
     var measure = _measures[_curr_meas];
-    if(measure) {
+    if (measure) {
       var treb = measure.treb[_curr_note];
       var bass = measure.bass[_curr_note];
-      if(treb.chord) {
+      if (treb.chord) {
         _synth.triggerAttackRelease(treb.chord, treb.len + "n");
       }
-      if(bass.chord) {
+      if (bass.chord) {
         _synth.triggerAttackRelease(bass.chord, bass.len + "n");
       }
-      if(_curr_note + _curr_meas === 0) {
-        var hidden = document.querySelector(".hide"); 
-        if(hidden) hidden.className = "";
+      if (_curr_note + _curr_meas === 0) {
+        var hidden = document.querySelector(".hide");
+        if (hidden) hidden.className = "";
       }
       _curr_note++;
-      if(_curr_note >= _res) {
+      if (_curr_note >= _res) {
         _curr_note = 0;
         _curr_meas++;
-        if(_gen_meas % _meas_gen === 0) {
+        if (_gen_meas % _meas_gen === 0) {
           _addMeasure(_meas_gen);
         } else if (_gen_meas % _meas_gen === 3) {
           // scroll to the bottom of container
-          var hidden = document.querySelector(".hide"); 
-          if(hidden) hidden.className = "";          
+          var hidden = document.querySelector(".hide");
+          if (hidden) hidden.className = "";
           _utilScrollTo(_container, _container.scrollHeight, 500);
         }
         _gen_meas++;
@@ -188,12 +186,12 @@ document.getElementById("load").addEventListener("click", function(e) {
   function _addMeasure(how_many, loaded) {
     loaded = loaded || 0;
     var get_measure = _getMeasure();
-    get_measure.then(function(measure) {
+    get_measure.then(function (measure) {
       loaded++;
       // console.log("_getMeasure", measure);
       _measures.push(measure);
       _staffABC(measure);
-      if(loaded < how_many) {
+      if (loaded < how_many) {
         _addMeasure(how_many, loaded);
       } else {
         _renderStaff();
@@ -203,41 +201,49 @@ document.getElementById("load").addEventListener("click", function(e) {
 
   // generate a measure's worth of notes
   function _getMeasure() {
-    return new Promise(function(resMeasure, rejMeasure) {
+    return new Promise(function (resMeasure, rejMeasure) {
       var data = {
         scale: _scale.length / 2,
         bass: { max_notes: 1, offset: 0 },
-        treb: { max_notes: 3, offset: Math.floor(_scale.length / 2) }
+        treb: { max_notes: 3, offset: Math.floor(_scale.length / 2) },
       };
       var measure = {
-        bass: [], treb: []
+        bass: [],
+        treb: [],
       };
 
       // for each clef
-      var get_treb = _getClef('treb', data);
-      get_treb.then(function(t) {
-        // console.log("_getClef: t", t);
-        measure.treb = measure.treb.concat(t);
-        var get_bass = _getClef('bass', data);
-        get_bass.then(function(b) {
-          // console.log("_getClef: b", b);
-          measure.bass = measure.bass.concat(b);
-          resMeasure(measure);
-        }, function(b) {
-          rejMeasure(b);
-        });
-      }, function(t) {
-        rejMeasure(t);
-      });
+      var get_treb = _getClef("treb", data);
+      get_treb.then(
+        function (t) {
+          // console.log("_getClef: t", t);
+          measure.treb = measure.treb.concat(t);
+          var get_bass = _getClef("bass", data);
+          get_bass.then(
+            function (b) {
+              // console.log("_getClef: b", b);
+              measure.bass = measure.bass.concat(b);
+              resMeasure(measure);
+            },
+            function (b) {
+              rejMeasure(b);
+            }
+          );
+        },
+        function (t) {
+          rejMeasure(t);
+        }
+      );
     });
   }
 
   // generate notes for a clef
   function _getClef(clef_name, data) {
-    return new Promise(function(resClef, rejClef) {
+    return new Promise(function (resClef, rejClef) {
       var _clef_generator = new Math.seedrandom(_generator.int32() + "");
       // find a sequence
-      var seq = _len_seqs[Math.floor(_clef_generator.quick() * _len_seqs.length)];
+      var seq =
+        _len_seqs[Math.floor(_clef_generator.quick() * _len_seqs.length)];
       // shuffle the sequence order
       _utilShuffleArray(seq);
 
@@ -247,60 +253,74 @@ document.getElementById("load").addEventListener("click", function(e) {
 
       var chord_promises = [];
       // for each length in sequence
-      for(var s = 0; s < seq.length; s++) {
+      for (var s = 0; s < seq.length; s++) {
         // generate x notes for a random bass count. no rests.
         var note_count = Math.ceil(_clef_generator.quick() * max_notes);
         // generate random note length
         var note_length = seq[s];
-        chord_promises.push(_getChord(_clef_generator, data.scale, note_offset, note_count, note_length));
+        chord_promises.push(
+          _getChord(
+            _clef_generator,
+            data.scale,
+            note_offset,
+            note_count,
+            note_length
+          )
+        );
       }
 
-      Promise.all(chord_promises).then(function(chords) {
-        var clef = [];
-        // console.log("_getChord: promises", chords);
-        for(var i = 0; i < chords.length; i++) {
-          var chord = chords[i];
-          clef.push(chord);
-          if(chord.len) {
-            var chord_length_i = _res / chord.len;
-            for(var e = 0; e < chord_length_i - 1; e++) {
-              clef.push(_hold);
+      Promise.all(chord_promises).then(
+        function (chords) {
+          var clef = [];
+          // console.log("_getChord: promises", chords);
+          for (var i = 0; i < chords.length; i++) {
+            var chord = chords[i];
+            clef.push(chord);
+            if (chord.len) {
+              var chord_length_i = _res / chord.len;
+              for (var e = 0; e < chord_length_i - 1; e++) {
+                clef.push(_hold);
+              }
             }
           }
+          resClef(clef);
+        },
+        function (chords) {
+          rejClef(chords);
         }
-        resClef(clef);
-      }, function(chords) {
-        rejClef(chords);
-      });
-
+      );
     });
   }
 
   // generate the chord notes
   function _getChord(_clef_generator, scale, offset, note_count, note_length) {
-
-    return new Promise(function(resNotes, rejNotes) {
+    return new Promise(function (resNotes, rejNotes) {
       // used note indexes
       var used_note_indexes = [];
       var note_promises = [];
       // generate the notes
-      for(var i = 0; i < note_count; i++) {
-        note_promises.push(_getNote(_clef_generator, scale, offset, used_note_indexes));
+      for (var i = 0; i < note_count; i++) {
+        note_promises.push(
+          _getNote(_clef_generator, scale, offset, used_note_indexes)
+        );
       }
-      Promise.all(note_promises).then(function(chord) {
-        // console.log("_getNote: promises", chord);
-        var abc = _getABC(chord, note_length);
-        // add notes to measure
-        resNotes({ abc: abc, chord: chord, len: note_length });
-      }, function(chord) {
-        rejNotes(chord);
-      });
+      Promise.all(note_promises).then(
+        function (chord) {
+          // console.log("_getNote: promises", chord);
+          var abc = _getABC(chord, note_length);
+          // add notes to measure
+          resNotes({ abc: abc, chord: chord, len: note_length });
+        },
+        function (chord) {
+          rejNotes(chord);
+        }
+      );
     });
   }
 
   // generate a note
   function _getNote(_clef_generator, scale, offset, used_note_indexes) {
-    return new Promise(function(resNote, rejNote) {
+    return new Promise(function (resNote, rejNote) {
       // add the note to the chord
       resNote(_note());
 
@@ -310,14 +330,15 @@ document.getElementById("load").addEventListener("click", function(e) {
         // for measuring note is a "good" one.
         var good_note = true;
         // ensure we havent selected this index
-        if(used_note_indexes.indexOf(index) !== -1) good_note = false;
+        if (used_note_indexes.indexOf(index) !== -1) good_note = false;
         // or one below it
-        if(index > 0 && used_note_indexes.indexOf(index - 1) !== -1) good_note = false;
+        if (index > 0 && used_note_indexes.indexOf(index - 1) !== -1)
+          good_note = false;
         // or one above it
-        if(used_note_indexes.indexOf(index + 1) !== -1) good_note = false;
+        if (used_note_indexes.indexOf(index + 1) !== -1) good_note = false;
 
         // if we found a good note
-        if(good_note) {
+        if (good_note) {
           // add the index to the used array
           used_note_indexes.push(index);
           // grab the note
@@ -332,19 +353,15 @@ document.getElementById("load").addEventListener("click", function(e) {
     });
   }
 
-
-
-
-
   //////////////
   // ABC MUSICAL NOTATION
   //////////////
 
   // get abc notation for notes at a certain length
   function _getABC(notes, len) {
-    if(!len) return "";
+    if (!len) return "";
     var str = notes.length > 1 ? "[" : "";
-    for(var n = 0; n < notes.length; n++) {
+    for (var n = 0; n < notes.length; n++) {
       str += _ABCNotation(notes[n], len);
     }
     str += notes.length > 1 ? "]" : "";
@@ -354,7 +371,7 @@ document.getElementById("load").addEventListener("click", function(e) {
   // render the current abc to staff
   function _renderStaff() {
     var $par = document.createElement("div");
-    if(_first_one) {
+    if (_first_one) {
       _first_one = false;
     } else {
       $par.className = "hide";
@@ -375,26 +392,32 @@ document.getElementById("load").addEventListener("click", function(e) {
 
   function _renderABC(el, abc) {
     console.log(abc);
-    ABCJS.renderAbc(el, abc, {}, {
-      staffwidth: 800,
-      paddingright: 0,
-      paddingleft: 0,
-      scale: 1,
-      add_classes: true
-    }, {});
+    ABCJS.renderAbc(
+      el,
+      abc,
+      {},
+      {
+        staffwidth: 800,
+        paddingright: 0,
+        paddingleft: 0,
+        scale: 1,
+        add_classes: true,
+      },
+      {}
+    );
   }
-  
+
   // take a measure and generate the abc output
   function _staffABC(measure) {
     var abc = "";
     // TODO: every two measures new line with _gen_meas, _treb_abc, _bass_abc
-    for(var i = 0; i < measure.treb.length; i++) {
-      if(measure.treb[i].abc) {
+    for (var i = 0; i < measure.treb.length; i++) {
+      if (measure.treb[i].abc) {
         _treb_abc += measure.treb[i].abc + " ";
       }
     }
-    for(var i = 0; i < measure.bass.length; i++) {
-      if(measure.bass[i].abc) {
+    for (var i = 0; i < measure.bass.length; i++) {
+      if (measure.bass[i].abc) {
         _bass_abc += measure.bass[i].abc + " ";
       }
     }
@@ -404,7 +427,6 @@ document.getElementById("load").addEventListener("click", function(e) {
     // abc += [treb, bass].join("\n");
     // return abc;
   }
-
 
   // set the initial staff
   function _genStaff() {
@@ -419,7 +441,7 @@ document.getElementById("load").addEventListener("click", function(e) {
       "C:" + _root.replace(/b$/g, "♭") + " " + _mode + ", " + _bpm + " bpm",
     ].join("\n");
   }
-  
+
   // generate the staff header
   function _genStaffHeader() {
     return [
@@ -428,7 +450,7 @@ document.getElementById("load").addEventListener("click", function(e) {
       "%%staves {1 2}",
       "V: 1 clef=treble",
       "V: 2 clef=bass",
-      ""
+      "",
     ].join("\n");
   }
 
@@ -436,25 +458,18 @@ document.getElementById("load").addEventListener("click", function(e) {
   function _ABCNotation(note, length) {
     // note = note.replace(/([A-G])b/,"_$1");
     // TODO: know if this is needed based on mode.
-    note = note.replace(/([A-G])b/,"$1");
+    note = note.replace(/([A-G])b/, "$1");
     note = note
       .replace(/(.)1/, "$1,,,")
       .replace(/(.)2/, "$1,,")
       .replace(/(.)3/, "$1,")
       .replace(/(.)4/, "$1");
-    if(note.match(/(.)5|6/)) {
-      note = note
-        .replace(/(.)5/, "$1")
-        .replace(/(.)6/, "$1'")
-        .toLowerCase();
+    if (note.match(/(.)5|6/)) {
+      note = note.replace(/(.)5/, "$1").replace(/(.)6/, "$1'").toLowerCase();
     }
     note += _res / length;
     return note;
   }
-
-
-
-
 
   //////////////
   // DATA
@@ -468,14 +483,19 @@ document.getElementById("load").addEventListener("click", function(e) {
     var steps = _steps_lib;
     var start = _notes_lib.indexOf(_root + _min_oct);
     var last_note = (_max_oct - _min_oct) * 8;
-    for(var o = 0; o < last_note; o++) {
-      var index = start + steps[o % steps.length] + (Math.floor(o / steps.length) * 12);
+    for (var o = 0; o < last_note; o++) {
+      var index =
+        start + steps[o % steps.length] + Math.floor(o / steps.length) * 12;
       var note = _notes_lib[index];
-      if(note) {
-        _scale.push({ note: note.match(/[^\d]+/)[0], octave: note.match(/\d/)[0] });
+      if (note) {
+        _scale.push({
+          note: note.match(/[^\d]+/)[0],
+          octave: note.match(/\d/)[0],
+        });
       }
     }
-    if(!_scale.length) console.error("Too high up. Lower the octave or note count.");
+    if (!_scale.length)
+      console.error("Too high up. Lower the octave or note count.");
   }
 
   // potential combinations of note lengths
@@ -483,13 +503,13 @@ document.getElementById("load").addEventListener("click", function(e) {
   function _genLengthSequences() {
     _len_seqs = [
       [1],
-      [2,2],
-      [2,4,4],
-      [2,4,8,8],
-      [4,4,4,4],
-      [2,8,8,8,8],
-      [4,4,4,8,8],
-      [8,8,8,8,8,8,8,8],
+      [2, 2],
+      [2, 4, 4],
+      [2, 4, 8, 8],
+      [4, 4, 4, 4],
+      [2, 8, 8, 8, 8],
+      [4, 4, 4, 8, 8],
+      [8, 8, 8, 8, 8, 8, 8, 8],
       // [2,4,8,16,16],
       // [2,4,16,16,16,16],
       // [2,8,8,8,16,16],
@@ -527,19 +547,19 @@ document.getElementById("load").addEventListener("click", function(e) {
       // mixolydian: "W W H W W H W",
       // aeolian:    "W H W W H W W",
       // locrian:    "H W W H W W W",
-      maj:        "W W H W W W H",
-      min:        "W H W W H W W",
+      maj: "W W H W W W H",
+      min: "W H W W H W W",
     }[_mode].split(" ");
     // start each with root step
     var steps = [0];
 
     // loop through
     var step = 0;
-    for(var s = 0; s < mode.length; s++) {
+    for (var s = 0; s < mode.length; s++) {
       var key = mode[s];
-      if(key === "W") {
+      if (key === "W") {
         steps.push(steps[s] + 2);
-      } else if(key == "WH") {
+      } else if (key == "WH") {
         steps.push(steps[s] + 3);
       } else {
         steps.push(steps[s] + 1);
@@ -552,16 +572,12 @@ document.getElementById("load").addEventListener("click", function(e) {
   // generate every possible note/octave pairing in order
   function _genNotesLib() {
     var notes = [];
-    for(var i = 0; i < 9; i++) {
+    for (var i = 0; i < 9; i++) {
       var n = "C Db D Eb E F Gb G Ab A Bb B".split(" ");
-      for(var x = 0; x < n.length; x++) notes.push(n[x] + i);
+      for (var x = 0; x < n.length; x++) notes.push(n[x] + i);
     }
     return notes;
   }
-  
-
-
-
 
   //////////////
   // TONE.js
@@ -571,24 +587,23 @@ document.getElementById("load").addEventListener("click", function(e) {
   function _setTransport() {
     _bpm = Math.round(_generator.quick() * 60) + 60;
     Tone.Transport.bpm.value = _bpm;
-    Tone.Transport.scheduleRepeat(function(time) {
+    Tone.Transport.scheduleRepeat(function (time) {
       _playSong();
     }, _res + "n");
   }
 
   // set the synthesizer
   function _setSynth() {
-
     // master compression
     var multiband = new Tone.MultibandCompressor({
       lowFrequency: 200,
       highFrequency: 1300,
-      low: { threshold: -12 }
-     });
+      low: { threshold: -12 },
+    });
 
     var reverb = new Tone.Freeverb();
-        reverb.roomSize.value = 0.6;
-        reverb.wet.value = 0.2;
+    reverb.roomSize.value = 0.6;
+    reverb.wet.value = 0.2;
 
     Tone.Master.chain(reverb, multiband);
 
@@ -596,36 +611,36 @@ document.getElementById("load").addEventListener("click", function(e) {
     _synth = new Tone.PolySynth(6, Tone.SimpleSynth).toMaster();
     _synth.set({
       oscillator: {
-        type: "triangle"
+        type: "triangle",
       },
       envelope: {
         attack: 0.05,
         decay: 0.1,
         sustain: 0.3,
-        release: 1
-      }
+        release: 1,
+      },
     });
 
-//     _synth.set({
-//       envelope: {
-//         attack:  0.5,
-//         release: 0.5
-//       }
-//     });
+    //     _synth.set({
+    //       envelope: {
+    //         attack:  0.5,
+    //         release: 0.5
+    //       }
+    //     });
 
-//     _synth.set("carrier", {
-//       volume: -8,
-//       oscillator: {
-//         type: "triangle8",
-//         partials: [1, 0.2, 0.01]
-//       },
-//       envelope: {
-//         attack:  0.05,
-//         decay:   0.02,
-//         sustain: 0.6,
-//         release: 0.8
-//       }
-//     });
+    //     _synth.set("carrier", {
+    //       volume: -8,
+    //       oscillator: {
+    //         type: "triangle8",
+    //         partials: [1, 0.2, 0.01]
+    //       },
+    //       envelope: {
+    //         attack:  0.05,
+    //         decay:   0.02,
+    //         sustain: 0.6,
+    //         release: 0.8
+    //       }
+    //     });
 
     // _synth.set("modulator", {
     //   volume: -16,
@@ -644,11 +659,6 @@ document.getElementById("load").addEventListener("click", function(e) {
     // });
   }
 
-  
-
-
-
-  
   //////////////
   // UTILS
   //////////////
@@ -656,7 +666,9 @@ document.getElementById("load").addEventListener("click", function(e) {
   // shuffle an array
   // http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   function _utilShuffleArray(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
       // Pick a remaining element...
@@ -674,15 +686,12 @@ document.getElementById("load").addEventListener("click", function(e) {
   function _utilScrollTo(element, to, duration) {
     if (duration <= 0) return;
     var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
+    var perTick = (difference / duration) * 10;
 
-    setTimeout(function() {
+    setTimeout(function () {
       element.scrollTop = element.scrollTop + perTick;
       if (element.scrollTop === to) return;
       _utilScrollTo(element, to, duration - 10);
     }, 10);
   }
-
-
-}());
-
+})();

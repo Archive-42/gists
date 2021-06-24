@@ -5,4 +5,3 @@ The HTML code:
 For the file `alert.js` in the same folder:
 
 [js src="alert.js"]
-

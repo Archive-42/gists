@@ -3,6 +3,7 @@
 #### Problem Statement
 
 Given an unsorted array of n elements, write a function to sort the array
+
 #### Approach
 
 - Make the right-most index value pivot

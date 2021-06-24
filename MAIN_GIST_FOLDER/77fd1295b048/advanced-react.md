@@ -13,11 +13,11 @@ const DynamicTitle = () => {
   const [title, setTitle] = useState("Hooks are so fun!");
   const [inputText, setInputText] = useState("");
 
-  const handleChanges = e => {
+  const handleChanges = (e) => {
     setInputText(e.target.value);
   };
 
-  const changeTitle = e => {
+  const changeTitle = (e) => {
     e.preventDefault();
     setTitle(inputText);
     setInputText("");
@@ -54,6 +54,7 @@ You are probably looking at the two functions - `handleChanges` and `changeTitle
 ## Challenge
 
 Now that you can identify stateful logic, go through a few of the React components you've built this week. Try to point out examples of different stateful logic. How many different examples did you find?
+
 ## Overview
 
 React is, in essence, a combination of multiple components. A component can be as simple as a single piece of user interface that represents a small portion of our application. Conceptually, a component lifecycle happens in three phases. This idea is displayed nicely in the following diagram from one of the maintainers of React "Dan Abramov".
@@ -67,22 +68,22 @@ As you can see, the three React lifestyle phases are 1) Birth/Mounting, 2) Growt
 This is the phase when the component is being built out from the ground up. A few things are happening here:  
 Whatever initial data you want access to will be defined on the constructor of this phase
 
--   Your render method is invoked.
--   `componentDidMount` gets called as well.
+- Your render method is invoked.
+- `componentDidMount` gets called as well.
 
 ### Growth/Updating Phase
 
 In the Growth/Updating phase you're updating compnent data.
 
--   `setState` can be used to change the component's state data, forcing a call to `render`.
--   `shouldComponentUpdate` is a method one could use here to stop a component from calling render if necessary.
+- `setState` can be used to change the component's state data, forcing a call to `render`.
+- `shouldComponentUpdate` is a method one could use here to stop a component from calling render if necessary.
 
 ### Death/Un-mounting Phase
 
 Again, self-explanatory, but the unmounting phase includes removing the component from the screen.
 
--   Component is removed from the screen.
--   `componentWillUnmount` is called and can be used for any clean up you may need to do.
+- Component is removed from the screen.
+- `componentWillUnmount` is called and can be used for any clean up you may need to do.
 
 ## Follow Along
 
@@ -90,11 +91,11 @@ Dive into the documentation at [ReactJS (Links to an external site.)](https://re
 
 The methods that we're going to look at are:
 
--   `constructor`
--   `render`
--   `componentDidMount`
--   `componentDidUpdate`
--   `componentWillUnmount`
+- `constructor`
+- `render`
+- `componentDidMount`
+- `componentDidUpdate`
+- `componentWillUnmount`
 
 Let's also compare where each of these methods belong within the react lifecycle by taking a look at [this diagram (Links to an external site.)](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).
 
@@ -187,7 +188,7 @@ Now, let's add a property to our state data. Define a `message` property on the 
 
 ```jsx
 this.state = {
-  message: "Hello from App State!!"
+  message: "Hello from App State!!",
 };
 ```
 
@@ -205,10 +206,11 @@ Hooray! You've now built your first class component, and you're ready to rock n'
 
 Let's take the functionality of this class component that we built earlier and extend it just a little bit. Declare a `Functional Component` called `RenderMessage` inside [this CodeSandbox (Links to an external site.)](https://codesandbox.io/s/103jkor46q).
 
--   Make sure you declare your Props Object that will be passed into this component.
--   Return a `div` who's child is `props.message`
--   Now inside of the `App` class pass in that `RenderMessage` component and pass down a message prop to `RenderMessage`. This message prop should be set equal to the message property on the state object.
--   Once it's all wired up properly you've done it!
+- Make sure you declare your Props Object that will be passed into this component.
+- Return a `div` who's child is `props.message`
+- Now inside of the `App` class pass in that `RenderMessage` component and pass down a message prop to `RenderMessage`. This message prop should be set equal to the message property on the state object.
+- Once it's all wired up properly you've done it!
+
 ## Overview
 
 `Custom Hooks`, are so-called because you are building the hook yourself (customizing it), to apply non-visual behavior and stateful logic throughout your components. This way, you can reuse the same hook over and over again. Custom hooks follow the same patterns of naming that you've already learned (i.e. prefacing the function name with `use`, as in `useState`). You can build a reusable custom hook for anything from handling controlled inputs, to managing event listeners, or watching for key presses.
@@ -224,11 +226,11 @@ const DynamicTitle = () => {
   const [title, setTitle] = useState("This is a class component");
   const [inputText, setInputText] = useState("");
 
-  const handleChanges = e => {
+  const handleChanges = (e) => {
     setInputText(e.target.value);
   };
 
-  const changeTitle = e => {
+  const changeTitle = (e) => {
     e.preventDefault();
     setTitle(inputText);
     setInputText("");
@@ -267,9 +269,9 @@ Now, what happens if we need to issue state for multiple `input` tags? If we wer
 Instead, let's build out our custom hook that to reuse stateful logic. In this way, we avoid repeating code unnecessarily. Read the following function and try to guess what each piece of code is doing:
 
 ```jsx
-export const useInput = initialValue => {
+export const useInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
-  const handleChanges = updatedValue => {
+  const handleChanges = (updatedValue) => {
     setValue(updatedValue);
   };
   return [value, setValue, handleChanges];
@@ -291,7 +293,7 @@ const CustomForm = () => {
   const [password, setPassword, handlePassword] = useInput("");
   const [email, setEmail, handleEmail] = useInput("");
 
-  const resetValues = e => {
+  const resetValues = (e) => {
     e.preventDefault();
     setUsername("");
     setPassword("");
@@ -304,7 +306,7 @@ const CustomForm = () => {
         className="username-text"
         id="username"
         name="username"
-        onChange={e => handleUsername(e.target.value)}
+        onChange={(e) => handleUsername(e.target.value)}
         placeholder="Username"
         type="text"
         value={username}
@@ -313,7 +315,7 @@ const CustomForm = () => {
         className="password-test"
         id="password"
         name="password"
-        onChange={e => handlePassword(e.target.value)}
+        onChange={(e) => handlePassword(e.target.value)}
         placeholder="Password"
         type="password"
         value={password}
@@ -322,7 +324,7 @@ const CustomForm = () => {
         className="email-text"
         id="email"
         name="email"
-        onChange={e => handleEmail(e.target.value)}
+        onChange={(e) => handleEmail(e.target.value)}
         placeholder="Email"
         type="text"
         value={email}
@@ -389,7 +391,7 @@ The final thing you should notice is the `resetValue` function. When we invoke i
 Here they are again for your reference:
 
 ```jsx
-const resetValues = e => {
+const resetValues = (e) => {
   e.preventDefault();
   setUsername("");
   setPassword("");
@@ -433,7 +435,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      welcomeMessage: 'world!'
+      welcomeMessage: "world!",
     };
   }
 
@@ -450,10 +452,9 @@ class App extends React.Component {
 Let's create a sub component using functional components to hold our welcome message.
 
 ```jsx
-const WelcomeBanner = (props) =>
-{
-  return(<h1>Hello, {props.message}!</h1>);
-}
+const WelcomeBanner = (props) => {
+  return <h1>Hello, {props.message}!</h1>;
+};
 ```
 
 Now, lets refactor our component using React classes.
@@ -475,9 +476,9 @@ Great! We are sharing data between a component's state and a component's props. 
 
 Now let's add in the ability to modify that state. To do this we will need to:
 
--   Connect a state change method to an event listener in our child component.
--   Create the substance of that method in our parent.
--   Pass that method to the child through props.
+- Connect a state change method to an event listener in our child component.
+- Create the substance of that method in our parent.
+- Pass that method to the child through props.
 
 Let's start at bottom, our child component. Let's say that we want use a form to dynamically update our message statement. This small component should do nicely:
 
@@ -497,23 +498,23 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      welcomeMessage: 'world!'
+      welcomeMessage: "world!",
     };
   }
 
-  updateStateMessage = (e)=> {
-    this.setState({welcomeMessage:e.target.value});
-  }
+  updateStateMessage = (e) => {
+    this.setState({ welcomeMessage: e.target.value });
+  };
 
   render() {
     return (
       <div>
         <WelcomeBanner message={this.state.welcomeMessage} />
-        <FormComponent updateStateMessage={this.updateStateMessage}/>
+        <FormComponent updateStateMessage={this.updateStateMessage} />
       </div>
     );
   }
-};
+}
 ```
 
 And there we go! We successfully passed our `state data` downstream through `props` in WelcomeBanner. At the same time, we can also successful pass data back upstream by executing `state modifying functions` passed through `props` in FormComponent.
@@ -528,20 +529,20 @@ When a user clicks submit, show the data that's on state in an `alert` stateme
 
 Loop over a list of items showing those items to the screen. (Can be a list of strings). When a user clicks submit, instead of logging the item, push an item into that list, and watch the magic happen.
 
--   We're going to be updating some state on a parent component.
--   That state will be wired up to a few other components as we pass the props around.
--   We will also be passing around a few handler functions that help us update/delete our state.
+- We're going to be updating some state on a parent component.
+- That state will be wired up to a few other components as we pass the props around.
+- We will also be passing around a few handler functions that help us update/delete our state.
 
 Lets set up a form component that we can use to update our message component from above.
 
 ```jsx
-const WelcomeBanner = props => <h1>Hello, {props.message}!</h1>;
+const WelcomeBanner = (props) => <h1>Hello, {props.message}!</h1>;
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      welcomeMessage: 'world!'
+      welcomeMessage: "world!",
     };
   }
 
@@ -558,7 +559,7 @@ class App extends React.Component {
 Now let's build a form component that can handle some data defined on state, below on the child components.
 
 ```jsx
-const FormComponent = props => {
+const FormComponent = (props) => {
   return (
     <form>
       <input placeholder="change state" onChange={props.updateStateMessage} />
@@ -590,16 +591,17 @@ render() {
 
 Using the following tools:
 
--   Class component
--   functional FormComponent, MessageComponent
--   click, and change handlers
--   `setState`
+- Class component
+- functional FormComponent, MessageComponent
+- click, and change handlers
+- `setState`
 
 Build out a form that will allow a user to handle data. You'll need a button, input field, and some data-bound to a DOM element that displays what the user is submitting.
 
 When a user clicks submit, show the data that's on state in an `alert` statement.
 
 **Stretch** Loop over a list of items showing those items to the screen. (Can be a list of strings). When a user clicks submit, instead of logging the item, push an item into that list, and watch the magic happen.
+
 ## Overview
 
 Just as we can compose functions in vanilla JavaScript and components in React to create new functionality, we can extend our stateful logic by combining several hooks in a powerful, single custom hook. This compositional ability allows us to build out interesting abilities by combining various hooks in our application.
@@ -620,7 +622,7 @@ const useLocalStorage = (key, initialValue) => {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : initialValue;
   });
-  const setValue = value => {
+  const setValue = (value) => {
     setStoredValue(value);
     window.localStorage.setItem(key, JSON.stringify(value));
   };
@@ -642,7 +644,7 @@ import { useState } from "react";
 
 export const useInput = (key, initialValue) => {
   const [value, setValue] = useLocalStorage(key, initialValue);
-  const handleChanges = updatedValue => {
+  const handleChanges = (updatedValue) => {
     setValue(updatedValue);
   };
   return [value, setValue, handleChanges];
@@ -653,7 +655,7 @@ const useLocalStorage = (key, initialValue) => {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : initialValue;
   });
-  const setValue = value => {
+  const setValue = (value) => {
     setStoredValue(value);
     window.localStorage.setItem(key, JSON.stringify(value));
   };
@@ -688,8 +690,9 @@ We have already seen how events are handled within React class components. We ne
 
 ```jsx
 class Button extends React.Component {
-  handleButton = (e)=> {
-    console.log(e);  }
+  handleButton = (e) => {
+    console.log(e);
+  };
 
   render() {
     return <button onClick={this.handleButton}>Click Me</button>;
@@ -705,7 +708,7 @@ Let's add in some functionality to our event handler.
 
 ```jsx
 class Button extends React.Component {
-  clickHandler = event => {
+  clickHandler = (event) => {
     console.log(event); // this is the react Synthetic Event
   };
 
@@ -721,10 +724,10 @@ Now, when we click on our button, we can actually print out our `synthetic event
 
 Now, let's build out a little Application that can handle some data that we pass through a few JSX elements. We're going to build out some `event handler` functions using the following `event listeners`:
 
--   onClick
--   onDoubleClick
--   onMouseEnter
--   OnChange
+- onClick
+- onDoubleClick
+- onMouseEnter
+- OnChange
 
 First, let's build out a singleClickHandler function.
 
@@ -750,15 +753,13 @@ mouseEnterHandler = () => alert("Mouse Entered");
 
 changeHandler = () => alert("Item was changed");
 <div className="App">
-    <h1>Hello Handlers</h1>
-    <h2>Lets build out some handler functions.</h2>
-    <button onClick={this.singleClickHandler}>Click Handler Demo</button>
-    <button onDoubleClick={this.doubleClickHandler}>
-      Double Click Handler
-    </button>
-    <div onMouseEnter={this.mouseEnterHandler}>Mouse Enter</div>
-    <input onChange={this.changeHandler} placeholder="Change my input" />
-</div>
+  <h1>Hello Handlers</h1>
+  <h2>Lets build out some handler functions.</h2>
+  <button onClick={this.singleClickHandler}>Click Handler Demo</button>
+  <button onDoubleClick={this.doubleClickHandler}>Double Click Handler</button>
+  <div onMouseEnter={this.mouseEnterHandler}>Mouse Enter</div>
+  <input onChange={this.changeHandler} placeholder="Change my input" />
+</div>;
 ```
 
 Try playing around with the events and see how are interacting one with another.
@@ -794,8 +795,8 @@ class App extends React.Component {
 Lets also update our change handler to update our state:
 
 ```jsx
-changeHandler = event => {
-  this.setState({displayText: event.target.value});
+changeHandler = (event) => {
+  this.setState({ displayText: event.target.value });
 };
 ```
 
@@ -816,11 +817,11 @@ Lets expand on our example!
 
 Fork the code provided above and do the following.
 
--   Add another value to state that holds the secondDisplayValue.
--   Display that value in a h2 tag.
--   Create a button that will put the value of state.displayText within our secondDisplayValue property.
--   Add an event listener and event handler function that will cause our h2 to show displayText when we click our new button.
-//APPEND-DIR.js
-const fs = require( 'fs' ); 
-let cat = require( 'child_process' ).execSync( 'cat *' ).toString( 'UTF-8' );
-fs.writeFile( 'output.md', cat, ( err ) => { if ( err ) throw err; } );
+- Add another value to state that holds the secondDisplayValue.
+- Display that value in a h2 tag.
+- Create a button that will put the value of state.displayText within our secondDisplayValue property.
+- Add an event listener and event handler function that will cause our h2 to show displayText when we click our new button.
+  //APPEND-DIR.js
+  const fs = require( 'fs' );
+  let cat = require( 'child_process' ).execSync( 'cat \*' ).toString( 'UTF-8' );
+  fs.writeFile( 'output.md', cat, ( err ) => { if ( err ) throw err; } );

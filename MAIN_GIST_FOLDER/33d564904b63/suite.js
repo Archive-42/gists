@@ -1,54 +1,56 @@
 "use strict";
 
 (function (factory) {
-	if (typeof Benchmark !== "undefined") {
-		factory(Benchmark);
-	} else {
-		factory(require("benchmark"));
-	}
+  if (typeof Benchmark !== "undefined") {
+    factory(Benchmark);
+  } else {
+    factory(require("benchmark"));
+  }
 })(function (Benchmark) {
-	var suite = new Benchmark.Suite;
+  var suite = new Benchmark.Suite();
 
-	Benchmark.prototype.setup = function () {
-		var concatContainer = [];
-		var pushContainer = [];
-		var dataToFeed = [];
-		
-		var initialArrayLength = 1e3;
-		
-		for (var j = 0; j < initialArrayLength; j++){
-		    concatContainer.push('stuff' + j);
-		    pushContainer.push('stuff' + j);
-		    dataToFeed.push('stuff' + j);
-		}
-	};
+  Benchmark.prototype.setup = function () {
+    var concatContainer = [];
+    var pushContainer = [];
+    var dataToFeed = [];
 
+    var initialArrayLength = 1e3;
 
-	suite.add("concatContainer = concatContainer.concat(dataToFeed);", function () {
-		concatContainer = concatContainer.concat(dataToFeed);
-	});
+    for (var j = 0; j < initialArrayLength; j++) {
+      concatContainer.push("stuff" + j);
+      pushContainer.push("stuff" + j);
+      dataToFeed.push("stuff" + j);
+    }
+  };
 
-	suite.add("pushContainer.push(...dataToFeed);", function () {
-		pushContainer.push(...dataToFeed);
-	});
+  suite.add(
+    "concatContainer = concatContainer.concat(dataToFeed);",
+    function () {
+      concatContainer = concatContainer.concat(dataToFeed);
+    }
+  );
 
-	suite.on("cycle", function (evt) {
-		console.log(" - " + evt.target);
-	});
+  suite.add("pushContainer.push(...dataToFeed);", function () {
+    pushContainer.push(...dataToFeed);
+  });
 
-	suite.on("complete", function (evt) {
-		console.log(new Array(30).join("-"));
+  suite.on("cycle", function (evt) {
+    console.log(" - " + evt.target);
+  });
 
-		var results = evt.currentTarget.sort(function (a, b) {
-			return b.hz - a.hz;
-		});
+  suite.on("complete", function (evt) {
+    console.log(new Array(30).join("-"));
 
-		results.forEach(function (item) {
-			console.log((idx + 1) + ". " + item);
-		});
-	});
+    var results = evt.currentTarget.sort(function (a, b) {
+      return b.hz - a.hz;
+    });
 
-	console.log("array augmenting: push read vs concat");
-	console.log(new Array(30).join("-"));
-	suite.run();
+    results.forEach(function (item) {
+      console.log(idx + 1 + ". " + item);
+    });
+  });
+
+  console.log("array augmenting: push read vs concat");
+  console.log(new Array(30).join("-"));
+  suite.run();
 });

@@ -1,8 +1,4 @@
-class Example extends React.Component<
-  Props,
-  State,
-  Snapshot
-> {
+class Example extends React.Component<Props, State, Snapshot> {
   static getDerivedStateFromProps(
     nextProps: Props,
     prevState: State
@@ -10,10 +6,7 @@ class Example extends React.Component<
     // ...
   }
 
-  getSnapshotBeforeUpdate(
-    prevProps: Props,
-    prevState: State
-  ): Snapshot {
+  getSnapshotBeforeUpdate(prevProps: Props, prevState: State): Snapshot {
     // ...
   }
 }

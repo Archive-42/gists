@@ -1,9 +1,10 @@
 ## Query Selector
 
 In place of common selectors like class, id or attribute we can use `document.querySelector` or `document.querySelectorAll` for substitution. The differences lie in:
-* `document.querySelector` returns the first matched element
-* `document.querySelectorAll` returns all matched elements as NodeList. It can be converted to Array using `Array.prototype.slice.call(document.querySelectorAll(selector));`
-* If there are no elements matched, jQuery and `document.querySelectorAll` will return `[]`, whereas `document.querySelector` will return `null`.
+
+- `document.querySelector` returns the first matched element
+- `document.querySelectorAll` returns all matched elements as NodeList. It can be converted to Array using `Array.prototype.slice.call(document.querySelectorAll(selector));`
+- If there are no elements matched, jQuery and `document.querySelectorAll` will return `[]`, whereas `document.querySelector` will return `null`.
 
 > Notice: `document.querySelector` and `document.querySelectorAll` are quite **SLOW**, try to use `document.getElementById`, `document.getElementsByClassName` or `document.getElementsByTagName` if you want to get a performance bonus.
 
@@ -11,73 +12,74 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $('selector');
+  $("selector");
 
   // Native
-  document.querySelectorAll('selector');
+  document.querySelectorAll("selector");
   ```
 
 - [1.1](#1.1) <a name='1.1'></a> Query by class
 
   ```js
   // jQuery
-  $('.class');
+  $(".class");
 
   // Native
-  document.querySelectorAll('.class');
+  document.querySelectorAll(".class");
 
   // or
-  document.getElementsByClassName('class');
+  document.getElementsByClassName("class");
   ```
 
 - [1.2](#1.2) <a name='1.2'></a> Query by id
 
   ```js
   // jQuery
-  $('#id');
+  $("#id");
 
   // Native
-  document.querySelector('#id');
+  document.querySelector("#id");
 
   // or
-  document.getElementById('id');
+  document.getElementById("id");
   ```
 
 - [1.3](#1.3) <a name='1.3'></a> Query by attribute
 
   ```js
   // jQuery
-  $('a[target=_blank]');
+  $("a[target=_blank]");
 
   // Native
-  document.querySelectorAll('a[target=_blank]');
+  document.querySelectorAll("a[target=_blank]");
   ```
 
 - [1.4](#1.4) <a name='1.4'></a> Query in descendents
 
   ```js
   // jQuery
-  $el.find('li');
+  $el.find("li");
 
   // Native
-  el.querySelectorAll('li');
+  el.querySelectorAll("li");
   ```
 
 - [1.5](#1.5) <a name='1.5'></a> Sibling/Previous/Next Elements
 
-  + Sibling elements
+  - Sibling elements
 
     ```js
     // jQuery
     $el.siblings();
 
     // Native
-    Array.prototype.filter.call(el.parentNode.children, (child) =>
-      child !== el
+    Array.prototype.filter.call(
+      el.parentNode.children,
+      (child) => child !== el
     );
     ```
 
-  + Previous elements
+  - Previous elements
 
     ```js
     // jQuery
@@ -87,7 +89,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     el.previousElementSibling;
     ```
 
-  + Next elements
+  - Next elements
 
     ```js
     // jQuery
@@ -110,7 +112,11 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   // Native - IE10+
   function closest(el, selector) {
-    const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+    const matchesSelector =
+      el.matches ||
+      el.webkitMatchesSelector ||
+      el.mozMatchesSelector ||
+      el.msMatchesSelector;
 
     while (el) {
       if (matchesSelector.call(el, selector)) {
@@ -134,7 +140,11 @@ In place of common selectors like class, id or attribute we can use `document.qu
   // Native
   function parentsUntil(el, selector, filter) {
     const result = [];
-    const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+    const matchesSelector =
+      el.matches ||
+      el.webkitMatchesSelector ||
+      el.mozMatchesSelector ||
+      el.msMatchesSelector;
 
     // match start from parent
     el = el.parentElement;
@@ -154,31 +164,34 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
 - [1.8](#1.8) <a name='1.8'></a> Form
 
-  + Input/Textarea
+  - Input/Textarea
 
     ```js
     // jQuery
-    $('#my-input').val();
+    $("#my-input").val();
 
     // Native
-    document.querySelector('#my-input').value;
+    document.querySelector("#my-input").value;
     ```
 
-  + Get index of e.currentTarget between `.radio`
+  - Get index of e.currentTarget between `.radio`
 
     ```js
     // jQuery
-    $(e.currentTarget).index('.radio');
+    $(e.currentTarget).index(".radio");
 
     // Native
-    Array.prototype.indexOf.call(document.querySelectorAll('.radio'), e.currentTarget);
+    Array.prototype.indexOf.call(
+      document.querySelectorAll(".radio"),
+      e.currentTarget
+    );
     ```
 
 - [1.9](#1.9) <a name='1.9'></a> Iframe Contents
 
   `$('iframe').contents()` returns `contentDocument` for this specific iframe
 
-  + Iframe contents
+  - Iframe contents
 
     ```js
     // jQuery
@@ -188,21 +201,21 @@ In place of common selectors like class, id or attribute we can use `document.qu
     iframe.contentDocument;
     ```
 
-  + Iframe Query
+  - Iframe Query
 
     ```js
     // jQuery
-    $iframe.contents().find('.css');
+    $iframe.contents().find(".css");
 
     // Native
-    iframe.contentDocument.querySelectorAll('.css');
+    iframe.contentDocument.querySelectorAll(".css");
     ```
 
 - [1.10](#1.10) <a name='1.10'></a> Get body
 
   ```js
   // jQuery
-  $('body');
+  $("body");
 
   // Native
   document.body;
@@ -210,36 +223,37 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
 - [1.11](#1.11) <a name='1.11'></a> Attribute getter and setter
 
-  + Get an attribute
+  - Get an attribute
 
     ```js
     // jQuery
-    $el.attr('foo');
+    $el.attr("foo");
 
     // Native
-    el.getAttribute('foo');
+    el.getAttribute("foo");
     ```
-  + Set an attribute
+
+  - Set an attribute
 
     ```js
     // jQuery, note that this works in memory without change the DOM
-    $el.attr('foo', 'bar');
+    $el.attr("foo", "bar");
 
     // Native
-    el.setAttribute('foo', 'bar');
+    el.setAttribute("foo", "bar");
     ```
 
-  + Get a `data-` attribute
+  - Get a `data-` attribute
 
     ```js
     // jQuery
-    $el.data('foo');
+    $el.data("foo");
 
     // Native (use `getAttribute`)
-    el.getAttribute('data-foo');
+    el.getAttribute("data-foo");
 
     // Native (use `dataset` if only need to support IE 11+)
-    el.dataset['foo'];
+    el.dataset["foo"];
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -248,11 +262,11 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
 - [2.1](#2.1) <a name='2.1'></a> CSS
 
-  + Get style
+  - Get style
 
     ```js
     // jQuery
-    $el.css('color');
+    $el.css("color");
 
     // Native
     // NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -262,22 +276,21 @@ In place of common selectors like class, id or attribute we can use `document.qu
     win.getComputedStyle(el, null).color;
     ```
 
-  + Set style
+  - Set style
 
     ```js
     // jQuery
-    $el.css({ color: '#f01' });
+    $el.css({ color: "#f01" });
 
     // Native
-    el.style.color = '#f01';
+    el.style.color = "#f01";
     ```
 
-  + Get/Set Styles
+  - Get/Set Styles
 
     Note that if you want to set multiple styles once, you could refer to [setStyles](https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L194) method in oui-dom-utils package.
 
-
-  + Add class
+  - Add class
 
     ```js
     // jQuery
@@ -287,7 +300,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     el.classList.add(className);
     ```
 
-  + Remove class
+  - Remove class
 
     ```js
     // jQuery
@@ -297,7 +310,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     el.classList.remove(className);
     ```
 
-  + has class
+  - has class
 
     ```js
     // jQuery
@@ -307,7 +320,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     el.classList.contains(className);
     ```
 
-  + Toggle class
+  - Toggle class
 
     ```js
     // jQuery
@@ -321,7 +334,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   Width and Height are theoretically identical, take Height as example:
 
-  + Window height
+  - Window height
 
     ```js
     // window height
@@ -334,7 +347,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     window.innerHeight;
     ```
 
-  + Document height
+  - Document height
 
     ```js
     // jQuery
@@ -352,7 +365,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     );
     ```
 
-  + Element height
+  - Element height
 
     ```js
     // jQuery
@@ -366,7 +379,9 @@ In place of common selectors like class, id or attribute we can use `document.qu
       const borderBottomWidth = parseFloat(styles.borderBottomWidth);
       const paddingTop = parseFloat(styles.paddingTop);
       const paddingBottom = parseFloat(styles.paddingBottom);
-      return height - borderBottomWidth - borderTopWidth - paddingTop - paddingBottom;
+      return (
+        height - borderBottomWidth - borderTopWidth - paddingTop - paddingBottom
+      );
     }
 
     // accurate to integer（when `border-box`, it's `height`; when `content-box`, it's `height + padding + border`）
@@ -378,7 +393,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
 - [2.3](#2.3) <a name='2.3'></a> Position & Offset
 
-  + Position
+  - Position
 
     Get the current coordinates of the element relative to the offset parent.
 
@@ -390,7 +405,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     { left: el.offsetLeft, top: el.offsetTop }
     ```
 
-  + Offset
+  - Offset
 
     Get the current coordinates of the element relative to the document.
 
@@ -399,12 +414,13 @@ In place of common selectors like class, id or attribute we can use `document.qu
     $el.offset();
 
     // Native
-    function getOffset (el) {
+    function getOffset(el) {
       const box = el.getBoundingClientRect();
 
       return {
         top: box.top + window.pageYOffset - document.documentElement.clientTop,
-        left: box.left + window.pageXOffset - document.documentElement.clientLeft
+        left:
+          box.left + window.pageXOffset - document.documentElement.clientLeft,
       };
     }
     ```
@@ -418,7 +434,8 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $(window).scrollTop();
 
   // Native
-  (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+  (document.documentElement && document.documentElement.scrollTop) ||
+    document.body.scrollTop;
   ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -439,7 +456,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
 - [3.2](#3.2) <a name='3.2'></a> Text
 
-  + Get text
+  - Get text
 
     Get the combined text contents of the element including their descendants,
 
@@ -451,7 +468,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     el.textContent;
     ```
 
-  + Set text
+  - Set text
 
     Set the content of the element to the specified text.
 
@@ -465,7 +482,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
 - [3.3](#3.3) <a name='3.3'></a> HTML
 
-  + Get HTML
+  - Get HTML
 
     ```js
     // jQuery
@@ -475,7 +492,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
     el.innerHTML;
     ```
 
-  + Set HTML
+  - Set HTML
 
     ```js
     // jQuery
@@ -494,7 +511,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $el.append('<div id="container">Hello World</div>');
 
   // Native (HTML string)
-  el.insertAdjacentHTML('beforeend', '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML("beforeend", '<div id="container">Hello World</div>');
 
   // Native (Element)
   el.appendChild(newEl);
@@ -507,7 +524,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $el.prepend('<div id="container">Hello World</div>');
 
   // Native (HTML string)
-  el.insertAdjacentHTML('afterbegin', '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML("afterbegin", '<div id="container">Hello World</div>');
 
   // Native (Element)
   el.insertBefore(newEl, el.firstChild);
@@ -522,7 +539,10 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $newEl.insertBefore(selector);
 
   // Native (HTML string)
-  el.insertAdjacentHTML('beforebegin ', '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML(
+    "beforebegin ",
+    '<div id="container">Hello World</div>'
+  );
 
   // Native (Element)
   const el = document.querySelector(selector);
@@ -540,7 +560,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $newEl.insertAfter(selector);
 
   // Native (HTML string)
-  el.insertAdjacentHTML('afterend', '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML("afterend", '<div id="container">Hello World</div>');
 
   // Native (Element)
   const el = document.querySelector(selector);
@@ -560,6 +580,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   // Native
   el.matches(selector);
   ```
+
 - [3.9](#3.9) <a name='3.9'></a> clone
 
   Create a deep copy of that element
@@ -583,7 +604,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $el.empty();
 
   // Native
-  el.innerHTML = '';
+  el.innerHTML = "";
   ```
 
 - [3.11](#3.11) <a name='3.11'></a> wrap
@@ -592,12 +613,12 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $('.inner').wrap('<div class="wrapper"></div>');
+  $(".inner").wrap('<div class="wrapper"></div>');
 
   // Native
-  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'wrapper';
+  Array.prototype.forEach.call(document.querySelectorAll(".inner"), (el) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "wrapper";
     el.parentNode.insertBefore(wrapper, el);
     el.parentNode.removeChild(el);
     wrapper.appendChild(el);
@@ -610,10 +631,10 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $('.inner').unwrap();
+  $(".inner").unwrap();
 
   // Native
-  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
+  Array.prototype.forEach.call(document.querySelectorAll(".inner"), (el) => {
     Array.prototype.forEach.call(el.childNodes, (child) => {
       el.parentNode.insertBefore(child, el);
     });
@@ -627,17 +648,16 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $('.inner').replaceWith('<div class="outer"></div>');
+  $(".inner").replaceWith('<div class="outer"></div>');
 
   // Native
-  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
-    const outer = document.createElement('div');
-    outer.className = 'outer';
+  Array.prototype.forEach.call(document.querySelectorAll(".inner"), (el) => {
+    const outer = document.createElement("div");
+    outer.className = "outer";
     el.parentNode.insertBefore(outer, el);
     el.parentNode.removeChild(el);
   });
   ```
-
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -651,12 +671,15 @@ Try [github/fetch](http://github.com/github/fetch) on IE9+ or [fetch-ie8](https:
 
   ```js
   // jQuery
-  $(selector).load(url, completeCallback)
+  $(selector).load(url, completeCallback);
 
   // Native
-  fetch(url).then(data => data.text()).then(data => {
-    document.querySelector(selector).innerHTML = data
-  }).then(completeCallback)
+  fetch(url)
+    .then((data) => data.text())
+    .then((data) => {
+      document.querySelector(selector).innerHTML = data;
+    })
+    .then(completeCallback);
   ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -673,10 +696,10 @@ For a complete replacement with namespace and delegation, refer to https://githu
 
   // Native
   // Check if the DOMContentLoaded has already been completed
-  if (document.readyState === 'complete' || document.readyState !== 'loading') {
+  if (document.readyState === "complete" || document.readyState !== "loading") {
     eventHandler();
   } else {
-    document.addEventListener('DOMContentLoaded', eventHandler);
+    document.addEventListener("DOMContentLoaded", eventHandler);
   }
   ```
 
@@ -704,14 +727,14 @@ For a complete replacement with namespace and delegation, refer to https://githu
 
   ```js
   // jQuery
-  $(el).trigger('custom-event', {key1: 'data'});
+  $(el).trigger("custom-event", { key1: "data" });
 
   // Native
   if (window.CustomEvent) {
-    const event = new CustomEvent('custom-event', {detail: {key1: 'data'}});
+    const event = new CustomEvent("custom-event", { detail: { key1: "data" } });
   } else {
-    const event = document.createEvent('CustomEvent');
-    event.initCustomEvent('custom-event', true, true, {key1: 'data'});
+    const event = document.createEvent("CustomEvent");
+    event.initCustomEvent("custom-event", true, true, { key1: "data" });
   }
 
   el.dispatchEvent(event);
@@ -725,7 +748,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
 - [6.1](#6.1) <a name='6.1'></a> Basic utilities
 
-  + isArray
+  - isArray
 
   Determine whether the argument is an array.
 
@@ -737,7 +760,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   Array.isArray(array);
   ```
 
-  + isWindow
+  - isWindow
 
   Determine whether the argument is a window.
 
@@ -751,7 +774,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   }
   ```
 
-  + inArray
+  - inArray
 
   Search for a specified value within an array and return its index (or -1 if not found).
 
@@ -766,7 +789,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   array.includes(item);
   ```
 
-  + isNumeric
+  - isNumeric
 
   Determine if the argument passed is numerical.
   Use `typeof` to decide the type or the `type` example for better accuracy.
@@ -779,11 +802,14 @@ Most of utilities are found by native API. Others advanced functions could be ch
   function isNumeric(value) {
     var type = typeof value;
 
-    return (type === 'number' || type === 'string') && !Number.isNaN(value - Number.parseFloat(value));
+    return (
+      (type === "number" || type === "string") &&
+      !Number.isNaN(value - Number.parseFloat(value))
+    );
   }
   ```
 
-  + isFunction
+  - isFunction
 
   Determine if the argument passed is a JavaScript function object.
 
@@ -793,15 +819,17 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   // Native
   function isFunction(item) {
-    if (typeof item === 'function') {
+    if (typeof item === "function") {
       return true;
     }
     var type = Object.prototype.toString(item);
-    return type === '[object Function]' || type === '[object GeneratorFunction]';
+    return (
+      type === "[object Function]" || type === "[object GeneratorFunction]"
+    );
   }
   ```
 
-  + isEmptyObject
+  - isEmptyObject
 
   Check to see if an object is empty (contains no enumerable properties).
 
@@ -815,7 +843,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   }
   ```
 
-  + isPlainObject
+  - isPlainObject
 
   Check to see if an object is a plain object (created using “{}” or “new Object”).
 
@@ -825,12 +853,21 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   // Native
   function isPlainObject(obj) {
-    if (typeof (obj) !== 'object' || obj.nodeType || obj !== null && obj !== undefined && obj === obj.window) {
+    if (
+      typeof obj !== "object" ||
+      obj.nodeType ||
+      (obj !== null && obj !== undefined && obj === obj.window)
+    ) {
       return false;
     }
 
-    if (obj.constructor &&
-        !Object.prototype.hasOwnProperty.call(obj.constructor.prototype, 'isPrototypeOf')) {
+    if (
+      obj.constructor &&
+      !Object.prototype.hasOwnProperty.call(
+        obj.constructor.prototype,
+        "isPrototypeOf"
+      )
+    ) {
       return false;
     }
 
@@ -838,7 +875,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   }
   ```
 
-  + extend
+  - extend
 
   Merge the contents of two or more objects together into the first object.
   object.assign is ES6 API, and you could use [polyfill](https://github.com/ljharb/object.assign) also.
@@ -851,7 +888,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   Object.assign({}, defaultOpts, opts);
   ```
 
-  + trim
+  - trim
 
   Remove the white-space from the beginning and end of a string.
 
@@ -863,49 +900,43 @@ Most of utilities are found by native API. Others advanced functions could be ch
   string.trim();
   ```
 
-  + map
+  - map
 
   Translate all items in an array or object to new array of items.
 
   ```js
   // jQuery
-  $.map(array, (value, index) => {
-  });
+  $.map(array, (value, index) => {});
 
   // Native
-  array.map((value, index) => {
-  });
+  array.map((value, index) => {});
   ```
 
-  + each
+  - each
 
   A generic iterator function, which can be used to seamlessly iterate over both objects and arrays.
 
   ```js
   // jQuery
-  $.each(array, (index, value) => {
-  });
+  $.each(array, (index, value) => {});
 
   // Native
-  array.forEach((value, index) => {
-  });
+  array.forEach((value, index) => {});
   ```
 
-  + grep
+  - grep
 
   Finds the elements of an array which satisfy a filter function.
 
   ```js
   // jQuery
-  $.grep(array, (value, index) => {
-  });
+  $.grep(array, (value, index) => {});
 
   // Native
-  array.filter((value, index) => {
-  });
+  array.filter((value, index) => {});
   ```
 
-  + type
+  - type
 
   Determine the internal JavaScript [Class] of an object.
 
@@ -916,13 +947,14 @@ Most of utilities are found by native API. Others advanced functions could be ch
   // Native
   function type(item) {
     const reTypeOf = /(?:^\[object\s(.*?)\]$)/;
-    return Object.prototype.toString.call(item)
-      .replace(reTypeOf, '$1')
+    return Object.prototype.toString
+      .call(item)
+      .replace(reTypeOf, "$1")
       .toLowerCase();
   }
   ```
 
-  + merge
+  - merge
 
   Merge the contents of two arrays together into the first array.
 
@@ -933,11 +965,11 @@ Most of utilities are found by native API. Others advanced functions could be ch
   // Native
   // But concat function doesn't remove duplicate items.
   function merge(...args) {
-    return [].concat(...args)
+    return [].concat(...args);
   }
   ```
 
-  + now
+  - now
 
   Return a number representing the current time.
 
@@ -949,7 +981,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   Date.now();
   ```
 
-  + proxy
+  - proxy
 
   Takes a function and returns a new one that will always have a particular context.
 
@@ -961,7 +993,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   fn.bind(context);
   ```
 
-  + makeArray
+  - makeArray
 
   Convert an array-like object into a true JavaScript array.
 
@@ -998,7 +1030,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   // Native
   function Globaleval(code) {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.text = code;
 
     document.head.appendChild(script).parentNode.removeChild(script);
@@ -1010,7 +1042,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
 - [6.4](#6.4) <a name='6.4'></a> parse
 
-  + parseHTML
+  - parseHTML
 
   Parses a string into an array of DOM nodes.
 
@@ -1024,7 +1056,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
     // Set the base href for the created document so any parsed elements with URLs
     // are based on the document's URL
-    const base = context.createElement('base');
+    const base = context.createElement("base");
     base.href = document.location.href;
     context.head.appendChild(base);
 
@@ -1033,7 +1065,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   }
   ```
 
-  + parseJSON
+  - parseJSON
 
   Takes a well-formed JSON string and returns the resulting JavaScript value.
 
@@ -1057,10 +1089,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
   ```js
   // jQuery
-  $promise.done(doneCallback).fail(failCallback).always(alwaysCallback)
+  $promise.done(doneCallback).fail(failCallback).always(alwaysCallback);
 
   // Native
-  promise.then(doneCallback, failCallback).then(alwaysCallback, alwaysCallback)
+  promise.then(doneCallback, failCallback).then(alwaysCallback, alwaysCallback);
   ```
 
 - [7.2](#7.2) <a name='7.2'></a> when
@@ -1085,10 +1117,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   function asyncFunc() {
     const defer = new $.Deferred();
     setTimeout(() => {
-      if(true) {
-        defer.resolve('some_value_computed_asynchronously');
+      if (true) {
+        defer.resolve("some_value_computed_asynchronously");
       } else {
-        defer.reject('failed');
+        defer.reject("failed");
       }
     }, 1000);
 
@@ -1100,9 +1132,9 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (true) {
-          resolve('some_value_computed_asynchronously');
+          resolve("some_value_computed_asynchronously");
         } else {
-          reject('failed');
+          reject("failed");
         }
       }, 1000);
     });
@@ -1126,10 +1158,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   function asyncFunc() {
     const defer = defer();
     setTimeout(() => {
-      if(true) {
-        defer.resolve('some_value_computed_asynchronously');
+      if (true) {
+        defer.resolve("some_value_computed_asynchronously");
       } else {
-        defer.reject('failed');
+        defer.reject("failed");
       }
     }, 1000);
 
@@ -1150,8 +1182,8 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
   // Native
   // More detail about show method, please refer to https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L363
-  el.style.display = ''|'inline'|'inline-block'|'inline-table'|'block';
-  el.style.display = 'none';
+  el.style.display = "" | "inline" | "inline-block" | "inline-table" | "block";
+  el.style.display = "none";
   ```
 
 - [8.2](#8.2) <a name='8.2'></a> Toggle
@@ -1163,10 +1195,13 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.toggle();
 
   // Native
-  if (el.ownerDocument.defaultView.getComputedStyle(el, null).display === 'none') {
-    el.style.display = ''|'inline'|'inline-block'|'inline-table'|'block';
+  if (
+    el.ownerDocument.defaultView.getComputedStyle(el, null).display === "none"
+  ) {
+    el.style.display =
+      "" | "inline" | "inline-block" | "inline-table" | "block";
   } else {
-    el.style.display = 'none';
+    el.style.display = "none";
   }
   ```
 
@@ -1178,11 +1213,11 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.fadeOut(3000);
 
   // Native
-  el.style.transition = 'opacity 3s';
+  el.style.transition = "opacity 3s";
   // fadeIn
-  el.style.opacity = '1';
+  el.style.opacity = "1";
   // fadeOut
-  el.style.opacity = '0';
+  el.style.opacity = "0";
   ```
 
 - [8.4](#8.4) <a name='8.4'></a> FadeTo
@@ -1191,10 +1226,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
   ```js
   // jQuery
-  $el.fadeTo('slow',0.15);
+  $el.fadeTo("slow", 0.15);
   // Native
-  el.style.transition = 'opacity 3s'; // assume 'slow' equals 3 seconds
-  el.style.opacity = '0.15';
+  el.style.transition = "opacity 3s"; // assume 'slow' equals 3 seconds
+  el.style.opacity = "0.15";
   ```
 
 - [8.5](#8.5) <a name='8.5'></a> FadeToggle
@@ -1206,12 +1241,12 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.fadeToggle();
 
   // Native
-  el.style.transition = 'opacity 3s';
+  el.style.transition = "opacity 3s";
   const { opacity } = el.ownerDocument.defaultView.getComputedStyle(el, null);
-  if (opacity === '1') {
-    el.style.opacity = '0';
+  if (opacity === "1") {
+    el.style.opacity = "0";
   } else {
-    el.style.opacity = '1';
+    el.style.opacity = "1";
   }
   ```
 
@@ -1223,10 +1258,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.slideDown();
 
   // Native
-  const originHeight = '100px';
-  el.style.transition = 'height 3s';
+  const originHeight = "100px";
+  el.style.transition = "height 3s";
   // slideUp
-  el.style.height = '0px';
+  el.style.height = "0px";
   // slideDown
   el.style.height = originHeight;
   ```
@@ -1240,14 +1275,13 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.slideToggle();
 
   // Native
-  const originHeight = '100px';
-  el.style.transition = 'height 3s';
+  const originHeight = "100px";
+  el.style.transition = "height 3s";
   const { height } = el.ownerDocument.defaultView.getComputedStyle(el, null);
   if (parseInt(height, 10) === 0) {
     el.style.height = originHeight;
-  }
-  else {
-   el.style.height = '0px';
+  } else {
+    el.style.height = "0px";
   }
   ```
 
@@ -1268,5 +1302,5 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
 ## Alternatives
 
-* [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Examples of how to do common event, element, ajax etc with plain javascript.
-* [npm-dom](http://github.com/npm-dom) and [webmodules](http://github.com/webmodules) - Organizations you can find individual DOM modules on NPM
+- [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Examples of how to do common event, element, ajax etc with plain javascript.
+- [npm-dom](http://github.com/npm-dom) and [webmodules](http://github.com/webmodules) - Organizations you can find individual DOM modules on NPM

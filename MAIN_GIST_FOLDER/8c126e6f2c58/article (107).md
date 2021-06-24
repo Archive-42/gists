@@ -33,7 +33,8 @@ The value returned by an event handler is usually ignored.
 The only exception is `return false` from a handler assigned using `on<event>`.
 
 In all other cases, `return` value is ignored. In particular, there's no sense in returning `true`.
-```
+
+````
 
 ### Example: the menu
 
@@ -45,7 +46,7 @@ Consider a site menu, like this:
   <li><a href="/javascript">JavaScript</a></li>
   <li><a href="/css">CSS</a></li>
 </ul>
-```
+````
 
 Here's how it looks with some CSS:
 
@@ -106,7 +107,6 @@ The `passive: true` options tells the browser that the handler is not going to c
 
 For some browsers (Firefox, Chrome), `passive` is `true` by default for `touchstart` and `touchmove` events.
 
-
 ## event.defaultPrevented
 
 The property `event.defaultPrevented` is `true` if the default action was prevented, and `false` otherwise.
@@ -138,12 +138,12 @@ Upon right click, the closest context menu should show up.
 <button id="elem">Right-click here for the button context menu</button>
 
 <script>
-  elem.oncontextmenu = function(event) {
+  elem.oncontextmenu = function (event) {
     event.preventDefault();
     alert("Button context menu");
   };
 
-  document.oncontextmenu = function(event) {
+  document.oncontextmenu = function (event) {
     event.preventDefault();
     alert("Document context menu");
   };
@@ -156,21 +156,23 @@ How to fix it? One of solutions is to think like: "When we handle right-click in
 
 ```html autorun height=80 no-beautify run
 <p>Right-click for the document menu</p>
-<button id="elem">Right-click for the button menu (fixed with event.stopPropagation)</button>
+<button id="elem">
+  Right-click for the button menu (fixed with event.stopPropagation)
+</button>
 
 <script>
-  elem.oncontextmenu = function(event) {
-    event.preventDefault();
-*!*
-    event.stopPropagation();
-*/!*
-    alert("Button context menu");
-  };
+    elem.oncontextmenu = function(event) {
+      event.preventDefault();
+  *!*
+      event.stopPropagation();
+  */!*
+      alert("Button context menu");
+    };
 
-  document.oncontextmenu = function(event) {
-    event.preventDefault();
-    alert("Document context menu");
-  };
+    document.oncontextmenu = function(event) {
+      event.preventDefault();
+      alert("Document context menu");
+    };
 </script>
 ```
 
@@ -178,25 +180,26 @@ Now the button-level menu works as intended. But the price is high. We forever d
 
 An alternative solution would be to check in the `document` handler if the default action was prevented? If it is so, then the event was handled, and we don't need to react on it.
 
-
 ```html autorun height=80 no-beautify run
-<p>Right-click for the document menu (added a check for event.defaultPrevented)</p>
+<p>
+  Right-click for the document menu (added a check for event.defaultPrevented)
+</p>
 <button id="elem">Right-click for the button menu</button>
 
 <script>
-  elem.oncontextmenu = function(event) {
-    event.preventDefault();
-    alert("Button context menu");
-  };
+    elem.oncontextmenu = function(event) {
+      event.preventDefault();
+      alert("Button context menu");
+    };
 
-  document.oncontextmenu = function(event) {
-*!*
-    if (event.defaultPrevented) return;
-*/!*
+    document.oncontextmenu = function(event) {
+  *!*
+      if (event.defaultPrevented) return;
+  */!*
 
-    event.preventDefault();
-    alert("Document context menu");
-  };
+      event.preventDefault();
+      alert("Document context menu");
+    };
 </script>
 ```
 
@@ -227,7 +230,7 @@ There are many default browser actions:
 
 All the default actions can be prevented if we want to handle the event exclusively by JavaScript.
 
-To prevent a default action -- use either `event.preventDefault()` or  `return false`. The second method works only for handlers assigned with `on<event>`.
+To prevent a default action -- use either `event.preventDefault()` or `return false`. The second method works only for handlers assigned with `on<event>`.
 
 The `passive: true` option of `addEventListener` tells the browser that the action is not going to be prevented. That's useful for some mobile events, like `touchstart` and `touchmove`, to tell the browser that it should not wait for all handlers to finish before scrolling.
 

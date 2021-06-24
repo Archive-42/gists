@@ -1,16 +1,15 @@
-import _ from 'lodash';
+import _ from "lodash";
 
-function trimString(s) { return s.trim(); }
+function trimString(s) {
+  return s.trim();
+}
 
 function getEdgeName(nodeFrom, nodeTo) {
-  return _([nodeFrom, nodeTo]).map(trimString).join(' -> ');
+  return _([nodeFrom, nodeTo]).map(trimString).join(" -> ");
 }
 
 function getEdgeNames(nodeA, nodeB) {
-  return [
-    getEdgeName(nodeA, nodeB),
-    getEdgeName(nodeB, nodeA),
-  ];
+  return [getEdgeName(nodeA, nodeB), getEdgeName(nodeB, nodeA)];
 }
 
 export class Graph {
@@ -40,7 +39,7 @@ export class Graph {
   addNode(node, value) {
     this.nodes[node] = {
       value: value,
-      adjacent: {}
+      adjacent: {},
     };
     return this;
   }
@@ -51,14 +50,14 @@ export class Graph {
   }
 
   getNodeValue(node) {
-    return _.result(this.nodes, [node, 'value']);
+    return _.result(this.nodes, [node, "value"]);
   }
 
   addEdge(...args) {
     let nodeA, nodeB, value;
 
-    if (args[0].match('->')) {
-      let nodes = _.map(arguments[0].split('->'), trimString);
+    if (args[0].match("->")) {
+      let nodes = _.map(arguments[0].split("->"), trimString);
       nodeA = nodes[0];
       nodeB = nodes[1];
       value = args[1];
@@ -67,7 +66,7 @@ export class Graph {
       nodeB = args[1];
       value = args[2];
     } else {
-      throw new Error('incorrect edge specification');
+      throw new Error("incorrect edge specification");
     }
 
     return this._addEdge(nodeA, nodeB, value);
@@ -78,7 +77,7 @@ export class Graph {
     let edge = {
       nodeA: nodeA,
       nodeB: nodeB,
-      value: value
+      value: value,
     };
     this.nodes[nodeA].adjacent[nodeB] = edge;
     this.nodes[nodeB].adjacent[nodeA] = edge;
@@ -87,7 +86,7 @@ export class Graph {
   }
 
   getEdgeValue(nodeA, nodeB) {
-    return _.result(this.nodes, [nodeA, 'adjacent', nodeB, 'value']);
+    return _.result(this.nodes, [nodeA, "adjacent", nodeB, "value"]);
   }
 
   adjacent(nodeA, nodeB) {
@@ -101,7 +100,7 @@ export class Graph {
   }
 
   iterateAdjacent(node, cb) {
-    _.forEach(this.nodes[node].adjacent, function(edge, nodeTarget) {
+    _.forEach(this.nodes[node].adjacent, function (edge, nodeTarget) {
       cb(nodeTarget, edge.value);
     });
   }
@@ -110,7 +109,7 @@ export class Graph {
     options = _.defaults({}, options, {
       visitNode: _.noop,
       visitEdge: _.noop,
-      willFollowEdge: 'IfTowardUnvisitedNode'
+      willFollowEdge: "IfTowardUnvisitedNode",
     });
 
     let edgeVisited = {};
@@ -140,11 +139,11 @@ export class Graph {
       return !!edgeVisited[getEdgeName(nodeFrom, nodeTo)];
     };
 
-    if (options.willFollowEdge === 'IfTowardUnvisitedNode') {
+    if (options.willFollowEdge === "IfTowardUnvisitedNode") {
       options.willFollowEdge = function (nodeFrom, nodeTo, opt) {
         return !opt.nodeVisited(nodeTo);
       };
-    } else if (options.willFollowEdge === 'IfUnvisited'){
+    } else if (options.willFollowEdge === "IfUnvisited") {
       options.willFollowEdge = function (nodeFrom, nodeTo, opt) {
         return !opt.edgeVisited(nodeFrom, nodeTo);
       };
@@ -162,11 +161,13 @@ export class Graph {
     options.onEnterNode && options.onEnterNode(node);
     options.visitNode(node, this.getNodeValue(node));
     this.iterateAdjacent(node, (nodeTarget, value) => {
-      if (options.willFollowEdge(node, nodeTarget, {
-        value: value,
-        nodeVisited: options.nodeVisited,
-        edgeVisited: options.edgeVisited
-      })) {
+      if (
+        options.willFollowEdge(node, nodeTarget, {
+          value: value,
+          nodeVisited: options.nodeVisited,
+          edgeVisited: options.edgeVisited,
+        })
+      ) {
         options.visitEdge(node, nodeTarget, value);
         this._dfs(nodeTarget, options);
       }
@@ -180,16 +181,18 @@ export class Graph {
   }
 
   _bfs(node, options) {
-    let q = [ node ];
+    let q = [node];
     options.visitNode(node, this.getNodeValue(node));
     while (!_.isEmpty(q)) {
       let n = q.shift();
       this.iterateAdjacent(n, (nodeTarget, value) => {
-        if (options.willFollowEdge(n, nodeTarget, {
-          value: value,
-          nodeVisited: options.nodeVisited,
-          edgeVisited: options.edgeVisited
-        })) {
+        if (
+          options.willFollowEdge(n, nodeTarget, {
+            value: value,
+            nodeVisited: options.nodeVisited,
+            edgeVisited: options.edgeVisited,
+          })
+        ) {
           options.visitEdge(n, nodeTarget, value);
           options.visitNode(nodeTarget, this.getNodeValue(nodeTarget));
           q.push(nodeTarget);
@@ -199,7 +202,9 @@ export class Graph {
   }
 
   findAllLoops(node, cb) {
-    let nodeUnvisited = _.mapValues(this.nodes, function () { return true; });
+    let nodeUnvisited = _.mapValues(this.nodes, function () {
+      return true;
+    });
 
     let findLoops = (node) => {
       let chain = [];
@@ -208,7 +213,8 @@ export class Graph {
 
       this.dfs(node, {
         willFollowEdge: function (nodeFrom, nodeTo, options) {
-          return !(loop ||
+          return !(
+            loop ||
             visitMap[nodeFrom][nodeTo] ||
             (visitMap[nodeTo] && visitMap[nodeTo][nodeFrom])
           );
@@ -237,7 +243,7 @@ export class Graph {
           } else {
             delete visitMap[node];
           }
-        }
+        },
       });
     };
 
@@ -250,5 +256,4 @@ export class Graph {
       findLoops(node);
     }
   }
-
 }

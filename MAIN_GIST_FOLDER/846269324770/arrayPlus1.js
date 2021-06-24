@@ -16,39 +16,35 @@
 	[1, -9] would return null/nil/None (according to the language implemented).
 */
 
-function upArray(arr){ 
+function upArray(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
 
-  
-  if(arr.length == 0) {
-    return null; 
-  }
-  
-  if(arr.length > 16) {
+  if (arr.length > 16) {
     val = arr[arr.length - 1];
-    arr[arr.length - 1] = val + 1; 
-    return arr; 
+    arr[arr.length - 1] = val + 1;
+    return arr;
   }
-  
-  for(var i = 0; i < arr.length; i++) {
-    if(arr[i] < 0 || arr[i].toString().length > 1) {
-      return null; 
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < 0 || arr[i].toString().length > 1) {
+      return null;
     }
   }
-  
+
   var strings = "";
-  arr.map(function(item) {
+  arr.map(function (item) {
     strings += item;
   });
-  
 
-  var newValue = (parseInt(strings) + 1).toString(); 
-  console.log(newValue); 
+  var newValue = (parseInt(strings) + 1).toString();
+  console.log(newValue);
   var output = [];
-  
-  for(var i = 0; i < newValue.length; i++) {
-    output.push(parseInt(newValue.charAt(i))); 
+
+  for (var i = 0; i < newValue.length; i++) {
+    output.push(parseInt(newValue.charAt(i)));
   }
-  
-  return output; 
-  
+
+  return output;
 }

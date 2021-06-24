@@ -1,6 +1,4 @@
 ---
-
-
 ---
 
 <div align="center">
@@ -20,7 +18,8 @@
 <p><a href="#source"><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" alt="-----------------------------------------------------"></a></p>
 <h1 id="➤-site-crawler">➤ Site-Crawler:</h1>
 
-  Expand!
+Expand!
+
 <p><img src="./screencapture-file-C-Users-bryan-Downloads-scrap-indexability-xlsx-html-2021-04-04-19_05_50.png" alt="crawl-result1"></p>
 
 <table>
@@ -1916,7 +1915,8 @@
 <p><a href="#source"><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" alt="-----------------------------------------------------"></a></p>
 <h1 id="➤-html-validation">➤ HTML VALIDATION:</h1>
 
-  Expand!
+Expand!
+
 <blockquote>
 <p>Error: Duplicate attribute id.</p>
 </blockquote>
@@ -1998,7 +1998,8 @@
 <p><a href="#source"><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" alt="-----------------------------------------------------"></a></p>
 <h1 id="➤-html-source">➤ <a href="https://www.oneideaaway.com/">HTML Source:</a></h1>
 
-  Expand!
+Expand!
+
 <pre class=" language-html"><code class="prism  language-html">
 <span class="token doctype">&lt;!DOCTYPE html&gt;</span>↩
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no-touch<span class="token punctuation">"</span></span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en-US<span class="token punctuation">"</span></span> <span class="token attr-name">prefix</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/xhtml<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>↩
@@ -2484,11 +2485,11 @@ Yes, by clicking <span class="token entity" title="‘">&amp;#8216;</span>Join<s
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 
-    
 <p><a href="#source"><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" alt="-----------------------------------------------------"></a></p>
 <h1 id="➤-aux-analysis">➤ Aux Analysis:</h1>
 
-  Expand!
+Expand!
+
 <h2 id="response-times">Response Times:</h2>
   <div align="center">
 </div><p><img src="./response-times.PNG" alt="res"></p>
@@ -2497,5 +2498,3 @@ Yes, by clicking <span class="token entity" title="‘">&amp;#8216;</span>Join<s
 <p><img src="./directed-tree.PNG" alt="dir"></p>
   <div>
   </div>
-  
-

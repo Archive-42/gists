@@ -48,7 +48,7 @@ print(str(17.0) + ’ and ’ + str(17)) # => 17.0 and 17
 
 The arithmetic operators are the same between JS and Python, with two additions:
 
-“**” : Double asterisk for exponent.
+“\*\*” : Double asterisk for exponent.
 “//” : Integer Division.
 There are no spaces between math operations in Python.
 
@@ -68,17 +68,17 @@ print(’‘’My instructions are very long so to make them more readable in th
 
 Use the len() function to get the length of a string.
 
-print(len("Spaghetti"))    # => 9
+print(len("Spaghetti")) # => 9
 Python uses zero-based indexing
 Python allows negative indexing (thank god!)
 
-print("Spaghetti"[-1])    # => i
-print("Spaghetti"[-4])    # => e
+print("Spaghetti"[-1]) # => i
+print("Spaghetti"[-4]) # => e
 Python let’s you use ranges
 
-print("Spaghetti"[1:4])  # => pag
-print("Spaghetti"[4:-1])    # => hett
-print("Spaghetti"[4:4])  # => (empty string)
+print("Spaghetti"[1:4]) # => pag
+print("Spaghetti"[4:-1]) # => hett
+print("Spaghetti"[4:4]) # => (empty string)
 The end range is exclusive just like slice in JS.
 Shortcut to get from the beginning of a string to a certain index.
 print(“Spaghetti”[:4]) # => Spag print(“Spaghetti”[:-1]) # => Spaghett
@@ -96,7 +96,7 @@ print(“Spaghetti”.count(“h”)) # => 1 print(“Spaghetti”.count(“t”
 
 You can use + to concatenate strings, just like in JS.
 
-You can also use “*” to repeat strings or multiply strings.
+You can also use “\*” to repeat strings or multiply strings.
 
 Use the format() function to use placeholders in a string to input values later on.
 
@@ -165,39 +165,40 @@ Just like in JS, you can use parentheses to change the inherent order of operati
 Short Circuit : Stopping a program when a true or false has been reached. pic
 
 Identity vs Equality
-print (2 == '2')    # => False
-print (2 is '2')    # => False
+print (2 == '2') # => False
+print (2 is '2') # => False
 
-print ("2" == '2')    # => True
-print ("2" is '2')    # => True
+print ("2" == '2') # => True
+print ("2" is '2') # => True
 
 # There is a distinction between the number types.
-print (2 == 2.0)    # => True
-print (2 is 2.0)    # => False
+
+print (2 == 2.0) # => True
+print (2 is 2.0) # => False
 In the Python community it is better to use is and is not over == or !=
 If Statements
 if name == 'Monica':
-    print('Hi, Monica.')
+print('Hi, Monica.')
 
 if name == 'Monica':
-    print('Hi, Monica.')
+print('Hi, Monica.')
 else:
-    print('Hello, stranger.')
+print('Hello, stranger.')
 
 if name == 'Monica':
-    print('Hi, Monica.')
+print('Hi, Monica.')
 elif age < 12:
-    print('You are not Monica, kiddo.')
+print('You are not Monica, kiddo.')
 elif age > 2000:
-   print('Unlike you, Monica is not an undead, immortal vampire.')
+print('Unlike you, Monica is not an undead, immortal vampire.')
 elif age > 100:
-   print('You are not Monica, grannie.')
+print('You are not Monica, grannie.')
 Remember the order of elif statements matter.
 While Statements
 spam = 0
 while spam < 5:
-  print('Hello, world.')
-  spam = spam + 1
+print('Hello, world.')
+spam = spam + 1
 Break statement also exists in Python.
 
 spam = 0 while True: print(‘Hello, world.’) spam = spam + 1 if spam >= 5: break
@@ -212,11 +213,13 @@ Python equivalent to try/catch
 a = 321 try: print(len(a)) except: print(‘Silently handle error here’)
 
 # Optionally include a correction to the issue
+
 a = str(a)
 print(len(a)
 a = ‘321’ try: print(len(a)) except: print(‘Silently handle error here’)
 
 # Optionally include a correction to the issue
+
 a = str(a)
 print(len(a))
 You can name an error to give the output more specificity.
@@ -312,7 +315,7 @@ Percentage
 points = 190 total = 220 print(‘Correct answers: {:.2%}’.format(points/total)) Correct answers: 86.36%
 
 Data Tables
-width=8 print(’ decimal hex binary’) print(‘-’*27) for num in range(1,16): for base in ‘dXb’: print(‘{0:{width}{base}}’.format(num, base=base, width=width), end=’ ‘) print() Getting Input from the Command Line Python runs synchronously, all programs and processes will stop when listening for a user input. The input function shows a prompt to a user and waits for them to type ’ENTER’. Scripts vs Programs Programming Script : A set of code that runs in a linear fashion. The largest difference between scripts and programs is the level of complexity and purpose. Programs typically have many UI’s.
+width=8 print(’ decimal hex binary’) print(‘-’\*27) for num in range(1,16): for base in ‘dXb’: print(‘{0:{width}{base}}’.format(num, base=base, width=width), end=’ ‘) print() Getting Input from the Command Line Python runs synchronously, all programs and processes will stop when listening for a user input. The input function shows a prompt to a user and waits for them to type ’ENTER’. Scripts vs Programs Programming Script : A set of code that runs in a linear fashion. The largest difference between scripts and programs is the level of complexity and purpose. Programs typically have many UI’s.
 
 Python can be used to display html, css, and JS. We will be using Python as an API (Application Programming Interface)
 
@@ -368,11 +371,11 @@ quarters = [‘First’, ‘Second’, ‘Third’, ‘Fourth’] print(enumerat
 
 (0, ‘First’), (1, ‘Second’), (2, ‘Third’), (3, ‘Fourth’)
 (1, ‘First’), (2, ‘Second’), (3, ‘Third’), (4, ‘Fourth’)
-zip(*iterables) : creates a zip object filled with tuples that combine 1 to 1 the items in each provided iterable. Functions that analyze iterables
+zip(\*iterables) : creates a zip object filled with tuples that combine 1 to 1 the items in each provided iterable. Functions that analyze iterables
 
 len(iterable) : returns the count of the number of items.
 
-max(*args, key=None) : returns the largest of two or more arguments.
+max(\*args, key=None) : returns the largest of two or more arguments.
 
 max(iterable, key=None) : returns the largest item in the iterable.
 
@@ -388,7 +391,7 @@ Working with dictionaries
 
 dir(dictionary) : returns the list of keys in the dictionary. Working with sets
 
-Union : The pipe | operator or union(*sets) function can be used to produce a new set which is a combination of all elements in the provided set. a = {1, 2, 3} b = {2, 4, 6} print(a | b) # => {1, 2, 3, 4, 6} Intersection : The & operator ca be used to produce a new set of only the elements that appear in all sets. a = {1, 2, 3} b = {2, 4, 6} print(a & b) # => {2} Difference : The - operator can be used to produce a new set of only the elements that appear in the first set and NOT the others.
+Union : The pipe | operator or union(\*sets) function can be used to produce a new set which is a combination of all elements in the provided set. a = {1, 2, 3} b = {2, 4, 6} print(a | b) # => {1, 2, 3, 4, 6} Intersection : The & operator ca be used to produce a new set of only the elements that appear in all sets. a = {1, 2, 3} b = {2, 4, 6} print(a & b) # => {2} Difference : The - operator can be used to produce a new set of only the elements that appear in the first set and NOT the others.
 
 Symmetric Difference : The ^ operator can be used to produce a new set of only the elements that appear in exactly one set and not in both.
 
@@ -431,7 +434,7 @@ Looping over string for c in “abcdefg”: print(c) More On Functions Variable-
 
 add(1, 2) # Returns 3
 
-add(2, 3, 4, 5) # Returns 14 keyword arguments : (*kwargs) def print_names_and_countries(greeting, **kwargs): for k, v in kwargs.items(): print(greeting, k, “from”, v)
+add(2, 3, 4, 5) # Returns 14 keyword arguments : (\*kwargs) def print_names_and_countries(greeting, \*\*kwargs): for k, v in kwargs.items(): print(greeting, k, “from”, v)
 
 print_names_and_countries(“Hi”, Monica=“Sweden”, Charles=“British Virgin Islands”, Carlo=“Portugal”)
 
@@ -441,7 +444,7 @@ Hi Charles from British Virgin Islands
 Hi Carlo from Portugal
 When you order arguments within a function or function call, the args need to occur in a particular order: formal positional args. args keyword args with default values **kwargs def example(arg_1, arg_2, args, **kwargs): pass
 
-def example2(arg_1, arg_2, *args, kw_1=“shark”, kw_2=“blowfish”, **kwargs): pass Importing in Python Modules are similar to packages in Node.js Come in different types: Built-In, Third-Party, Custom. All loaded using import statements. Terms
+def example2(arg_1, arg_2, \*args, kw_1=“shark”, kw_2=“blowfish”, \*\*kwargs): pass Importing in Python Modules are similar to packages in Node.js Come in different types: Built-In, Third-Party, Custom. All loaded using import statements. Terms
 
 module : Python code in a separate file. package : Path to a directory that contains modules. init.py : Default file for a package. submodule : Another file in a module’s folder. function : Function in a module.
 
@@ -459,53 +462,71 @@ print was a statement in P2, but is a function in P3.
 
 Topics revisited (in python syntax)
 def say_hi(name):
-    """<---- Multi-Line Comments and Docstrings
-    This is where you put your content for help() to inform the user
-    about what your function does and how to use it
-    """
-    print(f"Hello {name}!")
+"""<---- Multi-Line Comments and Docstrings
+This is where you put your content for help() to inform the user
+about what your function does and how to use it
+"""
+print(f"Hello {name}!")
 
-
-print(say_hi("Michael"))  # Should get the print inside the function, then None
+print(say_hi("Michael")) # Should get the print inside the function, then None
 
 # Boolean Values
+
 # Work the same as in JS, except they are title case: True and False
+
 a = True
 b = False
 
 # Logical Operators
+
 # ! = not, || = or, && = and
+
 print(True and True)
 print(True and not True)
 print(True or True)
 
 # Truthiness - Everything is True except...
+
 # False - None, False, '', [], (), set(), range(0)
 
 # Number Values
+
 # Integers are numbers without a floating decimal point
-print(type(3))  # type returns the type of whatever argument you pass in
+
+print(type(3)) # type returns the type of whatever argument you pass in
+
 # Floating Point values are numbers with a floating decimal point
+
 print(type(3.5))
 
 # Type Casting
+
 # You can convert between ints and floats (along with other types...)
-print(float(3))  # If you convert a float to an int, it will truncate the decimal
+
+print(float(3)) # If you convert a float to an int, it will truncate the decimal
 print(int(4.5))
 print(type(str(3)))
+
 # Python does not automatically convert types like JS
-# print(17.0 + ' heyooo ' + 17)  # TypeError
+
+# print(17.0 + ' heyooo ' + 17) # TypeError
 
 # Arithmetic Operators
-# ** - exponent (comparable to Math.pow(num, pow))
+
+# \*\* - exponent (comparable to Math.pow(num, pow))
+
 # // - integer division
+
 # There is no ++ or -- in Python
 
 # String Values
+
 # We can use single quotes, double quotes, or f'' for string formats
+
 # We can use triple single quotes for multiline strings
+
 print(
-    """This here's a story
+"""This here's a story
 All about how
 My life got twist
 Turned upside down
@@ -513,297 +534,383 @@ Turned upside down
 )
 
 # Three double quotes can also be used, but we typically reserve these for
+
 # multi-line comments and function docstrings (refer to lines 6-9)(Nice :D)
+
 # We use len() to get the length of something
-print(len("Michael"))  # 7 characters
-print(len(["hey", "ho", "hey", "hey", "ho"]))  # 5 list items
-print(len({1, 2, 3, 4, 5, 6, 7, 9}))  # 8 set items
+
+print(len("Michael")) # 7 characters
+print(len(["hey", "ho", "hey", "hey", "ho"])) # 5 list items
+print(len({1, 2, 3, 4, 5, 6, 7, 9})) # 8 set items
 
 # We can index into strings, list, etc..self.
+
 name = "Michael"
 for i in range(len(name)):
-    print(name[i])  # M, i, c, h, a, e, l
+print(name[i]) # M, i, c, h, a, e, l
 
 # We can index starting from the end as well, with negatives
+
 occupation = "Full Stack Software Engineer"
-print(occupation[-3])  # e
+print(occupation[-3]) # e
 
 # We can also get ranges in the index with the [start:stop:step] syntax
-print(occupation[0:4:1])  # step and stop are optional, stop is exclusive
-print(occupation[::4])  # beginning to end, every 4th letter
-print(occupation[4:14:2])  # Let's get weird with it!
+
+print(occupation[0:4:1]) # step and stop are optional, stop is exclusive
+print(occupation[::4]) # beginning to end, every 4th letter
+print(occupation[4:14:2]) # Let's get weird with it!
+
 # NOTE: Indexing out of range will give you an IndexError
 
 # We can also get the index og things with the .index() method, similar to indexOf()
+
 print(occupation.index("Stack"))
 print(["Mike", "Barry", "Cole", "James", "Mark"].index("Cole"))
 
 # We can count how many times a substring/item appears in something as well
+
 print(occupation.count("S"))
 print(
-    """Now this here's a story all about how
+"""Now this here's a story all about how
 My life got twist turned upside down
 I forget the rest but the the the potato
 smells like the potato""".count(
-        "the"
-    )
+"the"
+)
 )
 
 # We concatenate the same as Javascript, but we can also multiply strings
+
 print("dog " + "show")
-print("ha" * 10)
+print("ha" \* 10)
 
 # We can use format for a multitude of things, from spaces to decimal places
+
 first_name = "Michael"
 last_name = "Shuff"
 print("Your name is {0} {1}".format(first_name, last_name))
 
 # Useful String Methods
-print("Hello".upper())  # HELLO
-print("Hello".lower())  # hello
-print("HELLO".islower())  # False
-print("HELLO".isupper())  # True
-print("Hello".startswith("he"))  # False
-print("Hello".endswith("lo"))  # True
-print("Hello There".split())  # [Hello, There]
-print("hello1".isalpha())  # False,  must consist only of letters
-print("hello1".isalnum())  # True, must consist of only letters and numbers
-print("3215235123".isdecimal())  # True, must be all numbers
+
+print("Hello".upper()) # HELLO
+print("Hello".lower()) # hello
+print("HELLO".islower()) # False
+print("HELLO".isupper()) # True
+print("Hello".startswith("he")) # False
+print("Hello".endswith("lo")) # True
+print("Hello There".split()) # [Hello, There]
+print("hello1".isalpha()) # False, must consist only of letters
+print("hello1".isalnum()) # True, must consist of only letters and numbers
+print("3215235123".isdecimal()) # True, must be all numbers
+
 # True, must consist of only spaces/tabs/newlines
-print("       \n     ".isspace())
+
+print(" \n ".isspace())
+
 # False, index 0 must be upper case and the rest lower
+
 print("MichaeL".istitle())
-print("Michael Lee".istitle())  # True!
+print("Michael Lee".istitle()) # True!
 
 # Duck Typing - If it walks like a duck, and talks like a duck, it must be a duck
+
 # Assignment - All like JS, but there are no special keywords like let or const
+
 a = 3
 b = a
 c = "heyoo"
 b = ["reassignment", "is", "fine", "G!"]
 
 # Comparison Operators - Python uses the same equality operators as JS, but no ===
+
 # < - Less than
+
 # > - Greater than
+
 # <= - Less than or Equal
+
 # >= - Greater than or Equal
+
 # == - Equal to
+
 # != - Not equal to
+
 # is - Refers to exact same memory location
+
 # not - !
+
 # Precedence - Negative Signs(not) are applied first(part of each number)
-#            - Multiplication and Division(and) happen next
-#            - Addition and Subtraction(or) are the last step
-#  NOTE: Be careful when using not along with ==
-print(not a == b)  # True
+
+# - Multiplication and Division(and) happen next
+
+# - Addition and Subtraction(or) are the last step
+
+# NOTE: Be careful when using not along with ==
+
+print(not a == b) # True
+
 # print(a == not b) # Syntax Error
-print(a == (not b))  # This fixes it. Answer: False
+
+print(a == (not b)) # This fixes it. Answer: False
+
 # Python does short-circuit evaluation
 
-# Assignment Operators - Mostly the same as JS except Python has **= and //= (int division)
+# Assignment Operators - Mostly the same as JS except Python has \*\*= and //= (int division)
 
 # Flow Control Statements - if, while, for
+
 # Note: Python smushes 'else if' into 'elif'!
+
 if 10 < 1:
-    print("We don't get here")
+print("We don't get here")
 elif 10 < 5:
-    print("Nor here...")
+print("Nor here...")
 else:
-    print("Hey there!")
+print("Hey there!")
 
 # Looping over a string
+
 for c in "abcdefgh":
-    print(c)
+print(c)
 
 # Looping over a range
+
 for i in range(5):
-    print(i + 1)
+print(i + 1)
 
 # Looping over a list
+
 lst = [1, 2, 3, 4]
 for i in lst:
-    print(i)
+print(i)
 
 # Looping over a dictionary
+
 spam = {"color": "red", "age": 42, "items": [(1, "hey"), (2, "hooo!")]}
 for v in spam.values():
-    print(v)
+print(v)
 
 # Loop over a list of tuples and destructuring the values
+
 # Assuming spam.items returns a list of tuples each containing two items (k, v)
+
 for k, v in spam.items():
-    print(f"{k}: {v}")
+print(f"{k}: {v}")
 
 # While loops as long as the condition is True
-#  - Exit loop early with break
-#  - Exit iteration early with continue
+
+# - Exit loop early with break
+
+# - Exit iteration early with continue
+
 spam = 0
 while True:
-    print("Heyy girrllll")
-    spam += 1
-    if spam < 5:
-        continue
-    break
-
+print("Heyy girrllll")
+spam += 1
+if spam < 5:
+continue
+break
 
 # Functions - use def keyword to define a function in Python
-def printCopyright():
-    print("Copyright 2020, ya boi, Mike Shuff")
 
+def printCopyright():
+print("Copyright 2020, ya boi, Mike Shuff")
 
 # Lambdas are one liners! (Should be at least, you can use parenthesis to disobey)
+
 avg = lambda num1, num2: print(num1 + num2)
 
 avg(1, 2)
+
 # Calling it with keyword arguments, order does not matter
+
 avg(num2=20, num1=1252)
 printCopyright()
 
 # We can give parameters default arguments like JS
+
 def greeting(name, saying="Hello"):
-    print(saying, name)
+print(saying, name)
 
-
-greeting("Mike")  # Hello Mike
+greeting("Mike") # Hello Mike
 greeting("Michael", saying="Hello there...")
 
 # A common gotcha is using a mutable object for a default parameter
-# All invocations of the function reference the same mutable object
-def append_item(item_name, item_list=[]):  # Will it obey and give us a new list?
-    item_list.append(item_name)
-    return item_list
 
+# All invocations of the function reference the same mutable object
+
+def append_item(item_name, item_list=[]): # Will it obey and give us a new list?
+item_list.append(item_name)
+return item_list
 
 # Uses same item list unless otherwise stated which is counterintuitive
+
 print(append_item("notebook"))
 print(append_item("notebook"))
 print(append_item("notebook", []))
 
 # Errors - Unlike JS, if we pass the incorrect amount of arguments to a function,
-#          it will throw an error
-# avg(1)  # TypeError
+
+# it will throw an error
+
+# avg(1) # TypeError
+
 # avg(1, 2, 2) # TypeError
 
 # ----------------------------------- DAY 2 ----------------------------------------
-# Functions - * to get rest of position arguments as tuple
-#           - ** to get rest of keyword arguments as a dictionary
+
+# Functions - \* to get rest of position arguments as tuple
+
+# - \*\* to get rest of keyword arguments as a dictionary
+
 # Variable Length positional arguments
-def add(a, b, *args):
-    # args is a tuple of the rest of the arguments
-    total = a + b
-    for n in args:
-        total += n
-    return total
 
+def add(a, b, \*args): # args is a tuple of the rest of the arguments
+total = a + b
+for n in args:
+total += n
+return total
 
-print(add(1, 2))  # args is None, returns 3
-print(add(1, 2, 3, 4, 5, 6))  # args is (3, 4, 5, 6), returns 21
+print(add(1, 2)) # args is None, returns 3
+print(add(1, 2, 3, 4, 5, 6)) # args is (3, 4, 5, 6), returns 21
 
 # Variable Length Keyword Arguments
-def print_names_and_countries(greeting, **kwargs):
-    # kwargs is a dictionary of the rest of the keyword arguments
-    for k, v in kwargs.items():
-        print(greeting, k, "from", v)
 
+def print_names_and_countries(greeting, \*\*kwargs): # kwargs is a dictionary of the rest of the keyword arguments
+for k, v in kwargs.items():
+print(greeting, k, "from", v)
 
 print_names_and_countries(
-    "Hey there", Monica="Sweden", Mike="The United States", Mark="China"
+"Hey there", Monica="Sweden", Mike="The United States", Mark="China"
 )
 
 # We can combine all of these together
-def example2(arg1, arg2, *args, kw_1="cheese", kw_2="horse", **kwargs):
-    pass
 
+def example2(arg1, arg2, \*args, kw_1="cheese", kw_2="horse", \*\*kwargs):
+pass
 
 # Lists are mutable arrays
+
 empty_list = []
 roomates = ["Beau", "Delynn"]
+
 # List built-in function makes a list too
+
 specials = list()
+
 # We can use 'in' to test if something is in the list, like 'includes' in JS
-print(1 in [1, 2, 4])  # True
-print(2 in [1, 3, 5])  # False
+
+print(1 in [1, 2, 4]) # True
+print(2 in [1, 3, 5]) # False
 
 # Dictionaries - Similar to JS POJO's or Map, containing key value pairs
+
 a = {"one": 1, "two": 2, "three": 3}
 b = dict(one=1, two=2, three=3)
+
 # Can use 'in' on dictionaries too (for keys)
-print("one" in a)  # True
-print(3 in b)  # False
+
+print("one" in a) # True
+print(3 in b) # False
 
 # Sets - Just like JS, unordered collection of distinct objects
+
 bedroom = {"bed", "tv", "computer", "clothes", "playstation 4"}
+
 # bedroom = set("bed", "tv", "computer", "clothes", "playstation 5")
+
 school_bag = set(
-    ["book", "paper", "pencil", "pencil", "book", "book", "book", "eraser"]
+["book", "paper", "pencil", "pencil", "book", "book", "book", "eraser"]
 )
 print(school_bag)
 print(bedroom)
+
 # We can use 'in' on sets as wel
-print(1 in {1, 2, 3})  # True
-print(4 in {1, 3, 5})  # False
+
+print(1 in {1, 2, 3}) # True
+print(4 in {1, 3, 5}) # False
 
 # Tuples are immutable lists of items
+
 time_blocks = ("AM", "PM")
-colors = "red", "green", "blue"  # Parenthesis not needed but encouraged
+colors = "red", "green", "blue" # Parenthesis not needed but encouraged
+
 # The tuple built-in function can be used to convert things to tuples
+
 print(tuple("abc"))
 print(tuple([1, 2, 3]))
+
 # 'in' may be used on tuples as well
-print(1 in (1, 2, 3))  # True
-print(5 in (1, 4, 3))  # False
+
+print(1 in (1, 2, 3)) # True
+print(5 in (1, 4, 3)) # False
 
 # Ranges are immutable lists of numbers, often used with for loops
-#   - start - default: 0, first number in sequence
-#   - stop - required, next number past last number in sequence
-#   - step - default: 1, difference between each number in sequence
-range1 = range(5)  # [0,1,2,3,4]
-range2 = range(1, 5)  # [1,2,3,4]
-range3 = range(0, 25, 5)  # [0,5,10,15,20]
-range4 = range(0)  # []
+
+# - start - default: 0, first number in sequence
+
+# - stop - required, next number past last number in sequence
+
+# - step - default: 1, difference between each number in sequence
+
+range1 = range(5) # [0,1,2,3,4]
+range2 = range(1, 5) # [1,2,3,4]
+range3 = range(0, 25, 5) # [0,5,10,15,20]
+range4 = range(0) # []
 for i in range1:
-    print(i)
+print(i)
 
 # Built-in functions:
+
 # Filter
+
 isOdd = lambda num: num % 2 == 1
 
 filtered = filter(isOdd, [1, 2, 3, 4])
 print(list(filtered))
 for num in filtered:
-    print(f"first way: {num}")
-print("--" * 20)
+print(f"first way: {num}")
+print("--" \* 20)
 [print(f"list comprehension: {i}") for i in [1, 2, 3, 4, 5, 6, 7, 8] if i % 2 == 1]
 
 # Map
-def toUpper(str):
-    return str.upper()
 
+def toUpper(str):
+return str.upper()
 
 upperCased = map(toUpper, ["a", "b", "c", "d"])
 print(list(upperCased))
 
 # Sorted
+
 sorted_items = sorted(["john", "tom", "sonny", "Mike"])
-print(list(sorted_items))  # Notice uppercase comes before lowercase
+print(list(sorted_items)) # Notice uppercase comes before lowercase
+
 # Using a key function to control the sorting and make it case insensitive
+
 sorted_items = sorted(["john", "tom", "sonny", "Mike"], key=str.lower)
 print(sorted_items)
+
 # You can also reverse the sort
+
 sorted_items = sorted(["john", "tom", "sonny", "Mike"], key=str.lower, reverse=True)
 print(sorted_items)
 
 # Enumerate creates a tuple with an index for what you're enumerating
+
 quarters = ["First", "Second", "Third", "Fourth"]
 print(list(enumerate(quarters)))
 print(list(enumerate(quarters, start=1)))
 
 # Zip takes list and combines them as key value pairs, or really however you need
+
 keys = ("Name", "Email")
 values = ("Buster", "cheetoh@johhnydepp.com")
 zipped = zip(keys, values)
 print(list(zipped))
+
 # You can zip more than 2
+
 x_coords = [0, 1, 2, 3, 4]
 y_coords = [4, 6, 10, 9, 10]
 z_coords = [20, 10, 5, 9, 1]
@@ -811,98 +918,135 @@ coords = zip(x_coords, y_coords, z_coords)
 print(list(coords))
 
 # Len reports the length of strings along with list and any other object data type
-print_len = lambda item: print(len(item))  # doing this to save myself some typing
+
+print_len = lambda item: print(len(item)) # doing this to save myself some typing
 
 print_len("Mike")
 print_len([1, 5, 2, 10, 3, 10])
-print_len({1, 5, 10, 9, 10})  # 4 because there is a duplicate here (10)
+print_len({1, 5, 10, 9, 10}) # 4 because there is a duplicate here (10)
 print_len((1, 4, 10, 9, 20))
 
 # Max will return the max number in a given scenario
+
 print(max(1, 2, 35, 1012, 1))
 
 # Min
+
 print(min(1, 5, 2, 10))
 print(min([1, 4, 7, 10]))
 
 # Sum
+
 print(sum([1, 2, 4]))
 
 # Any
+
 print(any([True, False, False]))
 print(any([False, False, False]))
 
 # All
+
 print(all([True, True, False]))
 print(all([True, True, True]))
 
 # Dir returns all the attributes of an object including it's methods and dunder methods
+
 user = {"Name": "Bob", "Email": "bob@bob.com"}
 print(dir(user))
 
 # Importing packages and modules
-#  - Module - A Python code in a file or directory
-#  - Package - A module which is a directory containing an __init__.py file
-#  - Submodule - A module which is contained within a package
-#  - Name - An exported function, class, or variable in a module
+
+# - Module - A Python code in a file or directory
+
+# - Package - A module which is a directory containing an **init**.py file
+
+# - Submodule - A module which is contained within a package
+
+# - Name - An exported function, class, or variable in a module
+
 # Unlike JS, modules export ALL names contained within them without any special export key
 
 # Assuming we have the following package with four submodules
-#  math
-#  |  __init__.py
-#  | addition.py
-#  | subtraction.py
-#  | multiplication.py
-#  | division.py
+
+# math
+
+# | **init**.py
+
+# | addition.py
+
+# | subtraction.py
+
+# | multiplication.py
+
+# | division.py
 
 # If we peek into the addition.py file we see there's an add function
-# addition.py
-# We can import 'add' from other places because it's a 'name' and is automatically exported
-def add(num1, num2):
-    return num1 + num2
 
+# addition.py
+
+# We can import 'add' from other places because it's a 'name' and is automatically exported
+
+def add(num1, num2):
+return num1 + num2
 
 # Notice the . syntax because this package can import it's own submodules.
-# Our __init__.py has the following files
+
+# Our **init**.py has the following files
+
 # This imports the 'add' function
+
 # And now it's also re-exported in here as well
+
 # from .addition import add
+
 # These import and re-export the rest of the functions from the submodule
+
 # from .subtraction import subtract
+
 # from .division import divide
+
 # from .multiplication import multiply
+
 # So if we have a script.py and want to import add, we could do it many ways
 
-# This will load and execute the 'math/__init__.py' file and give
-# us an object with the exported names in 'math/__init__.py'
+# This will load and execute the 'math/**init**.py' file and give
+
+# us an object with the exported names in 'math/**init**.py'
+
 import math
 
 # print(math.add(1,2))
 
-# This imports JUST the add from 'math/__init__.py'
+# This imports JUST the add from 'math/**init**.py'
+
 # from math import add
 
 # print(add(1, 2))
 
-# This skips importing from 'math/__init__.py' (although it still runs)
+# This skips importing from 'math/**init**.py' (although it still runs)
+
 # and imports directly from the addition.py file
+
 # from math.addition import add
 
-# This imports all the functions individually from 'math/__init__.py'
+# This imports all the functions individually from 'math/**init**.py'
+
 # from math import add, subtract, multiply, divide
 
 # print(add(1, 2))
+
 # print(subtract(2, 1))
 
 # This imports 'add' renames it to 'add_some_numbers'
+
 # from math import add as add_some_numbers
 
 # --------------------------------------- DAY 3 ---------------------------------------
+
 # Classes, Methods, and Properties
-class AngryBird:
-    # Slots optimize property access and memory usage and prevent you
-    # from arbitrarily assigning new properties the instance
-    __slots__ = ["_x", "_y"]
+
+class AngryBird: # Slots optimize property access and memory usage and prevent you # from arbitrarily assigning new properties the instance
+**slots** = ["_x", "_y"]
 
     # Constructor
     def __init__(self, x=0, y=0):
@@ -942,29 +1086,43 @@ class AngryBird:
     def __repr__(self):
         return f"<AngryBird ({self._x}, {self._y})>"
 
-
 # JS to Python Classes cheat table
-#        JS                    Python
-#   constructor()         def __init__(self):
-#      super()            super().__init__()
-#   this.property           self.property
-#    this.method            self.method()
-# method(arg1, arg2){}    def method(self, arg1, ...)
-# get someProperty(){}    @property
-# set someProperty(){}    @someProperty.setter
+
+# JS Python
+
+# constructor() def **init**(self):
+
+# super() super().**init**()
+
+# this.property self.property
+
+# this.method self.method()
+
+# method(arg1, arg2){} def method(self, arg1, ...)
+
+# get someProperty(){} @property
+
+# set someProperty(){} @someProperty.setter
 
 # List Comprehensions are a way to transform a list from one format to another
-#  - Pythonic Alternative to using map or filter
-#  - Syntax of a list comprehension
-#     - new_list = [value loop condition]
+
+# - Pythonic Alternative to using map or filter
+
+# - Syntax of a list comprehension
+
+# - new_list = [value loop condition]
+
 # Using a for loop
+
 squares = []
 for i in range(10):
-    squares.append(i ** 2)
+squares.append(i \*\* 2)
 print(squares)
 
-# value = i ** 2
+# value = i \*\* 2
+
 # loop = for i in range(10)
+
 squares = [i ** 2 for i in range(10)]
 print(list(squares))
 
@@ -973,9 +1131,12 @@ vowels = [character for character in sentence if character in "aeiou"]
 print(vowels)
 
 # You can also use them on dictionaries. We can use the items() method
+
 # for the dictionary to loop through it getting the keys and values out at once
+
 person = {"name": "Corina", "age": 32, "height": 1.4}
 
 # This loops through and capitalizes the first letter of all keys
+
 newPerson = {key.title(): value for key, value in person.items()}
 print(list(newPerson.items()))

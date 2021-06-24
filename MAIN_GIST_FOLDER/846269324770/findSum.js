@@ -7,14 +7,14 @@ arguments are given, it should return -1.
 
 */
 
-function findSum(){
+function findSum() {
   var total = 0;
-  if(arguments) {
-    for(var i = 0; i < arguments.length; i++) {
-       if(arguments[i] < 0) {
-         return -1;
-       }
-       total += arguments[i];
+  if (arguments) {
+    for (var i = 0; i < arguments.length; i++) {
+      if (arguments[i] < 0) {
+        return -1;
+      }
+      total += arguments[i];
     }
     return total;
   } else {

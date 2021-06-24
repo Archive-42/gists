@@ -9,6 +9,6 @@
  flatten([[1],[2],[3],[4]]) == [1,2,3,4]
 */
 
-function flatten(l){
-  return [].concat.apply([], l); 
+function flatten(l) {
+  return [].concat.apply([], l);
 }

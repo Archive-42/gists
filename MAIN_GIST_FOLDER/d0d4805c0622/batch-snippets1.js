@@ -8,29 +8,25 @@ const HSBToRGB = (h, s, b) => {
 
 //--------------------------------
 
-
 HSBToRGB(18, 81, 99); // [252.45, 109.31084999999996, 47.965499999999984]
 
 //--------------------------------
 
-
 const HSLToRGB = (h, s, l) => {
   s /= 100;
   l /= 100;
-  const k = n => (n + h / 30) % 12;
+  const k = (n) => (n + h / 30) % 12;
   const a = s * Math.min(l, 1 - l);
-  const f = n =>
+  const f = (n) =>
     l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
   return [255 * f(0), 255 * f(8), 255 * f(4)];
 };
 
 //--------------------------------
 
-
 HSLToRGB(13, 100, 11); // [56.1, 12.155, 0]
 
 //--------------------------------
-
 
 const RGBToHSL = (r, g, b) => {
   r /= 255;
@@ -54,25 +50,21 @@ const RGBToHSL = (r, g, b) => {
 
 //--------------------------------
 
-
 RGBToHSL(45, 23, 11); // [21.17647, 60.71428, 10.98039]
 
 //--------------------------------
 
-
 const RGBToHex = (r, g, b) =>
-  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, "0");
 
 //--------------------------------
-
 
 RGBToHex(255, 165, 1); // 'ffa501'
 
 //--------------------------------
 
-
 const UUIDGeneratorBrowser = () =>
-  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
     (
       c ^
       (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
@@ -81,61 +73,51 @@ const UUIDGeneratorBrowser = () =>
 
 //--------------------------------
 
-
 UUIDGeneratorBrowser(); // '7982fcfe-5721-4632-bede-6000885be57d'
 
 //--------------------------------
 
-
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 const UUIDGeneratorNode = () =>
-  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
     (c ^ (crypto.randomBytes(1)[0] & (15 >> (c / 4)))).toString(16)
   );
 
 //--------------------------------
 
-
 UUIDGeneratorNode(); // '79c7c136-60ee-40a2-beb2-856f1feabefc'
 
 //--------------------------------
-
 
 const approximatelyEqual = (v1, v2, epsilon = 0.001) =>
   Math.abs(v1 - v2) < epsilon;
 
 //--------------------------------
 
-
 approximatelyEqual(Math.PI / 2.0, 1.5708); // true
 
 //--------------------------------
 
-
-const arithmeticProgression  = (n, lim) =>
-  Array.from({ length: Math.ceil(lim / n) }, (_, i) => (i + 1) * n );
+const arithmeticProgression = (n, lim) =>
+  Array.from({ length: Math.ceil(lim / n) }, (_, i) => (i + 1) * n);
 
 //--------------------------------
-
 
 arithmeticProgression(5, 25); // [5, 10, 15, 20, 25]
 
 //--------------------------------
 
-
-const arrayToHTMLList = (arr, listID) => 
-  document.querySelector(`#${listID}`).innerHTML += arr
-    .map(item => `<li>${item}</li>`)
-    .join('');
-
-//--------------------------------
-
-
-arrayToHTMLList(['item 1', 'item 2'], 'myListID');
+const arrayToHTMLList = (arr, listID) =>
+  (document.querySelector(`#${listID}`).innerHTML += arr
+    .map((item) => `<li>${item}</li>`)
+    .join(""));
 
 //--------------------------------
 
+arrayToHTMLList(["item 1", "item 2"], "myListID");
+
+//--------------------------------
 
 const binomialCoefficient = (n, k) => {
   if (Number.isNaN(n) || Number.isNaN(k)) return NaN;
@@ -150,11 +132,9 @@ const binomialCoefficient = (n, k) => {
 
 //--------------------------------
 
-
 binomialCoefficient(8, 2); // 28
 
 //--------------------------------
-
 
 const bottomVisible = () =>
   document.documentElement.clientHeight + window.scrollY >=
@@ -163,13 +143,11 @@ const bottomVisible = () =>
 
 //--------------------------------
 
-
 bottomVisible(); // true
 
 //--------------------------------
 
-
-const bubbleSort = arr => {
+const bubbleSort = (arr) => {
   let swapped = false;
   const a = [...arr];
   for (let i = 1; i < a.length - 1; i++) {
@@ -187,11 +165,9 @@ const bubbleSort = arr => {
 
 //--------------------------------
 
-
 bubbleSort([2, 1, 4, 3]); // [1, 2, 3, 4]
 
 //--------------------------------
-
 
 const bucketSort = (arr, size = 5) => {
   const min = Math.min(...arr);
@@ -200,7 +176,7 @@ const bucketSort = (arr, size = 5) => {
     { length: Math.floor((max - min) / size) + 1 },
     () => []
   );
-  arr.forEach(val => {
+  arr.forEach((val) => {
     buckets[Math.floor((val - min) / size)].push(val);
   });
   return buckets.reduce((acc, b) => [...acc, ...b.sort((a, b) => a - b)], []);
@@ -208,22 +184,18 @@ const bucketSort = (arr, size = 5) => {
 
 //--------------------------------
 
-
 bucketSort([6, 3, 4, 1]); // [1, 3, 4, 6]
 
 //--------------------------------
 
-
-const capitalizeEveryWord = str =>
-  str.replace(/\b[a-z]/g, char => char.toUpperCase());
-
-//--------------------------------
-
-
-capitalizeEveryWord('hello world!'); // 'Hello World!'
+const capitalizeEveryWord = (str) =>
+  str.replace(/\b[a-z]/g, (char) => char.toUpperCase());
 
 //--------------------------------
 
+capitalizeEveryWord("hello world!"); // 'Hello World!'
+
+//--------------------------------
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -232,40 +204,36 @@ const chunk = (arr, size) =>
 
 //--------------------------------
 
-
 chunk([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4], [5]]
 
 //--------------------------------
-
 
 const chunkIntoN = (arr, n) => {
   const size = Math.ceil(arr.length / n);
   return Array.from({ length: n }, (v, i) =>
     arr.slice(i * size, i * size + size)
   );
-}
+};
 
 //--------------------------------
-
 
 chunkIntoN([1, 2, 3, 4, 5, 6, 7], 4); // [[1, 2], [3, 4], [5, 6], [7]]
 
 //--------------------------------
 
-
-const copyToClipboard = str => {
-  const el = document.createElement('textarea');
+const copyToClipboard = (str) => {
+  const el = document.createElement("textarea");
   el.value = str;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
+  el.setAttribute("readonly", "");
+  el.style.position = "absolute";
+  el.style.left = "-9999px";
   document.body.appendChild(el);
   const selected =
     document.getSelection().rangeCount > 0
       ? document.getSelection().getRangeAt(0)
       : false;
   el.select();
-  document.execCommand('copy');
+  document.execCommand("copy");
   document.body.removeChild(el);
   if (selected) {
     document.getSelection().removeAllRanges();
@@ -275,124 +243,104 @@ const copyToClipboard = str => {
 
 //--------------------------------
 
-
-copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
+copyToClipboard("Lorem ipsum"); // 'Lorem ipsum' copied to clipboard.
 
 //--------------------------------
-
 
 const countOccurrences = (arr, val) =>
   arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
 
 //--------------------------------
 
-
 countOccurrences([1, 1, 2, 1, 2, 3], 1); // 3
 
 //--------------------------------
 
-
-const dayOfYear = date =>
+const dayOfYear = (date) =>
   Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
 
 //--------------------------------
-
 
 dayOfYear(new Date()); // 272
 
 //--------------------------------
 
-
-const daysAgo = n => {
+const daysAgo = (n) => {
   let d = new Date();
   d.setDate(d.getDate() - Math.abs(n));
-  return d.toISOString().split('T')[0];
+  return d.toISOString().split("T")[0];
 };
 
 //--------------------------------
-
 
 daysAgo(20); // 2020-09-16 (if current date is 2020-10-06)
 
 //--------------------------------
 
-
-const daysFromNow = n => {
+const daysFromNow = (n) => {
   let d = new Date();
   d.setDate(d.getDate() + Math.abs(n));
-  return d.toISOString().split('T')[0];
+  return d.toISOString().split("T")[0];
 };
 
 //--------------------------------
-
 
 daysFromNow(5); // 2020-10-13 (if current date is 2020-10-08)
 
 //--------------------------------
 
-
-const deepFlatten = arr =>
-  [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));
+const deepFlatten = (arr) =>
+  [].concat(...arr.map((v) => (Array.isArray(v) ? deepFlatten(v) : v)));
 
 //--------------------------------
-
 
 deepFlatten([1, [2], [[3], 4], 5]); // [1, 2, 3, 4, 5]
 
 //--------------------------------
-
 
 const defaults = (obj, ...defs) =>
   Object.assign({}, obj, ...defs.reverse(), obj);
 
 //--------------------------------
 
-
 defaults({ a: 1 }, { b: 2 }, { b: 6 }, { a: 3 }); // { a: 1, b: 2 }
 
 //--------------------------------
-
 
 const detectDeviceType = () =>
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-    ? 'Mobile'
-    : 'Desktop';
+    ? "Mobile"
+    : "Desktop";
 
 //--------------------------------
-
 
 detectDeviceType(); // 'Mobile' or 'Desktop'
 
 //--------------------------------
 
-
-const detectLanguage = (defaultLang = 'en-US') => 
+const detectLanguage = (defaultLang = "en-US") =>
   navigator.language ||
   (Array.isArray(navigator.languages) && navigator.languages[0]) ||
   defaultLang;
 
 //--------------------------------
 
-
 detectLanguage(); // 'nl-NL'
 
 //--------------------------------
 
-
 const difference = (a, b) => {
   const s = new Set(b);
-  return a.filter(x => !s.has(x));
+  return a.filter((x) => !s.has(x));
 };
 
 //--------------------------------
 
-
 difference([1, 2, 3, 3], [1, 2, 4]); // [3, 3]
 
 //--------------------------------
-
 
 const dropRightWhile = (arr, func) => {
   let rightIndex = arr.length;
@@ -402,11 +350,9 @@ const dropRightWhile = (arr, func) => {
 
 //--------------------------------
 
-
-dropRightWhile([1, 2, 3, 4], n => n < 3); // [1, 2]
+dropRightWhile([1, 2, 3, 4], (n) => n < 3); // [1, 2]
 
 //--------------------------------
-
 
 const dropWhile = (arr, func) => {
   while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
@@ -415,16 +361,14 @@ const dropWhile = (arr, func) => {
 
 //--------------------------------
 
-
-dropWhile([1, 2, 3, 4], n => n >= 3); // [3, 4]
+dropWhile([1, 2, 3, 4], (n) => n >= 3); // [3, 4]
 
 //--------------------------------
 
-
-const factorial = n =>
+const factorial = (n) =>
   n < 0
     ? (() => {
-        throw new TypeError('Negative numbers are not allowed!');
+        throw new TypeError("Negative numbers are not allowed!");
       })()
     : n <= 1
     ? 1
@@ -432,13 +376,11 @@ const factorial = n =>
 
 //--------------------------------
 
-
 factorial(6); // 720
 
 //--------------------------------
 
-
-const fibonacci = n =>
+const fibonacci = (n) =>
   Array.from({ length: n }).reduce(
     (acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
     []
@@ -446,39 +388,33 @@ const fibonacci = n =>
 
 //--------------------------------
 
-
 fibonacci(6); // [0, 1, 1, 2, 3, 5]
 
 //--------------------------------
 
-
-const filterNonUnique = arr =>
-  [...new Set(arr)].filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
+const filterNonUnique = (arr) =>
+  [...new Set(arr)].filter((i) => arr.indexOf(i) === arr.lastIndexOf(i));
 
 //--------------------------------
-
 
 filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
 
 //--------------------------------
 
-
-const filterUnique = arr =>
-  [...new Set(arr)].filter(i => arr.indexOf(i) !== arr.lastIndexOf(i));
+const filterUnique = (arr) =>
+  [...new Set(arr)].filter((i) => arr.indexOf(i) !== arr.lastIndexOf(i));
 
 //--------------------------------
-
 
 filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //--------------------------------
 
-
-const flattenObject = (obj, prefix = '') =>
+const flattenObject = (obj, prefix = "") =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}.` : '';
+    const pre = prefix.length ? `${prefix}.` : "";
     if (
-      typeof obj[k] === 'object' &&
+      typeof obj[k] === "object" &&
       obj[k] !== null &&
       Object.keys(obj[k]).length > 0
     )
@@ -489,75 +425,59 @@ const flattenObject = (obj, prefix = '') =>
 
 //--------------------------------
 
-
 flattenObject({ a: { b: { c: 1 } }, d: 1 }); // { 'a.b.c': 1, d: 1 }
 
 //--------------------------------
 
-
-const forEachRight = (arr, callback) =>
-  arr
-    .slice()
-    .reverse()
-    .forEach(callback);
+const forEachRight = (arr, callback) => arr.slice().reverse().forEach(callback);
 
 //--------------------------------
 
-
-forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
+forEachRight([1, 2, 3, 4], (val) => console.log(val)); // '4', '3', '2', '1'
 
 //--------------------------------
-
 
 const forOwn = (obj, fn) =>
-  Object.keys(obj).forEach(key => fn(obj[key], key, obj));
+  Object.keys(obj).forEach((key) => fn(obj[key], key, obj));
 
 //--------------------------------
 
-
-forOwn({ foo: 'bar', a: 1 }, v => console.log(v)); // 'bar', 1
+forOwn({ foo: "bar", a: 1 }, (v) => console.log(v)); // 'bar', 1
 
 //--------------------------------
-
 
 const forOwnRight = (obj, fn) =>
   Object.keys(obj)
     .reverse()
-    .forEach(key => fn(obj[key], key, obj));
+    .forEach((key) => fn(obj[key], key, obj));
 
 //--------------------------------
 
-
-forOwnRight({ foo: 'bar', a: 1 }, v => console.log(v)); // 1, 'bar'
+forOwnRight({ foo: "bar", a: 1 }, (v) => console.log(v)); // 1, 'bar'
 
 //--------------------------------
-
 
 const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
   (dateFinal - dateInitial) / (1000 * 3600 * 24);
 
 //--------------------------------
 
-
-getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
+getDaysDiffBetweenDates(new Date("2017-12-13"), new Date("2017-12-22")); // 9
 
 //--------------------------------
 
-
 const getElementsBiggerThanViewport = () => {
   const docWidth = document.documentElement.offsetWidth;
-  return [...document.querySelectorAll('*')].filter(
-    el => el.offsetWidth > docWidth
+  return [...document.querySelectorAll("*")].filter(
+    (el) => el.offsetWidth > docWidth
   );
 };
 
 //--------------------------------
 
-
 getElementsBiggerThanViewport(); // <div id="ultra-wide-item" />
 
 //--------------------------------
-
 
 const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
   Math.max(
@@ -569,48 +489,40 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
 
 //--------------------------------
 
-
-getMonthsDiffBetweenDates(new Date('2017-12-13'), new Date('2018-04-29')); // 4
+getMonthsDiffBetweenDates(new Date("2017-12-13"), new Date("2018-04-29")); // 4
 
 //--------------------------------
-
 
 const getScrollPosition = (el = window) => ({
   x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
-  y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+  y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop,
 });
 
 //--------------------------------
-
 
 getScrollPosition(); // {x: 0, y: 200}
 
 //--------------------------------
 
-
-const getSiblings = el =>
-  [...el.parentNode.childNodes].filter(node => node !== el);
-
-//--------------------------------
-
-
-getSiblings(document.querySelector('head')); // ['body']
+const getSiblings = (el) =>
+  [...el.parentNode.childNodes].filter((node) => node !== el);
 
 //--------------------------------
 
-
-const getType = v =>
-  (v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name);
+getSiblings(document.querySelector("head")); // ['body']
 
 //--------------------------------
 
+const getType = (v) =>
+  v === undefined ? "undefined" : v === null ? "null" : v.constructor.name;
+
+//--------------------------------
 
 getType(new Set([1, 2, 3])); // 'Set'
 
 //--------------------------------
 
-
-const getVerticalOffset = el => {
+const getVerticalOffset = (el) => {
   let offset = el.offsetTop,
     _el = el;
   while (_el.offsetParent) {
@@ -622,39 +534,33 @@ const getVerticalOffset = el => {
 
 //--------------------------------
 
-
-getVerticalOffset('.my-element'); // 120
+getVerticalOffset(".my-element"); // 120
 
 //--------------------------------
-
 
 const hammingDistance = (num1, num2) =>
-  ((num1 ^ num2).toString(2).match(/1/g) || '').length;
+  ((num1 ^ num2).toString(2).match(/1/g) || "").length;
 
 //--------------------------------
-
 
 hammingDistance(2, 3); // 1
 
 //--------------------------------
 
-
 const haveSameContents = (a, b) => {
   for (const v of new Set([...a, ...b]))
-    if (a.filter(e => e === v).length !== b.filter(e => e === v).length)
+    if (a.filter((e) => e === v).length !== b.filter((e) => e === v).length)
       return false;
   return true;
 };
 
 //--------------------------------
 
-
 haveSameContents([1, 2, 4], [2, 4, 1]); // true
 
 //--------------------------------
 
-
-const heapsort = arr => {
+const heapsort = (arr) => {
   const a = [...arr];
   let l = a.length;
 
@@ -681,35 +587,29 @@ const heapsort = arr => {
 
 //--------------------------------
 
-
 heapsort([6, 3, 4, 1]); // [1, 3, 4, 6]
 
 //--------------------------------
-
 
 const initialize2DArray = (w, h, val = null) =>
   Array.from({ length: h }).map(() => Array.from({ length: w }).fill(val));
 
 //--------------------------------
 
-
 initialize2DArray(2, 2, 0); // [[0, 0], [0, 0]]
 
 //--------------------------------
-
 
 const initializeArrayWithValues = (n, val = 0) =>
   Array.from({ length: n }).fill(val);
 
 //--------------------------------
 
-
 initializeArrayWithValues(5, 2); // [2, 2, 2, 2, 2]
 
 //--------------------------------
 
-
-const insertionSort = arr =>
+const insertionSort = (arr) =>
   arr.reduce((acc, x) => {
     if (!acc.length) return [x];
     acc.some((y, j) => {
@@ -728,49 +628,43 @@ const insertionSort = arr =>
 
 //--------------------------------
 
-
 insertionSort([6, 3, 4, 1]); // [1, 3, 4, 6]
 
 //--------------------------------
 
-
 const intersection = (a, b) => {
   const s = new Set(b);
-  return [...new Set(a)].filter(x => s.has(x));
+  return [...new Set(a)].filter((x) => s.has(x));
 };
 
 //--------------------------------
-
 
 intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
 
 //--------------------------------
 
-
 const isAnagram = (str1, str2) => {
-  const normalize = str =>
+  const normalize = (str) =>
     str
       .toLowerCase()
-      .replace(/[^a-z0-9]/gi, '')
-      .split('')
+      .replace(/[^a-z0-9]/gi, "")
+      .split("")
       .sort()
-      .join('');
+      .join("");
   return normalize(str1) === normalize(str2);
 };
 
 //--------------------------------
 
-
-isAnagram('iceman', 'cinema'); // true
+isAnagram("iceman", "cinema"); // true
 
 //--------------------------------
-
 
 const isContainedIn = (a, b) => {
   for (const v of new Set(a)) {
     if (
-      !b.some(e => e === v) ||
-      a.filter(e => e === v).length > b.filter(e => e === v).length
+      !b.some((e) => e === v) ||
+      a.filter((e) => e === v).length > b.filter((e) => e === v).length
     )
       return false;
   }
@@ -779,11 +673,9 @@ const isContainedIn = (a, b) => {
 
 //--------------------------------
 
-
 isContainedIn([1, 4], [2, 4, 1]); // true
 
 //--------------------------------
-
 
 const isLocalStorageEnabled = () => {
   try {
@@ -798,13 +690,11 @@ const isLocalStorageEnabled = () => {
 
 //--------------------------------
 
-
 isLocalStorageEnabled(); // true, if localStorage is accessible
 
 //--------------------------------
 
-
-const isPrime = num => {
+const isPrime = (num) => {
   const boundary = Math.floor(Math.sqrt(num));
   for (let i = 2; i <= boundary; i++) if (num % i === 0) return false;
   return num >= 2;
@@ -812,22 +702,18 @@ const isPrime = num => {
 
 //--------------------------------
 
-
 isPrime(11); // true
 
 //--------------------------------
-
 
 const isSameDate = (dateA, dateB) =>
   dateA.toISOString() === dateB.toISOString();
 
 //--------------------------------
 
-
 isSameDate(new Date(2010, 10, 20), new Date(2010, 10, 20)); // true
 
 //--------------------------------
-
 
 const isSessionStorageEnabled = () => {
   try {
@@ -842,11 +728,9 @@ const isSessionStorageEnabled = () => {
 
 //--------------------------------
 
-
 isSessionStorageEnabled(); // true, if sessionStorage is accessible
 
 //--------------------------------
-
 
 const kMeans = (data, k = 1) => {
   const centroids = data.slice(0, k);
@@ -862,7 +746,7 @@ const kMeans = (data, k = 1) => {
     for (let d in data) {
       for (let c = 0; c < k; c++) {
         distances[d][c] = Math.hypot(
-          ...Object.keys(data[0]).map(key => data[d][key] - centroids[c][key])
+          ...Object.keys(data[0]).map((key) => data[d][key] - centroids[c][key])
         );
       }
       const m = distances[d].indexOf(Math.min(...distances[d]));
@@ -890,7 +774,14 @@ const kMeans = (data, k = 1) => {
 
 //--------------------------------
 
-
-kMeans([[0, 0], [0, 1], [1, 3], [2, 0]], 2); // [0, 1, 1, 0]
+kMeans(
+  [
+    [0, 0],
+    [0, 1],
+    [1, 3],
+    [2, 0],
+  ],
+  2
+); // [0, 1, 1, 0]
 
 //--------------------------------

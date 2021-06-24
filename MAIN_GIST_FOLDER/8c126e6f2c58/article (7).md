@@ -21,7 +21,7 @@ For example:
 
 Quite soon we're going to learn functions (a way to group commands), so let's note in advance that `"use strict"` can be put at the beginning of a function. Doing that enables strict mode in that function only. But usually people use it for the whole script.
 
-````warn header="Ensure that \"use strict\" is at the top"
+````warn header="Ensure that "use strict" is at the top"
 Please make sure that `"use strict"` is at the top of your scripts, otherwise strict mode may not be enabled.
 
 Strict mode isn't enabled here:
@@ -38,11 +38,11 @@ alert("some code");
 Only comments may appear above `"use strict"`.
 ````
 
-```warn header="There's no way to cancel `use strict`"
-There is no directive like `"no use strict"` that reverts the engine to old behavior.
+```warn header="There's no way to cancel `use strict`" There is no directive like `"no use strict"` that reverts the engine to old behavior.
 
 Once we enter strict mode, there's no going back.
-```
+
+````
 
 ## Browser console
 
@@ -58,18 +58,18 @@ First, you can try to press `key:Shift+Enter` to input multiple lines, and put `
 'use strict'; <Shift+Enter for a newline>
 //  ...your code
 <Enter to run>
-```
+````
 
 It works in most browsers, namely Firefox and Chrome.
 
 If it doesn't, e.g. in an old browser, there's an ugly, but reliable way to ensure `use strict`. Put it inside this kind of wrapper:
 
 ```js
-(function() {
-  'use strict';
+(function () {
+  "use strict";
 
   // ...your code here...
-})()
+})();
 ```
 
 ## Should we "use strict"?

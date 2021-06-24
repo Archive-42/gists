@@ -2,21 +2,23 @@ $card-count: 16;
 $card-height-base: 30px;
 $card-height-increment: 10px;
 $transition-time: 200ms;
-$easing: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 @function get-card-height($order) {
   @return $card-height-base + $order * $card-height-increment;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:700');
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:700");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
-  font: 700 16px/1 'Titillium Web', sans-serif;
+  font: 700 16px/1 "Titillium Web", sans-serif;
 }
 
 body {
@@ -50,7 +52,7 @@ body {
 
   // set increasing horizontal position based on sortIndex
   @for $i from 0 through $card-count - 1 {
-    &[data-sort-index='#{$i}'] {
+    &[data-sort-index="#{$i}"] {
       transform: translateX($i * 100%);
     }
   }
@@ -106,11 +108,19 @@ button {
 }
 
 @media only screen and (min-width: 880px) {
-  #app { width: 800px; }
-  .value { font-size: 1.5rem; }
+  #app {
+    width: 800px;
+  }
+  .value {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 1084px) {
-  #app { width: 1024px; }
-  .value { font-size: 1.75rem; }
+  #app {
+    width: 1024px;
+  }
+  .value {
+    font-size: 1.75rem;
+  }
 }

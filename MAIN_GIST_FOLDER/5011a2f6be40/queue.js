@@ -1,4 +1,4 @@
-import waitUntil from './waitUntil';
+import waitUntil from "./waitUntil";
 
 class Queue {
   pendingEntries = [];
@@ -18,7 +18,10 @@ class Queue {
   };
 
   process = () => {
-    const scheduled = this.pendingEntries.splice(0, this.concurrency - this.inFlight);
+    const scheduled = this.pendingEntries.splice(
+      0,
+      this.concurrency - this.inFlight
+    );
     this.inFlight += scheduled.length;
     scheduled.forEach(async (task) => {
       try {
@@ -51,7 +54,7 @@ class Queue {
       },
       {
         delay: 50,
-      },
+      }
     );
 }
 

@@ -56,7 +56,7 @@ So `let user = new User("Jack")` gives the same result as:
 ```js
 let user = {
   name: "Jack",
-  isAdmin: false
+  isAdmin: false,
 };
 ```
 
@@ -115,7 +115,8 @@ We can also make both `new` and regular calls to do the same, like this:
 
 ```js run
 function User(name) {
-  if (!new.target) { // if you run me without new
+  if (!new.target) {
+    // if you run me without new
     return new User(name); // ...I will add new for you
   }
 
@@ -145,26 +146,24 @@ For instance, here `return` overrides `this` by returning an object:
 
 ```js run
 function BigUser() {
-
   this.name = "John";
 
-  return { name: "Godzilla" };  // <-- returns this object
+  return { name: "Godzilla" }; // <-- returns this object
 }
 
-alert( new BigUser().name );  // Godzilla, got that object
+alert(new BigUser().name); // Godzilla, got that object
 ```
 
 And here's an example with an empty `return` (or we could place a primitive after it, doesn't matter):
 
 ```js run
 function SmallUser() {
-
   this.name = "John";
 
   return; // <-- returns this
 }
 
-alert( new SmallUser().name );  // John
+alert(new SmallUser().name); // John
 ```
 
 Usually constructors don't have a `return` statement. Here we mention the special behavior with returning objects mainly for the sake of completeness.

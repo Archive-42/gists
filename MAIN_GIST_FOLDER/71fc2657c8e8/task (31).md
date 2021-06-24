@@ -8,7 +8,6 @@ Rewrite the code changing the `for` loop to `while` without altering its behavio
 
 ```js run
 for (let i = 0; i < 3; i++) {
-  alert( `number ${i}!` );
+  alert(`number ${i}!`);
 }
 ```
-

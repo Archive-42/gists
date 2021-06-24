@@ -13,15 +13,15 @@ export default function ({ types: t }) {
         if (declarations.length === 1) {
           return;
         }
-        
+
         path.replaceWithMultiple(
           declarations.map(({ id, init }) => {
             return t.variableDeclaration(kind, [
-              t.variableDeclarator(id, init)
-            ])
+              t.variableDeclarator(id, init),
+            ]);
           })
-        );                                                                                                                                                                                                                                               
-      }
-    }
+        );
+      },
+    },
   };
 }

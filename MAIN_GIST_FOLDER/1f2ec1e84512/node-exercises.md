@@ -34,6 +34,7 @@ Modify the request handlers so that they take the username as a route parameter.
 
 1. Create a `GET /profiles` endpoint that returns the array of all profiles in JSON format.
 2. Extend every student object with a property of the student's profile endpoint, one of the large profile picture and one of the small profile picture. E.g.
+
 ```
  {
    "username": "butters",

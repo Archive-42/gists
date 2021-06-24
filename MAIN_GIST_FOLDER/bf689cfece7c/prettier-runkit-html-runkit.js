@@ -2,10 +2,10 @@
 // (Not relevant for demo)
 const html = '<div id="a">asdf</div>';
 const prettier = require("prettier");
-'<pre>' +
+"<pre>" +
   prettier
-    .format(html, {parser: 'html', htmlWhitespaceSensitivity: 'ignore'})
-    .replace(/</g, '&lt;') +
-  '</pre>';
+    .format(html, { parser: "html", htmlWhitespaceSensitivity: "ignore" })
+    .replace(/</g, "&lt;") +
+  "</pre>";
 
 // See demo here: https://runkit.com/embed/mfigg7b3rcb5

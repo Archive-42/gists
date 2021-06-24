@@ -1,6 +1,6 @@
 const posts = (state = [], action) => {
   let posts = [];
-  switch(action.type){
+  switch (action.type) {
     case VIEW_ALL:
       // TODO: Return all posts
       return posts;
@@ -10,4 +10,4 @@ const posts = (state = [], action) => {
     default:
       return state;
   }
-}
+};

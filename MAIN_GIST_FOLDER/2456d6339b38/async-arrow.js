@@ -10,7 +10,7 @@ export default function ({ Plugin, types: t }) {
           node.type = "FunctionExpression";
           node.shadow = node.shadow || true;
         }
-      }
-    }
+      },
+    },
   });
 }

@@ -1,7 +1,6 @@
-
 # Event delegation
 
-Capturing and bubbling allow us to implement one of most powerful event handling patterns called *event delegation*.
+Capturing and bubbling allow us to implement one of most powerful event handling patterns called _event delegation_.
 
 The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them -- we put a single handler on their common ancestor.
 
@@ -18,15 +17,23 @@ The HTML is like this:
 ```html
 <table>
   <tr>
-    <th colspan="3"><em>Bagua</em> Chart: Direction, Element, Color, Meaning</th>
+    <th colspan="3">
+      <em>Bagua</em> Chart: Direction, Element, Color, Meaning
+    </th>
   </tr>
   <tr>
-    <td class="nw"><strong>Northwest</strong><br>Metal<br>Silver<br>Elders</td>
+    <td class="nw">
+      <strong>Northwest</strong><br />Metal<br />Silver<br />Elders
+    </td>
     <td class="n">...</td>
     <td class="ne">...</td>
   </tr>
-  <tr>...2 more lines of this kind...</tr>
-  <tr>...2 more lines of this kind...</tr>
+  <tr>
+    ...2 more lines of this kind...
+  </tr>
+  <tr>
+    ...2 more lines of this kind...
+  </tr>
 </table>
 ```
 
@@ -72,10 +79,9 @@ In our case if we take a look inside the HTML, we can see nested tags inside `<t
 
 ```html
 <td>
-*!*
+  *!*
   <strong>Northwest</strong>
-*/!*
-  ...
+  */!* ...
 </td>
 ```
 
@@ -88,8 +94,8 @@ In the handler `table.onclick` we should take such `event.target` and find out w
 Here's the improved code:
 
 ```js
-table.onclick = function(event) {
-  let td = event.target.closest('td'); // (1)
+table.onclick = function (event) {
+  let td = event.target.closest("td"); // (1)
 
   if (!td) return; // (2)
 
@@ -100,9 +106,10 @@ table.onclick = function(event) {
 ```
 
 Explanations:
+
 1. The method `elem.closest(selector)` returns the nearest ancestor that matches the selector. In our case we look for `<td>` on the way up from the source element.
 2. If `event.target` is not inside any `<td>`, then the call returns immediately, as there's nothing to do.
-3. In case of nested tables, `event.target` may be a `<td>`, but lying outside of the current table. So we check if that's actually *our table's* `<td>`.
+3. In case of nested tables, `event.target` may be a `<td>`, but lying outside of the current table. So we check if that's actually _our table's_ `<td>`.
 4. And, if it's so, then highlight it.
 
 As the result, we have a fast, efficient highlighting code, that doesn't care about the total number of `<td>` in the table.
@@ -129,35 +136,35 @@ The handler reads the attribute and executes the method. Take a look at the work
 </div>
 
 <script>
-  class Menu {
-    constructor(elem) {
-      this._elem = elem;
-      elem.onclick = this.onClick.bind(this); // (*)
-    }
-
-    save() {
-      alert('saving');
-    }
-
-    load() {
-      alert('loading');
-    }
-
-    search() {
-      alert('searching');
-    }
-
-    onClick(event) {
-*!*
-      let action = event.target.dataset.action;
-      if (action) {
-        this[action]();
+    class Menu {
+      constructor(elem) {
+        this._elem = elem;
+        elem.onclick = this.onClick.bind(this); // (*)
       }
-*/!*
-    };
-  }
 
-  new Menu(menu);
+      save() {
+        alert('saving');
+      }
+
+      load() {
+        alert('loading');
+      }
+
+      search() {
+        alert('searching');
+      }
+
+      onClick(event) {
+  *!*
+        let action = event.target.dataset.action;
+        if (action) {
+          this[action]();
+        }
+  */!*
+      };
+    }
+
+    new Menu(menu);
 </script>
 ```
 
@@ -174,9 +181,10 @@ We could also use classes `.action-save`, `.action-load`, but an attribute `data
 
 ## The "behavior" pattern
 
-We can also use event delegation to add "behaviors" to elements *declaratively*, with special attributes and classes.
+We can also use event delegation to add "behaviors" to elements _declaratively_, with special attributes and classes.
 
 The pattern has two parts:
+
 1. We add a custom attribute to an element that describes its behavior.
 2. A document-wide handler tracks events, and if an event happens on an attributed element -- performs the action.
 
@@ -185,16 +193,15 @@ The pattern has two parts:
 For instance, here the attribute `data-counter` adds a behavior: "increase value on click" to buttons:
 
 ```html run autorun height=60
-Counter: <input type="button" value="1" data-counter>
-One more counter: <input type="button" value="2" data-counter>
+Counter: <input type="button" value="1" data-counter /> One more counter:
+<input type="button" value="2" data-counter />
 
 <script>
-  document.addEventListener('click', function(event) {
-
-    if (event.target.dataset.counter != undefined) { // if the attribute exists...
+  document.addEventListener("click", function (event) {
+    if (event.target.dataset.counter != undefined) {
+      // if the attribute exists...
       event.target.value++;
     }
-
   });
 </script>
 ```
@@ -203,11 +210,11 @@ If we click a button -- its value is increased. Not buttons, but the general app
 
 There can be as many attributes with `data-counter` as we want. We can add new ones to HTML at any moment. Using the event delegation we "extended" HTML, added an attribute that describes a new behavior.
 
-```warn header="For document-level handlers -- always `addEventListener`"
-When we assign an event handler to the `document` object, we should always use `addEventListener`, not `document.on<event>`, because the latter will cause conflicts: new handlers overwrite old ones.
+```warn header="For document-level handlers -- always `addEventListener`" When we assign an event handler to the `document`object, we should always use`addEventListener`, not `document.on<event>`, because the latter will cause conflicts: new handlers overwrite old ones.
 
 For real projects it's normal that there are many handlers on `document` set by different parts of the code.
-```
+
+````
 
 ### Behavior: Toggler
 
@@ -234,7 +241,7 @@ One more example of behavior. A click on an element with the attribute `data-tog
   });
 */!*
 </script>
-```
+````
 
 Let's note once again what we did. Now, to add toggling functionality to an element -- there's no need to know JavaScript, just use the attribute `data-toggle-id`.
 

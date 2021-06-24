@@ -17,9 +17,9 @@ Web designers put forth a lot of effort into designing this part of a website wi
 To learn how to design a website header that works, and what elements it should include, read on, there will be examples.
 
 > _"Life is a first impression. You get one shot at it._
-> 
+>
 > _Make it everlasting."_
-> 
+>
 > _― J.R. Rim_
 
 ![Tea company website concept](https://miro.medium.com/max/60/0*wRpDwRK9P634Tz3z?q=20)
@@ -46,11 +46,11 @@ Apart from that, it also represents the quality and even identity of a website. 
 
 The main elements of a website header usually are:
 
-*   logo or brand identifier
-*   call to action
-*   text or headline
-*   navigational elements
-*   search.
+- logo or brand identifier
+- call to action
+- text or headline
+- navigational elements
+- search.
 
 You don't have to add all of them at once. It is necessary to find a balance between the abundance of information and its harmonious arrangement. Use only the data you need, overloading a header would not prove beneficial, however important all the links may seem.
 
@@ -106,8 +106,8 @@ Persistent navigation bars, or in other words "sticky headers", mean that the na
 
 Make the header fixed if it doesn't violate your overall design concept. It's a good idea for both desktop and mobile designs:
 
-*   E-commerce websites — the cart is always in front of the user.
-*   Service websites — the phone number or a CTA are constantly on display.
+- E-commerce websites — the cart is always in front of the user.
+- Service websites — the phone number or a CTA are constantly on display.
 
 Fixed headers improve the customer experience, keeping users oriented and giving them more control.
 
@@ -123,10 +123,10 @@ If it's a **promotional website** intended for the presentation of a product, th
 
 There are several possible messages a header can convey:
 
-*   urge a consumer to do something
-*   work on trust-building
-*   encourage a visitor to know more
-*   be amusing, etc.
+- urge a consumer to do something
+- work on trust-building
+- encourage a visitor to know more
+- be amusing, etc.
 
 The choice depends on a particular website's aim.
 
@@ -203,4 +203,3 @@ The [daily use of mobile devices](https://www.statista.com/statistics/241462/glo
 The website is presented by its header. It's like a unique business card. Therefore, when designing a website, pay maximum attention to the header.
 
 And one last best practice of a website header design: make regular alterations to keep your website fresh and up-to-date. Use some insights from this article.
-

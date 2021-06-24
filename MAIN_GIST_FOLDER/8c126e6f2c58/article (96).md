@@ -16,13 +16,13 @@ For instance:
 </div>
 
 <script>
-  // get the element
-*!*
-  let elem = document.getElementById('elem');
-*/!*
+    // get the element
+  *!*
+    let elem = document.getElementById('elem');
+  */!*
 
-  // make its background red
-  elem.style.background = 'red';
+    // make its background red
+    elem.style.background = 'red';
 </script>
 ```
 
@@ -35,7 +35,7 @@ Also, there's a global variable named by `id` that references the element:
 
 <script>
   // elem is a reference to DOM-element with id="elem"
-  elem.style.background = 'red';
+  elem.style.background = "red";
 
   // id="elem-content" has a hyphen inside, so it can't be a variable name
   // ...but we can access it using square brackets: window['elem-content']
@@ -64,15 +64,15 @@ Here in the tutorial we use `id` to directly reference an element for brevity, w
 In real life `document.getElementById` is the preferred method.
 ```
 
-```smart header="The `id` must be unique"
-The `id` must be unique. There can be only one element in the document with the given `id`.
+```smart header="The `id`must be unique" The`id`must be unique. There can be only one element in the document with the given`id`.
 
 If there are multiple elements with the same `id`, then the behavior of methods that use it is unpredictable, e.g. `document.getElementById` may return any of such elements at random. So please stick to the rule and keep `id` unique.
-```
+
+````
 
 ```warn header="Only `document.getElementById`, not `anyElem.getElementById`"
 The method `getElementById` can be called only on `document` object. It looks for the given `id` in the whole document.
-```
+````
 
 ## querySelectorAll [#querySelectorAll]
 
@@ -90,13 +90,13 @@ Here we look for all `<li>` elements that are last children:
   <li>passed</li>
 </ul>
 <script>
-*!*
-  let elements = document.querySelectorAll('ul > li:last-child');
-*/!*
+  *!*
+    let elements = document.querySelectorAll('ul > li:last-child');
+  */!*
 
-  for (let elem of elements) {
-    alert(elem.innerHTML); // "test", "passed"
-  }
+    for (let elem of elements) {
+      alert(elem.innerHTML); // "test", "passed"
+    }
 </script>
 ```
 
@@ -110,7 +110,7 @@ Pseudo-classes in the CSS selector like `:hover` and `:active` are also supporte
 
 The call to `elem.querySelector(css)` returns the first element for the given CSS selector.
 
-In other words, the result is the same as `elem.querySelectorAll(css)[0]`, but the latter is looking for *all* elements and picking one, while `elem.querySelector` just looks for one. So it's faster and also shorter to write.
+In other words, the result is the same as `elem.querySelectorAll(css)[0]`, but the latter is looking for _all_ elements and picking one, while `elem.querySelector` just looks for one. So it's faster and also shorter to write.
 
 ## matches
 
@@ -127,20 +127,20 @@ For instance:
 <a href="http://ya.ru">...</a>
 
 <script>
-  // can be any collection instead of document.body.children
-  for (let elem of document.body.children) {
-*!*
-    if (elem.matches('a[href$="zip"]')) {
-*/!*
-      alert("The archive reference: " + elem.href );
+    // can be any collection instead of document.body.children
+    for (let elem of document.body.children) {
+  *!*
+      if (elem.matches('a[href$="zip"]')) {
+  */!*
+        alert("The archive reference: " + elem.href );
+      }
     }
-  }
 </script>
 ```
 
 ## closest
 
-*Ancestors* of an element are: parent, the parent of parent, its parent and so on. The ancestors together form the chain of parents from the element to the top.
+_Ancestors_ of an element are: parent, the parent of parent, its parent and so on. The ancestors together form the chain of parents from the element to the top.
 
 The method `elem.closest(css)` looks for the nearest ancestor that matches the CSS-selector. The `elem` itself is also included in the search.
 
@@ -159,16 +159,16 @@ For instance:
 </div>
 
 <script>
-  let chapter = document.querySelector('.chapter'); // LI
+  let chapter = document.querySelector(".chapter"); // LI
 
-  alert(chapter.closest('.book')); // UL
-  alert(chapter.closest('.contents')); // DIV
+  alert(chapter.closest(".book")); // UL
+  alert(chapter.closest(".contents")); // DIV
 
-  alert(chapter.closest('h1')); // null (because h1 is not an ancestor)
+  alert(chapter.closest("h1")); // null (because h1 is not an ancestor)
 </script>
 ```
 
-## getElementsBy*
+## getElementsBy\*
 
 There are also other methods to look for nodes by a tag, class, etc.
 
@@ -181,9 +181,10 @@ So here we cover them mainly for completeness, while you can still find them in 
 - `document.getElementsByName(name)` returns elements with the given `name` attribute, document-wide. Very rarely used.
 
 For instance:
+
 ```js
 // get all divs in the document
-let divs = document.getElementsByTagName('div');
+let divs = document.getElementsByTagName("div");
 ```
 
 Let's find all `input` tags inside the table:
@@ -195,34 +196,34 @@ Let's find all `input` tags inside the table:
 
     <td>
       <label>
-        <input type="radio" name="age" value="young" checked> less than 18
+        <input type="radio" name="age" value="young" checked /> less than 18
       </label>
       <label>
-        <input type="radio" name="age" value="mature"> from 18 to 50
+        <input type="radio" name="age" value="mature" /> from 18 to 50
       </label>
       <label>
-        <input type="radio" name="age" value="senior"> more than 60
+        <input type="radio" name="age" value="senior" /> more than 60
       </label>
     </td>
   </tr>
 </table>
 
 <script>
-*!*
-  let inputs = table.getElementsByTagName('input');
-*/!*
+  *!*
+    let inputs = table.getElementsByTagName('input');
+  */!*
 
-  for (let input of inputs) {
-    alert( input.value + ': ' + input.checked );
-  }
+    for (let input of inputs) {
+      alert( input.value + ': ' + input.checked );
+    }
 </script>
 ```
 
-```warn header="Don't forget the `\"s\"` letter!"
-Novice developers sometimes forget the letter `"s"`. That is, they try to call `getElementByTagName` instead of <code>getElement<b>s</b>ByTagName</code>.
+```warn header="Don't forget the `\"s\"`letter!" Novice developers sometimes forget the letter`"s"`. That is, they try to call `getElementByTagName` instead of <code>getElement<b>s</b>ByTagName</code>.
 
 The `"s"` letter is absent in `getElementById`, because it returns a single element. But `getElementsByTagName` returns a collection of elements, so there's `"s"` inside.
-```
+
+`````
 
 ````warn header="It returns a collection, not an element!"
 Another widespread novice mistake is to write:
@@ -230,16 +231,17 @@ Another widespread novice mistake is to write:
 ```js
 // doesn't work
 document.getElementsByTagName('input').value = 5;
-```
+`````
 
-That won't work, because it takes a *collection* of inputs and assigns the value to it rather than to elements inside it.
+That won't work, because it takes a _collection_ of inputs and assigns the value to it rather than to elements inside it.
 
 We should either iterate over the collection or get an element by its index, and then assign, like this:
 
 ```js
 // should work (if there's an input)
-document.getElementsByTagName('input')[0].value = 5;
+document.getElementsByTagName("input")[0].value = 5;
 ```
+
 ````
 
 Looking for `.article` elements:
@@ -372,3 +374,4 @@ Besides that:
 
 And let's mention one more method here to check for the child-parent relationship, as it's sometimes useful:
 -  `elemA.contains(elemB)` returns true if `elemB` is inside `elemA` (a descendant of `elemA`) or when `elemA==elemB`.
+````

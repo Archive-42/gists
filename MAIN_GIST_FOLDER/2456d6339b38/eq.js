@@ -1,4 +1,3 @@
-
 /**
 
 # eq.js: minimalistic equation evaluator.
@@ -21,13 +20,13 @@ Handy amongst other things for CLI node programs that accept numbers.
 **/
 
 (function (g) {
-  function eq (input, vars) {
+  function eq(input, vars) {
     try {
-      return eval('with(Math){with(vars || {}){' + input + '}}');
+      return eval("with(Math){with(vars || {}){" + input + "}}");
     } catch (e) {
       return NaN;
     }
-  };
+  }
 
-  g.top ? g.eq = eq : module.exports = eq;
+  g.top ? (g.eq = eq) : (module.exports = eq);
 })(this);

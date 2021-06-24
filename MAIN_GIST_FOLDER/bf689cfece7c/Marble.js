@@ -71,16 +71,16 @@
   Have fun!
 */
 
-import React from 'react';
-import { Sampler, Sequencer } from 'react-music';
+import React from "react";
+import { Sampler, Sequencer } from "react-music";
 
 const parseBeats = (diagram, expansions) => {
-  const beats = diagram.replace(/\s/g, '').split('');
+  const beats = diagram.replace(/\s/g, "").split("");
   for (let i = 0; i < beats.length; i++) {
     const char = beats[i];
-    if (char === '-') {
+    if (char === "-") {
       beats[i] = false;
-    } else if (char === 'x') {
+    } else if (char === "x") {
       beats[i] = true;
     } else {
       beats[i] = parseBeats(expansions[char], expansions);
@@ -90,7 +90,7 @@ const parseBeats = (diagram, expansions) => {
 };
 
 const getExpansionResolution = (beats, resolution) => {
-  const resolvedCount = beats.filter((c) => typeof c === 'boolean').length;
+  const resolvedCount = beats.filter((c) => typeof c === "boolean").length;
   const spaceForExpansions = resolution - resolvedCount;
   const expansionCount = beats.length - resolvedCount;
   const spacePerExpansion = spaceForExpansions / expansionCount;
@@ -109,8 +109,9 @@ const convertBeatsToSteps = (beats, resolution) => {
       continue;
     } else {
       const expansionSteps = convertBeatsToSteps(beat, expansionResolution);
-      const interpolatedSteps = expansionSteps.map((relativeStep) =>
-        i + relativeStep / expansionSteps.length * expansionResolution
+      const interpolatedSteps = expansionSteps.map(
+        (relativeStep) =>
+          i + (relativeStep / expansionSteps.length) * expansionResolution
       );
       steps.push(...interpolatedSteps);
     }
@@ -123,18 +124,9 @@ const parseDiagram = (diagram, resolution, expansions) => {
   return convertBeatsToSteps(beats, resolution);
 };
 
-const Marble = ({
-  children,
-  diagrams,
-  expansions,
-  resolution,
-  samples,
-}) => (
-  <Sequencer
-    resolution={resolution}
-    bars={1}
-  >
-    {diagrams.map((diagram, index) =>
+const Marble = ({ children, diagrams, expansions, resolution, samples }) => (
+  <Sequencer resolution={resolution} bars={1}>
+    {diagrams.map((diagram, index) => (
       <Sampler
         key={index}
         sample={samples[index]}
@@ -142,7 +134,7 @@ const Marble = ({
       >
         {children}
       </Sampler>
-    )}
+    ))}
   </Sequencer>
 );
 
@@ -152,14 +144,11 @@ Marble.defaultProps = {
 
 Marble.propTypes = {
   children: React.PropTypes.node,
-  diagrams: React.PropTypes.arrayOf(
-    React.PropTypes.string.isRequired
-  ).isRequired,
-  expansions: React.PropTypes.objectOf(
-    React.PropTypes.string.isRequired
-  ).isRequired,
+  diagrams: React.PropTypes.arrayOf(React.PropTypes.string.isRequired)
+    .isRequired,
+  expansions: React.PropTypes.objectOf(React.PropTypes.string.isRequired)
+    .isRequired,
   resolution: React.PropTypes.number.isRequired,
-  samples: React.PropTypes.arrayOf(
-    React.PropTypes.string.isRequired
-  ).isRequired,
+  samples: React.PropTypes.arrayOf(React.PropTypes.string.isRequired)
+    .isRequired,
 };

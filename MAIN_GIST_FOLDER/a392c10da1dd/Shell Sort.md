@@ -7,12 +7,13 @@ Given an unsorted array of n elements, write a function to sort the array
 #### Approach
 
 - start with the initial gap, g
-- go through the first (n - g) elements in the array  
+- go through the first (n - g) elements in the array
 - compare the element with the next element that is g distance away
 - swap the two elements if the first element is bigger
 - decrease the gap and repeat until gap = 1
 
 #### Time Complexity
+
 Time complexity is dependent on the gap sequences.
 Below time complexities are based on the gap sequences of n/2^k.
 
@@ -34,7 +35,7 @@ Donald Shell
 
 ```
 arr[] = {61, 109, 149, 111, 34, 2, 24, 119}
-Initial Gap: 4   
+Initial Gap: 4
 
 1.  Index = 0, Next element index = 4
 2.  61 > 34, swap 61 and 34

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const configureLocalStorage = key => initialValue => {
+const configureLocalStorage = (key) => (initialValue) => {
   const [state, setState] = useState(() => {
     try {
       const value = localStorage.getItem(key);
@@ -11,8 +11,8 @@ const configureLocalStorage = key => initialValue => {
     }
   }, initialValue);
 
-  const storeValue = value => {
-    const valueToStore = typeof value === 'function' ? value(state) : value;
+  const storeValue = (value) => {
+    const valueToStore = typeof value === "function" ? value(state) : value;
 
     try {
       localStorage.setItem(key, JSON.stringify(valueToStore));

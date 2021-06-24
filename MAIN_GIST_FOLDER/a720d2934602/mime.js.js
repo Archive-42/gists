@@ -1,5 +1,5 @@
-import path from 'path';
-import fs from 'fs';
+import path from "path";
+import fs from "fs";
 
 class Mime {
   constructor() {
@@ -24,7 +24,12 @@ class Mime {
       const exts = map[type];
       for (let i = 0; i < exts.length; i++) {
         if (process.env.DEBUG_MIME && this.types[exts[i]]) {
-          console.warn((this._loading || "define()").replace(/.*\//, ''), `changes "${exts[i]}" extension type from ${this.types[exts[i]]} to ${type}`);
+          console.warn(
+            (this._loading || "define()").replace(/.*\//, ""),
+            `changes "${exts[i]}" extension type from ${
+              this.types[exts[i]]
+            } to ${type}`
+          );
         }
 
         this.types[exts[i]] = type;
@@ -51,12 +56,12 @@ class Mime {
     // Read file and split into lines
     const map = {};
 
-    const content = fs.readFileSync(file, 'ascii');
+    const content = fs.readFileSync(file, "ascii");
     const lines = content.split(/[\r\n]+/);
 
-    lines.forEach(line => {
+    lines.forEach((line) => {
       // Clean up whitespace/comments, and split into fields
-      const fields = line.replace(/\s*#.*|^\s*|\s*$/g, '').split(/\s+/);
+      const fields = line.replace(/\s*#.*|^\s*|\s*$/g, "").split(/\s+/);
       map[fields.shift()] = fields;
     });
 
@@ -69,7 +74,7 @@ class Mime {
    * Lookup a mime type based on extension
    */
   lookup(path, fallback) {
-    const ext = path.replace(/^.*[\.\/\\]/, '').toLowerCase();
+    const ext = path.replace(/^.*[\.\/\\]/, "").toLowerCase();
 
     return this.types[ext] || fallback || this.default_type;
   }
@@ -87,10 +92,10 @@ class Mime {
 const mime = new Mime();
 
 // Define built-in types
-mime.define(require('./types.json'));
+mime.define(require("./types.json"));
 
 // Default type
-mime.default_type = mime.lookup('bin');
+mime.default_type = mime.lookup("bin");
 
 //
 // Additional API specific to the default instance
@@ -104,8 +109,10 @@ mime.Mime = Mime;
 mime.charsets = {
   lookup(mimeType, fallback) {
     // Assume text types are utf8
-    return (/^text\/|^application\/(javascript|json)/).test(mimeType) ? 'UTF-8' : fallback;
-  }
+    return /^text\/|^application\/(javascript|json)/.test(mimeType)
+      ? "UTF-8"
+      : fallback;
+  },
 };
 
 export default mime;

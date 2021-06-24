@@ -19,28 +19,30 @@ exports.safeInvokeOrValue = exports.safeInvoke = exports.isFunction = void 0;
 /** Returns whether the value is a function. Acts as a type guard. */
 // eslint-disable-next-line @typescript-eslint/ban-types
 function isFunction(value) {
-    return typeof value === "function";
+  return typeof value === "function";
 }
 exports.isFunction = isFunction;
 // eslint-disable-next-line @typescript-eslint/ban-types
 function safeInvoke(func) {
-    var args = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        args[_i - 1] = arguments[_i];
-    }
-    if (isFunction(func)) {
-        return func.apply(void 0, args);
-    }
-    return undefined;
+  var args = [];
+  for (var _i = 1; _i < arguments.length; _i++) {
+    args[_i - 1] = arguments[_i];
+  }
+  if (isFunction(func)) {
+    return func.apply(void 0, args);
+  }
+  return undefined;
 }
 exports.safeInvoke = safeInvoke;
 // eslint-disable-next-line @typescript-eslint/ban-types
 function safeInvokeOrValue(funcOrValue) {
-    var args = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        args[_i - 1] = arguments[_i];
-    }
-    return isFunction(funcOrValue) ? funcOrValue.apply(void 0, args) : funcOrValue;
+  var args = [];
+  for (var _i = 1; _i < arguments.length; _i++) {
+    args[_i - 1] = arguments[_i];
+  }
+  return isFunction(funcOrValue)
+    ? funcOrValue.apply(void 0, args)
+    : funcOrValue;
 }
 exports.safeInvokeOrValue = safeInvokeOrValue;
 //# sourceMappingURL=functionUtils.js.map

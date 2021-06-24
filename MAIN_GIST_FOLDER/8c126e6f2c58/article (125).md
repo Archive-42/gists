@@ -3,8 +3,9 @@
 A popup window is one of the oldest methods to show additional document to user.
 
 Basically, you just run:
+
 ```js
-window.open('https://javascript.info/')
+window.open("https://javascript.info/");
 ```
 
 ...And it will open a new window with given URL. Most modern browsers are configured to open url in new tabs instead of separate windows.
@@ -26,13 +27,14 @@ In the past, evil sites abused popups a lot. A bad page could open tons of popup
 **Most browsers block popups if they are called outside of user-triggered event handlers like `onclick`.**
 
 For example:
+
 ```js
 // popup blocked
-window.open('https://javascript.info');
+window.open("https://javascript.info");
 
 // popup allowed
 button.onclick = () => {
-  window.open('https://javascript.info');
+  window.open("https://javascript.info");
 };
 ```
 
@@ -44,7 +46,7 @@ Try this code:
 
 ```js run
 // open after 3 seconds
-setTimeout(() => window.open('http://google.com'), 3000);
+setTimeout(() => window.open("http://google.com"), 3000);
 ```
 
 The popup opens in Chrome, but gets blocked in Firefox.
@@ -53,7 +55,7 @@ The popup opens in Chrome, but gets blocked in Firefox.
 
 ```js run
 // open after 1 seconds
-setTimeout(() => window.open('http://google.com'), 1000);
+setTimeout(() => window.open("http://google.com"), 1000);
 ```
 
 The difference is that Firefox treats a timeout of 2000ms or less are acceptable, but after it -- removes the "trust", assuming that now it's "outside of the user action". So the first one is blocked, and the second one is not.
@@ -84,10 +86,9 @@ Settings for `params`:
   - `resizable` (yes/no) -- allows to disable the resize for the new window. Not recommended.
   - `scrollbars` (yes/no) -- allows to disable the scrollbars for the new window. Not recommended.
 
-
 There is also a number of less supported browser-specific features, which are usually not used. Check <a href="https://developer.mozilla.org/en/DOM/window.open">window.open in MDN</a> for examples.
 
-## Example: a minimalistic window   
+## Example: a minimalistic window
 
 Let's open a window with minimal set of features, just to see which of them browser allows to disable:
 
@@ -95,7 +96,7 @@ Let's open a window with minimal set of features, just to see which of them brow
 let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=0,height=0,left=-1000,top=-1000`;
 
-open('/', 'test', params);
+open("/", "test", params);
 ```
 
 Here most "window features" are disabled and window is positioned offscreen. Run it and see what really happens. Most browsers "fix" odd things like zero `width/height` and offscreen `left/top`. For instance, Chrome open such a window with full width/height, so that it occupies the full screen.
@@ -106,7 +107,7 @@ Let's add normal positioning options and reasonable `width`, `height`, `left`, `
 let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=600,height=300,left=100,top=100`;
 
-open('/', 'test', params);
+open("/", "test", params);
 ```
 
 Most browsers show the example above as required.
@@ -164,7 +165,7 @@ If you run the code below, it replaces the opener (current) window content with 
 let newWin = window.open("about:blank", "hello", "width=200,height=200");
 
 newWin.document.write(
-  "<script>window.opener.document.body.innerHTML = 'Test'<\/script>"
+  "<script>window.opener.document.body.innerHTML = 'Test'</script>"
 );
 ```
 
@@ -183,14 +184,13 @@ The `closed` property is `true` if the window is closed. That's useful to check 
 This code loads and then closes the window:
 
 ```js run
-let newWindow = open('/', 'example', 'width=300,height=300');
+let newWindow = open("/", "example", "width=300,height=300");
 
-newWindow.onload = function() {
+newWindow.onload = function () {
   newWindow.close();
   alert(newWindow.closed); // true
 };
 ```
-
 
 ## Moving and resizing
 
@@ -239,7 +239,7 @@ There's also `window.onscroll` event.
 
 Theoretically, there are `window.focus()` and `window.blur()` methods to focus/unfocus on a window. And there are also `focus/blur` events that allow to catch the moment when the visitor focuses on a window and switches elsewhere.
 
-Although, in practice they are severely limited, because in the past evil pages abused them. 
+Although, in practice they are severely limited, because in the past evil pages abused them.
 
 For instance, look at this code:
 
@@ -260,7 +260,7 @@ For instance:
 - When we open a popup, it's might be a good idea to run a `newWindow.focus()` on it. Just in case, for some OS/browser combinations it ensures that the user is in the new window now.
 - If we want to track when a visitor actually uses our web-app, we can track `window.onfocus/onblur`. That allows us to suspend/resume in-page activities, animations etc. But please note that the `blur` event means that the visitor switched out from the window, but they still may observe it. The window is in the background, but still may be visible.
 
-## Summary   
+## Summary
 
 Popup windows are used rarely, as there are alternatives: loading and displaying information in-page, or in iframe.
 
@@ -275,4 +275,4 @@ If we're going to open a popup, a good practice is to inform the user about it. 
 To close the popup: use `close()` call. Also the user may close them (just like any other windows). The `window.closed` is `true` after that.
 
 - Methods `focus()` and `blur()` allow to focus/unfocus a window. But they don't work all the time.
-- Events `focus` and `blur` allow to track switching in and out of the window. But please note that a  window may still be visible even in the background state, after `blur`.
+- Events `focus` and `blur` allow to track switching in and out of the window. But please note that a window may still be visible even in the background state, after `blur`.

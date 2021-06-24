@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ChildComponent extends Component {
   constructor() {
     super();
     this.state = {
-      clicked: false
+      clicked: false,
     };
   }
 
@@ -13,9 +13,13 @@ class ChildComponent extends Component {
   };
 
   render() {
-    const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' };
+    const styles = this.state.clicked
+      ? { textDecoration: "line-through" }
+      : { textDecoration: "none" };
     return (
-      <div style={styles} onClick={this.handleClick}>{this.props.thing}</div>
+      <div style={styles} onClick={this.handleClick}>
+        {this.props.thing}
+      </div>
     );
   }
 }

@@ -9,6 +9,7 @@ We need a number, an operator, and then another number. And optional spaces betw
 The full regular expression: `pattern:-?\d+(\.\d+)?\s*[-+*/]\s*-?\d+(\.\d+)?`.
 
 It has 3 parts, with `pattern:\s*` between them:
+
 1. `pattern:-?\d+(\.\d+)?` - the first number,
 1. `pattern:[-+*/]` - the operator,
 1. `pattern:-?\d+(\.\d+)?` - the second number.
@@ -20,7 +21,7 @@ In action:
 ```js run
 let regexp = /(-?\d+(\.\d+)?)\s*([-+*\/])\s*(-?\d+(\.\d+)?)/;
 
-alert( "1.2 + 12".match(regexp) );
+alert("1.2 + 12".match(regexp));
 ```
 
 The result includes:
@@ -36,7 +37,7 @@ We only want the numbers and the operator, without the full match or the decimal
 
 The full match (the arrays first item) can be removed by shifting the array `result.shift()`.
 
-Groups that contain decimal parts (number 2 and 4) `pattern:(.\d+)` can be excluded by adding  `pattern:?:` to the beginning: `pattern:(?:\.\d+)?`.
+Groups that contain decimal parts (number 2 and 4) `pattern:(.\d+)` can be excluded by adding `pattern:?:` to the beginning: `pattern:(?:\.\d+)?`.
 
 The final solution:
 
@@ -52,5 +53,5 @@ function parse(expr) {
   return result;
 }
 
-alert( parse("-1.23 * 3.45") );  // -1.23, *, 3.45
+alert(parse("-1.23 * 3.45")); // -1.23, *, 3.45
 ```

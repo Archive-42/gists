@@ -1,5 +1,5 @@
 function NavBar() {
-  const world = 'world';
+  const world = "world";
   return (
     <nav>
       <h1>Pet App</h1>

@@ -17,10 +17,11 @@ class EQT {
   static begin() {
     const eqt = new EQT();
     eqt.beginTime = performance.now();
-    eqt.longTaskObserver = new PerformanceObserver(entryList => {
-      for (const entry of entryList.getEntries()) eqt.taskDurations.push(entry.duration);
+    eqt.longTaskObserver = new PerformanceObserver((entryList) => {
+      for (const entry of entryList.getEntries())
+        eqt.taskDurations.push(entry.duration);
     });
-    eqt.longTaskObserver.observe({entryTypes: ['longtask']});
+    eqt.longTaskObserver.observe({ entryTypes: ["longtask"] });
     return eqt;
   }
 
@@ -29,9 +30,9 @@ class EQT {
     this.endTime = performance.now();
     const totalDuration = this.endTime - this.beginTime;
     const expectedQueueingTime = this.taskDurations.reduce(
-      (sum, duration) => (sum += (duration ** 2) / (2 * totalDuration)),
+      (sum, duration) => (sum += duration ** 2 / (2 * totalDuration)),
       0
     );
-    return {expectedQueueingTime};
+    return { expectedQueueingTime };
   }
-};
+}

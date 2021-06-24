@@ -3,28 +3,36 @@ $staff-h: 220px;
 
 header {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 9;
-  background: rgba(0,0,0,0.6);
-  
+  background: rgba(0, 0, 0, 0.6);
+
   section {
     position: absolute;
     border-radius: 2px;
     width: 90%;
     max-width: 600px;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     background: white;
     color: #222;
     padding: 2rem;
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  
-  h1 { margin-top: 0; }
-  p { text-align: left; }
+
+  h1 {
+    margin-top: 0;
+  }
+  p {
+    text-align: left;
+  }
   small {
     margin-top: 1rem;
-    color: #CCC;
+    color: #ccc;
     display: inline-block;
   }
 }
@@ -37,20 +45,21 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0 4rem;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-input, button {
+input,
+button {
   border-radius: 2px;
   line-height: 1.4;
-  margin: 0; 
+  margin: 0;
   padding: 0.25em 0.5em;
 }
 
 input {
-  border: 1px solid darken(#FFF, 10%);
+  border: 1px solid darken(#fff, 10%);
   width: 280px;
 }
 button {
@@ -59,11 +68,12 @@ button {
   border: 1px solid darken(#444, 10%);
 }
 
-#play, #midi {
+#play,
+#midi {
   position: absolute;
   top: 1rem;
   z-index: 8;
-}  
+}
 #play {
   left: 50%;
   transform: translateX(-50%);
@@ -73,7 +83,12 @@ button {
   text-align: right;
   margin: 0;
   // ABCJS gives us an embed player that requires quicktime plugin. gross.
-  embed { position: absolute; top: -99999px; opacity: 0; pointer-events: none; }
+  embed {
+    position: absolute;
+    top: -99999px;
+    opacity: 0;
+    pointer-events: none;
+  }
   a {
     color: #444;
     text-transform: uppercase;
@@ -82,23 +97,30 @@ button {
   }
 }
 
-
 #staff {
   height: $staff-h * 2;
-  
+
   > div {
     box-sizing: border-box;
     height: $staff-h;
     display: flex;
     opacity: 1;
     transition: opacity 250ms ease-out;
-    &:not(:nth-child(2)) path.symbol.l0 { opacity: 0; }
-    &:not(:nth-child(2)) { transition-delay: 250ms; }
-    &.hide { opacity: 0; }
-    &:first-child { 
-      border-bottom: 1px solid #F0F0F0; 
+    &:not(:nth-child(2)) path.symbol.l0 {
+      opacity: 0;
     }
-    &:first-child > div { align-self: flex-end; }
+    &:not(:nth-child(2)) {
+      transition-delay: 250ms;
+    }
+    &.hide {
+      opacity: 0;
+    }
+    &:first-child {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    &:first-child > div {
+      align-self: flex-end;
+    }
   }
 }
 
@@ -107,16 +129,16 @@ button {
     #staff {
       height: $staff-h * $i;
     }
-    
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   color: #222;
   line-height: 1.7;
 }

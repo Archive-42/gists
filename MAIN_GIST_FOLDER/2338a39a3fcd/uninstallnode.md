@@ -1,8 +1,8 @@
 # Completely uninstall node + npm:
 
-* go to `/usr/local/lib` and delete any node and node_modules
-* go to `/usr/local/include` and delete any node and node_modules directory
-* if you installed with `brew install node`, then run `brew uninstall node` in your terminal
+- go to `/usr/local/lib` and delete any node and node_modules
+- go to `/usr/local/include` and delete any node and node_modules directory
+- if you installed with `brew install node`, then run `brew uninstall node` in your terminal
 
 Check your Home directory for any local or lib or include folders, and delete any node or node_modules from there
 go to `/usr/local/bin` and delete any node executable.

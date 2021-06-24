@@ -1,5 +1,5 @@
-Seeded Procedural Music Generator
----------------------------------
+## Seeded Procedural Music Generator
+
 Procedural Generation allows you to create unique infiniteness that can be consistently reproduced. Enter seed data (your name is a great place to start) and hear a unique, infinite, and reproducible song.
 
 Everything is notated in flats instead of sharps for simplicity sake.

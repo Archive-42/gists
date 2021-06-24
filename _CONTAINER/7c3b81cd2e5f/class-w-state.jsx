@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ClassComponentWithState extends Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+  constructor() {
+    super();
+    this.state = {};
+  }
 
-    render() {
-        return (
-            <div>Hello World!</div>
-        );
-    }
+  render() {
+    return <div>Hello World!</div>;
+  }
 }
 
 export default ClassComponentWithState;

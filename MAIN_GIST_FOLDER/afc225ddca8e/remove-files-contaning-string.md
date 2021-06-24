@@ -2,7 +2,7 @@ Here is a safe way:
 
 grep -lrIZ foo . | xargs -0 rm -f --
 -l prints file names of files matching the search pattern.
--r performs a recursive search for the pattern foo in the given directory ..  If this doesn't work, try -R.
+-r performs a recursive search for the pattern foo in the given directory .. If this doesn't work, try -R.
 -I (capital i) causes binary files like PDFs to be skipped.
 -Z ensures that file names are zero- (i.e., nul-)terminated so that a name containing white space does not get interpreted in the wrong way (i.e., as multiple names instead of one).
 xargs -0 feeds the file names from grep to rm -f, separating words by zero (nul) bytes (remember the -Z option from grep).

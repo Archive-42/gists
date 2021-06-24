@@ -2,7 +2,8 @@ $canvas-count: 10;
 $canvas-width: 400px;
 $animation-dur: 2s;
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -17,7 +18,7 @@ body {
   position: relative;
   width: $canvas-width;
   height: $canvas-width;
-  background: rgba(black, .05);
+  background: rgba(black, 0.05);
   transition: all $animation-dur;
   transform-style: preserve-3d;
   animation: container 6s 1s 1;
@@ -37,34 +38,28 @@ body {
   }
 
   &:hover {
-    transform:
-      translateX(-50%)
-      rotateX(-27.5deg)
-      rotateY(-45deg);
+    transform: translateX(-50%) rotateX(-27.5deg) rotateY(-45deg);
 
     @for $i from 0 through $canvas-count {
       canvas:nth-child(#{$i}) {
-        transform:
-          translate3d(-50%, -50%, #{($i - 1) * -50px})
+        transform: translate3d(-50%, -50%, #{($i - 1) * -50px});
       }
     }
   }
 }
 
 @keyframes container {
-  33.3%, 66.6% {
-    transform:
-      translateX(-50%)
-      rotateX(-27.5deg)
-      rotateY(-45deg);
+  33.3%,
+  66.6% {
+    transform: translateX(-50%) rotateX(-27.5deg) rotateY(-45deg);
   }
 }
 
 @for $i from 0 through $canvas-count {
   @keyframes canvas-#{$i} {
-    33.3%, 66.6% {
-      transform:
-        translate3d(-50%, -50%, #{($i - 1) * -50px})
+    33.3%,
+    66.6% {
+      transform: translate3d(-50%, -50%, #{($i - 1) * -50px});
     }
   }
 }

@@ -21,10 +21,10 @@ const path = require("path");
  * @returns {string}          Converted filepath
  */
 function convertPathToPosix(filepath) {
-    const normalizedFilepath = path.normalize(filepath);
-    const posixFilepath = normalizedFilepath.replace(/\\/g, "/");
+  const normalizedFilepath = path.normalize(filepath);
+  const posixFilepath = normalizedFilepath.replace(/\\/g, "/");
 
-    return posixFilepath;
+  return posixFilepath;
 }
 
 /**
@@ -48,20 +48,20 @@ function convertPathToPosix(filepath) {
  * @returns {string} Relative filepath
  */
 function getRelativePath(filepath, baseDir) {
-    let relativePath;
+  let relativePath;
 
-    if (!path.isAbsolute(filepath)) {
-        filepath = path.resolve(filepath);
+  if (!path.isAbsolute(filepath)) {
+    filepath = path.resolve(filepath);
+  }
+  if (baseDir) {
+    if (!path.isAbsolute(baseDir)) {
+      throw new Error("baseDir should be an absolute path");
     }
-    if (baseDir) {
-        if (!path.isAbsolute(baseDir)) {
-            throw new Error("baseDir should be an absolute path");
-        }
-        relativePath = path.relative(baseDir, filepath);
-    } else {
-        relativePath = filepath.replace(/^\//, "");
-    }
-    return relativePath;
+    relativePath = path.relative(baseDir, filepath);
+  } else {
+    relativePath = filepath.replace(/^\//, "");
+  }
+  return relativePath;
 }
 
 //------------------------------------------------------------------------------
@@ -69,6 +69,6 @@ function getRelativePath(filepath, baseDir) {
 //------------------------------------------------------------------------------
 
 module.exports = {
-    convertPathToPosix,
-    getRelativePath
+  convertPathToPosix,
+  getRelativePath,
 };

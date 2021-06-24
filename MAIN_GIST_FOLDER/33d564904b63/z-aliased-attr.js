@@ -1,6 +1,7 @@
-YUI.add('z-aliased-attr', function (Y) {
-
-/**
+YUI.add(
+  "z-aliased-attr",
+  function (Y) {
+    /**
 Aliased Attribute Extension
 
 This extension provides the "aliased" property to Attribute config.
@@ -40,24 +41,24 @@ by more descriptive names than their URL parameter-safe name.
 @since 2012/09
 **/
 
-var hasOwn = Object.prototype.hasOwnProperty,
-    hashArray = Y.Array.hash,
-    objectKeys = Y.Object.keys,
-    YBase = Y.Base;
+    var hasOwn = Object.prototype.hasOwnProperty,
+      hashArray = Y.Array.hash,
+      objectKeys = Y.Object.keys,
+      YBase = Y.Base;
 
-// add "aliased" to attribute config whitelist
-YBase._ATTR_CFG = YBase._ATTR_CFG.concat("aliased");
-YBase._ATTR_CFG_HASH = hashArray(YBase._ATTR_CFG);
+    // add "aliased" to attribute config whitelist
+    YBase._ATTR_CFG = YBase._ATTR_CFG.concat("aliased");
+    YBase._ATTR_CFG_HASH = hashArray(YBase._ATTR_CFG);
 
-/**
+    /**
 @class AliasedAttr
 @namespace Z
 @extensionfor Base
 **/
-function AliasedAttr() {}
+    function AliasedAttr() {}
 
-AliasedAttr.prototype = {
-    /**
+    AliasedAttr.prototype = {
+      /**
     Call _initAliasedAttrs during initializer. This must
     be run after the host class initializer, therefore it
     cannot be called from this extension's constructor.
@@ -65,24 +66,24 @@ AliasedAttr.prototype = {
     @method initializer
     @protected
     **/
-    initializer: function () {
+      initializer: function () {
         this._initAliasedAttrs();
-    },
+      },
 
-    /**
+      /**
     Cache attribute names and bind a memoized _getAliased
     method into _getAliasedName.
 
     @method _initAliasedAttrs
     @private
     **/
-    _initAliasedAttrs: function () {
-        Y.log('_initAliasedAttrs', 'debug', 'AliasedAttr');
+      _initAliasedAttrs: function () {
+        Y.log("_initAliasedAttrs", "debug", "AliasedAttr");
         this._attrNames = this._getAttrNames();
         this._getAliasedName = Y.cached(Y.bind(this._getAliased, this));
-    },
+      },
 
-    /**
+      /**
     Caches the list of attribute names that we may need
     to operate on. Protected class attributes are removed
     from this list, as they will never be aliased.
@@ -90,14 +91,14 @@ AliasedAttr.prototype = {
     @method _getAttrNames
     @private
     **/
-    _getAttrNames: function () {
-        Y.log('_getAttrNames', 'debug', 'AliasedAttr');
+      _getAttrNames: function () {
+        Y.log("_getAttrNames", "debug", "AliasedAttr");
         var attrNames = objectKeys(this._state.data);
 
         return this._filterAttrNames(attrNames);
-    },
+      },
 
-    /**
+      /**
     Duplicate Model's toJSON() filtering when caching the
     list of attribute names. The initialized and destroyed
     attribute names are always removed, and the Model-specific
@@ -108,8 +109,8 @@ AliasedAttr.prototype = {
     @return {Array} with the undesired attribute names removed.
     @private
     **/
-    _filterAttrNames: function (attrNames) {
-        Y.log('_filterAttrNames', 'debug', 'AliasedAttr');
+      _filterAttrNames: function (attrNames) {
+        Y.log("_filterAttrNames", "debug", "AliasedAttr");
         var hashed = hashArray(attrNames);
 
         // remove default attributes that are never aliased
@@ -118,17 +119,17 @@ AliasedAttr.prototype = {
 
         // remove model metadata if necessary
         if (this._isYUIModel) {
-            delete hashed.clientId;
+          delete hashed.clientId;
 
-            if (this.idAttribute !== 'id') {
-                delete hashed.id;
-            }
+          if (this.idAttribute !== "id") {
+            delete hashed.id;
+          }
         }
 
         return objectKeys(hashed);
-    },
+      },
 
-    /**
+      /**
     Utility method to retrieve the attribute name associated
     with a given alias. This method is bound to the instance
     during initialization, wrapped in a Y.Cached() function.
@@ -142,32 +143,36 @@ AliasedAttr.prototype = {
     @return {String} the aliased attribute name, if any
     @private
     **/
-    _getAliased: function (alias) {
-        Y.log('_getAliased ' + alias, 'debug', 'AliasedAttr');
+      _getAliased: function (alias) {
+        Y.log("_getAliased " + alias, "debug", "AliasedAttr");
         var stateData = this._state.data,
-            attrNames = this._attrNames,
-            attrName,
-            datum,
-            idx = 0,
-            len = attrNames.length;
+          attrNames = this._attrNames,
+          attrName,
+          datum,
+          idx = 0,
+          len = attrNames.length;
 
         for (; idx < len; idx += 1) {
-            attrName = attrNames[idx];
-            // ensure that the state object actually owns the property
-            if (hasOwn.call(stateData, attrName)) {
-                // get the data directly, bypassing State#getAll(name, true)
-                datum = stateData[attrName];
-                // check for the 'aliased' property, regardless of laziness
-                if (datum && (datum.lazy && datum.lazy.aliased === alias || datum.aliased === alias)) {
-                    // remove attrName from filtering array, so it is no longer tested
-                    attrNames.splice(idx, 1);
-                    return attrName;
-                }
+          attrName = attrNames[idx];
+          // ensure that the state object actually owns the property
+          if (hasOwn.call(stateData, attrName)) {
+            // get the data directly, bypassing State#getAll(name, true)
+            datum = stateData[attrName];
+            // check for the 'aliased' property, regardless of laziness
+            if (
+              datum &&
+              ((datum.lazy && datum.lazy.aliased === alias) ||
+                datum.aliased === alias)
+            ) {
+              // remove attrName from filtering array, so it is no longer tested
+              attrNames.splice(idx, 1);
+              return attrName;
             }
+          }
         }
-    },
+      },
 
-    /**
+      /**
     Retrieve an aliased attribute value by it's alias
     instead of the actual name.
 
@@ -178,22 +183,22 @@ AliasedAttr.prototype = {
     @param {String} alias
     @return {Mixed}
     **/
-    getAliased: function (alias) {
-        Y.log('getAliased ' + alias, 'debug', 'AliasedAttr');
+      getAliased: function (alias) {
+        Y.log("getAliased " + alias, "debug", "AliasedAttr");
 
         var attrName = this._getAliasedName(alias);
         if (attrName) {
-            return this.get(attrName);
+          return this.get(attrName);
         }
 
         return this.get(alias);
-    }
-};
+      },
+    };
 
-Y.namespace('Z').AliasedAttr = AliasedAttr;
-
-}, '3.7.3', {
-    requires: [
-        'base-build'
-    ]
-});
+    Y.namespace("Z").AliasedAttr = AliasedAttr;
+  },
+  "3.7.3",
+  {
+    requires: ["base-build"],
+  }
+);

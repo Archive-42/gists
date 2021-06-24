@@ -1,4 +1,3 @@
-
 # Fetch: Abort
 
 As we know, `fetch` returns a promise. And JavaScript generally has no concept of "aborting" a promise. So how can we cancel an ongoing `fetch`? E.g. if the user actions on our site indicate that the `fetch` isn't needed any more.
@@ -21,10 +20,12 @@ A controller is an extremely simple object.
 - And a single property `signal` that allows to set event listeners on it.
 
 When `abort()` is called:
+
 - `controller.signal` emits the `"abort"` event.
 - `controller.signal.aborted` property becomes `true`.
 
-Generally, we have two parties in the process: 
+Generally, we have two parties in the process:
+
 1. The one that performs a cancelable operation, it sets a listener on `controller.signal`.
 2. The one that cancels: it calls `controller.abort()` when needed.
 
@@ -34,10 +35,10 @@ Here's the full example (without `fetch` yet):
 let controller = new AbortController();
 let signal = controller.signal;
 
-// The party that performs a cancelable operation 
+// The party that performs a cancelable operation
 // gets the "signal" object
 // and sets the listener to trigger when controller.abort() is called
-signal.addEventListener('abort', () => alert("abort!"));
+signal.addEventListener("abort", () => alert("abort!"));
 
 // The other party, that cancels (at any point later):
 controller.abort(); // abort!
@@ -59,7 +60,7 @@ To be able to cancel `fetch`, pass the `signal` property of an `AbortController`
 ```js
 let controller = new AbortController();
 fetch(url, {
-  signal: controller.signal
+  signal: controller.signal,
 });
 ```
 
@@ -83,11 +84,12 @@ let controller = new AbortController();
 setTimeout(() => controller.abort(), 1000);
 
 try {
-  let response = await fetch('/article/fetch-abort/demo/hang', {
-    signal: controller.signal
+  let response = await fetch("/article/fetch-abort/demo/hang", {
+    signal: controller.signal,
   });
-} catch(err) {
-  if (err.name == 'AbortError') { // handle abort()
+} catch (err) {
+  if (err.name == "AbortError") {
+    // handle abort()
     alert("Aborted!");
   } else {
     throw err;

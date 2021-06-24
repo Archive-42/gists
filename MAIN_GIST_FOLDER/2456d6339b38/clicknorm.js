@@ -1,12 +1,12 @@
-var clickType 
+var clickType;
 
-function normalizeClick(){
-  try {  
-    d.createEvent("TouchEvent") 
-    clickType = 'touchend' 
-    return true  
-  }catch (e){  
-   clickType = 'click' 
-   return false  
-  }  
+function normalizeClick() {
+  try {
+    d.createEvent("TouchEvent");
+    clickType = "touchend";
+    return true;
+  } catch (e) {
+    clickType = "click";
+    return false;
+  }
 }

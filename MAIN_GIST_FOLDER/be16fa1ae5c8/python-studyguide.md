@@ -1,6 +1,4 @@
-
 ## Table of Contents
-
 
 ###### The None value
 
@@ -52,6 +50,7 @@
 if-elif-else
 for
 ```
+
 ###### while , break and continue
 
 ###### Functions
@@ -59,7 +58,6 @@ for
 ###### Lambdas
 
 ###### Errors
-
 
 ###### Functions
 
@@ -105,13 +103,11 @@ for
 
 ###### Importing packages and modules
 
-
 ###### Classes, methods, and properties
 
 ###### JavaScript to Python Classes cheat table
 
 ###### List comprehensions
-
 
 ## The None value
 
@@ -129,9 +125,11 @@ return anything.
 """
 print(f"Hello, {name}")
 ```
+
 ```
 value = print_hello('Bob') # value will be `None`
 ```
+
 ## Boolean values
 
 ###### These work the same as in JavaScript, but you must capitalize True and False.
@@ -140,6 +138,7 @@ value = print_hello('Bob') # value will be `None`
 a = True
 b = False
 ```
+
 ```
 c = true # This will try to use a variable named `true`!
 d = false # This will try to use a variable named `false`!
@@ -161,18 +160,21 @@ print(True and True) # => True
 print(True and False) # => False
 print(False and False) # => False
 ```
+
 ```
 # Logical OR
 print(True or True) # => True
 print(True or False) # => True
 print(False or False) # => False
 ```
+
 ```
 # Logical NOT
 print( not True) # => False
 print( not False and True) # => True
 print( not True or False) # => False
 ```
+
 #### Truthiness
 
 ###### Everything is True unless it's one of these:
@@ -186,6 +188,7 @@ False
 set()
 range(0)
 ```
+
 ### Number values
 
 #### Integer
@@ -195,6 +198,7 @@ print( 3 ) # => 3
 print(int( 19 )) # => 19
 print(int()) # => 0
 ```
+
 #### Float
 
 ```
@@ -203,6 +207,7 @@ print(2.) # => 2.
 print(float()) # => 0.
 print(27e-5) # => 0.
 ```
+
 #### Type casting
 
 ###### You can convert (cast) numbers in python from one number type to another number
@@ -214,15 +219,18 @@ print(27e-5) # => 0.
 print( 17 ) # => 17
 print(float( 17 )) # => 17.
 ```
+
 ```
 # Float to integer
 print(17.0) # => 17.
 print(int(17.0)) # => 17
 ```
+
 ```
 # Float and integer to string
 print(str(17.0) + ' and ' + str( 17 )) # => 17.0 and 17
 ```
+
 ###### Python does not automatically convert types like JavaScript does.
 
 ###### So this is an error
@@ -231,6 +239,7 @@ print(str(17.0) + ' and ' + str( 17 )) # => 17.0 and 17
 print(17.0 + ' and ' + 17 )
 # TypeError: unsupported operand type(s) for +: 'float' and 'str'
 ```
+
 #### Arithmetic Operators
 
 ###### Operator JavaScript Python
@@ -239,16 +248,15 @@ print(17.0 + ' and ' + 17 )
 
 ###### subtraction - -
 
-###### multiplication * *
+###### multiplication \* \*
 
 ###### division / /
 
 ###### modulo % %
 
-###### exponent Math.pow() **
+###### exponent Math.pow() \*\*
 
 ###### integer division //
-
 
 ###### There is no ++ or -- in Python.
 
@@ -262,6 +270,7 @@ print(17.0 + ' and ' + 17 )
 # Escaping single quote
 'Jodi asked, "What\'s up, Sam?"'
 ```
+
 ###### Triple quotes ''' can be used for multiline strings.
 
 ```
@@ -271,6 +280,7 @@ more than one line. I can even include "quotes"
 of any kind because they won't get confused with
 the end of the string!''')
 ```
+
 ###### Both ''' and """ work for these, but convention is to reserve """ for
 
 ###### multiline comments and function docstrings.
@@ -286,11 +296,13 @@ to determine the end.
 """
 print(f"Hello, {name}")
 ```
+
 #### Length
 
 ```
 print(len("Spaghetti")) # => 9
 ```
+
 #### Indexing
 
 ```
@@ -298,11 +310,13 @@ print(len("Spaghetti")) # => 9
 print("Spaghetti"[ 0 ]) # => S
 print("Spaghetti"[ 4 ]) # => h
 ```
+
 ```
 # You can use negative indexes to start at the end.
 print("Spaghetti"[-1]) # => i
 print("Spaghetti"[-4]) # => e
 ```
+
 ```
 # return a series of characters
 print("Spaghetti"[ 1 : 4 ]) # => pag
@@ -313,11 +327,13 @@ print("Spaghetti"[:-1]) # => Spaghett
 print("Spaghetti"[ 1 :]) # => paghetti
 print("Spaghetti"[-4:]) # => etti
 ```
+
 ```
 # indexing past the beginning or end gives an error
 print("Spaghetti"[ 15 ]) # => IndexError: string index out of range
 print("Spaghetti"[-15]) # => IndexError: string index out of range
 ```
+
 ```
 # but ranges past the beginning or end do not.
 print("Spaghetti"[: 15 ]) # => Spaghetti
@@ -326,6 +342,7 @@ print("Spaghetti"[-15:]) # => Spaghetti
 print("Spaghetti"[:-15]) # => (empty string)
 print("Spaghetti"[ 15 : 20 ]) # => (empty string)
 ```
+
 #### String Functions
 
 ###### index
@@ -336,6 +353,7 @@ print("Spaghetti"[ 15 : 20 ]) # => (empty string)
 print("Spaghetti".index("h")) # => 4
 print("Spaghetti".index("t")) # => 6
 ```
+
 ###### count
 
 ###### counts how many times a substring appears in a string
@@ -351,6 +369,7 @@ challenge is one that we are willing to accept, one we are unwilling to
 postpone, and one which we intend to win, and the others, too.
 '''.count('the ')) # => 4
 ```
+
 #### Concatenation
 
 ###### You can use the + operator just like in JavaScript
@@ -359,11 +378,12 @@ postpone, and one which we intend to win, and the others, too.
 print("gold" + "fish") # => goldfish
 ```
 
-###### You can use the * operator to repeat a string a given number of times
+###### You can use the \* operator to repeat a string a given number of times
 
 ```
 print("s"* 5 ) # => sssss
 ```
+
 #### Formatting
 
 ```
@@ -374,6 +394,7 @@ print('Your name is {0} {1}'.format(first_name, last_name)) # => Your name is Bi
 # Using the `f` format flag on the string
 print(f'Your name is {first_name} {last_name}') # => Your name is Billy Bob
 ```
+
 #### Useful string methods
 
 ###### Value Method Result
@@ -381,33 +402,43 @@ print(f'Your name is {first_name} {last_name}') # => Your name is Billy Bob
 ```
 s = "Hello" s.upper() "HELLO"
 ```
+
 ```
 s = "Hello" s.lower() "hello"
 ```
+
 ```
 s = "Hello" s.islower() False
 ```
+
 ```
 s = "hello" s.islower() True
 ```
+
 ```
 s = "Hello" s.isupper() False
 ```
+
 ```
 s = "HELLO" s.isupper() True
 ```
+
 ```
 s = "Hello" s.startswith("He") True
 ```
+
 ```
 s = "Hello" s.endswith("lo") True
 ```
+
 ```
 s = "Hello World" s.split() ["Hello", "World"]
 ```
+
 ```
 s = "i-am-a-dog" s.split("-") ["i", "am", "a", "dog"]
 ```
+
 ###### Method Purpose
 
 ###### isalpha() returns True if the string consists only of letters and is not blank.
@@ -438,6 +469,7 @@ b = 'Marbles'
 print(a) # => 7
 print(b) # => Marbles
 ```
+
 ```
 # You can do assignment chaining
 count = max = min = 0
@@ -445,6 +477,7 @@ print(count) # => 0
 print(max) # => 0
 print(min) # => 0
 ```
+
 ### Comparison operators
 
 ###### Python uses these same equality operators as JavaScript.
@@ -471,7 +504,6 @@ print(min) # => 0
 
 ###### Be careful using not along with ==
 
-
 ```
 print( not a == b) # => True
 # This breaks
@@ -479,6 +511,7 @@ print(a == not b) # Syntax Error
 # This fixes it
 print (a == ( not b)) # => False
 ```
+
 ###### Python does short-circuit evaluation
 
 ###### Expression Right side evaluated?
@@ -506,6 +539,7 @@ print (a == ( not b)) # => False
 **=
 //=
 ```
+
 ### Flow-control statements: if, while, for
 
 ##### if-elif-else
@@ -518,6 +552,7 @@ print('You are not Monica, kiddo.')
 else :
 print('You are neither Monica nor a little kid.')
 ```
+
 ##### for
 
 ```
@@ -525,24 +560,28 @@ print('You are neither Monica nor a little kid.')
 for c in "abcdefg":
 print(c)
 ```
+
 ```
 # Looping over a range
 print('My name is')
 for i in range( 5 ):
 print('Carlita Cinco (' + str(i) + ')')
 ```
+
 ```
 # Looping over a list
 lst = [ 0 , 1 , 2 , 3 ]
 for i in lst:
 print(i)
 ```
+
 ```
 # Looping over a dictionary
 spam = {'color': 'red', 'age': 42 }
 for v in spam.values():
 print(v)
 ```
+
 ```
 # Loop over a list of tuples and
 # Destructuring to values
@@ -551,6 +590,7 @@ print(v)
 for k, v in spam.items():
 print('Key: ' + k + ' Value: ' + str(v))
 ```
+
 #### while , break and continue
 
 ###### while loop as long as the condition is True.
@@ -568,6 +608,7 @@ if spam < 5 :
 continue
 break
 ```
+
 ### Functions
 
 ###### You use the def keyword to define a function in Python.
@@ -577,6 +618,7 @@ break
 def printCopyright ():
 print("Copyright 2020. Me, myself and I. All rights reserved.")
 ```
+
 ```
 # Function with positional parameters and a return value
 ```
@@ -585,32 +627,39 @@ print("Copyright 2020. Me, myself and I. All rights reserved.")
 def average (num1, num2):
 return (num1/num2)
 ```
+
 ```
 # Calling it with positional arguments
 print(average( 6 , 2 )) # => 3.
 ```
+
 ```
 # Calling it with keyword arguments
 # (note that order doesn't matter)
 print(average(num2= 2 , num1= 6 ));
 ```
+
 ```
 # Default parameters
 # Here the string "Hello" is the default for `saying`
 def greeting (name, saying="Hello"):
 print(saying, name)
 ```
+
 ```
 greeting("Monica") # => Hello Monica
 ```
+
 ```
 greeting("Monica", saying="Hi") # => Hi Monica
 ```
+
 ```
 # A common 'gotcha' is using an mutable object for a default parameter.
 # Python doesn't do what you expect. All invocations of the function
 # reference the same mutable object
 ```
+
 ```
 # Everytime we call this we use the exact same `itemList` list
 def appendItem (itemName, itemList = []):
@@ -620,6 +669,7 @@ print(appendItem('notebook')) # => ['notebook']
 print(appendItem('pencil')) # => ['notebook', 'pencil']
 print(appendItem('eraser')) # => ['notebook', 'pencil', 'eraser']
 ```
+
 #### Lambdas
 
 ###### In python we have anonymous functions called lambdas, but they are only
@@ -629,15 +679,18 @@ print(appendItem('eraser')) # => ['notebook', 'pencil', 'eraser']
 ```
 toUpper = lambda s: s.upper()
 ```
+
 ```
 toUpper('hello') # => HELLO
 ```
+
 ###### is the same as this in JavaScript
 
 ```
 const toUpper = s => s.toUpperCase();
 toUpper('hello'); // # => HELLO
 ```
+
 #### Errors
 
 ###### Unlike JavaScript, if you pass the wrong number of arguments to a function
@@ -648,17 +701,19 @@ toUpper('hello'); // # => HELLO
 average( 1 )
 # => TypeError: average() missing 1 required positional argument: 'num2'
 ```
+
 ```
 average( 1 , 2 , 3 )
 # => TypeError: average() takes 2 positional arguments but 3 were given
 ```
+
 ## Python Learning Objectives (Day 2)
 
 ### Functions
 
-###### * - Get the rest of the position arguments as a tuple
+###### \* - Get the rest of the position arguments as a tuple
 
-###### ** - Get the rest of the keyword arguments as a dictionary
+###### \*\* - Get the rest of the keyword arguments as a dictionary
 
 #### variable length positional arguments
 
@@ -670,14 +725,17 @@ for n in args:
 total += n
 return total
 ```
+
 ```
 # args is None
 add( 1 , 2 ) # Returns 3
 ```
+
 ```
 # args is (4, 5)
 add( 2 , 3 , 4 , 5 ) # Returns 14
 ```
+
 #### variable length keyword arguments
 
 ```
@@ -686,6 +744,7 @@ def print_names_and_countries (greeting, **kwargs):
 for k, v in kwargs.items():
 print(greeting, k, "from", v)
 ```
+
 ```
 # kwargs would be:
 # {
@@ -709,6 +768,7 @@ Carlo="Portugal")
 def example2 (arg_1, arg_2, *args, kw_1="shark", kw_2="blowfish", **kwargs):
 pass
 ```
+
 ### Lists
 
 ###### Lists are mutable arrays.
@@ -718,15 +778,18 @@ pass
 empty_list = []
 departments = ['HR','Development','Sales','Finance','IT','Customer Support']
 ```
+
 ```
 # list built-in function makes a list too
 specials = list()
 ```
+
 ```
 # You can use `in` to test if something is in the list
 print( 1 in [ 1 , 2 , 3 ]) #> True
 print( 4 in [ 1 , 2 , 3 ]) #> False
 ```
+
 ### Dictionaries
 
 ###### Dictionaries are similar to JavaScript POJOs or Map. They have key value pairs.
@@ -737,12 +800,14 @@ a = {'one': 1 , 'two': 2 , 'three': 3 }
 # With the dict built-in function
 b = dict(one= 1 , two= 2 , three= 3 )
 ```
+
 ```
 # You can use the `in` operator with dictionaries too
 print( 1 in { 1 : "one", 2 : "two"}) #> True
 print("1" in { 1 : "one", 2 : "two"}) #> False
 print( 4 in { 1 : "one", 2 : "two"}) #> False
 ```
+
 ### Sets
 
 ###### Just like JavaScript's Set , it is an unordered collection of distinct objects.
@@ -751,15 +816,18 @@ print( 4 in { 1 : "one", 2 : "two"}) #> False
 # Using curlies (dont' confuse this with dictionaries)
 school_bag = {'book','paper','pencil','pencil','book','book','book','eraser'}
 ```
+
 ```
 # Using the set() built in
 school_bag = set('book','paper','pencil','pencil','book','book','book','eraser')
 ```
+
 ```
 # You can use the `in` operator with sets
 print( 1 in { 1 , 1 , 2 , 3 }) #> True
 print( 4 in { 1 , 1 , 2 , 3 }) #> False
 ```
+
 ### Tuples
 
 ###### Tuples are immutable lists of items.
@@ -768,22 +836,26 @@ print( 4 in { 1 , 1 , 2 , 3 }) #> False
 # With parenthesis
 time_blocks = ('AM','PM')
 ```
+
 ```
 # Without parenthesis
 colors = 'red','blue','green'
 numbers = 1 , 2 , 3
 ```
+
 ```
 # with the tuple buit-in function which can also be used to
 # convert things to tuples
 tuple('abc') # returns ('a', 'b', 'c')
 tuple([ 1 , 2 , 3 ]) # returns (1, 2, 3)
 ```
+
 ```
 # you can use the `in` operator with tuples
 print( 1 in ( 1 , 2 , 3 )) #> True
 print( 4 in ( 1 , 2 , 3 )) #> False
 ```
+
 ### Ranges
 
 ###### A range is simply a list of numbers in order which can't be changed
@@ -808,10 +880,10 @@ range( 1 , 5 ) # [1, 2, 3, 4]
 range( 0 , 25 , 5 ) # [0, 5, 10, 15, 20]
 range( 0 ) # [ ]
 ```
+
 ### Built-in functions: filter, map, sorted, enumerate, zip, len, max, min, sum, any, all, dir
 
 #### filter
-
 
 ```
 def isOdd (num):
@@ -821,38 +893,46 @@ filtered = filter(isOdd, [ 1 , 2 , 3 , 4 ])
 # but we can cast it to a list
 print(list(filtered)) # => [1, 3]
 ```
+
 #### map
 
 ```
 def toUpper (str):
 return str.upper()
 ```
+
 ```
 upperCased = map(toUpper, ['a','b','c'])
 ```
+
 ```
 print(list(upperCased)) # => ['A','B','C']
 ```
+
 #### sorted
 
 ```
 sortedItems = sorted(['Banana', 'orange', 'apple'])
 print(list(sortedItems)) # => ['Banana', 'apple', 'orange']
 ```
+
 ```
 # Notice Banana is first because uppercase letters come first
 ```
+
 ```
 # Using a key function to control the sorting and make it sort
 # so the case doesn't matter
 sortedItems = sorted(['Banana', 'orange', 'apple'], key=str.lower)
 print(list(sortedItems)) # => ['apple', 'Banana', 'orange']
 ```
+
 ```
 # Reversing the sort
 sortedItems = sorted(['Banana', 'orange', 'apple'], key=str.lower, reverse=True)
 print(list(sortedItems)) # => ['orange', 'Banana', 'apple']
 ```
+
 #### enumerate
 
 ```
@@ -860,36 +940,44 @@ quarters = ['First', 'Second', 'Third', 'Fourth']
 print(enumerate(quarters))
 print(enumerate(quarters, start= 1 ))
 ```
+
 ```
 ( 0 , 'First'), ( 1 , 'Second'), ( 2 , 'Third'), ( 3 , 'Fourth')
 ( 1 , 'First'), ( 2 , 'Second'), ( 3 , 'Third'), ( 4 , 'Fourth')
 ```
+
 #### zip
 
 ```
 keys = ("Name", "Email")
 values = ("Bob", "Bob@bob.com")
 ```
+
 ```
 zipped = zip(keys, values)
 ```
+
 ```
 print(list(zipped))
 # => [('Name', 'Bob'), ('Email', 'Bob@bob.com')]
 ```
+
 ```
 # You can zip more than two
 x_coords = [ 0 , 1 , 2 , 3 , 4 ]
 y_coords = [ 2 , 3 , 5 , 3 , 5 ]
 z_coords = [ 3 , 5 , 2 , 1 , 4 ]
 ```
+
 ```
 coords = zip(x_coords, y_coords, z_coords)
 ```
+
 ```
 print(list(coords))
 # => [(0, 2, 3), (1, 3, 5), (2, 5, 2), (3, 3, 1), (4, 5, 4)]
 ```
+
 #### len
 
 ```
@@ -900,7 +988,8 @@ len({
 'Email': 'bob@bob.com'
 }) # => 2
 ```
-###### Can also work on any object which contains a __len__ method.
+
+###### Can also work on any object which contains a **len** method.
 
 #### max
 
@@ -908,30 +997,34 @@ len({
 max( 1 , 4 , 6 , 2 ) # => 6
 max([ 1 , 4 , 6 , 2 ]) # => 6
 ```
+
 #### min
 
 ```
 min( 1 , 4 , 6 , 2 ) # => 1
 min([ 1 , 4 , 6 , 2 ]) # => 1
 ```
+
 #### sum
 
 ```
 sum([ 1 , 2 , 3 ]) # => 6
 ```
-#### any
 
+#### any
 
 ```
 any([True, False, False]) # => True
 any([False, False, False]) # => False
 ```
+
 #### all
 
 ```
 any([True, False, False]) # => False
 any([True, True, True]) # => False
 ```
+
 #### dir
 
 ###### Returns all the attributes of an object including it's methods and dunder methods
@@ -942,9 +1035,11 @@ user = {
 'Email': 'bob@bob.com'
 }
 ```
+
 ```
 dir(user)
 ```
+
 ```
 # => ['__class__', '__contains__', '__delattr__', '__delitem__', '__dir__',
 # '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__',
@@ -955,11 +1050,12 @@ dir(user)
 # 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault',
 # 'update', 'values']
 ```
+
 ### Importing packages and modules
 
 ###### Module - Python code in a file or directory
 
-###### Package - A module which is a directory containing a __init__.py file.
+###### Package - A module which is a directory containing a **init**.py file.
 
 ###### submodule - A module which is contained within a package
 
@@ -979,6 +1075,7 @@ math
 | multiplication.py
 | division.py
 ```
+
 ###### if we peek into the addition.py file we see there's an add function
 
 ```
@@ -988,7 +1085,8 @@ math
 def add (num1, num2):
 return num1 + num
 ```
-###### Our __init__.py has the following lines:
+
+###### Our **init**.py has the following lines:
 
 ```
 # This imports the `add` function
@@ -999,6 +1097,7 @@ from .subtraction import subtract
 from .division import divide
 from .multiplication import multiply
 ```
+
 ###### Remember any names that exist within a module are automatically exported.
 
 ###### Notice the. syntax because this package can import it's own submodules.
@@ -1010,21 +1109,26 @@ from .multiplication import multiply
 # and give us an object with the exported names in `math/__init.py__`
 import math
 ```
+
 ```
 print(math.add( 1 , 2 )) # => 3
 ```
+
 ```
 # This imports JUST the add from `math/__init__.py`
 from math import add
 ```
+
 ```
 print(add( 1 , 2 )) # => 3
 ```
+
 ```
 # This skips importing from `math/__init__.py` (although it still runs)
 # and imports directly from the addition.py file
 from math.addition import add
 ```
+
 ```
 print(add( 1 , 2 )) # => 3
 ```
@@ -1033,17 +1137,21 @@ print(add( 1 , 2 )) # => 3
 # this imports all the functions individually from `math/__init.py`
 from math import add, subtract, multiply, divide
 ```
+
 ```
 print(add( 1 , 2 )) # => 3
 print(subtract( 2 , 1 )) # => 1
 ```
+
 ```
 # This imports `add` and renames it to `addSomeNumbers`
 from math import add as addSomeNumbers
 ```
+
 ```
 print(addSomeNumbers( 1 , 2 )) # => 3
 ```
+
 ## Python Learning Objectives (Day 3)
 
 ### Classes, methods, and properties
@@ -1054,6 +1162,7 @@ class AngryBird :
 # and prevent you from arbitrarily assigning new properties to the instance
 __slots__ = ['_x', '_y']
 ```
+
 ```
 # constructor
 def __init__ (self, x= 0 , y= 0 ):
@@ -1065,17 +1174,20 @@ Construct a new AngryBird by setting its position to (0, 0).
 self._x = x
 self._y = y
 ```
+
 ```
 # Instance method
 def move_up_by (self, delta):
 self._y += delta
 ```
+
 ```
 # Getter
 @property
 def x (self):
 return self._x
 ```
+
 ```
 # Setter
 @x.setter
@@ -1084,28 +1196,32 @@ if value < 0 :
 value = 0
 self._x = value
 ```
+
 ```
 @property
 def y (self):
 return self._y
 ```
+
 ```
 @y.setter
 def y (self, new_y):
 self._y = new_y
 ```
+
 ```
 # Dunder Repr... called by `print`
 def __repr__ (self):
 return f"<AngryBird ({self._x}, {self._y})>"
 ```
+
 #### JavaScript to Python Classes cheat table
 
 ###### Javascript Python
 
-###### Constructor constructor() def __init__(self):
+###### Constructor constructor() def **init**(self):
 
-###### Super Constructor super() super().__init__()
+###### Super Constructor super() super().**init**()
 
 ###### Instance properties this.property self.property
 
@@ -1134,32 +1250,37 @@ squares = []
 for i in range( 10 ):
 squares.append(i** 2 )
 ```
+
 ```
 print(squares)
 # Prints [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
-###### You can change it to a list comprehension
 
+###### You can change it to a list comprehension
 
 ```
 # value = i ** 2
 # loop = for i in range(10)
 squares = [i** 2 for i in range( 10 )]
 ```
+
 ```
 print(list(squares))
 # Prints [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
+
 ###### They can be used with a condition to do what filter does
 
 ```
 sentence = 'the rocket came back from mars'
 vowels = [character for character in sentence if character in 'aeiou']
 ```
+
 ```
 print(vowels)
 # Prints ['e', 'o', 'e', 'a', 'e', 'a', 'o', 'a']
 ```
+
 ###### You can also use them on dictionaries. We can use the items() method
 
 ###### for the dictionary to loop through it getting the keys and values out at once.
@@ -1171,21 +1292,18 @@ person = {
 'height': 1.
 }
 ```
+
 ```
 # This loops through and capitalizes the first letter of all the keys
 newPerson = { key.title(): value for key, value in person.items() }
 # Prints {'Name': 'Corina', 'Age': 32, 'Height': 1.4}
 ```
 
-
-
-
-
 ---
+
 ---
 
 # Part 2:
-
 
 ## Table of Contents
 
@@ -1363,7 +1481,6 @@ newPerson = { key.title(): value for key, value in person.items() }
 
 ##### Viewing your migration history (revision history)
 
-
 ##### Reason about the way Alembic orders your migrations; and,
 
 ##### Handle branching and merging concerns
@@ -1390,7 +1507,7 @@ newPerson = { key.title(): value for key, value in person.items() }
 
 ##### Requires that you build a class that inherits from unittest.TestCase
 
-##### test functions must start with test_
+##### test functions must start with test\_
 
 ##### Has a collection of assertion functions
 
@@ -1471,6 +1588,7 @@ newPerson = { key.title(): value for key, value in person.items() }
 ```
 virtualenv
 ```
+
 ##### Can generate a requirements.txt file for use with regular pip
 
 ##### Closest Node.JS equivalent would be npm
@@ -1480,6 +1598,7 @@ virtualenv
 ```
 pipenv shell
 ```
+
 ##### This will start a new shell inside the virtual environment.
 
 ##### Then you can run python programs and they will run with the right set of packages and environment variables
@@ -1487,6 +1606,7 @@ pipenv shell
 ```
 python someprogram.py
 ```
+
 ##### When you are finished running commands in the virtual environment don't forget
 
 ##### to exit the shell by issuing the exit command, or using Control-D.
@@ -1497,15 +1617,15 @@ python someprogram.py
 
 ##### you can use the pipenv run command.
 
-
 ```
 pipenv run python someprogram.py
 ```
+
 ### Describe how modules and packages are found and loaded from import statements
 
 #### First some definitions:
 
-##### Module : a single .py file or a directory with a __init__.py file can be
+##### Module : a single .py file or a directory with a **init**.py file can be
 
 ##### considered a module
 
@@ -1539,7 +1659,7 @@ pipenv run python someprogram.py
 
 ##### If you want to control which things get exported from a python module you can
 
-##### set the variable __all__ equal to a list of strings representing the things
+##### set the variable **all** equal to a list of strings representing the things
 
 ##### to export.
 
@@ -1553,17 +1673,17 @@ pipenv run python someprogram.py
 
 ##### When you import a directory as a module, it also searches sys.path for a
 
-##### directory with that name and runs the __init__.py contained in that directory.
+##### directory with that name and runs the **init**.py contained in that directory.
 
 ##### Using the python command line interpreter
 
 ##### When you run a .py file it runs that file
 
-##### When you run a directory it runs __main__.py
+##### When you run a directory it runs **main**.py
 
-##### When you run a directory with the -m option, it searches sys.path for the module and runs both the __init__.py and the __main__.py
+##### When you run a directory with the -m option, it searches sys.path for the module and runs both the **init**.py and the **main**.py
 
-##### Most of the time we'll use __init__.py not __main__.py when we build our own
+##### Most of the time we'll use **init**.py not **main**.py when we build our own
 
 ##### modules.
 
@@ -1577,7 +1697,7 @@ pipenv run python someprogram.py
 
 ##### When you run a directory with the -m option, or when you import a directory,
 
-##### the __init__.py file executes. The purpose of __init__.py to be able to
+##### the **init**.py file executes. The purpose of **init**.py to be able to
 
 ##### build python packages and subdivide the packages into multiple sub-modules.
 
@@ -1585,7 +1705,7 @@ pipenv run python someprogram.py
 
 ##### When you run a directory as a regular python program (not with -m ) the
 
-##### __main__.py file is executed. The purpose of __main__.py is to allow us
+##### **main**.py file is executed. The purpose of **main**.py is to allow us
 
 ##### to execute a directory as if it was a python program.
 
@@ -1602,17 +1722,18 @@ pipenv run python someprogram.py
 ```
 pipenv install flask
 ```
+
 ##### Create a python script to start your application. This might be app.py or
 
-##### another script which imports an app/__init.py module.
+##### another script which imports an app/\_\_init.py module.
 
 ##### This is the bare minimum needed to make Flask application:
-
 
 ```
 from flask import Flask
 app = Flask(__name__)
 ```
+
 ##### Flask requires that you set an environment variable called FLASK_APP before
 
 ##### it will run. It needs to be set to the name of your flask application script
@@ -1634,6 +1755,7 @@ app = Flask(__name__)
 ```
 pipenv run flask run
 ```
+
 ### Utilize basic configuration on a Flask project
 
 ##### You can use the app.config dictionary to hold Flask configuration values.
@@ -1649,22 +1771,27 @@ pipenv run flask run
 ```
 # config.py
 ```
+
 ```
 class Config :
 SOME_CONFIG_VARIABLE = 'Some value'
 ```
+
 ```
 # app.py
 # Import the config class
 from config import Config
 ```
+
 ```
 app = Flask(__name__)
 ```
+
 ```
 # Load the config into Flask.
 app.config.from_object(Config)
 ```
+
 ##### You can access any config variables in your flask app by just referencing
 
 ##### them on the app.config dictionary.
@@ -1672,6 +1799,7 @@ app.config.from_object(Config)
 ```
 app.config['SOME_CONFIG_VARIABLE']
 ```
+
 ### Create a static route in Flask
 
 ##### A static route is one that just routes to a path without any parameters.
@@ -1683,12 +1811,14 @@ def index ():
 """Put code here to execute when `/` is visited"""
 pass
 ```
+
 ```
 @app.route('/somepath')
 def some_path ():
 """Put code here to execute when `/somepath` is visited"""
 pass
 ```
+
 ### Create a parameterized route in Flask
 
 ##### A parameterized route uses <> characters to declare that part of a path
@@ -1702,6 +1832,7 @@ pass
 def item (id):
 return f'<h1>Item {id}</h1>'
 ```
+
 ```
 # You can also specify the type of the parameter by prepending it with the type
 # and a colon
@@ -1709,6 +1840,7 @@ return f'<h1>Item {id}</h1>'
 def item (id):
 return f'<h1>Item {id}</h1>'
 ```
+
 ### Use decorators run code before and after requests
 
 ##### The @app.before_request and @app.after_request happen before and after
@@ -1725,12 +1857,14 @@ def before_request_function ():
 ```
 print("before_request is running")
 ```
+
 ```
 @app.after_request
 def after_request_function (response):
 print("after_request is running")
 return response
 ```
+
 ##### @app.before_first_request only happens once before the very first request
 
 ##### to the server
@@ -1740,6 +1874,7 @@ return response
 def before_first_function ():
 print("before_first_request happens once")
 ```
+
 ### Identify the "static" route
 
 ##### Don't confuse this with declaring a static route above. This is a special
@@ -1753,6 +1888,7 @@ print("before_first_request happens once")
 ```
 http://localhost: 5000 /static/styles/main.css
 ```
+
 ###### .
 
 ```
@@ -1768,6 +1904,7 @@ http://localhost: 5000 /static/styles/main.css
 │ └── main.html
 └── app_loader.py
 ```
+
 ### Use WTForms to define and render forms in Flask
 
 ##### WTForms is a python package that allows you to easily generate forms and form
@@ -1781,15 +1918,18 @@ http://localhost: 5000 /static/styles/main.css
 ```
 from flask_wtf import FlaskForm
 ```
+
 ```
 class SampleForm (FlaskForm):
 ```
+
 ##### Then inside the class use WTForm fields on properties of the class.
 
 ```
 class SampleForm (FlaskForm):
 name = StringField('Name')
 ```
+
 ##### In your route, you can instantiate an instance of your form and then pass
 
 ##### it to a view to be rendered.
@@ -1797,14 +1937,17 @@ name = StringField('Name')
 ```
 from app.sample_form import SampleForm
 ```
+
 ```
 # Create an instance of our form
 form = SampleForm()
 ```
+
 ```
 # And pass it to the view template
 return render_template('form.html', form=form)
 ```
+
 ##### Inside the view template, you can access the fields from the form to
 
 ##### output HTML for the form and it's fields.
@@ -1819,6 +1962,7 @@ return render_template('form.html', form=form)
 <p>{{ form.submit() }}</p>
 </form>
 ```
+
 ##### The calls inside of the {{ }} will output HTML.
 
 ##### Because of some special python magic (the call and str methods on
@@ -1829,7 +1973,7 @@ return render_template('form.html', form=form)
 
 ##### for those parameters. However, because class is a reserved word in Python,
 
-##### you will have to use class_ when you want to add a CSS class.
+##### you will have to use class\_ when you want to add a CSS class.
 
 ```
 form.name(size= 32 , class_='name')
@@ -1855,6 +1999,7 @@ return
 # the form again.
 return
 ```
+
 ##### It should be noted that validate_on_submit automatically reads the incoming
 
 ##### parameters from the request object in Flask, so there's no reason to import it
@@ -1874,12 +2019,14 @@ return
 # defined on the form class
 {{ form.hidden_tag() }
 ```
+
 ##### or
 
 ```
 # While this one only prints out the CSRF token hidden field
 {{ form.csrf_token() }}
 ```
+
 ### Use the following basic field types in WTForms
 
 ##### You use these by creating a class property on your class which inherits from
@@ -1890,6 +2037,7 @@ return
 class MyForm (FlaskForm):
 field1 = StringField()
 ```
+
 ##### BooleanField
 
 ##### DateField
@@ -1936,9 +2084,11 @@ field1 = StringField()
 # admin.py
 from flask import Blueprint
 ```
+
 ```
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
 ```
+
 ### Register the Flask Blueprint with the Flask application
 
 ##### Then import it into your main Flask app file
@@ -1948,9 +2098,11 @@ admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
 ```
 from admin import admin_bp
 ```
+
 ```
 app = Flask()
 ```
+
 ```
 app.register_blueprint(admin_bp)
 ```
@@ -1966,6 +2118,7 @@ app.register_blueprint(admin_bp)
 def admin_index ():
 return
 ```
+
 ### Configure and use sessions in Flask
 
 ##### You must set a SECRET_KEY property in your flask config for sessions to work.
@@ -1975,6 +2128,7 @@ return
 ```
 from flask import Flask, session
 ```
+
 ##### Then simply use session to store things you want to be available later
 
 ```
@@ -1985,6 +2139,7 @@ session.get('key')
 # to remove something from the session
 session.pop('key')
 ```
+
 ### Use a Jinja template as return for a Flask route with render_template
 
 ##### Use the render_template method to render the template into a string,
@@ -1998,6 +2153,7 @@ session.pop('key')
 def index ():
 return render_template('index.html', sitename='My Sample')
 ```
+
 ### Add variables to a Jinja template with {{ }}
 
 ##### Then inside our HTML we can access the key
@@ -2005,6 +2161,7 @@ return render_template('index.html', sitename='My Sample')
 ```
 <title>{{ sitename }}</title>
 ```
+
 ##### Check the Jinja2 docs for all the things you can do in Jinja2 templates.
 
 ### Use include to share template content in Jinja
@@ -2014,6 +2171,7 @@ return render_template('index.html', sitename='My Sample')
 ```
 {% include 'file.html' %}
 ```
+
 ## Psycopg Objectives
 
 ### Connect to a PostgreSQL RDBMS using Psycopg
@@ -2021,6 +2179,7 @@ return render_template('index.html', sitename='My Sample')
 ```
 import psycopg
 ```
+
 ```
 CONNECTION_PARAMETERS = {
 'dbname': 'psycopg_test_db',
@@ -2028,10 +2187,12 @@ CONNECTION_PARAMETERS = {
 'password': 'password',
 }
 ```
+
 ```
 with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
 print(conn.get_dsn_parameters())
 ```
+
 ### Open a "cursor" to perform data operations
 
 ### Use the with keyword to clean up connections and database cursors
@@ -2039,6 +2200,7 @@ print(conn.get_dsn_parameters())
 ```
 import psycopg
 ```
+
 ```
 CONNECTION_PARAMETERS = {
 'dbname': 'psycopg_test_db',
@@ -2046,12 +2208,13 @@ CONNECTION_PARAMETERS = {
 'password': 'password',
 }
 ```
+
 ```
 with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
 print(conn.get_dsn_parameters())
 ```
-### Use results performed from executing a SELECT statement on existing database entities
 
+### Use results performed from executing a SELECT statement on existing database entities
 
 ```
 with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
@@ -2061,6 +2224,7 @@ cars = curs.fetchall()
 for car in cars:
 print(car) # (1993, 'Mazda', 'Rx7')
 ```
+
 ### Use parameterized SQL statements to insert, select, update, and delete data
 
 ```
@@ -2072,12 +2236,14 @@ cars = curs.fetchall()
 for car in cars:
 print(car)
 ```
+
 ```
 print_all_cars()
 # Output:
 # (1993, 'Mazda', 'Rx7', 1)
 # ...additional cars
 ```
+
 ### Specify what type Psycopg will convert the following PostgreSQL types into:
 
 ##### PostgreSQL Python
@@ -2105,9 +2271,11 @@ print_all_cars()
 ```
 from sqlalchemy import create_engine
 ```
+
 ```
 engine = create_engine("postgresql://sqlalchemy_test:password@localhost/sqlalchemy_test")
 ```
+
 ### Describe how the with engine.connect() as connection: block establishes and cleans up a connection to the database
 
 ##### Note: When using Flask-SQLAlchemy you don't have to do this
@@ -2115,10 +2283,12 @@ engine = create_engine("postgresql://sqlalchemy_test:password@localhost/sqlalche
 ```
 from sqlalchemy import create_engine
 ```
+
 ```
 db_url = "postgresql://sqlalchemy_test:password@localhost/sqlalchemy_test"
 engine = create_engine(db_url)
 ```
+
 ```
 with engine.connect() as connection:
 result = connection.execute("""
@@ -2129,9 +2299,11 @@ JOIN ponies p ON (o.id = p.owner_id)
 for row in result:
 print(row["first_name"], row["last_name"], "owns", row["name"])
 ```
+
 ```
 engine.dispose()
 ```
+
 ### Describe how to create a database session from an engine
 
 ##### Note: When using Flask-SQLAlchemy you don't have to do this
@@ -2140,28 +2312,33 @@ engine.dispose()
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 ```
+
 ```
 db_url = "postgresql://sqlalchemy_test:password@localhost/sqlalchemy_test"
 engine = create_engine(db_url)
 ```
+
 ```
 SessionFactory = sessionmaker(bind=engine)
 ```
+
 ```
 session = SessionFactory()
 ```
+
 ```
 # Do stuff with the session
 ```
+
 ```
 engine.dispose()
 ```
+
 ### Create a mapping for SQLAlchemy to use to tie together a class and a table in the database
 
 #### Mappings
 
 ##### Mappings with plain SQLAlchemy
-
 
 ##### With just SQLAlchemy we inherit from Base and we have to import all the
 
@@ -2173,13 +2350,16 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy.types import Integer, String
 ```
+
 ```
 Base = declarative_base()
 ```
+
 ```
 class Pony (Base):
 __tablename__ = 'ponies'
 ```
+
 ```
 id = Column(Integer, primary_key=True)
 name = Column(String( 255 ))
@@ -2187,6 +2367,7 @@ birth_year = Column(Integer)
 breed = Column(String( 255 ))
 owner_id = Column(Integer, ForeignKey("owners.id"))
 ```
+
 ##### Mappings with Flask-SQLAlchemy
 
 ##### When using Flask-SQLAlchemy we inherit from db.Model instead of Base
@@ -2198,13 +2379,16 @@ owner_id = Column(Integer, ForeignKey("owners.id"))
 ```
 # owner.py
 ```
+
 ```
 from .models import db
 ```
+
 ```
 class Pony (db.Model):
 __tablename__ = 'ponies'
 ```
+
 ```
 id = db.Column(db.Integer, primary_key=True)
 name = db.Column(db.String( 255 ))
@@ -2212,6 +2396,7 @@ birth_year = db.Column(db.Integer)
 breed = db.Column(db.String( 255 ))
 owner_id = db.Column(db.Integer, db.ForeignKey("owners.id"))
 ```
+
 #### Relationships
 
 ##### One-to-Many
@@ -2227,21 +2412,25 @@ owner_id = db.Column(db.Integer, db.ForeignKey("owners.id"))
 class Owner (db.Model):
 __tablename__ = "owners"
 ```
+
 ```
 id = db.Column(db.Integer, primary_key=True)
 first_name = db.Column(db.String( 255 ))
 last_name = db.Column(db.String( 255 ))
 email = db.Column(db.String( 255 ))
 ```
+
 ```
 # ponies belong to an owner
 ponies = db.relationship("Pony", back_populates="owner")
 ```
+
 ```
 # The Many
 class Pony (db.Model):
 __tablename__ = "ponies"
 ```
+
 ```
 id = db.Column(db.Integer, primary_key=True)
 name = db.Column(db.String( 255 ))
@@ -2250,10 +2439,12 @@ breed = db.Column(db.String( 255 ))
 # The pony contains an owner_id foreign key
 owner_id = db.Column(db.Integer, db.ForeignKey("owners.id"))
 ```
+
 ```
 # An owner has many ponies
 owner = db.relationship("Owner", back_populates="ponies")
 ```
+
 ##### Many-to-Many
 
 ##### Remember that a Many-to-Many relationship is really two One-to-Many relationships
@@ -2270,6 +2461,7 @@ pony_handlers = db.Table(
 db.Column("pony_id", db.ForeignKey("ponies.id"), primary_key=True),
 db.Column("handler_id", db.ForeignKey("handlers.id"), primary_key=True)
 ```
+
 ##### Then setup the relationships on each Model making sure to define a "secondary"
 
 ##### keyword argument is set to the table we just made.
@@ -2280,14 +2472,15 @@ handlers = db.relationship("Handler",
 secondary=pony_handlers,
 back_populates="ponies")
 ```
+
 ```
 # Inside the Handler class...
 ponies = db.relationship("Pony",
 secondary=pony_handlers,
 back_populates="handlers")
 ```
-#### On backpopulates
 
+#### On backpopulates
 
 ##### If you leave out the backpopulates parameter, then when you create an object and add related data, the opposite relationship won't be populated. For instance assume
 
@@ -2296,6 +2489,7 @@ back_populates="handlers")
 ```
 owner.ponies.append(pony)
 ```
+
 ##### If we do not have backpopulates set to the owner propery of the Pony
 
 ##### class, then if you try to look at the owner of the pony like this:
@@ -2303,6 +2497,7 @@ owner.ponies.append(pony)
 ```
 print(pony.owner) # Returns None
 ```
+
 ##### Then it will still be None. If you set backpopulates to the owner, then this
 
 ##### will get populates and stay in sync.
@@ -2322,26 +2517,31 @@ you = Owner(first_name="your first name",
 last_name="your last name",
 email="your email")
 ```
+
 ```
 your_pony = Pony(name="your pony's name",
 birth_year= 2020 ,
 breed="whatever you want",
 owner=you)
 ```
+
 ```
 # Note, id will be None until we commit
 print(you.id) # > None
 print(your_pony.id) # > None
 ```
+
 ```
 session.add(you) # Connects you and your_pony objects
 session.commit() # Saves data to the database
 ```
+
 ```
 # After commiting the ids exist
 print(you.id) # > 4 (or whatever the new id is)
 print(your_pony.id) # > 4 (or whatever the new id is)
 ```
+
 #### Using session with Flask-SQLAlchemy
 
 ##### We use this exactly the same as above but we get the session from the db instance.
@@ -2350,6 +2550,7 @@ print(your_pony.id) # > 4 (or whatever the new id is)
 db.session.add(you) # Connects you and your_pony objects
 db.session.commit() # Saves data to the database
 ```
+
 ##### IMPORTANT don't confuse this session with the Flask session. This is a
 
 ##### database session while flask session is the browser session.
@@ -2359,21 +2560,26 @@ db.session.commit() # Saves data to the database
 ```
 print(your_pony.birth_year) # > 2020
 ```
+
 ```
 # Updating is just like setting a property
 your_pony.birth_year = 2019
 ```
+
 ```
 # The pony instance updates immediately
 print(your_pony.birth_year) # > 2019
 ```
+
 ```
 # but the database doesn't update until we commit!
 session.commit()
 ```
+
 ```
 print(your_pony.birth_year) # > 2019
 ```
+
 ### Delete data from the database (including cascades!)
 
 ### Know how to use and specify the "delete-orphan" cascading strategy
@@ -2384,16 +2590,19 @@ db.session.delete(you)
 # It doesn't actually change the database until you commit!
 db.session.commit()
 ```
+
 ```
 class Owner (db.Model):
 __tablename__ = 'owners'
 ```
+
 ```
 id = db.Column(db.Integer, primary_key=True)
 first_name = db.Column(db.String( 255 ))
 last_name = db.Column(db.String( 255 ))
 email = db.Column(db.String( 255 ))
 ```
+
 ```
 # This is a relationship between Ponies and Owner.
 # We have set it to cascase and delete orphans so
@@ -2403,8 +2612,8 @@ ponies = db.relationship("Pony",
 back_populates="owner",
 cascade="all, delete-orphan")
 ```
-### Describe the purpose of a Query object
 
+### Describe the purpose of a Query object
 
 ##### When you use SQLAlchemy's querying API, you're not actually immediately executing SQL against the database. Instead, all of the specifications that you add to the query are saved up into a single
 
@@ -2422,9 +2631,11 @@ cascade="all, delete-orphan")
 pony_query = session.query(Pony)
 print(pony_query)
 ```
+
 ```
 pony_id_4_query = session.query(Pony).get( 4 )
 ```
+
 #### With Flask SQLAlchemy
 
 ##### Flask SQLAlchemy attaches the session.query to the Model directly.
@@ -2435,10 +2646,12 @@ pony_id_4_query = session.query(Pony).get( 4 )
 # This plain SQLAlchemy query:
 pony = session.query(Pony).get( 4 );
 ```
+
 ```
 # Can be re-written as:
 pony = Pony.query.get( 4 )
 ```
+
 ### How to order your results
 
 ```
@@ -2446,16 +2659,19 @@ owner_query = Owner.query(Owner.first_name, Owner.last_name)
 .order_by(Owner.last_name)
 print(owner_query)
 ```
+
 ### Use the filter method to find just what you want
 
 ```
 pony_query = Pony.query.filter(Pony.name.like("%u%"))
 ```
+
 ```
 pony_query = Pony.query
 .filter(Pony.name.ilike("%u%"))
 .filter(Pony.birth_year < 2015 )
 ```
+
 ### Use instance methods on the Query object to return a list or single item
 
 ##### all - returns a list
@@ -2471,12 +2687,14 @@ ponies = Pony.query.all()
 for pony in ponies:
 print(pony.name)
 ```
+
 ### Use the count method to ... count
 
 ```
 pony_query = Pony.query
 print(pony_query.count())
 ```
+
 ### Query objects with criteria on dependant objects
 
 ```
@@ -2484,10 +2702,12 @@ hirzai_owners = Owner.query \
 .join(Pony) \
 .filter(Pony.breed == "Hirzai")
 ```
+
 ```
 for owner in hirzai_owners:
 print(owner.first_name, owner.last_name)
 ```
+
 ### Lazily load objects
 
 ```
@@ -2496,11 +2716,13 @@ print(owner.first_name, owner.last_name)
 for pony in owner.ponies:
 print(pony.name)
 ```
+
 ### Eagerly load objects
 
 ```
 owners_and_ponies = Owner.query.options(joinedload(Owner.ponies))
 ```
+
 ```
 for owner in owners_and_ponies:
 print(owner.first_name, owner.last_name)
@@ -2514,6 +2736,7 @@ print(pony.name)
 pipenv install Flask psycopg2-binary \
 SQLAlchemy Flask-SQLAlchemy
 ```
+
 ### Configure SQLAlchemy using Flask-SQLAlchemy
 
 ##### Create a SQLALCHEMYDATABASE_URI property in your Flask app config
@@ -2525,6 +2748,7 @@ from config import Config
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 ```
+
 ```
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -2532,16 +2756,19 @@ app.config.from_object(Config)
 # So we can just pass our app to SQLAlchemy
 db = SQLAlchemy(app)
 ```
+
 ##### However, if you've defined your db object BEFORE your app is created in another module, you must use the init_app method on db to configure Flask-SQLAlchemy
 
 ```
 # models.py
 from flask_sqlalchemy import SQLAlchemy
 ```
+
 ```
 # notice we create the db instance without passing it app
 db = SQLAlchemy()
 ```
+
 ```
 # app.py
 from flask import Flask
@@ -2549,6 +2776,7 @@ from .config import Configuration
 # The act of importing this creates the db instance
 from .models import db
 ```
+
 ```
 # We create our app here
 app = Flask(__name__)
@@ -2556,6 +2784,7 @@ app.config.from_object(Configuration)
 # We use init_app and pass it the app
 db.init_app(app)
 ```
+
 ### Use the convenience functions and objects Flask-SQLAlchemy provides you to use in your code
 
 ##### Flask-SQLAlchemy adds the query object to every instance of a Model.
@@ -2563,6 +2792,7 @@ db.init_app(app)
 ```
 Pony.query.get( 4 )
 ```
+
 ##### It has some Flask specific things such as get_or_404 , which just throws a
 
 ##### 404 error if there's no Pony coming back from the database. There is also a similar first_or_404 method.
@@ -2570,12 +2800,14 @@ Pony.query.get( 4 )
 ```
 Pony.query.get_or_404( 4 )
 ```
+
 ##### Flask-SQLAlchemy also adds the session object to the db instance.
 
 ```
 db.session.add(owner)
 db.session.commit()
 ```
+
 ## Alembic Learning Objectives
 
 ### Install Alembic into your project
@@ -2584,6 +2816,7 @@ db.session.commit()
 pipenv install alembic
 pipenv run alembic init <directory-name>
 ```
+
 ### Configure Alembic to talk to your database and not have silly migration names
 
 #### Add environment variable to env.py
@@ -2593,19 +2826,21 @@ pipenv run alembic init <directory-name>
 ```
 import os
 ```
+
 ##### before run_migrations_offline add this line
 
 ```
 config.set_main_option("sqlalchemy.url", os.environ.get("DATABASE_URL"))
 ```
+
 #### Making better migration file names
 
 ##### You can set this in alembic.ini so your migration files will have dates in the names.
 
-
 ```
 file_template = %% (year) d %% (month) .2d %% (day) .2d_ %% (hour) .2d %% (minute) .2d %% (second) .2d_ %% (slug) s
 ```
+
 ### Control Alembic's ability to migrate your database
 
 #### Generating a migration (revision)
@@ -2613,26 +2848,31 @@ file_template = %% (year) d %% (month) .2d %% (day) .2d_ %% (hour) .2d %% (minut
 ```
 pipenv run alembic revision -m "create the owners table"
 ```
+
 #### Running a migration (upgrading to a revision)
 
 ```
 pipenv run alembic upgrade head
 ```
+
 #### Rolling back a migration (downgrading to a revision)
 
 ```
 pipenv run alembic downgrade <revision hash>
 ```
+
 #### Rolling back all migrations (downgrading to base)
 
 ```
 pipenv run alembic downgrade base
 ```
+
 #### Viewing your migration history (revision history)
 
 ```
 pipenv run alembic history
 ```
+
 ### Reason about the way Alembic orders your migrations; and,
 
 ##### Alembic treats migrations like a linked list. It does not use the dates in the
@@ -2647,6 +2887,7 @@ pipenv run alembic history
 revision = 'ddbf30c38165'
 down_revision = 'e363377eb6d7'
 ```
+
 ### Handle branching and merging concerns
 
 ##### If two teammates both commit new revisions, then you will end up with a conflict
@@ -2660,6 +2901,7 @@ down_revision = 'e363377eb6d7'
 \
 -- 27c6a30d7c24 (Team B's most recent)
 ```
+
 ##### and you'll get an error like this:
 
 ```
@@ -2667,16 +2909,19 @@ FAILED: Multiple head revisions are present for given argument 'head';
 please specify a specific target revision, '<branchname>@head' to
 narrow to a specific head, or 'heads' for all heads
 ```
+
 ##### you can solve this with a merge specifying the two revisions
 
 ```
 pipenv run alembic merge -m "merge contracts and devices" ae1027 27c6a
 ```
+
 ### Configuring a Flask application to use Alembic;
 
 ```
 pipenv install alembic Flask-Migrate
 ```
+
 ```
 # app/__init__.py
 from app.models import db
@@ -2686,6 +2931,7 @@ from config import Config
 from flask_migrate import Migrate
 import os
 ```
+
 ```
 app = Flask(__name__)
 # Load our config, make sure you set DATABASE_URL as flask migrate
@@ -2696,8 +2942,8 @@ db.init_app(app)
 # both our app and our db object
 Migrate(app, db)
 ```
-### Run commands to manage your database through the flask command; and,
 
+### Run commands to manage your database through the flask command; and,
 
 ##### When we use Flask-Migrate we run the commands through the flask command.
 
@@ -2706,21 +2952,26 @@ Migrate(app, db)
 ```
 pipenv run flask db init
 ```
+
 #### Check the help for the rest of the commands, which are the same as Alembic
 
 ```
 pipenv run flask db --help
 ```
+
 ```
 Usage: flask db [OPTIONS] COMMAND [ARGS]...
 ```
+
 ```
 Perform database migrations.
 ```
+
 ```
 Options:
 --help Show this message and exit.
 ```
+
 ```
 Commands:
 branches Show current branch points
@@ -2737,6 +2988,7 @@ show Show the revision denoted by the given symbol.
 stamp 'stamp' the revision table with the given revision; don't run...
 upgrade Upgrade to a later version
 ```
+
 ### Autogenerate migrations from your models!
 
 #### Instead of alembic migrate...
@@ -2744,6 +2996,7 @@ upgrade Upgrade to a later version
 ```
 pipenv run flask db migrate -m "create owners table"
 ```
+
 ##### flask db migrate does magic now, it reads your models and tries to
 
 ##### autogenerate the migration files based on the model.
@@ -2751,5 +3004,3 @@ pipenv run flask db migrate -m "create owners table"
 ##### IMPORTANT always check the autogenerated migration though, as there's only
 
 ##### so much flask migrate can do and it might not get everything perfectly correct, but it is a time saver!
-
-

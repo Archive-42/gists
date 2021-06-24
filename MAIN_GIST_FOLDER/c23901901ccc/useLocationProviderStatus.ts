@@ -1,17 +1,19 @@
-import { getProviderStatusAsync, LocationProviderStatus } from 'expo-location';
-import { useState } from 'react';
-import { Platform } from 'react-native';
-import useInterval from 'use-interval';
+import { getProviderStatusAsync, LocationProviderStatus } from "expo-location";
+import { useState } from "react";
+import { Platform } from "react-native";
+import useInterval from "use-interval";
 
 const useLocationProviderStatus = (delay: number = 2000) => {
-  const [locationProviderAvailable, setLocationProviderAvailable] = useState<boolean | undefined>(undefined);
+  const [locationProviderAvailable, setLocationProviderAvailable] = useState<
+    boolean | undefined
+  >(undefined);
 
   const getLocationProviderStatus = ({
     gpsAvailable,
     networkAvailable,
     passiveAvailable,
   }: LocationProviderStatus): boolean | undefined => {
-    if (Platform.OS === 'ios') return undefined;
+    if (Platform.OS === "ios") return undefined;
 
     return gpsAvailable || networkAvailable || passiveAvailable;
   };

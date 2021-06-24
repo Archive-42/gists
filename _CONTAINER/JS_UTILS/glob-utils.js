@@ -9,11 +9,10 @@
 //------------------------------------------------------------------------------
 
 const fs = require("fs"),
-    path = require("path"),
-    GlobSync = require("./glob"),
-
-    pathUtil = require("./path-util"),
-    IgnoredPaths = require("../ignored-paths");
+  path = require("path"),
+  GlobSync = require("./glob"),
+  pathUtil = require("./path-util"),
+  IgnoredPaths = require("../ignored-paths");
 
 const debug = require("debug")("eslint:glob-util");
 
@@ -39,36 +38,39 @@ const debug = require("debug")("eslint:glob-util");
  *                     pathname is a directory.
  */
 function processPath(options) {
-    const cwd = (options && options.cwd) || process.cwd();
-    let extensions = (options && options.extensions) || [".js"];
+  const cwd = (options && options.cwd) || process.cwd();
+  let extensions = (options && options.extensions) || [".js"];
 
-    extensions = extensions.map(ext => ext.replace(/^\./, ""));
+  extensions = extensions.map((ext) => ext.replace(/^\./, ""));
 
-    let suffix = "/**";
+  let suffix = "/**";
 
-    if (extensions.length === 1) {
-        suffix += `/*.${extensions[0]}`;
-    } else {
-        suffix += `/*.{${extensions.join(",")}}`;
+  if (extensions.length === 1) {
+    suffix += `/*.${extensions[0]}`;
+  } else {
+    suffix += `/*.{${extensions.join(",")}}`;
+  }
+
+  /**
+   * A function that converts a directory name to a glob pattern
+   *
+   * @param {string} pathname The directory path to be modified
+   * @returns {string} The glob path or the file path itself
+   * @private
+   */
+  return function (pathname) {
+    let newPath = pathname;
+    const resolvedPath = path.resolve(cwd, pathname);
+
+    if (
+      fs.existsSync(resolvedPath) &&
+      fs.statSync(resolvedPath).isDirectory()
+    ) {
+      newPath = pathname.replace(/[/\\]$/, "") + suffix;
     }
 
-    /**
-     * A function that converts a directory name to a glob pattern
-     *
-     * @param {string} pathname The directory path to be modified
-     * @returns {string} The glob path or the file path itself
-     * @private
-     */
-    return function(pathname) {
-        let newPath = pathname;
-        const resolvedPath = path.resolve(cwd, pathname);
-
-        if (fs.existsSync(resolvedPath) && fs.statSync(resolvedPath).isDirectory()) {
-            newPath = pathname.replace(/[/\\]$/, "") + suffix;
-        }
-
-        return pathUtil.convertPathToPosix(newPath);
-    };
+    return pathUtil.convertPathToPosix(newPath);
+  };
 }
 
 //------------------------------------------------------------------------------
@@ -82,10 +84,9 @@ function processPath(options) {
  * @returns {string[]} The equivalent glob patterns and filepath strings.
  */
 function resolveFileGlobPatterns(patterns, options) {
+  const processPathExtensions = processPath(options);
 
-    const processPathExtensions = processPath(options);
-
-    return patterns.filter(p => p.length).map(processPathExtensions);
+  return patterns.filter((p) => p.length).map(processPathExtensions);
 }
 
 /**
@@ -101,82 +102,89 @@ function resolveFileGlobPatterns(patterns, options) {
  * @returns {string[]} Resolved absolute filenames.
  */
 function listFilesToProcess(globPatterns, options) {
-    options = options || { ignore: true };
-    const files = [],
-        added = {};
+  options = options || { ignore: true };
+  const files = [],
+    added = {};
 
-    const cwd = (options && options.cwd) || process.cwd();
+  const cwd = (options && options.cwd) || process.cwd();
 
-    /**
-     * Executes the linter on a file defined by the `filename`. Skips
-     * unsupported file extensions and any files that are already linted.
-     * @param {string} filename The file to be processed
-     * @param {boolean} shouldWarnIgnored Whether or not a report should be made if
-     *                                    the file is ignored
-     * @param {IgnoredPaths} ignoredPaths An instance of IgnoredPaths
-     * @returns {void}
-     */
-    function addFile(filename, shouldWarnIgnored, ignoredPaths) {
-        let ignored = false;
-        let isSilentlyIgnored;
+  /**
+   * Executes the linter on a file defined by the `filename`. Skips
+   * unsupported file extensions and any files that are already linted.
+   * @param {string} filename The file to be processed
+   * @param {boolean} shouldWarnIgnored Whether or not a report should be made if
+   *                                    the file is ignored
+   * @param {IgnoredPaths} ignoredPaths An instance of IgnoredPaths
+   * @returns {void}
+   */
+  function addFile(filename, shouldWarnIgnored, ignoredPaths) {
+    let ignored = false;
+    let isSilentlyIgnored;
 
-        if (ignoredPaths.contains(filename, "default")) {
-            ignored = (options.ignore !== false) && shouldWarnIgnored;
-            isSilentlyIgnored = !shouldWarnIgnored;
-        }
-
-        if (options.ignore !== false) {
-            if (ignoredPaths.contains(filename, "custom")) {
-                if (shouldWarnIgnored) {
-                    ignored = true;
-                } else {
-                    isSilentlyIgnored = true;
-                }
-            }
-        }
-
-        if (isSilentlyIgnored && !ignored) {
-            return;
-        }
-
-        if (added[filename]) {
-            return;
-        }
-        files.push({ filename, ignored });
-        added[filename] = true;
+    if (ignoredPaths.contains(filename, "default")) {
+      ignored = options.ignore !== false && shouldWarnIgnored;
+      isSilentlyIgnored = !shouldWarnIgnored;
     }
 
-    debug("Creating list of files to process.");
-    globPatterns.forEach(pattern => {
-        const file = path.resolve(cwd, pattern);
-
-        if (fs.existsSync(file) && fs.statSync(file).isFile()) {
-            const ignoredPaths = new IgnoredPaths(options);
-
-            addFile(fs.realpathSync(file), true, ignoredPaths);
+    if (options.ignore !== false) {
+      if (ignoredPaths.contains(filename, "custom")) {
+        if (shouldWarnIgnored) {
+          ignored = true;
         } else {
-
-            // regex to find .hidden or /.hidden patterns, but not ./relative or ../relative
-            const globIncludesDotfiles = /(?:(?:^\.)|(?:[/\\]\.))[^/\\.].*/.test(pattern);
-
-            const ignoredPaths = new IgnoredPaths(Object.assign({}, options, { dotfiles: options.dotfiles || globIncludesDotfiles }));
-            const shouldIgnore = ignoredPaths.getIgnoredFoldersGlobChecker();
-            const globOptions = {
-                nodir: true,
-                dot: true,
-                cwd
-            };
-
-            new GlobSync(pattern, globOptions, shouldIgnore).found.forEach(globMatch => {
-                addFile(path.resolve(cwd, globMatch), false, ignoredPaths);
-            });
+          isSilentlyIgnored = true;
         }
-    });
+      }
+    }
 
-    return files;
+    if (isSilentlyIgnored && !ignored) {
+      return;
+    }
+
+    if (added[filename]) {
+      return;
+    }
+    files.push({ filename, ignored });
+    added[filename] = true;
+  }
+
+  debug("Creating list of files to process.");
+  globPatterns.forEach((pattern) => {
+    const file = path.resolve(cwd, pattern);
+
+    if (fs.existsSync(file) && fs.statSync(file).isFile()) {
+      const ignoredPaths = new IgnoredPaths(options);
+
+      addFile(fs.realpathSync(file), true, ignoredPaths);
+    } else {
+      // regex to find .hidden or /.hidden patterns, but not ./relative or ../relative
+      const globIncludesDotfiles = /(?:(?:^\.)|(?:[/\\]\.))[^/\\.].*/.test(
+        pattern
+      );
+
+      const ignoredPaths = new IgnoredPaths(
+        Object.assign({}, options, {
+          dotfiles: options.dotfiles || globIncludesDotfiles,
+        })
+      );
+      const shouldIgnore = ignoredPaths.getIgnoredFoldersGlobChecker();
+      const globOptions = {
+        nodir: true,
+        dot: true,
+        cwd,
+      };
+
+      new GlobSync(pattern, globOptions, shouldIgnore).found.forEach(
+        (globMatch) => {
+          addFile(path.resolve(cwd, globMatch), false, ignoredPaths);
+        }
+      );
+    }
+  });
+
+  return files;
 }
 
 module.exports = {
-    resolveFileGlobPatterns,
-    listFilesToProcess
+  resolveFileGlobPatterns,
+  listFilesToProcess,
 };

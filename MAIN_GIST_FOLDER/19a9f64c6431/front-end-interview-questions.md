@@ -3,8 +3,9 @@
 Interview questions and resources for recruiting senior front-end developers
 
 ### Table of Contents
+
 - [Front-end Developer Interview Questions](#front-end-developer-interview-questions)
-    - [Table of Contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [HTML](#html)
   - [CSS and Preprocessors](#css-and-preprocessors)
   - [JavaScript](#javascript)
@@ -42,11 +43,11 @@ What are the advantages of TDD/BDD?
 
 ### Technical JavaScript questions
 
-* Can you explain to me what a closure is? And what are the key benefits of using them?
-* What's the difference between `call` and `apply`? And how does `bind` fit into this?
-* What's the difference between `===` and `==`?
+- Can you explain to me what a closure is? And what are the key benefits of using them?
+- What's the difference between `call` and `apply`? And how does `bind` fit into this?
+- What's the difference between `===` and `==`?
 
-*Question resources: [25 Essential JS Questions](http://www.toptal.com/javascript/interview-questions)  / [5 Typical JS Questions](http://www.sitepoint.com/5-typical-javascript-interview-exercises/)*
+_Question resources: [25 Essential JS Questions](http://www.toptal.com/javascript/interview-questions) / [5 Typical JS Questions](http://www.sitepoint.com/5-typical-javascript-interview-exercises/)_
 
 ## Responsive Design
 

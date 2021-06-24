@@ -1,95 +1,66 @@
 # Usefulness & Relevance:
 
->Does the content meet user needs, goals, and interests?
+> Does the content meet user needs, goals, and interests?
 
 ---
 
->Does the content meet business goals?
+> Does the content meet business goals?
 
 ---
 
->For how long will the content be useful? When should it expire? Has its usefulness already expired?
-
-
----
-
-
->Is the content timely and relevant?
-
+> For how long will the content be useful? When should it expire? Has its usefulness already expired?
 
 ---
 
+> Is the content timely and relevant?
+
+---
 
 # Clarity & Accuracy:
 
-
 ---
-
 
 Is the content understandable to customers?
 
-
 ---
-
 
 Is the content organized logically & coherently?
 
-
 ---
-
 
 Is the content correct?
 
-
-
 ---
-
-
 
 Does the content contain factual errors, typos, or grammatical errors?
 
-
 ---
-
 
 Do images, video, and audio meet technical standards, so they are clear?
 
-
 ---
-
 
 Influence & Engagement:
 
-
 ---
-
 
 Does the content use the most appropriate techniques to influence or engage customers?
 
-
 ---
-
 
 Does the content execute those techniques effectively?
 
-
 ---
-
 
 Does the content use too many or too few techniques for the context?
 
-
 ---
-
 
 Completeness:
 
-
 ---
 
-
 Does the content include all of the information customers need or might want about a topic?
-
 
 Does the content include too much or too little information about a topic for the context?
 

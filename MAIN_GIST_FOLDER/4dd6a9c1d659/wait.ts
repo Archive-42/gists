@@ -3,6 +3,5 @@ const wait = async (ms: number) =>
     setTimeout(() => resolve(), ms);
   });
 
-
 await wait(10000); // wait for 10 seconds
 // Continue...

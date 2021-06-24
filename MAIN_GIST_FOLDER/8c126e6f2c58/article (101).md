@@ -9,16 +9,14 @@ We often need them when moving or positioning elements in JavaScript.
 As a sample element to demonstrate properties we'll use the one given below:
 
 ```html no-beautify
-<div id="example">
-  ...Text...
-</div>
+<div id="example">...Text...</div>
 <style>
   #example {
     width: 300px;
     height: 200px;
-    border: 25px solid #E8C48F;
-    padding: 20px;              
-    overflow: auto;             
+    border: 25px solid #e8c48f;
+    padding: 20px;
+    overflow: auto;
   }
 </style>
 ```
@@ -37,9 +35,9 @@ The picture above demonstrates the most complex case when the element has a scro
 So, without scrollbar the content width would be `300px`, but if the scrollbar is `16px` wide (the width may vary between devices and browsers) then only `300 - 16 = 284px` remains, and we should take it into account. That's why examples from this chapter assume that there's a scrollbar. Without it, some calculations are simpler.
 ```
 
-```smart header="The `padding-bottom` area may be filled with text"
-Usually paddings are shown empty on our illustrations, but if there's a lot of text in the element and it overflows, then browsers show the "overflowing" text at `padding-bottom`, that's normal.
-```
+```smart header="The `padding-bottom`area may be filled with text" Usually paddings are shown empty on our illustrations, but if there's a lot of text in the element and it overflows, then browsers show the "overflowing" text at`padding-bottom`, that's normal.
+
+````
 
 ## Geometry
 
@@ -78,7 +76,7 @@ In the example below the inner `<div>` has `<main>` as `offsetParent` and `offse
   alert(example.offsetLeft); // 180 (note: a number, not a string "180px")
   alert(example.offsetTop); // 180
 </script>
-```
+````
 
 ![](metric-offset-parent.svg)
 
@@ -202,8 +200,7 @@ On the picture below we can see `scrollHeight` and `scrollTop` for a block with 
 
 In other words, `scrollTop` is "how much is scrolled up".
 
-````smart header="`scrollLeft/scrollTop` can be modified"
-Most of the geometry properties here are read-only, but `scrollLeft/scrollTop` can be changed, and the browser will scroll the element.
+````smart header="`scrollLeft/scrollTop`can be modified" Most of the geometry properties here are read-only, but`scrollLeft/scrollTop` can be changed, and the browser will scroll the element.
 
 ```online
 If you click the element below, the code `elem.scrollTop += 10` executes. That makes the element content scroll `10px` down.
@@ -212,6 +209,7 @@ If you click the element below, the code `elem.scrollTop += 10` executes. That m
 ```
 
 Setting `scrollTop` to `0` or a big value, such as `1e9` will make the element scroll to the very top/bottom respectively.
+
 ````
 
 ## Don't take width/height from CSS
@@ -274,3 +272,4 @@ Elements have the following geometry properties:
 - `scrollLeft/scrollTop` -- width/height of the scrolled out upper part of the element, starting from its upper-left corner.
 
 All properties are read-only except `scrollLeft/scrollTop` that make the browser scroll the element if changed.
+````

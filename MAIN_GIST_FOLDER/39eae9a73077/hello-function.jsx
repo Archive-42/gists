@@ -1,5 +1,6 @@
-const HelloMessage = props => <div>
-        Hello {props.name}
-      </div>;
+const HelloMessage = (props) => <div>Hello {props.name}</div>;
 
-ReactDOM.render(<HelloMessage name="Taylor" />, document.getElementById('hello-example'));
+ReactDOM.render(
+  <HelloMessage name="Taylor" />,
+  document.getElementById("hello-example")
+);

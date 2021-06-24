@@ -1,62 +1,68 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Fieldset from 'part:@sanity/components/fieldsets/default'
-import {setIfMissing} from 'part:@sanity/form-builder/patch-event'
-import {FormBuilderInput} from 'part:@sanity/form-builder'
-import filterFieldFn$ from 'part:@sanity/desk-tool/filter-fields-fn?'
+import PropTypes from "prop-types";
+import React from "react";
+import Fieldset from "part:@sanity/components/fieldsets/default";
+import { setIfMissing } from "part:@sanity/form-builder/patch-event";
+import { FormBuilderInput } from "part:@sanity/form-builder";
+import filterFieldFn$ from "part:@sanity/desk-tool/filter-fields-fn?";
 
 export default class CustomObjectInput extends React.PureComponent {
   static propTypes = {
     type: PropTypes.shape({
       title: PropTypes.string,
-      name: PropTypes.string
+      name: PropTypes.string,
     }).isRequired,
     level: PropTypes.number,
     value: PropTypes.shape({
-      _type: PropTypes.string
+      _type: PropTypes.string,
     }),
     focusPath: PropTypes.array.isRequired,
     onFocus: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired
-  }
+    onBlur: PropTypes.func.isRequired,
+  };
 
   state = {
-    filterField: () => true
-  }
+    filterField: () => true,
+  };
 
-  firstFieldInput = React.createRef()
+  firstFieldInput = React.createRef();
 
   handleFieldChange = (field, fieldPatchEvent) => {
-    const {onChange, type} = this.props
-    onChange(fieldPatchEvent.prefixAll(field.name).prepend(setIfMissing({_type: type.name})))
-  }
+    const { onChange, type } = this.props;
+    onChange(
+      fieldPatchEvent
+        .prefixAll(field.name)
+        .prepend(setIfMissing({ _type: type.name }))
+    );
+  };
 
   focus() {
-    this.firstFieldInput.current.focus()
+    this.firstFieldInput.current.focus();
   }
 
   componentDidMount(props) {
     if (filterFieldFn$) {
-      this.filterFieldFnSubscription = filterFieldFn$.subscribe(filterField =>
-        this.setState({filterField})
-      )
+      this.filterFieldFnSubscription = filterFieldFn$.subscribe((filterField) =>
+        this.setState({ filterField })
+      );
     }
   }
   componentWillUnmount(props) {
     if (this.filterFieldFnSubscription) {
-      this.filterFieldFnSubscription.unsubscribe()
+      this.filterFieldFnSubscription.unsubscribe();
     }
   }
 
   render() {
-    const {type, value, level, focusPath, onFocus, onBlur} = this.props
-    const {filterField} = this.state
+    const { type, value, level, focusPath, onFocus, onBlur } = this.props;
+    const { filterField } = this.state;
     return (
-      <Fieldset level={level} legend={type.title} description={type.description}>
-
+      <Fieldset
+        level={level}
+        legend={type.title}
+        description={type.description}
+      >
         Custom input, yeah!
-
         <div>
           {type.fields.map((field, i) => (
             <FormBuilderInput
@@ -65,7 +71,9 @@ export default class CustomObjectInput extends React.PureComponent {
               key={field.name}
               type={field.type}
               value={value && value[field.name]}
-              onChange={patchEvent => this.handleFieldChange(field, patchEvent)}
+              onChange={(patchEvent) =>
+                this.handleFieldChange(field, patchEvent)
+              }
               path={[field.name]}
               focusPath={focusPath}
               onFocus={onFocus}
@@ -75,6 +83,6 @@ export default class CustomObjectInput extends React.PureComponent {
           ))}
         </div>
       </Fieldset>
-    )
+    );
   }
 }

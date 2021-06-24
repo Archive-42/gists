@@ -11,6 +11,7 @@ The simplest way to get new information from the server is periodic polling. Tha
 In response, the server first takes a notice to itself that the client is online, and second - sends a packet of messages it got till that moment.
 
 That works, but there are downsides:
+
 1. Messages are passed with a delay up to 10 seconds (between requests).
 2. Even if there are no messages, the server is bombed with requests every 10 seconds, even if the user switched somewhere else or is asleep. That's quite a load to handle, speaking performance-wise.
 
@@ -51,7 +52,7 @@ async function subscribe() {
     // An error - let's show it
     showMessage(response.statusText);
     // Reconnect in one second
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     await subscribe();
   } else {
     // Get and show the message

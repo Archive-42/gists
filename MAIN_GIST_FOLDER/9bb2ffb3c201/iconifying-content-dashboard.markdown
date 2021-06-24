@@ -1,5 +1,5 @@
-Iconifying Content - Dashboard
-------------------------------
+## Iconifying Content - Dashboard
+
 Concept for an analytics dashboard. Click the various metrics to see detailed graphs with more data.
 
 Blog post: [Iconifying Content](http://codersblock.com/blog/iconifying-content/)

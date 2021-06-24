@@ -15,7 +15,7 @@ let regexp = /html|php|css|java(script)?/gi;
 
 let str = "First HTML appeared, then CSS, then JavaScript";
 
-alert( str.match(regexp) ); // 'HTML', 'CSS', 'JavaScript'
+alert(str.match(regexp)); // 'HTML', 'CSS', 'JavaScript'
 ```
 
 We already saw a similar thing -- square brackets. They allow to choose between multiple characters, for instance `pattern:gr[ae]y` matches `match:gray` or `match:grey`.
@@ -28,6 +28,7 @@ For instance:
 - `pattern:gra|ey` means `match:gra` or `match:ey`.
 
 To apply alternation to a chosen part of the pattern, we can enclose it in parentheses:
+
 - `pattern:I love HTML|CSS` matches `match:I love HTML` or `match:CSS`.
 - `pattern:I love (HTML|CSS)` matches `match:I love HTML` or `match:I love CSS`.
 

@@ -5,13 +5,13 @@ import {
   ComboboxInput,
   ComboboxList,
   ComboboxOption,
-  ComboboxPopup
+  ComboboxPopup,
 } from "./packages/combobox/index";
 
 function ServerCitySearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const cities = useCitySearch(searchTerm);
-  const handleSearchTermChange = event => setSearchTerm(event.target.value);
+  const handleSearchTermChange = (event) => setSearchTerm(event.target.value);
 
   return (
     <div style={{ maxWidth: 600, margin: "auto" }}>
@@ -24,7 +24,7 @@ function ServerCitySearch() {
         <ComboboxPopup>
           <RandomFocasableJunk cities={cities} />
           <ComboboxList aria-labelledby="description">
-            {cities.map(city => {
+            {cities.map((city) => {
               let str = `${city.city}, ${city.state}`;
               return <ComboboxOption key={str} value={str} />;
             })}
@@ -38,20 +38,17 @@ function ServerCitySearch() {
 function useCitySearch(searchTerm) {
   const [cities, setCities] = useState([]);
 
-  useEffect(
-    () => {
-      if (searchTerm.trim() !== "") {
-        let current = true;
-        fetchCities(searchTerm).then(cities => {
-          if (current) {
-            setCities(cities);
-          }
-        });
-        return () => (current = false);
-      }
-    },
-    [searchTerm]
-  );
+  useEffect(() => {
+    if (searchTerm.trim() !== "") {
+      let current = true;
+      fetchCities(searchTerm).then((cities) => {
+        if (current) {
+          setCities(cities);
+        }
+      });
+      return () => (current = false);
+    }
+  }, [searchTerm]);
 
   return cities;
 }
@@ -64,7 +61,7 @@ function RandomFocasableJunk({ cities }) {
         padding: "5px",
         margin: "0",
         color: "#888",
-        fontStyle: "italic"
+        fontStyle: "italic",
       }}
     >
       {cities.length} results <a href="https://google.com">Google</a>{" "}

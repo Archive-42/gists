@@ -1,5 +1,5 @@
-Musical Chord Progression Arpeggiator
--------------------------------------
+## Musical Chord Progression Arpeggiator
+
 A quick way to sketch out musical chord progressions.
 
 uses my [Scale Generator](http://codepen.io/jakealbaugh/pen/NrdEYL/) and [Arpeggio Pattern Generator](http://codepen.io/jakealbaugh/pen/PzpzEO/) and the lovely [Tone.js](https://github.com/Tonejs/Tone.js).

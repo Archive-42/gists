@@ -1,7 +1,7 @@
 The answer: first `1`, then `2`.
 
 ```js run
-alert( alert(1) || 2 || alert(3) );
+alert(alert(1) || 2 || alert(3));
 ```
 
 The call to `alert` does not return a value. Or, in other words, it returns `undefined`.

@@ -5,12 +5,12 @@ var myFriends = [
   { name: "Mike", gender: "male" },
   { name: "Sophie", gender: "female" },
   { name: "Richard", gender: "male" },
-  { name: "Keith", gender: "male" }
+  { name: "Keith", gender: "male" },
 ];
 
 // A simple filter based on gender.
-var isMale = function(x){
+var isMale = function (x) {
   return x.gender == "male";
-}
+};
 
 myFriends.filter(isMale); // John, Mike, Richard, Keith

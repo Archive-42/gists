@@ -1,10 +1,8 @@
-
-
 ```js run demo
 let a = +prompt("The first number?", "");
 let b = +prompt("The second number?", "");
 
-alert( a + b );
+alert(a + b);
 ```
 
 Note the unary plus `+` before `prompt`. It immediately converts the value to a number.

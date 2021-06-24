@@ -1,6 +1,10 @@
-f(a, async function (x, y) {
-  return await [x, y];
-}, b);
+f(
+  a,
+  async function (x, y) {
+    return await [x, y];
+  },
+  b
+);
 f(a, async function (promise) {
   return await promise;
 });

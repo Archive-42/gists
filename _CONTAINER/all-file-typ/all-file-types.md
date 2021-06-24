@@ -1986,7 +1986,7 @@
 .gb
 .get
 .get-meta-tags
-.gif         
+.gif
 .gif.count
 .girlvandiesuburbs.co.za
 .gitihost.com

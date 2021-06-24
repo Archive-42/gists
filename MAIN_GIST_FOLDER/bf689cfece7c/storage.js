@@ -3,29 +3,29 @@
 // ================================
 
 const flag = (() => {
-	// Assume no support.
-	let bool = false;
+  // Assume no support.
+  let bool = false;
 
-	// Used in the `try`.
-	const key = 'TEST_KEY';
-	const val = 'TEST_VAL';
+  // Used in the `try`.
+  const key = "TEST_KEY";
+  const val = "TEST_VAL";
 
-	// Rigorously test for support.
-	try {
-		// Set the key/value.
-		window.localStorage.setItem(key, val);
+  // Rigorously test for support.
+  try {
+    // Set the key/value.
+    window.localStorage.setItem(key, val);
 
-		// Are we able to read it?
-		bool = window.localStorage.getItem(key) === val;
+    // Are we able to read it?
+    bool = window.localStorage.getItem(key) === val;
 
-		// Delete the key/value.
-		window.localStorage.removeItem(key);
-	} catch (e) {
-		bool = false;
-	}
+    // Delete the key/value.
+    window.localStorage.removeItem(key);
+  } catch (e) {
+    bool = false;
+  }
 
-	// Return the boolean.
-	return bool;
+  // Return the boolean.
+  return bool;
 })();
 
 // =======================
@@ -35,13 +35,13 @@ const flag = (() => {
 const hasProp = Object.prototype.hasOwnProperty;
 
 const cacheFallback = {
-	clear: function() {
-		for (const key in cache) {
-			if (key !== 'clear' && hasProp.call(cache, key)) {
-				delete cache[key];
-			}
-		}
-	}
+  clear: function () {
+    for (const key in cache) {
+      if (key !== "clear" && hasProp.call(cache, key)) {
+        delete cache[key];
+      }
+    }
+  },
 };
 
 const cache = flag ? window.localStorage : cacheFallback;
@@ -51,30 +51,30 @@ const cache = flag ? window.localStorage : cacheFallback;
 // =======================
 
 const clear = () => {
-	cache.clear();
+  cache.clear();
 };
 
 // ==============
 // Cache: Getter.
 // ==============
 
-const get = key => {
-	let data = cache[key];
+const get = (key) => {
+  let data = cache[key];
 
-	// Exit, if no data.
-	if (!data) {
-		return;
-	}
+  // Exit, if no data.
+  if (!data) {
+    return;
+  }
 
-	try {
-		// Attempt to parse.
-		data = JSON.parse(data);
-	} catch (e) {
-		// Set to original.
-		data = cache[key];
-	}
+  try {
+    // Attempt to parse.
+    data = JSON.parse(data);
+  } catch (e) {
+    // Set to original.
+    data = cache[key];
+  }
 
-	return data;
+  return data;
 };
 
 // ==============
@@ -82,30 +82,30 @@ const get = key => {
 // ==============
 
 const set = (key, data) => {
-	if (
-		key === 'clear' ||
-		key === 'getItem' ||
-		key === 'key' ||
-		key === 'length' ||
-		key === 'removeItem' ||
-		key === 'setItem'
-	) {
-		throw new Error(`Cannot overwrite method: window.localStorage.${key}`);
-	}
+  if (
+    key === "clear" ||
+    key === "getItem" ||
+    key === "key" ||
+    key === "length" ||
+    key === "removeItem" ||
+    key === "setItem"
+  ) {
+    throw new Error(`Cannot overwrite method: window.localStorage.${key}`);
+  }
 
-	if (typeof data === 'object') {
-		data = JSON.stringify(data);
-	}
+  if (typeof data === "object") {
+    data = JSON.stringify(data);
+  }
 
-	cache[key] = data;
+  cache[key] = data;
 };
 
 // ==========================
 // Cache: Remove single item.
 // ==========================
 
-const remove = key => {
-	delete cache[key];
+const remove = (key) => {
+  delete cache[key];
 };
 
 // ==============
@@ -113,10 +113,10 @@ const remove = key => {
 // ==============
 
 const storage = {
-	clear,
-	get,
-	remove,
-	set
+  clear,
+  get,
+  remove,
+  set,
 };
 
 // Expose methods.

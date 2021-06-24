@@ -1,4 +1,3 @@
-
 ```js run demo
 let num;
 

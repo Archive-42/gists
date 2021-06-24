@@ -2,10 +2,13 @@
 <html>
   <head>
     <title>Locator</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://www.gstatic.com/external_hosted/handlebars/v4.7.6/handlebars.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
     <style>
       html,
       body {
@@ -212,7 +215,8 @@
         vertical-align: bottom;
 
         /* Match link color #7e7efd */
-        filter: invert(65%) sepia(87%) saturate(4695%) hue-rotate(217deg) brightness(105%) contrast(98%);
+        filter: invert(65%) sepia(87%) saturate(4695%) hue-rotate(217deg)
+          brightness(105%) contrast(98%);
       }
 
       #locations-panel-details > header {
@@ -256,7 +260,8 @@
         margin-right: -0.3em;
         margin-top: -0.08em;
         vertical-align: top;
-        filter: invert(88%) sepia(60%) saturate(2073%) hue-rotate(318deg) brightness(93%) contrast(104%);
+        filter: invert(88%) sepia(60%) saturate(2073%) hue-rotate(318deg)
+          brightness(93%) contrast(104%);
       }
 
       #locations-panel-details .star-icon:last-of-type {
@@ -318,16 +323,16 @@
       }
     </style>
     <script>
-      'use strict';
+      "use strict";
 
       /** Hide a DOM element. */
       function hideElement(el) {
-        el.style.display = 'none';
+        el.style.display = "none";
       }
 
       /** Show a DOM element that has been hidden. */
       function showElement(el) {
-        el.style.display = 'block';
+        el.style.display = "block";
       }
 
       /**
@@ -340,14 +345,18 @@
         locator.locations = configuration.locations || [];
         locator.capabilities = configuration.capabilities || {};
 
-        const mapEl = document.getElementById('map');
-        locator.panelListEl = document.getElementById('locations-panel-list');
-        const sectionNameEl =
-            document.getElementById('location-results-section-name');
-        const resultsContainerEl = document.getElementById('location-results-list');
+        const mapEl = document.getElementById("map");
+        locator.panelListEl = document.getElementById("locations-panel-list");
+        const sectionNameEl = document.getElementById(
+          "location-results-section-name"
+        );
+        const resultsContainerEl = document.getElementById(
+          "location-results-list"
+        );
 
         const itemsTemplate = Handlebars.compile(
-            document.getElementById('locator-result-items-tmpl').innerHTML);
+          document.getElementById("locator-result-items-tmpl").innerHTML
+        );
 
         locator.searchLocation = null;
         locator.searchLocationMarker = null;
@@ -367,34 +376,34 @@
         });
 
         // Store selection.
-        const selectResultItem = function(locationIdx, panToMarker) {
+        const selectResultItem = function (locationIdx, panToMarker) {
           locator.selectedLocationIdx = locationIdx;
           for (let locationElem of resultsContainerEl.children) {
-            locationElem.classList.remove('selected');
+            locationElem.classList.remove("selected");
             if (getResultIndex(locationElem) === locator.selectedLocationIdx) {
-              locationElem.classList.add('selected');
+              locationElem.classList.add("selected");
             }
           }
-          if (panToMarker && (locationIdx != null)) {
+          if (panToMarker && locationIdx != null) {
             locator.map.panTo(locator.locations[locationIdx].coords);
           }
         };
 
         // Create a marker for each location.
-        const markers = locator.locations.map(function(location, index) {
+        const markers = locator.locations.map(function (location, index) {
           const marker = new google.maps.Marker({
             position: location.coords,
             map: locator.map,
             title: location.title,
           });
-          marker.addListener('click', function() {
+          marker.addListener("click", function () {
             selectResultItem(index, false);
           });
           return marker;
         });
 
         // Fit map to marker bounds.
-        locator.updateBounds = function() {
+        locator.updateBounds = function () {
           const bounds = new google.maps.LatLngBounds();
           if (locator.searchLocationMarker) {
             bounds.extend(locator.searchLocationMarker.getPosition());
@@ -408,7 +417,7 @@
 
         // Get the distance of a store location to the user's location,
         // used in sorting the list.
-        const getLocationDistance = function(location) {
+        const getLocationDistance = function (location) {
           if (!locator.searchLocation) return null;
 
           // Use travel distance if available (from Distance Matrix).
@@ -418,24 +427,25 @@
 
           // Fall back to straight-line distance.
           return google.maps.geometry.spherical.computeDistanceBetween(
-              new google.maps.LatLng(location.coords),
-              locator.searchLocation.location);
+            new google.maps.LatLng(location.coords),
+            locator.searchLocation.location
+          );
         };
 
         // Render the results list --------------------------------------------------
-        const getResultIndex = function(elem) {
-          return parseInt(elem.getAttribute('data-location-index'));
+        const getResultIndex = function (elem) {
+          return parseInt(elem.getAttribute("data-location-index"));
         };
 
-        locator.renderResultsList = function() {
+        locator.renderResultsList = function () {
           let locations = locator.locations.slice();
           for (let i = 0; i < locations.length; i++) {
             locations[i].index = i;
           }
           if (locator.searchLocation) {
             sectionNameEl.textContent =
-                'Nearest locations (' + locations.length + ')';
-            locations.sort(function(a, b) {
+              "Nearest locations (" + locations.length + ")";
+            locations.sort(function (a, b) {
               return getLocationDistance(a) - getLocationDistance(b);
             });
           } else {
@@ -443,16 +453,16 @@
           }
           const resultItemContext = {
             locations: locations,
-            showDirectionsButton: !!locator.searchLocation
+            showDirectionsButton: !!locator.searchLocation,
           };
           resultsContainerEl.innerHTML = itemsTemplate(resultItemContext);
           for (let item of resultsContainerEl.children) {
             const resultIndex = getResultIndex(item);
             if (resultIndex === locator.selectedLocationIdx) {
-              item.classList.add('selected');
+              item.classList.add("selected");
             }
 
-            const resultSelectionHandler = function() {
+            const resultSelectionHandler = function () {
               if (resultIndex !== locator.selectedLocationIdx) {
                 locator.clearDirections();
               }
@@ -462,25 +472,28 @@
             // Clicking anywhere on the item selects this location.
             // Additionally, create a button element to make this behavior
             // accessible under tab navigation.
-            item.addEventListener('click', resultSelectionHandler);
-            item.querySelector('.select-location')
-                .addEventListener('click', function(e) {
-                  resultSelectionHandler();
-                  e.stopPropagation();
-                });
+            item.addEventListener("click", resultSelectionHandler);
+            item
+              .querySelector(".select-location")
+              .addEventListener("click", function (e) {
+                resultSelectionHandler();
+                e.stopPropagation();
+              });
 
-            item.querySelector('.details-button')
-                .addEventListener('click', function() {
-                  locator.showDetails(resultIndex);
-                });
+            item
+              .querySelector(".details-button")
+              .addEventListener("click", function () {
+                locator.showDetails(resultIndex);
+              });
 
             if (resultItemContext.showDirectionsButton) {
-              item.querySelector('.show-directions')
-                  .addEventListener('click', function(e) {
-                    selectResultItem(resultIndex, false);
-                    locator.updateDirections();
-                    e.stopPropagation();
-                  });
+              item
+                .querySelector(".show-directions")
+                .addEventListener("click", function (e) {
+                  selectResultItem(resultIndex, false);
+                  locator.updateDirections();
+                  e.stopPropagation();
+                });
             }
           }
         };
@@ -500,10 +513,12 @@
         const geocodeCache = new Map();
         const geocoder = new google.maps.Geocoder();
 
-        const searchInputEl = document.getElementById('location-search-input');
-        const searchButtonEl = document.getElementById('location-search-button');
+        const searchInputEl = document.getElementById("location-search-input");
+        const searchButtonEl = document.getElementById(
+          "location-search-button"
+        );
 
-        const updateSearchLocation = function(address, location) {
+        const updateSearchLocation = function (address, location) {
           if (locator.searchLocationMarker) {
             locator.searchLocationMarker.setMap(null);
           }
@@ -511,24 +526,24 @@
             locator.searchLocation = null;
             return;
           }
-          locator.searchLocation = {'address': address, 'location': location};
+          locator.searchLocation = { address: address, location: location };
           locator.searchLocationMarker = new google.maps.Marker({
             position: location,
             map: locator.map,
-            title: 'My location',
+            title: "My location",
             icon: {
               path: google.maps.SymbolPath.CIRCLE,
               scale: 12,
-              fillColor: '#3367D6',
+              fillColor: "#3367D6",
               fillOpacity: 0.5,
               strokeOpacity: 0,
-            }
+            },
           });
 
           // Update the locator's idea of the user's country, used for units. Use
           // `formatted_address` instead of the more structured `address_components`
           // to avoid an additional billed call.
-          const addressParts = address.split(' ');
+          const addressParts = address.split(" ");
           locator.userCountry = addressParts[addressParts.length - 1];
 
           // Update map bounds to include the new location marker.
@@ -542,24 +557,26 @@
           locator.clearDirections();
         };
 
-        const geocodeSearch = function(query) {
+        const geocodeSearch = function (query) {
           if (!query) {
             return;
           }
 
-          const handleResult = function(geocodeResult) {
+          const handleResult = function (geocodeResult) {
             searchInputEl.value = geocodeResult.formatted_address;
             updateSearchLocation(
-                geocodeResult.formatted_address, geocodeResult.geometry.location);
+              geocodeResult.formatted_address,
+              geocodeResult.geometry.location
+            );
           };
 
           if (geocodeCache.has(query)) {
             handleResult(geocodeCache.get(query));
             return;
           }
-          const request = {address: query, bounds: locator.map.getBounds()};
-          geocoder.geocode(request, function(results, status) {
-            if (status === 'OK') {
+          const request = { address: query, bounds: locator.map.getBounds() };
+          geocoder.geocode(request, function (results, status) {
+            if (status === "OK") {
               if (results.length > 0) {
                 const result = results[0];
                 geocodeCache.set(query, result);
@@ -570,25 +587,36 @@
         };
 
         // Set up geocoding on the search input.
-        searchButtonEl.addEventListener('click', function() {
+        searchButtonEl.addEventListener("click", function () {
           geocodeSearch(searchInputEl.value.trim());
         });
 
         // Initialize Autocomplete.
         initializeSearchInputAutocomplete(
-            locator, searchInputEl, geocodeSearch, updateSearchLocation);
+          locator,
+          searchInputEl,
+          geocodeSearch,
+          updateSearchLocation
+        );
       }
 
       /** Add Autocomplete to the search input. */
       function initializeSearchInputAutocomplete(
-          locator, searchInputEl, fallbackSearch, searchLocationUpdater) {
+        locator,
+        searchInputEl,
+        fallbackSearch,
+        searchLocationUpdater
+      ) {
         // Set up Autocomplete on the search input. Bias results to map viewport.
-        const autocomplete = new google.maps.places.Autocomplete(searchInputEl, {
-          types: ['geocode'],
-          fields: ['place_id', 'formatted_address', 'geometry.location']
-        });
-        autocomplete.bindTo('bounds', locator.map);
-        autocomplete.addListener('place_changed', function() {
+        const autocomplete = new google.maps.places.Autocomplete(
+          searchInputEl,
+          {
+            types: ["geocode"],
+            fields: ["place_id", "formatted_address", "geometry.location"],
+          }
+        );
+        autocomplete.bindTo("bounds", locator.map);
+        autocomplete.addListener("place_changed", function () {
           const placeResult = autocomplete.getPlace();
           if (!placeResult.geometry) {
             // Hitting 'Enter' without selecting a suggestion will result in a
@@ -597,7 +625,9 @@
             return;
           }
           searchLocationUpdater(
-              placeResult.formatted_address, placeResult.geometry.location);
+            placeResult.formatted_address,
+            placeResult.geometry.location
+          );
         });
       }
 
@@ -606,27 +636,28 @@
         const distanceMatrixService = new google.maps.DistanceMatrixService();
 
         // Annotate travel times to the selected location using Distance Matrix.
-        locator.updateTravelTimes = function() {
+        locator.updateTravelTimes = function () {
           if (!locator.searchLocation) return;
 
-          const units = (locator.userCountry === 'USA') ?
-              google.maps.UnitSystem.IMPERIAL :
-              google.maps.UnitSystem.METRIC;
+          const units =
+            locator.userCountry === "USA"
+              ? google.maps.UnitSystem.IMPERIAL
+              : google.maps.UnitSystem.METRIC;
           const request = {
             origins: [locator.searchLocation.location],
-            destinations: locator.locations.map(function(x) {
+            destinations: locator.locations.map(function (x) {
               return x.coords;
             }),
             travelMode: google.maps.TravelMode.DRIVING,
             unitSystem: units,
           };
-          const callback = function(response, status) {
-            if (status === 'OK') {
+          const callback = function (response, status) {
+            if (status === "OK") {
               const distances = response.rows[0].elements;
               for (let i = 0; i < distances.length; i++) {
                 const distResult = distances[i];
                 let travelDistanceText, travelDistanceValue;
-                if (distResult.status === 'OK') {
+                if (distResult.status === "OK") {
                   travelDistanceText = distResult.distance.text;
                   travelDistanceValue = distResult.distance.value;
                 }
@@ -653,12 +684,14 @@
 
         // Update directions displayed from the search location to
         // the selected location on the map.
-        locator.updateDirections = function() {
-          if (!locator.searchLocation || (locator.selectedLocationIdx == null)) {
+        locator.updateDirections = function () {
+          if (!locator.searchLocation || locator.selectedLocationIdx == null) {
             return;
           }
-          const cacheKey = JSON.stringify(
-              [locator.searchLocation.location, locator.selectedLocationIdx]);
+          const cacheKey = JSON.stringify([
+            locator.searchLocation.location,
+            locator.selectedLocationIdx,
+          ]);
           if (directionsCache.has(cacheKey)) {
             const directions = directionsCache.get(cacheKey);
             directionsRenderer.setMap(locator.map);
@@ -668,10 +701,10 @@
           const request = {
             origin: locator.searchLocation.location,
             destination: locator.locations[locator.selectedLocationIdx].coords,
-            travelMode: google.maps.TravelMode.DRIVING
+            travelMode: google.maps.TravelMode.DRIVING,
           };
-          directionsService.route(request, function(response, status) {
-            if (status === 'OK') {
+          directionsService.route(request, function (response, status) {
+            if (status === "OK") {
               directionsRenderer.setMap(locator.map);
               directionsRenderer.setDirections(response);
               directionsCache.set(cacheKey, response);
@@ -679,36 +712,42 @@
           });
         };
 
-        locator.clearDirections = function() {
+        locator.clearDirections = function () {
           directionsRenderer.setMap(null);
         };
       }
 
       /** Initialize Place Details service and UI for the locator. */
       function initializeDetails(locator) {
-        const panelDetailsEl = document.getElementById('locations-panel-details');
-        const detailsService = new google.maps.places.PlacesService(locator.map);
+        const panelDetailsEl = document.getElementById(
+          "locations-panel-details"
+        );
+        const detailsService = new google.maps.places.PlacesService(
+          locator.map
+        );
 
         const detailsTemplate = Handlebars.compile(
-            document.getElementById('locator-details-tmpl').innerHTML);
+          document.getElementById("locator-details-tmpl").innerHTML
+        );
 
-        const renderDetails = function(context) {
+        const renderDetails = function (context) {
           panelDetailsEl.innerHTML = detailsTemplate(context);
-          panelDetailsEl.querySelector('.back-button')
-              .addEventListener('click', hideDetails);
+          panelDetailsEl
+            .querySelector(".back-button")
+            .addEventListener("click", hideDetails);
         };
 
-        const hideDetails = function() {
+        const hideDetails = function () {
           showElement(locator.panelListEl);
           hideElement(panelDetailsEl);
         };
 
-        locator.showDetails = function(locationIndex) {
+        locator.showDetails = function (locationIndex) {
           const location = locator.locations[locationIndex];
-          const context = {location};
+          const context = { location };
 
           // Helper function to create a fixed-size array.
-          const initArray = function(arraySize) {
+          const initArray = function (arraySize) {
             const array = [];
             while (array.length < arraySize) {
               array.push(0);
@@ -720,24 +759,32 @@
             const request = {
               placeId: location.placeId,
               fields: [
-                'formatted_phone_number', 'website', 'opening_hours', 'url',
-                'utc_offset_minutes', 'price_level', 'rating', 'user_ratings_total'
-              ]
+                "formatted_phone_number",
+                "website",
+                "opening_hours",
+                "url",
+                "utc_offset_minutes",
+                "price_level",
+                "rating",
+                "user_ratings_total",
+              ],
             };
-            detailsService.getDetails(request, function(place, status) {
+            detailsService.getDetails(request, function (place, status) {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
                 if (place.opening_hours) {
-                  const daysHours =
-                      place.opening_hours.weekday_text.map(e => e.split(/\:\s+/))
-                          .map(e => ({'days': e[0].substr(0, 3), 'hours': e[1]}));
+                  const daysHours = place.opening_hours.weekday_text
+                    .map((e) => e.split(/\:\s+/))
+                    .map((e) => ({ days: e[0].substr(0, 3), hours: e[1] }));
 
                   for (let i = 1; i < daysHours.length; i++) {
                     if (daysHours[i - 1].hours === daysHours[i].hours) {
-                      if (daysHours[i - 1].days.indexOf('-') !== -1) {
-                        daysHours[i - 1].days =
-                            daysHours[i - 1].days.replace(/\w+$/, daysHours[i].days);
+                      if (daysHours[i - 1].days.indexOf("-") !== -1) {
+                        daysHours[i - 1].days = daysHours[i - 1].days.replace(
+                          /\w+$/,
+                          daysHours[i].days
+                        );
                       } else {
-                        daysHours[i - 1].days += ' - ' + daysHours[i].days;
+                        daysHours[i - 1].days += " - " + daysHours[i].days;
                       }
                       daysHours.splice(i--, 1);
                     }
@@ -775,7 +822,17 @@
       }
     </script>
     <script>
-      const CONFIGURATION = {"capabilities":{"input":true,"autocomplete":true,"directions":true,"distanceMatrix":true,"details":true},"mapOptions":{},"mapsApiKey":"YOUR_API_KEY_HERE"};
+      const CONFIGURATION = {
+        capabilities: {
+          input: true,
+          autocomplete: true,
+          directions: true,
+          distanceMatrix: true,
+          details: true,
+        },
+        mapOptions: {},
+        mapsApiKey: "YOUR_API_KEY_HERE",
+      };
 
       function initMap() {
         new LocatorPlus(CONFIGURATION);
@@ -809,14 +866,35 @@
     </script>
     <script id="locator-details-tmpl" type="text/x-handlebars-template">
       <button class="back-button">
-        <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg" alt=""/>
+        <img
+          class="icon"
+          src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg"
+          alt=""
+        />
         Back
       </button>
       <header>
         <div class="banner">
-          <svg width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.9976 11.5003C22.9976 13.2137 22.7083 14.9123 21.8025 16.7056C18.6321 22.9832 12.7449 24.3314 12.2758 30.7085C12.2448 31.1294 11.9286 31.4744 11.4973 31.4744C11.0689 31.4744 10.7527 31.1294 10.7218 30.7085C10.2527 24.3314 4.3655 22.9832 1.19504 16.7056C0.289306 14.9123 0 13.2137 0 11.5003C0 5.13275 5.14557 0 11.5003 0C17.852 0 22.9976 5.13275 22.9976 11.5003Z" fill="#4285F4"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" transform="translate(5.5,5.5)" d="M6 8.84091L9.708 11L8.724 6.92961L12 4.19158L7.6856 3.83881L6 0L4.3144 3.83881L0 4.19158L3.276 6.92961L2.292 11L6 8.84091Z" fill="#FBE15C"/>
+          <svg
+            width="23"
+            height="32"
+            viewBox="0 0 23 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M22.9976 11.5003C22.9976 13.2137 22.7083 14.9123 21.8025 16.7056C18.6321 22.9832 12.7449 24.3314 12.2758 30.7085C12.2448 31.1294 11.9286 31.4744 11.4973 31.4744C11.0689 31.4744 10.7527 31.1294 10.7218 30.7085C10.2527 24.3314 4.3655 22.9832 1.19504 16.7056C0.289306 14.9123 0 13.2137 0 11.5003C0 5.13275 5.14557 0 11.5003 0C17.852 0 22.9976 5.13275 22.9976 11.5003Z"
+              fill="#4285F4"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              transform="translate(5.5,5.5)"
+              d="M6 8.84091L9.708 11L8.724 6.92961L12 4.19158L7.6856 3.83881L6 0L4.3144 3.83881L0 4.19158L3.276 6.92961L2.292 11L6 8.84091Z"
+              fill="#FBE15C"
+            ></path>
           </svg>
         </div>
         <h2>{{location.title}}</h2>
@@ -825,7 +903,7 @@
         <div class="distance">{{location.travelDistanceText}} away</div>
       {{/if}}
       <div class="address">
-        {{location.address1}}<br>
+        {{location.address1}}<br />
         {{location.address2}}
       </div>
       <div class="atmosphere">
@@ -833,21 +911,31 @@
           <span class="star-rating-numeric">{{place.rating}}</span>
           <span>
             {{#each place.fullStarIcons}}
-              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/star/v15/24px.svg"
-                   alt="" class="star-icon"/>
+              <img
+                src="https://fonts.gstatic.com/s/i/googlematerialicons/star/v15/24px.svg"
+                alt=""
+                class="star-icon"
+              />
             {{/each}}
             {{#each place.halfStarIcons}}
-              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/star_half/v17/24px.svg"
-                   alt="" class="star-icon"/>
+              <img
+                src="https://fonts.gstatic.com/s/i/googlematerialicons/star_half/v17/24px.svg"
+                alt=""
+                class="star-icon"
+              />
             {{/each}}
             {{#each place.emptyStarIcons}}
-              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/star_outline/v9/24px.svg"
-                   alt="" class="star-icon"/>
+              <img
+                src="https://fonts.gstatic.com/s/i/googlematerialicons/star_outline/v9/24px.svg"
+                alt=""
+                class="star-icon"
+              />
             {{/each}}
           </span>
         {{/if}}
         {{#if place.user_ratings_total}}
-          <a href="{{place.url}}" target="_blank">{{place.user_ratings_total}} reviews</a>
+          <a href="{{place.url}}" target="_blank">{{place.user_ratings_total}}
+            reviews</a>
         {{else}}
           <a href="{{place.url}}" target="_blank">See on Google Maps</a>
         {{/if}}
@@ -858,11 +946,14 @@
           </span>
         {{/if}}
       </div>
-      <hr/>
+      <hr />
       {{#if place.opening_hours}}
         <div class="hours contact">
-          <img src="https://fonts.gstatic.com/s/i/googlematerialicons/schedule/v12/24px.svg"
-               alt="Opening hours" class="icon"/>
+          <img
+            src="https://fonts.gstatic.com/s/i/googlematerialicons/schedule/v12/24px.svg"
+            alt="Opening hours"
+            class="icon"
+          />
           <div class="right">
             {{#each place.openingHoursSummary}}
               <div>
@@ -875,8 +966,11 @@
       {{/if}}
       {{#if place.website}}
         <div class="website contact">
-          <img src="https://fonts.gstatic.com/s/i/googlematerialicons/public/v10/24px.svg"
-               alt="Website" class="icon"/>
+          <img
+            src="https://fonts.gstatic.com/s/i/googlematerialicons/public/v10/24px.svg"
+            alt="Website"
+            class="icon"
+          />
           <div class="right">
             <a href="{{place.website}}">{{place.websiteDomain}}</a>
           </div>
@@ -884,8 +978,11 @@
       {{/if}}
       {{#if place.formatted_phone_number}}
         <div class="phone contact">
-          <img src="https://fonts.gstatic.com/s/i/googlematerialicons/phone/v10/24px.svg"
-               alt="Phone number" class="icon"/>
+          <img
+            src="https://fonts.gstatic.com/s/i/googlematerialicons/phone/v10/24px.svg"
+            alt="Phone number"
+            class="icon"
+          />
           <div class="right">
             {{place.formatted_phone_number}}
           </div>
@@ -904,14 +1001,26 @@
         <div id="locations-panel-list">
           <header>
             <h1 class="search-title">
-              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg"/>
+              <img
+                src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg"
+              />
               Find a location near you
             </h1>
             <div class="search-input">
-              <input id="location-search-input" placeholder="Enter your address or zip code">
-              <div id="search-overlay-search" class="search-input-overlay search">
+              <input
+                id="location-search-input"
+                placeholder="Enter your address or zip code"
+              />
+              <div
+                id="search-overlay-search"
+                class="search-input-overlay search"
+              >
                 <button id="location-search-button">
-                  <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="Search"/>
+                  <img
+                    class="icon"
+                    src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg"
+                    alt="Search"
+                  />
                 </button>
               </div>
             </div>
@@ -927,6 +1036,10 @@
       </div>
       <div id="map"></div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap&libraries=places,geometry&channel=GMPSB_locatorplus_v2_cABCDE" async defer></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap&libraries=places,geometry&channel=GMPSB_locatorplus_v2_cABCDE"
+      async
+      defer
+    ></script>
   </body>
 </html>

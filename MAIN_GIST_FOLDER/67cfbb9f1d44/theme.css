@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
   color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Apple Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Apple Color Emoji";
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
   height: 100%;
@@ -23,17 +25,24 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background: #999;
   border-radius: 3px;
-} 
+}
 
 #MainContent {
   margin: 20px 20px 20px 30px;
 }
 
-
-h1, h2, h3, h4, h5, h6, .byline, .content-title {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.byline,
+.content-title {
   color: #555;
   font-weight: bold;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans";
   margin-top: 1.2em;
   margin-bottom: 0.4em;
 }
@@ -56,7 +65,8 @@ h4 {
   font-size: 1.18em;
 }
 
-h5, h6 {
+h5,
+h6 {
   color: #656565;
   font-size: 1.09em;
 }
@@ -65,8 +75,6 @@ h6 {
   color: #777;
   font-size: 1.03em;
 }
-
-
 
 p {
   margin: 0.5rem 0 1rem 0;
@@ -78,15 +86,16 @@ a {
   text-decoration: none;
 }
 
-  a:hover {
-    text-decoration: underline;
-  }
+a:hover {
+  text-decoration: underline;
+}
 
 img {
   max-width: 100%;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 1.1em 0;
 }
 
@@ -121,7 +130,8 @@ dd {
   display: none;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 600;
 }
 
@@ -136,7 +146,6 @@ dd {
   margin: 0;
   padding: 0 0 0.2em 1em;
 }
-
 
 /* hidden display, but still part of document flow */
 .hidden {
@@ -158,14 +167,12 @@ dd {
   width: 1px;
 }
 
-
-@media(min-width: 1080px) {
-  html, body {
+@media (min-width: 1080px) {
+  html,
+  body {
     font-size: 1.06em;
   }
 }
-
-
 
 blockquote {
   background: #f5f5f5;
@@ -177,19 +184,20 @@ blockquote {
   font-size: 1.03em;
 }
 
-  blockquote *:first-child {
-    margin-top: 0;
-  }
+blockquote *:first-child {
+  margin-top: 0;
+}
 
-  blockquote *:last-child {
-    margin-bottom: 0;
-  }
+blockquote *:last-child {
+  margin-bottom: 0;
+}
 
 hr {
   margin: 12px 0;
 }
 
-.figure .caption, figure figcaption {
+.figure .caption,
+figure figcaption {
   font-size: 0.8em;
   font-style: italic;
   margin-top: 0;
@@ -197,7 +205,8 @@ hr {
 
 code {
   padding: 2px 5px;
-  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
   border-radius: 3px;
   font-weight: 600;
   background: #eee;
@@ -205,10 +214,10 @@ code {
 }
 
 pre {
-  font-family: menlo,consolas,monospace;
+  font-family: menlo, consolas, monospace;
   font-weight: normal;
   font-size: 87%;
-  line-height: 1.40;
+  line-height: 1.4;
   margin: 7px 0;
   padding: 0;
   border: 1px solid silver;
@@ -223,27 +232,27 @@ pre {
   color: #eee; */
 }
 
-  pre > code {
-    white-space: pre;
-    padding: 0.8em !important;
-    display: block;
-    font-weight: normal;
+pre > code {
+  white-space: pre;
+  padding: 0.8em !important;
+  display: block;
+  font-weight: normal;
 
-    white-space: pre; /* pre-line if you want to wrap*/
+  white-space: pre; /* pre-line if you want to wrap*/
 
-    /* handles non-formatted code snippets, but won't work with light syntax */
-    /* background: transparent;
+  /* handles non-formatted code snippets, but won't work with light syntax */
+  /* background: transparent;
     color: #f5f5f5 !important;   */
-  }
-  pre > code::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background: #444;
-  }
+}
+pre > code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #444;
+}
 
-  pre > code::-webkit-scrollbar-thumb {
-    background: #999;
-  }
+pre > code::-webkit-scrollbar-thumb {
+  background: #999;
+}
 table {
   width: 100%;
   overflow: auto;
@@ -253,7 +262,8 @@ table {
   border-color: gray;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #ddd;
   padding: 6px 13px;
   display: table-cell;
@@ -274,7 +284,11 @@ tbody > tr:nth-child(even) {
   background: #e9f5ff !important;
 }
 
-p.line-highlight, h1.line-highlight, h2.line-highlight, h3.line-highlight, h4.line-highlight {
+p.line-highlight,
+h1.line-highlight,
+h2.line-highlight,
+h3.line-highlight,
+h4.line-highlight {
   border-radius: 4px;
   margin-left: -10px;
   margin-right: -10px;
@@ -285,8 +299,6 @@ p.line-highlight, h1.line-highlight, h2.line-highlight, h3.line-highlight, h4.li
 code.line-highlight {
   background: #555 !important;
 }
-
-
 
 /* hidden display, but still part of document flow */
 .hidden {
@@ -313,19 +325,29 @@ code.line-highlight {
   border-radius: 3px;
 }
 
-
 /* DocFx Styles*/
-.CAUTION, .IMPORTANT, .INFO, .TIP, .NOTE, .WARNING {
+.CAUTION,
+.IMPORTANT,
+.INFO,
+.TIP,
+.NOTE,
+.WARNING {
   padding: 0.1px 20px;
   margin: 15px 0;
   border-radius: 4px;
 }
 
-.CAUTION > h5, .IMPORTANT > h5, .INFO > h5, .TIP > h5, .NOTE > h5, .WARNING > h5 {
+.CAUTION > h5,
+.IMPORTANT > h5,
+.INFO > h5,
+.TIP > h5,
+.NOTE > h5,
+.WARNING > h5 {
   color: inherit;
 }
 
-.CAUTION, .IMPORTANT {
+.CAUTION,
+.IMPORTANT {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
@@ -337,19 +359,23 @@ code.line-highlight {
   border-color: #faebcc;
 }
 
-.INFO, .TIP, .NOTE {
+.INFO,
+.TIP,
+.NOTE {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
 
-.NOTE h5:before, .TIP h5:before {
+.NOTE h5:before,
+.TIP h5:before {
   content: "\f05a";
   font-family: FontAwesome;
   padding-right: 6px;
 }
 
-.WARNING h5:before, .CAUTION h5:before {
+.WARNING h5:before,
+.CAUTION h5:before {
   content: "\f071";
   font-family: FontAwesome;
   padding-right: 6px;
@@ -365,14 +391,13 @@ xref {
   display: block;
 }
 
-
-
 .hljs {
   font-size: 1em;
 }
 
-@media(min-width: 1080px) {
-  html, body {
+@media (min-width: 1080px) {
+  html,
+  body {
     font-size: 1.06em;
   }
 }
@@ -384,8 +409,8 @@ xref {
     word-wrap: normal;
   }
 
-    pre > code {
-      white-space: pre-wrap;
-      padding: 1em !important;
-    }
+  pre > code {
+    white-space: pre-wrap;
+    padding: 1em !important;
+  }
 }

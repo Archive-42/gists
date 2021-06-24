@@ -23,58 +23,64 @@ Let's see the asynchronous first, as it's used in the majority of cases.
 To do the request, we need 3 steps:
 
 1. Create `XMLHttpRequest`:
-    ```js
-    let xhr = new XMLHttpRequest();
-    ```
-    The constructor has no arguments.
+
+   ```js
+   let xhr = new XMLHttpRequest();
+   ```
+
+   The constructor has no arguments.
 
 2. Initialize it, usually right after `new XMLHttpRequest`:
-    ```js
-    xhr.open(method, URL, [async, user, password])
-    ```
 
-    This method specifies the main parameters of the request:
+   ```js
+   xhr.open(method, URL, [async, user, password]);
+   ```
 
-    - `method` -- HTTP-method. Usually `"GET"` or `"POST"`.
-    - `URL` -- the URL to request, a string, can be [URL](info:url) object.
-    - `async` -- if explicitly set to `false`, then the request is synchronous, we'll cover that a bit later.
-    - `user`, `password` -- login and password for basic HTTP auth (if required).
+   This method specifies the main parameters of the request:
 
-    Please note that `open` call, contrary to its name, does not open the connection. It only configures the request, but the network activity only starts with the call of `send`.
+   - `method` -- HTTP-method. Usually `"GET"` or `"POST"`.
+   - `URL` -- the URL to request, a string, can be [URL](info:url) object.
+   - `async` -- if explicitly set to `false`, then the request is synchronous, we'll cover that a bit later.
+   - `user`, `password` -- login and password for basic HTTP auth (if required).
+
+   Please note that `open` call, contrary to its name, does not open the connection. It only configures the request, but the network activity only starts with the call of `send`.
 
 3. Send it out.
 
-    ```js
-    xhr.send([body])
-    ```
+   ```js
+   xhr.send([body]);
+   ```
 
-    This method opens the connection and sends the request to server. The optional `body` parameter contains the request body.
+   This method opens the connection and sends the request to server. The optional `body` parameter contains the request body.
 
-    Some request methods like `GET` do not have a body. And some of them like `POST` use `body` to send the data to the server. We'll see examples of that later.
+   Some request methods like `GET` do not have a body. And some of them like `POST` use `body` to send the data to the server. We'll see examples of that later.
 
 4. Listen to `xhr` events for response.
 
-    These three events are the most widely used:
-    - `load` -- when the request is complete (even if HTTP status is like 400 or 500), and the response is fully downloaded.
-    - `error` -- when the request couldn't be made, e.g. network down or invalid URL.
-    - `progress` -- triggers periodically while the response is being downloaded, reports how much has been downloaded.
+   These three events are the most widely used:
 
-    ```js
-    xhr.onload = function() {
-      alert(`Loaded: ${xhr.status} ${xhr.response}`);
-    };
+   - `load` -- when the request is complete (even if HTTP status is like 400 or 500), and the response is fully downloaded.
+   - `error` -- when the request couldn't be made, e.g. network down or invalid URL.
+   - `progress` -- triggers periodically while the response is being downloaded, reports how much has been downloaded.
 
-    xhr.onerror = function() { // only triggers if the request couldn't be made at all
-      alert(`Network Error`);
-    };
+   ```js
+   xhr.onload = function () {
+     alert(`Loaded: ${xhr.status} ${xhr.response}`);
+   };
 
-    xhr.onprogress = function(event) { // triggers periodically
-      // event.loaded - how many bytes downloaded
-      // event.lengthComputable = true if the server sent Content-Length header
-      // event.total - total number of bytes (if lengthComputable)
-      alert(`Received ${event.loaded} of ${event.total}`);
-    };
-    ```
+   xhr.onerror = function () {
+     // only triggers if the request couldn't be made at all
+     alert(`Network Error`);
+   };
+
+   xhr.onprogress = function (event) {
+     // triggers periodically
+     // event.loaded - how many bytes downloaded
+     // event.lengthComputable = true if the server sent Content-Length header
+     // event.total - total number of bytes (if lengthComputable)
+     alert(`Received ${event.loaded} of ${event.total}`);
+   };
+   ```
 
 Here's a full example. The code below loads the URL at `/article/xmlhttprequest/example/load` from the server and prints the progress:
 
@@ -83,30 +89,31 @@ Here's a full example. The code below loads the URL at `/article/xmlhttprequest/
 let xhr = new XMLHttpRequest();
 
 // 2. Configure it: GET-request for the URL /article/.../load
-xhr.open('GET', '/article/xmlhttprequest/example/load');
+xhr.open("GET", "/article/xmlhttprequest/example/load");
 
 // 3. Send the request over the network
 xhr.send();
 
 // 4. This will be called after the response is received
-xhr.onload = function() {
-  if (xhr.status != 200) { // analyze HTTP status of the response
+xhr.onload = function () {
+  if (xhr.status != 200) {
+    // analyze HTTP status of the response
     alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-  } else { // show the result
+  } else {
+    // show the result
     alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
   }
 };
 
-xhr.onprogress = function(event) {
+xhr.onprogress = function (event) {
   if (event.lengthComputable) {
     alert(`Received ${event.loaded} of ${event.total} bytes`);
   } else {
     alert(`Received ${event.loaded} bytes`); // no Content-Length
   }
-
 };
 
-xhr.onerror = function() {
+xhr.onerror = function () {
   alert("Request failed");
 };
 ```
@@ -182,7 +189,7 @@ They exist for historical reasons, to get either a string or XML document. Nowad
 
 ## Ready states
 
-`XMLHttpRequest` changes between states as it progresses. The current state is accessible as  `xhr.readyState`.
+`XMLHttpRequest` changes between states as it progresses. The current state is accessible as `xhr.readyState`.
 
 All states, as in [the specification](https://xhr.spec.whatwg.org/#states):
 
@@ -199,7 +206,7 @@ An `XMLHttpRequest` object travels them in the order `0` -> `1` -> `2` -> `3` ->
 We can track them using `readystatechange` event:
 
 ```js
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (xhr.readyState == 3) {
     // loading
   }
@@ -350,8 +357,8 @@ For instance:
 
 ```html run refresh
 <form name="person">
-  <input name="name" value="John">
-  <input name="surname" value="Smith">
+  <input name="name" value="John" />
+  <input name="surname" value="Smith" />
 </form>
 
 <script>
@@ -381,11 +388,11 @@ let xhr = new XMLHttpRequest();
 
 let json = JSON.stringify({
   name: "John",
-  surname: "Smith"
+  surname: "Smith",
 });
 
-xhr.open("POST", '/submit')
-xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+xhr.open("POST", "/submit");
+xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 
 xhr.send(json);
 ```
@@ -415,15 +422,15 @@ It generates events, similar to `xhr`, but `xhr.upload` triggers them solely on 
 Example of handlers:
 
 ```js
-xhr.upload.onprogress = function(event) {
+xhr.upload.onprogress = function (event) {
   alert(`Uploaded ${event.loaded} of ${event.total} bytes`);
 };
 
-xhr.upload.onload = function() {
+xhr.upload.onload = function () {
   alert(`Upload finished successfully.`);
 };
 
-xhr.upload.onerror = function() {
+xhr.upload.onerror = function () {
   alert(`Error during the upload: ${xhr.status}`);
 };
 ```
@@ -431,31 +438,31 @@ xhr.upload.onerror = function() {
 Here's a real-life example: file upload with progress indication:
 
 ```html run
-<input type="file" onchange="upload(this.files[0])">
+<input type="file" onchange="upload(this.files[0])" />
 
 <script>
-function upload(file) {
-  let xhr = new XMLHttpRequest();
+  function upload(file) {
+    let xhr = new XMLHttpRequest();
 
-  // track upload progress
-*!*
-  xhr.upload.onprogress = function(event) {
-    console.log(`Uploaded ${event.loaded} of ${event.total}`);
-  };
-*/!*
+    // track upload progress
+  *!*
+    xhr.upload.onprogress = function(event) {
+      console.log(`Uploaded ${event.loaded} of ${event.total}`);
+    };
+  */!*
 
-  // track completion: both successful or not
-  xhr.onloadend = function() {
-    if (xhr.status == 200) {
-      console.log("success");
-    } else {
-      console.log("error " + this.status);
-    }
-  };
+    // track completion: both successful or not
+    xhr.onloadend = function() {
+      if (xhr.status == 200) {
+        console.log("success");
+      } else {
+        console.log("error " + this.status);
+      }
+    };
 
-  xhr.open("POST", "/article/xmlhttprequest/post/upload");
-  xhr.send(file);
-}
+    xhr.open("POST", "/article/xmlhttprequest/post/upload");
+    xhr.send(file);
+  }
 </script>
 ```
 
@@ -477,7 +484,6 @@ xhr.open('POST', 'http://anywhere.com/request');
 
 See the chapter <info:fetch-crossorigin> for details about cross-origin headers.
 
-
 ## Summary
 
 Typical code of the GET-request with `XMLHttpRequest`:
@@ -485,26 +491,27 @@ Typical code of the GET-request with `XMLHttpRequest`:
 ```js
 let xhr = new XMLHttpRequest();
 
-xhr.open('GET', '/my/url');
+xhr.open("GET", "/my/url");
 
 xhr.send();
 
-xhr.onload = function() {
-  if (xhr.status != 200) { // HTTP error?
+xhr.onload = function () {
+  if (xhr.status != 200) {
+    // HTTP error?
     // handle error
-    alert( 'Error: ' + xhr.status);
+    alert("Error: " + xhr.status);
     return;
   }
 
   // get the response from xhr.response
 };
 
-xhr.onprogress = function(event) {
+xhr.onprogress = function (event) {
   // report progress
   alert(`Loaded ${event.loaded} of ${event.total}`);
 };
 
-xhr.onerror = function() {
+xhr.onerror = function () {
   // handle non-HTTP error (e.g. network down)
 };
 ```

@@ -5,7 +5,7 @@ There are just two of them: `setState()` and `forceUpdate()`.
 ### [](https://reactjs.org/docs/react-component.html#setstate)`setState()`
 
 ```js
-setState(updater, [callback])
+setState(updater, [callback]);
 ```
 
 `setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state. This is the primary method you use to update the user interface in response to event handlers and server responses.
@@ -19,7 +19,7 @@ Think of `setState()` as a _request_ rather than an immediate command to update 
 The first argument is an `updater` function with the signature:
 
 ```js
-(state, props) => stateChange
+(state, props) => stateChange;
 ```
 
 `state` is a reference to the component state at the time the change is being applied. It should not be directly mutated. Instead, changes should be represented by building a new object based on the input from `state` and `props`. For instance, suppose we wanted to increment a value in state by `props.step`:
@@ -61,6 +61,6 @@ Subsequent calls will override values from previous calls in the same cycle, so 
 
 ```js
 this.setState((state) => {
-  return {quantity: state.quantity + 1};
+  return { quantity: state.quantity + 1 };
 });
 ```

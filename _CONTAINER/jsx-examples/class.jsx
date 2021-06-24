@@ -4,9 +4,6 @@ class MyComponent extends React.Component {
   }
   render() {
     // Change code below this line
-
-
-
     // Change code above this line
   }
-};
+}

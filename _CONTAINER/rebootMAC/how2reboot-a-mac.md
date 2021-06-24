@@ -181,8 +181,7 @@ Homebrew-Cask extends Homebrew and brings its elegance, simplicity, and speed to
 
 #### Application
 
-1. Decide what applications you would like to install with [Homebrew Cask Search](https://caskroom.github.io/search).
-   2. Enter `brew cask install [application]` into a Terminal prompt. This will install the selected application.
+1. Decide what applications you would like to install with [Homebrew Cask Search](https://caskroom.github.io/search). 2. Enter `brew cask install [application]` into a Terminal prompt. This will install the selected application.
 2. Enter `brew cask install [application][space][application]` into a Terminal prompt to install multiple applications.
 3. After installing all desired applications, enter `brew cask cleanup` into a Terminal prompt to delete all download files.
 4. Enter `brew cask upgrade` into a Terminal prompt to upgrade all outdated casks.
@@ -294,14 +293,14 @@ into a Terminal prompt.
 
 ### James Lyons' Top Picks
 
-  1. [Chunk Window Manager](https://koekeishiya.github.io/chunkwm/) `chunkwm`
-  2. [Simple Hotkey Daemon](https://github.com/koekeishiya/skhd) `skhd`
-  3. [GitKraken](https://www.gitkraken.com/) `gitkraken`
+1. [Chunk Window Manager](https://koekeishiya.github.io/chunkwm/) `chunkwm`
+2. [Simple Hotkey Daemon](https://github.com/koekeishiya/skhd) `skhd`
+3. [GitKraken](https://www.gitkraken.com/) `gitkraken`
 
 To install all of the following applications with a few lines of code enter:
 
 ```
-brew tap crisidev/homebrew-chunkwm 
+brew tap crisidev/homebrew-chunkwm
 brew install chunkwm koekeishiya/formulae/skhd
 brew cask install gitkraken
 ```

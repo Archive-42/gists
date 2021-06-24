@@ -1,9 +1,9 @@
-const popup = document.querySelector('.full-screen');
+const popup = document.querySelector(".full-screen");
 
-function showPopup(){
-  popup.classList.remove('hidden');
+function showPopup() {
+  popup.classList.remove("hidden");
 }
 
-function closePopup(){
-  popup.classList.add('hidden');
+function closePopup() {
+  popup.classList.add("hidden");
 }

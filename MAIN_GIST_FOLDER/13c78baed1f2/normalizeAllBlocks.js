@@ -7,10 +7,10 @@ const { normalizeBlock } = require("@sanity/block-tools");
 const { extractWithPath } = require("@sanity/mutator");
 const config = require("./sanity.json");
 
-const sanityToken = process.env.SANITY_TOKEN
+const sanityToken = process.env.SANITY_TOKEN;
 
 if (!sanityToken) {
-  throw new Error('No Sanity token found. Set with env var SANITY_TOKEN=xxxx')
+  throw new Error("No Sanity token found. Set with env var SANITY_TOKEN=xxxx");
 }
 
 // Act on all documents
@@ -24,19 +24,19 @@ const allowedDecaorators = [
   "underline",
   "strike-through",
   "sub",
-  "sup"
+  "sup",
 ];
 
 const client = sanityClient({
   projectId: config.api.projectId,
   dataset: config.api.dataset,
   useCdn: false,
-  token: sanityToken
+  token: sanityToken,
 });
 
 function convertPath(pathArr) {
   return pathArr
-    .map(part => {
+    .map((part) => {
       if (Number.isInteger(part)) {
         return `[${part}]`;
       }
@@ -46,12 +46,12 @@ function convertPath(pathArr) {
     .substring(1);
 }
 
-client.fetch(query).then(results => {
+client.fetch(query).then((results) => {
   const patchedDocuments = [];
-  results.forEach(async result => {
+  results.forEach(async (result) => {
     const matches = extractWithPath('..[_type=="block"]', result);
     let patch = client.patch(result._id);
-    matches.forEach(match => {
+    matches.forEach((match) => {
       const block = match.value;
       const path = convertPath(match.path);
       const normalizedBlock = normalizeBlock(block, { allowedDecaorators });
@@ -64,9 +64,7 @@ client.fetch(query).then(results => {
     if (patchLength > 0) {
       patchedDocuments.push(result._id);
       await patch.commit();
-      console.log(
-        `Patched ${patchLength} blocks in document ${result._id}`
-      );
+      console.log(`Patched ${patchLength} blocks in document ${result._id}`);
     }
   });
   console.log(

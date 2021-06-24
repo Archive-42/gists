@@ -2,21 +2,21 @@
 
 In JavaScript, a function is not a "magical language structure", but a special kind of value.
 
-The syntax that we used before is called a *Function Declaration*:
+The syntax that we used before is called a _Function Declaration_:
 
 ```js
 function sayHi() {
-  alert( "Hello" );
+  alert("Hello");
 }
 ```
 
-There is another syntax for creating a function that is called a *Function Expression*.
+There is another syntax for creating a function that is called a _Function Expression_.
 
 It looks like this:
 
 ```js
-let sayHi = function() {
-  alert( "Hello" );
+let sayHi = function () {
+  alert("Hello");
 };
 ```
 
@@ -47,11 +47,12 @@ But it's still a value. So we can work with it like with other kinds of values.
 We can copy a function to another variable:
 
 ```js run no-beautify
-function sayHi() {   // (1) create
-  alert( "Hello" );
+function sayHi() {
+  // (1) create
+  alert("Hello");
 }
 
-let func = sayHi;    // (2) copy
+let func = sayHi; // (2) copy
 
 func(); // Hello     // (3) run the copy (it works)!
 sayHi(); // Hello    //     this still works too (why wouldn't it)
@@ -60,14 +61,14 @@ sayHi(); // Hello    //     this still works too (why wouldn't it)
 Here's what happens above in detail:
 
 1. The Function Declaration `(1)` creates the function and puts it into the variable named `sayHi`.
-2. Line `(2)` copies it into the variable `func`. Please note again: there are no parentheses after `sayHi`. If there were, then `func = sayHi()` would write  *the result of the call* `sayHi()` into `func`, not *the function* `sayHi` itself.
+2. Line `(2)` copies it into the variable `func`. Please note again: there are no parentheses after `sayHi`. If there were, then `func = sayHi()` would write _the result of the call_ `sayHi()` into `func`, not _the function_ `sayHi` itself.
 3. Now the function can be called as both `sayHi()` and `func()`.
 
 Note that we could also have used a Function Expression to declare `sayHi`, in the first line:
 
 ```js
-let sayHi = function() {
-  alert( "Hello" );
+let sayHi = function () {
+  alert("Hello");
 };
 
 let func = sayHi;
@@ -75,7 +76,6 @@ let func = sayHi;
 ```
 
 Everything would work the same.
-
 
 ````smart header="Why is there a semicolon at the end?"
 You might wonder, why does Function Expression have a semicolon `;` at the end, but Function Declaration does not:
@@ -134,7 +134,7 @@ ask("Do you agree?", showOk, showCancel);
 
 In practice, such functions are quite useful. The major difference between a real-life `ask` and the example above is that real-life functions use more complex ways to interact with the user than a simple `confirm`. In the browser, such function usually draws a nice-looking question window. But that's another story.
 
-**The arguments `showOk` and `showCancel` of `ask` are called *callback functions* or just *callbacks*.**
+**The arguments `showOk` and `showCancel` of `ask` are called _callback functions_ or just _callbacks_.**
 
 The idea is that we pass a function and expect it to be "called back" later if necessary. In our case, `showOk` becomes the callback for "yes" answer, and `showCancel` for "no" answer.
 
@@ -155,11 +155,11 @@ ask(
 */!*
 ```
 
-Here, functions are declared right inside the `ask(...)` call. They have no name, and so are called *anonymous*. Such functions are not accessible outside of `ask` (because they are not assigned to variables), but that's just what we want here.
+Here, functions are declared right inside the `ask(...)` call. They have no name, and so are called _anonymous_. Such functions are not accessible outside of `ask` (because they are not assigned to variables), but that's just what we want here.
 
 Such code appears in our scripts very naturally, it's in the spirit of JavaScript.
 
-```smart header="A function is a value representing an \"action\""
+```smart header="A function is a value representing an "action""
 Regular values like strings or numbers represent the *data*.
 
 A function can be perceived as an *action*.
@@ -167,31 +167,31 @@ A function can be perceived as an *action*.
 We can pass it between variables and run when we want.
 ```
 
-
 ## Function Expression vs Function Declaration
 
 Let's formulate the key differences between Function Declarations and Expressions.
 
 First, the syntax: how to differentiate between them in the code.
 
-- *Function Declaration:* a function, declared as a separate statement, in the main code flow.
+- _Function Declaration:_ a function, declared as a separate statement, in the main code flow.
 
-    ```js
-    // Function Declaration
-    function sum(a, b) {
-      return a + b;
-    }
-    ```
-- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the "assignment expression" `=`:
+  ```js
+  // Function Declaration
+  function sum(a, b) {
+    return a + b;
+  }
+  ```
 
-    ```js
-    // Function Expression
-    let sum = function(a, b) {
-      return a + b;
-    };
-    ```
+- _Function Expression:_ a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the "assignment expression" `=`:
 
-The more subtle difference is *when* a function is created by the JavaScript engine.
+  ```js
+  // Function Expression
+  let sum = function (a, b) {
+    return a + b;
+  };
+  ```
+
+The more subtle difference is _when_ a function is created by the JavaScript engine.
 
 **A Function Expression is created when the execution reaches it and is usable only from that moment.**
 
@@ -279,7 +279,7 @@ if (age < 18) {
   welcome();               // \   (runs)
 */!*
                            //  |
-  function welcome() {     //  |  
+  function welcome() {     //  |
     alert("Hello!");       //  |  Function Declaration is available
   }                        //  |  everywhere in the block where it's declared
                            //  |
@@ -289,7 +289,7 @@ if (age < 18) {
 
 } else {
 
-  function welcome() {    
+  function welcome() {
     alert("Greetings!");
   }
 }
@@ -345,7 +345,6 @@ let welcome = (age < 18) ?
 welcome(); // ok now
 */!*
 ```
-
 
 ```smart header="When to choose Function Declaration versus Function Expression?"
 As a rule of thumb, when we need to declare a function, the first to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.

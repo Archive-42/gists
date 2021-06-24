@@ -13,14 +13,15 @@ We can have as many statements in our code as we want. Statements can be separat
 For example, here we split "Hello World" into two alerts:
 
 ```js run no-beautify
-alert('Hello'); alert('World');
+alert("Hello");
+alert("World");
 ```
 
 Usually, statements are written on separate lines to make the code more readable:
 
 ```js run no-beautify
-alert('Hello');
-alert('World');
+alert("Hello");
+alert("World");
 ```
 
 ## Semicolons [#semicolon]
@@ -30,8 +31,8 @@ A semicolon may be omitted in most cases when a line break exists.
 This would also work:
 
 ```js run no-beautify
-alert('Hello')
-alert('World')
+alert("Hello");
+alert("World");
 ```
 
 Here, JavaScript interprets the line break as an "implicit" semicolon. This is called an [automatic semicolon insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
@@ -41,9 +42,7 @@ Here, JavaScript interprets the line break as an "implicit" semicolon. This is c
 There are cases when a newline does not mean a semicolon. For example:
 
 ```js run no-beautify
-alert(3 +
-1
-+ 2);
+alert(3 + 1 + 2);
 ```
 
 The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so the semicolon is not required. And in this case that works as intended.
@@ -75,7 +74,7 @@ But everything is fine again if we add a semicolon after `alert`:
 ```js run
 alert("All fine now");
 
-[1, 2].forEach(alert)  
+[1, 2].forEach(alert)
 ```
 
 Now we have the "All fine now" message followed by `1` and `2`.
@@ -92,11 +91,11 @@ alert("There will be an error")[1, 2].forEach(alert)
 But it should be two separate statements, not one. Such a merging in this case is just wrong, hence the error. This can happen in other situations.
 ````
 
-We recommend putting semicolons between statements even if they are separated by newlines. This rule is widely adopted by the community. Let's note once again -- *it is possible* to leave out semicolons most of the time. But it's safer -- especially for a beginner -- to use them.
+We recommend putting semicolons between statements even if they are separated by newlines. This rule is widely adopted by the community. Let's note once again -- _it is possible_ to leave out semicolons most of the time. But it's safer -- especially for a beginner -- to use them.
 
 ## Comments [#code-comments]
 
-As time goes on, programs become more and more complex. It becomes necessary to add *comments* which describe what the code does and why.
+As time goes on, programs become more and more complex. It becomes necessary to add _comments_ which describe what the code does and why.
 
 Comments can be put into any place of a script. They don't affect its execution because the engine simply ignores them.
 
@@ -105,14 +104,15 @@ Comments can be put into any place of a script. They don't affect its execution 
 The rest of the line is a comment. It may occupy a full line of its own or follow a statement.
 
 Like here:
+
 ```js run
 // This comment occupies a line of its own
-alert('Hello');
+alert("Hello");
 
-alert('World'); // This comment follows the statement
+alert("World"); // This comment follows the statement
 ```
 
-**Multiline comments start with a forward slash and an asterisk <code>/&#42;</code> and end with an asterisk and a forward slash <code>&#42;/</code>.**
+**Multiline comments start with a forward slash and an asterisk <code>/\*</code> and end with an asterisk and a forward slash <code>\*/</code>.**
 
 Like this:
 
@@ -120,11 +120,11 @@ Like this:
 /* An example with two messages.
 This is a multiline comment.
 */
-alert('Hello');
-alert('World');
+alert("Hello");
+alert("World");
 ```
 
-The content of comments is ignored, so if we put code inside <code>/&#42; ... &#42;/</code>, it won't execute.
+The content of comments is ignored, so if we put code inside <code>/\* ... \*/</code>, it won't execute.
 
 Sometimes it can be handy to temporarily disable a part of code:
 
@@ -132,7 +132,7 @@ Sometimes it can be handy to temporarily disable a part of code:
 /* Commenting out the code
 alert('Hello');
 */
-alert('World');
+alert("World");
 ```
 
 ```smart header="Use hotkeys!"

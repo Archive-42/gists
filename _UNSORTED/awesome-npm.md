@@ -1,67 +1,66 @@
-
 - [Official](#official)
 - [Packages](#packages)
-	- [Mad science](#mad-science)
-	- [Command-line apps](#command-line-apps)
-	- [Functional programming](#functional-programming)
-	- [HTTP](#http)
-	- [Debugging / Profiling](#debugging--profiling)
-	- [Logging](#logging)
-	- [Command-line utilities](#command-line-utilities)
-	- [Build tools](#build-tools)
-	- [Hardware](#hardware)
-	- [Templating](#templating)
-	- [Web frameworks](#web-frameworks)
-	- [Documentation](#documentation)
-	- [Filesystem](#filesystem)
-	- [Control flow](#control-flow)
-	- [Streams](#streams)
-	- [Real-time](#real-time)
-	- [Image](#image)
-	- [Text](#text)
-	- [Number](#number)
-	- [Math](#math)
-	- [Date](#date)
-	- [URL](#url)
-	- [Data validation](#data-validation)
-	- [Parsing](#parsing)
-	- [Humanize](#humanize)
-	- [Compression](#compression)
-	- [Network](#network)
-	- [Database](#database)
-	- [Testing](#testing)
-	- [Security](#security)
-	- [Benchmarking](#benchmarking)
-	- [Minifiers](#minifiers)
-	- [Authentication](#authentication)
-	- [Authorization](#authorization)
-	- [Email](#email)
-	- [Job queues](#job-queues)
-	- [Node.js management](#nodejs-management)
-	- [Natural language processing](#natural-language-processing)
-	- [Process management](#process-management)
-	- [Automation](#automation)
-	- [AST](#ast)
-	- [Static site generators](#static-site-generators)
-	- [Content management systems](#content-management-systems)
-	- [Forum](#forum)
-	- [Blogging](#blogging)
-	- [Weird](#weird)
-	- [Serialization](#serialization)
-	- [Miscellaneous](#miscellaneous)
+  - [Mad science](#mad-science)
+  - [Command-line apps](#command-line-apps)
+  - [Functional programming](#functional-programming)
+  - [HTTP](#http)
+  - [Debugging / Profiling](#debugging--profiling)
+  - [Logging](#logging)
+  - [Command-line utilities](#command-line-utilities)
+  - [Build tools](#build-tools)
+  - [Hardware](#hardware)
+  - [Templating](#templating)
+  - [Web frameworks](#web-frameworks)
+  - [Documentation](#documentation)
+  - [Filesystem](#filesystem)
+  - [Control flow](#control-flow)
+  - [Streams](#streams)
+  - [Real-time](#real-time)
+  - [Image](#image)
+  - [Text](#text)
+  - [Number](#number)
+  - [Math](#math)
+  - [Date](#date)
+  - [URL](#url)
+  - [Data validation](#data-validation)
+  - [Parsing](#parsing)
+  - [Humanize](#humanize)
+  - [Compression](#compression)
+  - [Network](#network)
+  - [Database](#database)
+  - [Testing](#testing)
+  - [Security](#security)
+  - [Benchmarking](#benchmarking)
+  - [Minifiers](#minifiers)
+  - [Authentication](#authentication)
+  - [Authorization](#authorization)
+  - [Email](#email)
+  - [Job queues](#job-queues)
+  - [Node.js management](#nodejs-management)
+  - [Natural language processing](#natural-language-processing)
+  - [Process management](#process-management)
+  - [Automation](#automation)
+  - [AST](#ast)
+  - [Static site generators](#static-site-generators)
+  - [Content management systems](#content-management-systems)
+  - [Forum](#forum)
+  - [Blogging](#blogging)
+  - [Weird](#weird)
+  - [Serialization](#serialization)
+  - [Miscellaneous](#miscellaneous)
 - [Resources](#resources)
-	- [Tutorials](#tutorials)
-	- [Discovery](#discovery)
-	- [Articles](#articles)
-	- [Newsletters](#newsletters)
-	- [Videos](#videos)
-	- [Books](#books)
-	- [Blogs](#blogs)
-	- [Courses](#courses)
-	- [Cheatsheets](#cheatsheets)
-	- [Tools](#tools)
-	- [Community](#community)
-	- [Miscellaneous](#miscellaneous-1)
+  - [Tutorials](#tutorials)
+  - [Discovery](#discovery)
+  - [Articles](#articles)
+  - [Newsletters](#newsletters)
+  - [Videos](#videos)
+  - [Books](#books)
+  - [Blogs](#blogs)
+  - [Courses](#courses)
+  - [Cheatsheets](#cheatsheets)
+  - [Tools](#tools)
+  - [Community](#community)
+  - [Miscellaneous](#miscellaneous-1)
 - [Related lists](#related-lists)
 
 ## Official
@@ -303,7 +302,7 @@
 - [Express](https://github.com/expressjs/express) - Web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications.
 - [Feathers](https://github.com/feathersjs/feathers) - Microservice framework built in the spirit of Express.
 - [LoopBack](https://github.com/strongloop/loopback-next) - Powerful framework for creating REST APIs and easily connecting to backend data sources.
-- [Meteor](https://github.com/meteor/meteor) - An ultra-simple, database-everywhere, data-on-the-wire, pure-Javascript web framework. *(You might like [awesome-meteor](https://github.com/Urigo/awesome-meteor))*
+- [Meteor](https://github.com/meteor/meteor) - An ultra-simple, database-everywhere, data-on-the-wire, pure-Javascript web framework. _(You might like [awesome-meteor](https://github.com/Urigo/awesome-meteor))_
 - [Restify](https://github.com/restify/node-restify) - Enables you to build correct REST web services.
 - [ThinkJS](https://github.com/thinkjs/thinkjs) - Framework with ES2015+ support, WebSockets, REST API.
 - [ActionHero](https://github.com/actionhero/actionhero) - Framework for making reusable & scalable APIs for TCP sockets, WebSockets, and HTTP clients.
@@ -356,25 +355,25 @@
 ### Control flow
 
 - Promises
-	- [Bluebird](https://github.com/petkaantonov/bluebird) - Promise library with focus on innovative features and performance.
-	- [pify](https://github.com/sindresorhus/pify) - Promisify a callback-style function.
-	- [delay](https://github.com/sindresorhus/delay) - Delay a promise a specified amount of time.
-	- [promise-memoize](https://github.com/nodeca/promise-memoize) - Memoize promise-returning functions, with expire and prefetch.
-	- [valvelet](https://github.com/lpinca/valvelet) - Limit the execution rate of a promise-returning function.
-	- [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently.
-	- [More…](https://github.com/sindresorhus/promise-fun)
+  - [Bluebird](https://github.com/petkaantonov/bluebird) - Promise library with focus on innovative features and performance.
+  - [pify](https://github.com/sindresorhus/pify) - Promisify a callback-style function.
+  - [delay](https://github.com/sindresorhus/delay) - Delay a promise a specified amount of time.
+  - [promise-memoize](https://github.com/nodeca/promise-memoize) - Memoize promise-returning functions, with expire and prefetch.
+  - [valvelet](https://github.com/lpinca/valvelet) - Limit the execution rate of a promise-returning function.
+  - [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently.
+  - [More…](https://github.com/sindresorhus/promise-fun)
 - Observables
-	- [zen-observable](https://github.com/zenparsing/zen-observable) - Implementation of Observables.
-	- [RxJS](https://github.com/ReactiveX/RxJS) - Reactive programming.
-	- [observable-to-promise](https://github.com/sindresorhus/awesome-observables) - Convert an Observable to a Promise.
-	- [More…](https://github.com/sindresorhus/awesome-observables)
+  - [zen-observable](https://github.com/zenparsing/zen-observable) - Implementation of Observables.
+  - [RxJS](https://github.com/ReactiveX/RxJS) - Reactive programming.
+  - [observable-to-promise](https://github.com/sindresorhus/awesome-observables) - Convert an Observable to a Promise.
+  - [More…](https://github.com/sindresorhus/awesome-observables)
 - Streams
-	- [Highland.js](https://github.com/caolan/highland) - Manages synchronous and asynchronous code easily, using nothing more than standard JavaScript and Node-like Streams.
+  - [Highland.js](https://github.com/caolan/highland) - Manages synchronous and asynchronous code easily, using nothing more than standard JavaScript and Node-like Streams.
 - Callbacks
-	- [each-async](https://github.com/sindresorhus/each-async) - Async concurrent iterator like forEach.
-	- [async](https://github.com/caolan/async) - Provides straight-forward, powerful functions for working with asynchronicity.
+  - [each-async](https://github.com/sindresorhus/each-async) - Async concurrent iterator like forEach.
+  - [async](https://github.com/caolan/async) - Provides straight-forward, powerful functions for working with asynchronicity.
 - Channels
-	- [js-csp](https://github.com/ubolonton/js-csp) - Communicating sequential processes for JavaScript (like Clojurescript core.async, or Go).
+  - [js-csp](https://github.com/ubolonton/js-csp) - Communicating sequential processes for JavaScript (like Clojurescript core.async, or Go).
 
 ### Streams
 
@@ -537,38 +536,38 @@
 ### Database
 
 - Drivers
-	- [PostgreSQL](https://github.com/brianc/node-postgres) - PostgreSQL client. Pure JavaScript and native libpq bindings.
-	- [Redis](https://github.com/luin/ioredis) - Redis client.
-	- [LevelUP](https://github.com/Level/levelup) - LevelDB.
-	- [MySQL](https://github.com/mysqljs/mysql) - MySQL client.
-	- [couchdb-nano](https://github.com/apache/couchdb-nano) - CouchDB client.
-	- [Aerospike](https://github.com/aerospike/aerospike-client-nodejs) - Aerospike client.
-	- [Couchbase](https://github.com/couchbase/couchnode) - Couchbase client.
-	- [MongoDB](https://github.com/mongodb/node-mongodb-native) - MongoDB driver.
+  - [PostgreSQL](https://github.com/brianc/node-postgres) - PostgreSQL client. Pure JavaScript and native libpq bindings.
+  - [Redis](https://github.com/luin/ioredis) - Redis client.
+  - [LevelUP](https://github.com/Level/levelup) - LevelDB.
+  - [MySQL](https://github.com/mysqljs/mysql) - MySQL client.
+  - [couchdb-nano](https://github.com/apache/couchdb-nano) - CouchDB client.
+  - [Aerospike](https://github.com/aerospike/aerospike-client-nodejs) - Aerospike client.
+  - [Couchbase](https://github.com/couchbase/couchnode) - Couchbase client.
+  - [MongoDB](https://github.com/mongodb/node-mongodb-native) - MongoDB driver.
 - ODM / ORM
-	- [Sequelize](https://github.com/sequelize/sequelize) - Multi-dialect ORM. Supports PostgreSQL, SQLite, MySQL, and more.
-	- [Bookshelf](https://github.com/bookshelf/bookshelf) - ORM for PostgreSQL, MySQL and SQLite3 in the style of Backbone.js.
-	- [Massive](https://github.com/robconery/massive-js) - PostgreSQL data access tool.
-	- [Mongoose](https://github.com/Automattic/mongoose) - Elegant MongoDB object modeling.
-	- [Waterline](https://github.com/balderdashy/waterline) - Datastore-agnostic tool that dramatically simplifies interaction with one or more databases.
-	- [OpenRecord](https://github.com/PhilWaldmann/openrecord) - ORM for PostgreSQL, MySQL, SQLite3 and RESTful datastores. Similar to ActiveRecord.
-	- [pg-promise](https://github.com/vitaly-t/pg-promise) - PostgreSQL framework for native SQL using promises.
-	- [slonik](https://github.com/gajus/slonik) - PostgreSQL client with strict types, detailed logging and assertions.
-	- [Objection.js](https://github.com/Vincit/objection.js) - Lightweight ORM built on the SQL query builder Knex.
-	- [TypeORM](https://github.com/typeorm/typeorm) - ORM for PostgreSQL, MariaDB, MySQL, SQLite, and more.
-	- [MikroORM](https://github.com/mikro-orm/mikro-orm) - TypeScript ORM based on Data Mapper, Unit of Work and Identity Map patterns. Supports MongoDB, PostgreSQL, MySQL and SQLite.
-	- [Prisma](https://github.com/prisma/prisma) - Modern database access (ORM alternative). Auto-generated and type-safe query builder in TypeScript. Supports PostgreSQL, MySQL & SQLite.
+  - [Sequelize](https://github.com/sequelize/sequelize) - Multi-dialect ORM. Supports PostgreSQL, SQLite, MySQL, and more.
+  - [Bookshelf](https://github.com/bookshelf/bookshelf) - ORM for PostgreSQL, MySQL and SQLite3 in the style of Backbone.js.
+  - [Massive](https://github.com/robconery/massive-js) - PostgreSQL data access tool.
+  - [Mongoose](https://github.com/Automattic/mongoose) - Elegant MongoDB object modeling.
+  - [Waterline](https://github.com/balderdashy/waterline) - Datastore-agnostic tool that dramatically simplifies interaction with one or more databases.
+  - [OpenRecord](https://github.com/PhilWaldmann/openrecord) - ORM for PostgreSQL, MySQL, SQLite3 and RESTful datastores. Similar to ActiveRecord.
+  - [pg-promise](https://github.com/vitaly-t/pg-promise) - PostgreSQL framework for native SQL using promises.
+  - [slonik](https://github.com/gajus/slonik) - PostgreSQL client with strict types, detailed logging and assertions.
+  - [Objection.js](https://github.com/Vincit/objection.js) - Lightweight ORM built on the SQL query builder Knex.
+  - [TypeORM](https://github.com/typeorm/typeorm) - ORM for PostgreSQL, MariaDB, MySQL, SQLite, and more.
+  - [MikroORM](https://github.com/mikro-orm/mikro-orm) - TypeScript ORM based on Data Mapper, Unit of Work and Identity Map patterns. Supports MongoDB, PostgreSQL, MySQL and SQLite.
+  - [Prisma](https://github.com/prisma/prisma) - Modern database access (ORM alternative). Auto-generated and type-safe query builder in TypeScript. Supports PostgreSQL, MySQL & SQLite.
 - Query builder
-	- [Knex](https://github.com/tgriesser/knex) - Query builder for PostgreSQL, MySQL and SQLite3, designed to be flexible, portable, and fun to use.
+  - [Knex](https://github.com/tgriesser/knex) - Query builder for PostgreSQL, MySQL and SQLite3, designed to be flexible, portable, and fun to use.
 - Other
-	- [NeDB](https://github.com/louischatriot/nedb) - Embedded persistent database written in JavaScript.
-	- [Lowdb](https://github.com/typicode/lowdb) - Small JavaScript database powered by Lodash.
-	- [Keyv](https://github.com/lukechilds/keyv) - Simple key-value storage with support for multiple backends.
-	- [Finale](https://github.com/tommybananas/finale) - RESTful endpoint generator for your Sequelize models.
-	- [database-js](https://github.com/mlaanderson/database-js) - Wrapper for multiple databases with a JDBC-like connection.
-	- [Mongo Seeding](https://github.com/pkosiec/mongo-seeding) - Populate MongoDB databases with JavaScript and JSON files.
-	- [@databases](https://github.com/ForbesLindesay/atdatabases) - Query PostgreSQL, MySQL and SQLite3 with plain SQL without risking SQL injection.
-	- [pg-mem](https://github.com/oguimbal/pg-mem) - In-memory PostgreSQL instance for your tests.
+  - [NeDB](https://github.com/louischatriot/nedb) - Embedded persistent database written in JavaScript.
+  - [Lowdb](https://github.com/typicode/lowdb) - Small JavaScript database powered by Lodash.
+  - [Keyv](https://github.com/lukechilds/keyv) - Simple key-value storage with support for multiple backends.
+  - [Finale](https://github.com/tommybananas/finale) - RESTful endpoint generator for your Sequelize models.
+  - [database-js](https://github.com/mlaanderson/database-js) - Wrapper for multiple databases with a JDBC-like connection.
+  - [Mongo Seeding](https://github.com/pkosiec/mongo-seeding) - Populate MongoDB databases with JavaScript and JSON files.
+  - [@databases](https://github.com/ForbesLindesay/atdatabases) - Query PostgreSQL, MySQL and SQLite3 with plain SQL without risking SQL injection.
+  - [pg-mem](https://github.com/oguimbal/pg-mem) - In-memory PostgreSQL instance for your tests.
 
 ### Testing
 
@@ -738,7 +737,7 @@
 
 - [execa](https://github.com/sindresorhus/execa) - Better `child_process`.
 - [cheerio](https://github.com/cheeriojs/cheerio) - Fast, flexible, and lean implementation of core jQuery designed specifically for the server.
-- [Electron](https://github.com/atom/electron) - Build cross platform desktop apps with web technologies. *(You might like [awesome-electron](https://github.com/sindresorhus/awesome-electron))*
+- [Electron](https://github.com/atom/electron) - Build cross platform desktop apps with web technologies. _(You might like [awesome-electron](https://github.com/sindresorhus/awesome-electron))_
 - [open](https://github.com/sindresorhus/open) - Opens stuff like websites, files, executables.
 - [hasha](https://github.com/sindresorhus/hasha) - Hashing made simple. Get the hash of a buffer/string/stream/file.
 - [dot-prop](https://github.com/sindresorhus/dot-prop) - Get a property from a nested object using a dot path.
@@ -902,359 +901,350 @@
 - [awesome-npm](https://github.com/sindresorhus/awesome-npm) - Resources and tips for using npm.
 - [awesome-cross-platform-nodejs](https://github.com/bcoe/awesome-cross-platform-nodejs) - Resources for writing and testing cross-platform code.
 
-
----
----
----
 ---
 
+---
+
+---
+
+---
 
 ## Articles
 
-* [One-line node modules](https://github.com/sindresorhus/ama/issues/10)
-* [Build small single purpose modules](http://thenodeway.io/introduction/#build-small-single-purpose-modules)
-* [Module best practices](https://github.com/mattdesl/module-best-practices)
-* [Evaluating Packages Part 1 - Turn to community](http://bytearcher.com/articles/evaluating-packages-1-check-community/) 
-* [Evaluating Packages Part 2 - Review repository](http://bytearcher.com/articles/evaluating-packages-2-review-repository/)
-* [Small modules: it’s not quite that simple](https://medium.com/@Rich_Harris/small-modules-it-s-not-quite-that-simple-3ca532d65de4)
-* [In Defense of Hyper Modular JavaScript](https://medium.freecodecamp.com/in-defense-of-hyper-modular-javascript-33934c79e113)
-* [Tiny npm package: Guidelines to create a Node.js module following the small package philosophy](http://g14n.info/2015/12/tiny-npm-package/)
-* [The cost of small modules](https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/)
-* [Why I think "micro-packages" are a good thing.](http://codetunnel.io/why-i-think-micro-packages-are-a-good-thing/)
+- [One-line node modules](https://github.com/sindresorhus/ama/issues/10)
+- [Build small single purpose modules](http://thenodeway.io/introduction/#build-small-single-purpose-modules)
+- [Module best practices](https://github.com/mattdesl/module-best-practices)
+- [Evaluating Packages Part 1 - Turn to community](http://bytearcher.com/articles/evaluating-packages-1-check-community/)
+- [Evaluating Packages Part 2 - Review repository](http://bytearcher.com/articles/evaluating-packages-2-review-repository/)
+- [Small modules: it’s not quite that simple](https://medium.com/@Rich_Harris/small-modules-it-s-not-quite-that-simple-3ca532d65de4)
+- [In Defense of Hyper Modular JavaScript](https://medium.freecodecamp.com/in-defense-of-hyper-modular-javascript-33934c79e113)
+- [Tiny npm package: Guidelines to create a Node.js module following the small package philosophy](http://g14n.info/2015/12/tiny-npm-package/)
+- [The cost of small modules](https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/)
+- [Why I think "micro-packages" are a good thing.](http://codetunnel.io/why-i-think-micro-packages-are-a-good-thing/)
 
 ## Modules
 
 ### Array
 
-* [is-sorted](https://github.com/dcousens/is-sorted) - A small module to check if an Array is sorted.
-* [array-first](https://github.com/jonschlinkert/array-first) - Get the first element or first n elements of an array.
-* [array-last](https://github.com/jonschlinkert/array-last) - Return the last element in an array.
-* [arr-flatten](https://github.com/jonschlinkert/arr-flatten) - Recursively flatten an array or arrays.
-* [dedupe](https://github.com/seriousManual/dedupe) - Remove duplicates from an array.
-* [array-range](https://github.com/mattdesl/array-range) - Creates a new array with given range.
-* [arr-diff](https://github.com/jonschlinkert/arr-diff) - Returns an array with only the unique values from the first array, by excluding all values from additional arrays using strict equality for comparisons.
-* [filled-array](https://github.com/sindresorhus/filled-array) - Returns an array filled with the specified input
-* [map-array](https://github.com/parro-it/map-array) - Map object keys and values into an array.
-* [in-array](https://github.com/jonschlinkert/in-array) - Return true if any of passed values exists in array - faster than using indexOf.
-* [unordered-array-remove](https://github.com/mafintosh/unordered-array-remove) - Efficiently remove an element from an unordered array without doing a splice.
-* [array-swap](https://github.com/michaelzoidl/swap-array) - Swap position of two items in an array.
-* [mirrarray](https://github.com/johnwquarles/mirrarray) - Creates a keymirror object from an array of valid keys.
-* [group-array](https://github.com/doowb/group-array) - Group array of objects into lists.
-* [array.chunk](https://github.com/zhiyelee/array.chunk) - Split array/TypedArray to chunks of given size.
+- [is-sorted](https://github.com/dcousens/is-sorted) - A small module to check if an Array is sorted.
+- [array-first](https://github.com/jonschlinkert/array-first) - Get the first element or first n elements of an array.
+- [array-last](https://github.com/jonschlinkert/array-last) - Return the last element in an array.
+- [arr-flatten](https://github.com/jonschlinkert/arr-flatten) - Recursively flatten an array or arrays.
+- [dedupe](https://github.com/seriousManual/dedupe) - Remove duplicates from an array.
+- [array-range](https://github.com/mattdesl/array-range) - Creates a new array with given range.
+- [arr-diff](https://github.com/jonschlinkert/arr-diff) - Returns an array with only the unique values from the first array, by excluding all values from additional arrays using strict equality for comparisons.
+- [filled-array](https://github.com/sindresorhus/filled-array) - Returns an array filled with the specified input
+- [map-array](https://github.com/parro-it/map-array) - Map object keys and values into an array.
+- [in-array](https://github.com/jonschlinkert/in-array) - Return true if any of passed values exists in array - faster than using indexOf.
+- [unordered-array-remove](https://github.com/mafintosh/unordered-array-remove) - Efficiently remove an element from an unordered array without doing a splice.
+- [array-swap](https://github.com/michaelzoidl/swap-array) - Swap position of two items in an array.
+- [mirrarray](https://github.com/johnwquarles/mirrarray) - Creates a keymirror object from an array of valid keys.
+- [group-array](https://github.com/doowb/group-array) - Group array of objects into lists.
+- [array.chunk](https://github.com/zhiyelee/array.chunk) - Split array/TypedArray to chunks of given size.
 
 ### String
 
-* [decamelize](https://github.com/sindresorhus/decamelize) - Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow.
-* [pad-left](https://github.com/jonschlinkert/pad-left) - Left pad a string with zeros or a specified string.
-* [to-camel-case](https://github.com/ianstormtaylor/to-camel-case) - Convert a string to a camel case.
-* [to-capital-case](https://github.com/ianstormtaylor/to-capital-case) - Convert a string to a capital case.
-* [to-constant-case](https://github.com/ianstormtaylor/to-constant-case) - Convert a string to a constant case.
-* [to-dot-case](https://github.com/ianstormtaylor/to-dot-case) - Convert a string to a dot case.
-* [to-no-case](https://github.com/ianstormtaylor/to-no-case) - Remove an existing case from a string.
-* [to-pascal-case](https://github.com/ianstormtaylor/to-pascal-case) - Convert a string to a pascal case.
-* [to-sentence-case](https://github.com/ianstormtaylor/to-sentence-case) - Convert a string to a sentence case.
-* [to-snake-case](https://github.com/ianstormtaylor/to-snake-case) - Convert a string to a snake case.
-* [to-space-case](https://github.com/ianstormtaylor/to-space-case) - Convert a string to a space case.
-* [to-title-case](https://github.com/ianstormtaylor/to-title-case) - Convert a string to a title case.
-* [node-slug](https://github.com/dodo/node-slug) - slugifies even utf-8 chars.
-* [rtrim](https://github.com/sergejmueller/rtrim) - Strip whitespace - or other characters - from the end of a string.
-* [slice.js](https://github.com/hustcc/slice.js) - Javascript library to enhance String.substring / Array.slice with python slice style.
-* [strip-ansi](https://github.com/chalk/strip-ansi) - Strip ANSI escape codes.
-* [striptags](https://github.com/ericnorris/striptags) - An implementation of PHP's strip_tags in Node.js.
-* [parse-next-json-value](https://github.com/ErikOnBike/parse-next-json-value) - Parse next JSON value from string allowing extraneous characters after value.
-* [pluralize](https://github.com/DaniAkash/pluralizer) - A very tiny library to pluralize words
-
+- [decamelize](https://github.com/sindresorhus/decamelize) - Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow.
+- [pad-left](https://github.com/jonschlinkert/pad-left) - Left pad a string with zeros or a specified string.
+- [to-camel-case](https://github.com/ianstormtaylor/to-camel-case) - Convert a string to a camel case.
+- [to-capital-case](https://github.com/ianstormtaylor/to-capital-case) - Convert a string to a capital case.
+- [to-constant-case](https://github.com/ianstormtaylor/to-constant-case) - Convert a string to a constant case.
+- [to-dot-case](https://github.com/ianstormtaylor/to-dot-case) - Convert a string to a dot case.
+- [to-no-case](https://github.com/ianstormtaylor/to-no-case) - Remove an existing case from a string.
+- [to-pascal-case](https://github.com/ianstormtaylor/to-pascal-case) - Convert a string to a pascal case.
+- [to-sentence-case](https://github.com/ianstormtaylor/to-sentence-case) - Convert a string to a sentence case.
+- [to-snake-case](https://github.com/ianstormtaylor/to-snake-case) - Convert a string to a snake case.
+- [to-space-case](https://github.com/ianstormtaylor/to-space-case) - Convert a string to a space case.
+- [to-title-case](https://github.com/ianstormtaylor/to-title-case) - Convert a string to a title case.
+- [node-slug](https://github.com/dodo/node-slug) - slugifies even utf-8 chars.
+- [rtrim](https://github.com/sergejmueller/rtrim) - Strip whitespace - or other characters - from the end of a string.
+- [slice.js](https://github.com/hustcc/slice.js) - Javascript library to enhance String.substring / Array.slice with python slice style.
+- [strip-ansi](https://github.com/chalk/strip-ansi) - Strip ANSI escape codes.
+- [striptags](https://github.com/ericnorris/striptags) - An implementation of PHP's strip_tags in Node.js.
+- [parse-next-json-value](https://github.com/ErikOnBike/parse-next-json-value) - Parse next JSON value from string allowing extraneous characters after value.
+- [pluralize](https://github.com/DaniAkash/pluralizer) - A very tiny library to pluralize words
 
 ### Date & Time
 
-* [pretty-ms](https://github.com/sindresorhus/pretty-ms) - Convert milliseconds to a human readable string: 1337000000 → 15d 11h 23m 20s.
-* [hirestime](https://github.com/seriousManual/hirestime) - A wrapper around the built-in high resolution timer which simplifies the calculation of timestamps.
-* [periods](https://github.com/timruffles/periods) - Defined time-periods constants for Javascript, in milliseconds.
-* [fecha](https://github.com/taylorhakes/fecha) - Javascript Date formatting and parsing.
-* [akamai-time-reference](https://github.com/jucrouzet/akamai-time-reference) - Get reference time using Akamai's time reference service.
-* [timeago.js](https://github.com/hustcc/timeago.js) - A tiny(~1.7kb) library used to format date with `*** time ago` statement.
-* [count-days-in-month](https://github.com/shinnn/count-days-in-month) - Get the number of days in a given month.
-* [time-stamp](https://github.com/jonschlinkert/time-stamp) - Get a formatted timestamp.
-* [twas](https://github.com/vutran/twas) - Generate a relative time string (Example: "3 seconds ago")
+- [pretty-ms](https://github.com/sindresorhus/pretty-ms) - Convert milliseconds to a human readable string: 1337000000 → 15d 11h 23m 20s.
+- [hirestime](https://github.com/seriousManual/hirestime) - A wrapper around the built-in high resolution timer which simplifies the calculation of timestamps.
+- [periods](https://github.com/timruffles/periods) - Defined time-periods constants for Javascript, in milliseconds.
+- [fecha](https://github.com/taylorhakes/fecha) - Javascript Date formatting and parsing.
+- [akamai-time-reference](https://github.com/jucrouzet/akamai-time-reference) - Get reference time using Akamai's time reference service.
+- [timeago.js](https://github.com/hustcc/timeago.js) - A tiny(~1.7kb) library used to format date with `*** time ago` statement.
+- [count-days-in-month](https://github.com/shinnn/count-days-in-month) - Get the number of days in a given month.
+- [time-stamp](https://github.com/jonschlinkert/time-stamp) - Get a formatted timestamp.
+- [twas](https://github.com/vutran/twas) - Generate a relative time string (Example: "3 seconds ago")
 
 ### Object
 
-* [map-obj](https://github.com/sindresorhus/map-obj) - Map object keys and values into a new object.
-* [filter-obj](https://github.com/sindresorhus/filter-obj) - Filter object keys and values into a new object.
-* [object-values](https://github.com/sindresorhus/object-values) - Get the values of an object.
-* [object-pairs](https://github.com/eush77/object-pairs) - Turn an object into list of [key, value] pairs for mapping, iterating or other purposes.
-* [zipmap](https://github.com/landau/zipmap) - Returns a map with the keys mapped to the corresponding vals. zipmap also accepts a single value of objects or pairs.
-* [just-pluck](https://github.com/jarofghosts/just-pluck) - Pluck without the madness.
-* [deep-equal](https://github.com/substack/node-deep-equal) - Node's assert.deepEqual() algorithm as a standalone module.
-* [deep-assign](https://github.com/sindresorhus/deep-assign) - Recursive Object.assign().
-* [set-value](https://github.com/jonschlinkert/set-value) - Create nested values and any intermediaries dot notation (`'a.b.c'`) paths.
-* [get-value](https://github.com/jonschlinkert/get-value) - Use property paths (a.b.c) to get a nested value from an object.
-* [has-value](https://github.com/jonschlinkert/has-value) - Returns true if a value exists, false if empty. Works with deeply nested values using dot notation (`'a.b.c'`) paths.
-* [has-key-deep](https://github.com/ryanaghdam/has-key-deep) - Deep-search objects for keys. Keys can be searched by providing an array of keys, or using a dot-notiation.
-* [flatkeys](https://github.com/ricardobeat/flatkeys) - Flatten object key hierarchies into a list of strings using a custom separator.
-* [flatten-obj](https://github.com/watson/flatten-obj) - Converts an object literal with deeply nested nodes to a simple key/value object.
-* [is-empty-object](https://github.com/gummesson/is-empty-object) - Check if an object is empty.
-* [stringify-object](https://github.com/yeoman/stringify-object) - Stringify an object/array like JSON.stringify just without all the double-quotes.
-* [sorted-object](https://github.com/domenic/sorted-object) - Returns a copy of an object with its keys sorted.
-* [static-props](https://github.com/fibo/static-props) - Defines static object attributes using `Object.defineProperties`
-* [missing-deep-keys](https://github.com/vladgolubev/missing-deep-keys) - Returns an array of keys from first object that are missing in second.
-* [has-own-property](https://github.com/LinusU/has-own-property) - Check if an object has a local property. 
-* [merge-objects](https://github.com/shevaroller/node-merge-objects) - Deep-merge two objects. Arrays that are values of the same object key get concatenated.
-* [deep-object-diff](https://github.com/mattphillips/deep-object-diff) - Deep diff two JavaScript Objects while preserving the data structure. Including nested structures of Arrays and Objects.
+- [map-obj](https://github.com/sindresorhus/map-obj) - Map object keys and values into a new object.
+- [filter-obj](https://github.com/sindresorhus/filter-obj) - Filter object keys and values into a new object.
+- [object-values](https://github.com/sindresorhus/object-values) - Get the values of an object.
+- [object-pairs](https://github.com/eush77/object-pairs) - Turn an object into list of [key, value] pairs for mapping, iterating or other purposes.
+- [zipmap](https://github.com/landau/zipmap) - Returns a map with the keys mapped to the corresponding vals. zipmap also accepts a single value of objects or pairs.
+- [just-pluck](https://github.com/jarofghosts/just-pluck) - Pluck without the madness.
+- [deep-equal](https://github.com/substack/node-deep-equal) - Node's assert.deepEqual() algorithm as a standalone module.
+- [deep-assign](https://github.com/sindresorhus/deep-assign) - Recursive Object.assign().
+- [set-value](https://github.com/jonschlinkert/set-value) - Create nested values and any intermediaries dot notation (`'a.b.c'`) paths.
+- [get-value](https://github.com/jonschlinkert/get-value) - Use property paths (a.b.c) to get a nested value from an object.
+- [has-value](https://github.com/jonschlinkert/has-value) - Returns true if a value exists, false if empty. Works with deeply nested values using dot notation (`'a.b.c'`) paths.
+- [has-key-deep](https://github.com/ryanaghdam/has-key-deep) - Deep-search objects for keys. Keys can be searched by providing an array of keys, or using a dot-notiation.
+- [flatkeys](https://github.com/ricardobeat/flatkeys) - Flatten object key hierarchies into a list of strings using a custom separator.
+- [flatten-obj](https://github.com/watson/flatten-obj) - Converts an object literal with deeply nested nodes to a simple key/value object.
+- [is-empty-object](https://github.com/gummesson/is-empty-object) - Check if an object is empty.
+- [stringify-object](https://github.com/yeoman/stringify-object) - Stringify an object/array like JSON.stringify just without all the double-quotes.
+- [sorted-object](https://github.com/domenic/sorted-object) - Returns a copy of an object with its keys sorted.
+- [static-props](https://github.com/fibo/static-props) - Defines static object attributes using `Object.defineProperties`
+- [missing-deep-keys](https://github.com/vladgolubev/missing-deep-keys) - Returns an array of keys from first object that are missing in second.
+- [has-own-property](https://github.com/LinusU/has-own-property) - Check if an object has a local property.
+- [merge-objects](https://github.com/shevaroller/node-merge-objects) - Deep-merge two objects. Arrays that are values of the same object key get concatenated.
+- [deep-object-diff](https://github.com/mattphillips/deep-object-diff) - Deep diff two JavaScript Objects while preserving the data structure. Including nested structures of Arrays and Objects.
 
 ### Function
 
-* [compose-function](https://github.com/stoeffel/compose-function) - Compose a new function from smaller functions `f(g(x))`.
-* [curry](https://github.com/dominictarr/curry) - A curry function without anything too clever.
-* [once](https://github.com/isaacs/once) - Run a function exactly one time.
-* [deep-bind](https://github.com/jonschlinkert/deep-bind) - Bind a context to all functions in an object, including deeply nested functions.
-* [identity-function](https://github.com/substack/identity-function) - Always return the input argument. 
-* [mem](https://github.com/sindresorhus/mem) - An optimization technique used to speed up consecutive function calls by caching the result of calls with identical input.
-* [throttle-debounce](https://github.com/niksy/throttle-debounce) - Throttle/debounce your functions.
-* [compose-tiny](https://github.com/hipstersmoothie/compose-tiny) - A very tiny and fast compose function.
+- [compose-function](https://github.com/stoeffel/compose-function) - Compose a new function from smaller functions `f(g(x))`.
+- [curry](https://github.com/dominictarr/curry) - A curry function without anything too clever.
+- [once](https://github.com/isaacs/once) - Run a function exactly one time.
+- [deep-bind](https://github.com/jonschlinkert/deep-bind) - Bind a context to all functions in an object, including deeply nested functions.
+- [identity-function](https://github.com/substack/identity-function) - Always return the input argument.
+- [mem](https://github.com/sindresorhus/mem) - An optimization technique used to speed up consecutive function calls by caching the result of calls with identical input.
+- [throttle-debounce](https://github.com/niksy/throttle-debounce) - Throttle/debounce your functions.
+- [compose-tiny](https://github.com/hipstersmoothie/compose-tiny) - A very tiny and fast compose function.
 
 ### Math
 
-* [is-even](https://github.com/jonschlinkert/is-even) - A good way to tell if a number is even or not (avoids type issues). Uses `is-odd` and `is-number` under the hood.
-* [is-number](https://github.com/jonschlinkert/is-number) - Returns `true` if the value is a number.
-* [is-odd](https://github.com/jonschlinkert/is-odd) - A good way to tell if a number is odd or not (avoids type issues). Uses `is-number` under the hood.
-* [easy-math.js](https://github.com/kingzez/easy-math.js) - A tiny easy math library including addition, multiplication, subtraction, and division.
-* [my-prime](https://github.com/jinnatul/my-prime) - A good way to tell if a number is prime or not.
-* [fun-gcd](https://github.com/zubayerhimel/fun-gcd) - A tiny math library to get gcd of two numbers using Euclidean algorithm
+- [is-even](https://github.com/jonschlinkert/is-even) - A good way to tell if a number is even or not (avoids type issues). Uses `is-odd` and `is-number` under the hood.
+- [is-number](https://github.com/jonschlinkert/is-number) - Returns `true` if the value is a number.
+- [is-odd](https://github.com/jonschlinkert/is-odd) - A good way to tell if a number is odd or not (avoids type issues). Uses `is-number` under the hood.
+- [easy-math.js](https://github.com/kingzez/easy-math.js) - A tiny easy math library including addition, multiplication, subtraction, and division.
+- [my-prime](https://github.com/jinnatul/my-prime) - A good way to tell if a number is prime or not.
+- [fun-gcd](https://github.com/zubayerhimel/fun-gcd) - A tiny math library to get gcd of two numbers using Euclidean algorithm
 
 ### Stream
-* [through2](https://github.com/rvagg/through2) - Tiny wrapper around Node streams2 Transform to avoid explicit subclassing noise.
-* [through2-filter](https://github.com/brycebaril/through2-filter) - A through2 to create an Array.prototype.filter analog for streams.
-* [through2-map](https://github.com/brycebaril/through2-map) - A through2 to create an Array.prototype.map analog for streams.
-* [stream-spigot](https://github.com/brycebaril/node-stream-spigot) - A readable stream generator, useful for testing or converting simple functions into Readable streams.
-* [concat-stream](https://github.com/maxogden/concat-stream) - writable stream that concatenates strings or data and calls a callback with the result.
-* [JSONStream](https://github.com/dominictarr/JSONStream) - streaming JSON.parse and stringify
-* [through2-map-promise](https://github.com/RangerMauve/through2-map-promise) - A small promise-based wrapper for through2.
-* [pump](https://github.com/mafintosh/pump) - pipe streams together and close all of them if one of them closes.
-* [split](https://github.com/dominictarr/split) - Break up a stream and reassemble it so that each line is a chunk.
-* [is-stream](https://github.com/sindresorhus/is-stream) - Check if something is a Node.js stream.
-* [syncthrough](https://github.com/mcollina/syncthrough) - Transform your data as it pass by, synchronously.
 
+- [through2](https://github.com/rvagg/through2) - Tiny wrapper around Node streams2 Transform to avoid explicit subclassing noise.
+- [through2-filter](https://github.com/brycebaril/through2-filter) - A through2 to create an Array.prototype.filter analog for streams.
+- [through2-map](https://github.com/brycebaril/through2-map) - A through2 to create an Array.prototype.map analog for streams.
+- [stream-spigot](https://github.com/brycebaril/node-stream-spigot) - A readable stream generator, useful for testing or converting simple functions into Readable streams.
+- [concat-stream](https://github.com/maxogden/concat-stream) - writable stream that concatenates strings or data and calls a callback with the result.
+- [JSONStream](https://github.com/dominictarr/JSONStream) - streaming JSON.parse and stringify
+- [through2-map-promise](https://github.com/RangerMauve/through2-map-promise) - A small promise-based wrapper for through2.
+- [pump](https://github.com/mafintosh/pump) - pipe streams together and close all of them if one of them closes.
+- [split](https://github.com/dominictarr/split) - Break up a stream and reassemble it so that each line is a chunk.
+- [is-stream](https://github.com/sindresorhus/is-stream) - Check if something is a Node.js stream.
+- [syncthrough](https://github.com/mcollina/syncthrough) - Transform your data as it pass by, synchronously.
 
 ### Promise
 
-* [pify](https://github.com/sindresorhus/pify) - Promisify a callback-style function.
-* [promise-all-props](https://github.com/Siilwyn/promise-all-props) - Like `Promise.all` but for object properties.
-* [sleep-promise](https://github.com/brummelte/sleep-promise) - Resolves a promise after a specified delay.
-* [is-promise](https://github.com/then/is-promise) - Test whether an object looks like a promises-a+ promise.
+- [pify](https://github.com/sindresorhus/pify) - Promisify a callback-style function.
+- [promise-all-props](https://github.com/Siilwyn/promise-all-props) - Like `Promise.all` but for object properties.
+- [sleep-promise](https://github.com/brummelte/sleep-promise) - Resolves a promise after a specified delay.
+- [is-promise](https://github.com/then/is-promise) - Test whether an object looks like a promises-a+ promise.
 
 ### File System
 
-* [rimraf](https://github.com/isaacs/rimraf) - A deep deletion module for node (like rm -rf).
-* [mkdirp](https://github.com/substack/node-mkdirp) - Recursively mkdir, like mkdir -p.
-* [du](https://github.com/rvagg/node-du) - A simple JavaScript implementation of du -sb.
-* [file-size](https://github.com/Nijikokun/file-size) - Lightweight filesize to human-readable / proportions w/o dependencies.
-* [tmp](https://github.com/raszi/node-tmp) - Temporary file and directory creator for node.js.
-* [fs-promise](https://github.com/kevinbeaty/fs-promise) - Node fs methods as Promise/A+ (optional fs-extra, graceful-fs).
-* [read-git-user](https://github.com/RocktimSaikia/read-git-user) - Reads the username and email from `.gitconfig` :wrench: and returns it as json object.
+- [rimraf](https://github.com/isaacs/rimraf) - A deep deletion module for node (like rm -rf).
+- [mkdirp](https://github.com/substack/node-mkdirp) - Recursively mkdir, like mkdir -p.
+- [du](https://github.com/rvagg/node-du) - A simple JavaScript implementation of du -sb.
+- [file-size](https://github.com/Nijikokun/file-size) - Lightweight filesize to human-readable / proportions w/o dependencies.
+- [tmp](https://github.com/raszi/node-tmp) - Temporary file and directory creator for node.js.
+- [fs-promise](https://github.com/kevinbeaty/fs-promise) - Node fs methods as Promise/A+ (optional fs-extra, graceful-fs).
+- [read-git-user](https://github.com/RocktimSaikia/read-git-user) - Reads the username and email from `.gitconfig` :wrench: and returns it as json object.
 
 ### Browser
 
-* [delegate](https://github.com/zenorocha/delegate) - Lightweight event delegation.
-* [insert-css](https://github.com/substack/insert-css) - Insert a string of css into the head
-* [dom-element-value](https://github.com/crysalead-js/dom-element-value) - DOM element value getter/setter.
-* [image-promise](https://github.com/bfred-it/image-promise) - Load one or more `<img>`s in a Promise.
-* [get-media-size](https://github.com/bfred-it/get-media-size) - Get the original size of any `img`/`video`/`svg`/`canvas` tags or canvas context.
-* [document-ready](https://github.com/bendrucker/document-ready) - Document ready listener for modern browsers.
-* [copee](https://github.com/styfle/copee) - Copy text from browser to clipboard...natively!
+- [delegate](https://github.com/zenorocha/delegate) - Lightweight event delegation.
+- [insert-css](https://github.com/substack/insert-css) - Insert a string of css into the head
+- [dom-element-value](https://github.com/crysalead-js/dom-element-value) - DOM element value getter/setter.
+- [image-promise](https://github.com/bfred-it/image-promise) - Load one or more `<img>`s in a Promise.
+- [get-media-size](https://github.com/bfred-it/get-media-size) - Get the original size of any `img`/`video`/`svg`/`canvas` tags or canvas context.
+- [document-ready](https://github.com/bendrucker/document-ready) - Document ready listener for modern browsers.
+- [copee](https://github.com/styfle/copee) - Copy text from browser to clipboard...natively!
 
 ### Semver
 
-* [semver](https://github.com/npm/node-semver) - The semantic version parser used by npm.
-* [semver-max](https://github.com/eush77/semver-max) - Find maximum (or minimum) version according to semver.
-* [semver-first-satisfied](https://github.com/parro-it/semver-first-satisfied) - Find minimum in an array of version that satisfies a semver range.
-
-
+- [semver](https://github.com/npm/node-semver) - The semantic version parser used by npm.
+- [semver-max](https://github.com/eush77/semver-max) - Find maximum (or minimum) version according to semver.
+- [semver-first-satisfied](https://github.com/parro-it/semver-first-satisfied) - Find minimum in an array of version that satisfies a semver range.
 
 ### CLI
 
-* [abbrev](https://github.com/isaacs/abbrev-js) - Calculate the set of unique abbreviations for a given set of strings.
-* [glob](https://github.com/isaacs/node-glob) - Glob functionality for node.js.
-* [username](https://github.com/sindresorhus/username) - Get the username of the current user.
-* [minimist](https://github.com/substack/minimist) - Parse argument options.
-* [png-to-ico](https://github.com/steambap/png-to-ico) - Convert png to windows ico format.
-* [help-version](https://github.com/eush77/help-version) - Easily handle --help and --version arguments in your CLI application
+- [abbrev](https://github.com/isaacs/abbrev-js) - Calculate the set of unique abbreviations for a given set of strings.
+- [glob](https://github.com/isaacs/node-glob) - Glob functionality for node.js.
+- [username](https://github.com/sindresorhus/username) - Get the username of the current user.
+- [minimist](https://github.com/substack/minimist) - Parse argument options.
+- [png-to-ico](https://github.com/steambap/png-to-ico) - Convert png to windows ico format.
+- [help-version](https://github.com/eush77/help-version) - Easily handle --help and --version arguments in your CLI application
 
 ### Module management
 
-* [pkg-conf](https://github.com/sindresorhus/pkg-conf) - Get namespaced config from the closest package.json.
-* [normalize-pkg](https://github.com/jonschlinkert/normalize-pkg) - Normalize values in package.json to improve compatibility, programmatic readability and usefulness with third party libs.
+- [pkg-conf](https://github.com/sindresorhus/pkg-conf) - Get namespaced config from the closest package.json.
+- [normalize-pkg](https://github.com/jonschlinkert/normalize-pkg) - Normalize values in package.json to improve compatibility, programmatic readability and usefulness with third party libs.
 
 ### Generators
 
-* [is-generator](https://github.com/blakeembrey/is-generator) - Check whether a given value is a generator function.
+- [is-generator](https://github.com/blakeembrey/is-generator) - Check whether a given value is a generator function.
 
 ### Other
 
-* [uuid](https://github.com/kelektiv/node-uuid) - Generate RFC-compliant UUIDs in JavaScript.
-* [node-mime](https://github.com/broofa/node-mime) - Comprehensive MIME type mapping API based on mime-db module.
-* [not-defined](https://github.com/fibo/not-defined) - Checks if foo is not defined, i.e. undefined, null, an empty string, array or object.
-* [is-fqdn](https://github.com/parro-it/is-fqdn) - Check if a string represent a fully qualified domain name.
-* [shurley](https://github.com/BrunoBernardino/shurley) - Parses URLs from user input (with potential typos in protocols, bad copy+paste, etc.) and returns a proper URL.
-* [mime-type-check](https://github.com/RocktimSaikia/mime-type-check) - Get the MIME type of a file by its extension.
+- [uuid](https://github.com/kelektiv/node-uuid) - Generate RFC-compliant UUIDs in JavaScript.
+- [node-mime](https://github.com/broofa/node-mime) - Comprehensive MIME type mapping API based on mime-db module.
+- [not-defined](https://github.com/fibo/not-defined) - Checks if foo is not defined, i.e. undefined, null, an empty string, array or object.
+- [is-fqdn](https://github.com/parro-it/is-fqdn) - Check if a string represent a fully qualified domain name.
+- [shurley](https://github.com/BrunoBernardino/shurley) - Parses URLs from user input (with potential typos in protocols, bad copy+paste, etc.) and returns a proper URL.
+- [mime-type-check](https://github.com/RocktimSaikia/mime-type-check) - Get the MIME type of a file by its extension.
 
 ## Related lists
 
 This section contains awesome lists that you may find useful if you use or write small NPM modules.
 
-* [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs) - A curated list of delightful Node.js packages and resources.
-* [awesome-npm](https://github.com/sindresorhus/awesome-npm) - Awesome npm resources and tips.
+- [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs) - A curated list of delightful Node.js packages and resources.
+- [awesome-npm](https://github.com/sindresorhus/awesome-npm) - Awesome npm resources and tips.
 
 ## Small modules rockstars to follow
 
 These people are used to develop awesome NPM modules that follows the single responsibility philosophy.
 Follow them to discover new great modules:
 
-[![Sindre Sorhus](https://avatars.githubusercontent.com/u/170270?s=130)](https://github.com/sindresorhus) | [![James Halliday](https://avatars1.githubusercontent.com/u/12631?s=130)](https://github.com/substack) | [![Eugene Sharygin](https://avatars3.githubusercontent.com/u/4472489?s=130)](https://github.com/eush77) | [![Isaac Z. Schlueter](https://avatars3.githubusercontent.com/u/9287?s=130)](https://github.com/isaacs) | [![Jon Schlinkert](https://avatars1.githubusercontent.com/u/383994?s=130)](https://github.com/jonschlinkert) | [![Dominic Tarr](https://avatars3.githubusercontent.com/u/259374?s=130)](https://github.com/dominictarr)
----|---|---|---|---|---
-[Sindre Sorhus](https://github.com/sindresorhus) | [James Halliday](https://github.com/substack) | [Eugene Sharygin](https://github.com/eush77) | [Isaac Z. Schlueter](https://github.com/isaacs) | [Jon Schlinkert](https://github.com/jonschlinkert) | [Dominic Tarr](https://github.com/dominictarr)
+| [![Sindre Sorhus](https://avatars.githubusercontent.com/u/170270?s=130)](https://github.com/sindresorhus) | [![James Halliday](https://avatars1.githubusercontent.com/u/12631?s=130)](https://github.com/substack) | [![Eugene Sharygin](https://avatars3.githubusercontent.com/u/4472489?s=130)](https://github.com/eush77) | [![Isaac Z. Schlueter](https://avatars3.githubusercontent.com/u/9287?s=130)](https://github.com/isaacs) | [![Jon Schlinkert](https://avatars1.githubusercontent.com/u/383994?s=130)](https://github.com/jonschlinkert) | [![Dominic Tarr](https://avatars3.githubusercontent.com/u/259374?s=130)](https://github.com/dominictarr) |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| [Sindre Sorhus](https://github.com/sindresorhus)                                                          | [James Halliday](https://github.com/substack)                                                          | [Eugene Sharygin](https://github.com/eush77)                                                            | [Isaac Z. Schlueter](https://github.com/isaacs)                                                         | [Jon Schlinkert](https://github.com/jonschlinkert)                                                           | [Dominic Tarr](https://github.com/dominictarr)                                                           |
 
-[![Rod Vagg](https://avatars0.githubusercontent.com/u/495647?s=130)](https://github.com/rvagg) | [![Max Ogden](https://avatars3.githubusercontent.com/u/39759?s=130)](https://github.com/maxogden) | [![Brian Woodward](https://avatars1.githubusercontent.com/u/995160?s=130)](https://github.com/doowb)
----|---|---
-[Rod Vagg](https://github.com/rvagg) | [Max Ogden](https://github.com/maxogden) | [Brian Woodward](https://github.com/doowb)
+| [![Rod Vagg](https://avatars0.githubusercontent.com/u/495647?s=130)](https://github.com/rvagg) | [![Max Ogden](https://avatars3.githubusercontent.com/u/39759?s=130)](https://github.com/maxogden) | [![Brian Woodward](https://avatars1.githubusercontent.com/u/995160?s=130)](https://github.com/doowb) |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [Rod Vagg](https://github.com/rvagg)                                                           | [Max Ogden](https://github.com/maxogden)                                                          | [Brian Woodward](https://github.com/doowb)                                                           |
 
+## ---Contents
 
----Contents
---------
+- [Articles](https://project-awesome.org/sindresorhus/awesome-npm#articles)
+- [Tools](https://project-awesome.org/sindresorhus/awesome-npm#tools)
+- [Packages](https://project-awesome.org/sindresorhus/awesome-npm#packages)
+- [Clients](https://project-awesome.org/sindresorhus/awesome-npm#clients)
+- [Tips](https://project-awesome.org/sindresorhus/awesome-npm#tips)
+- [FAQ](https://project-awesome.org/sindresorhus/awesome-npm#faq)
+- [Community](https://project-awesome.org/sindresorhus/awesome-npm#community)
+- [Documentation](https://project-awesome.org/sindresorhus/awesome-npm#documentation)
+- [Support](https://project-awesome.org/sindresorhus/awesome-npm#support)
+- [Related](https://project-awesome.org/sindresorhus/awesome-npm#related)
 
--   [Articles](https://project-awesome.org/sindresorhus/awesome-npm#articles)
--   [Tools](https://project-awesome.org/sindresorhus/awesome-npm#tools)
--   [Packages](https://project-awesome.org/sindresorhus/awesome-npm#packages)
--   [Clients](https://project-awesome.org/sindresorhus/awesome-npm#clients)
--   [Tips](https://project-awesome.org/sindresorhus/awesome-npm#tips)
--   [FAQ](https://project-awesome.org/sindresorhus/awesome-npm#faq)
--   [Community](https://project-awesome.org/sindresorhus/awesome-npm#community)
--   [Documentation](https://project-awesome.org/sindresorhus/awesome-npm#documentation)
--   [Support](https://project-awesome.org/sindresorhus/awesome-npm#support)
--   [Related](https://project-awesome.org/sindresorhus/awesome-npm#related)
+## Articles
 
-Articles
---------
+- [Small focused modules](https://github.com/sindresorhus/ama/issues/10#issuecomment-117766328)
+- [Unix philosophy and Node.js](http://blog.izs.me/post/48281998870/unix-philosophy-and-nodejs) - Write programs that do one thing and do it well.
+- [Writing small modules](https://web.archive.org/web/20180302125059/https://substack.net/how_I_write_modules)
+- [Semver: A Primer](https://nodesource.com/blog/semver-a-primer/) *(Must read!)*
+- [Semver: Tilde and Caret](https://nodesource.com/blog/semver-tilde-and-caret/)
+- [Offline installation of npm packages](https://addyosmani.com/blog/using-npm-offline/)
+- [Task automation with npm run](https://web.archive.org/web/20180302164842/http://substack.net/task_automation_with_npm_run)
+- [How to use npm as a build tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
+- [Install npm packages globally without sudo on macOS and Linux](https://github.com/sindresorhus/guides/blob/main/npm-global-without-sudo.md)
+- [Optimizing the footprint of an npm package](https://medium.com/@goldglovecb/npm-needs-a-personal-trainer-537e0f8859c6)
+- [The Art of Node](https://github.com/maxogden/art-of-node#modules) - An introduction to Node.js and client-side development with npm.
+- [Why npm scripts?](https://css-tricks.com/why-npm-scripts/) - An introduction to npm scripts with common packages and scripts, as well as a boilerplate project.
 
--   [Small focused modules](https://github.com/sindresorhus/ama/issues/10#issuecomment-117766328)
--   [Unix philosophy and Node.js](http://blog.izs.me/post/48281998870/unix-philosophy-and-nodejs) - Write programs that do one thing and do it well.
--   [Writing small modules](https://web.archive.org/web/20180302125059/https://substack.net/how_I_write_modules)
--   [Semver: A Primer](https://nodesource.com/blog/semver-a-primer/) *(Must read!)*
--   [Semver: Tilde and Caret](https://nodesource.com/blog/semver-tilde-and-caret/)
--   [Offline installation of npm packages](https://addyosmani.com/blog/using-npm-offline/)
--   [Task automation with npm run](https://web.archive.org/web/20180302164842/http://substack.net/task_automation_with_npm_run)
--   [How to use npm as a build tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
--   [Install npm packages globally without sudo on macOS and Linux](https://github.com/sindresorhus/guides/blob/main/npm-global-without-sudo.md)
--   [Optimizing the footprint of an npm package](https://medium.com/@goldglovecb/npm-needs-a-personal-trainer-537e0f8859c6)
--   [The Art of Node](https://github.com/maxogden/art-of-node#modules) - An introduction to Node.js and client-side development with npm.
--   [Why npm scripts?](https://css-tricks.com/why-npm-scripts/) - An introduction to npm scripts with common packages and scripts, as well as a boilerplate project.
-
-Tools
------
+## Tools
 
 ### Web
 
--   [npms](https://npms.io/) - Superb package search with deep analysis of package quality using a [myriad of metrics](https://npms.io/about).
-    -   [npm-introspect](http://npm-introspect.z3d.tech/) - A npms-based utility for visually exploring the quality of package dependencies.
--   [npmsearch](http://npmsearch.com/) - Fast package search with ranking based on metrics like stars, dependents, release frequency, etc.
--   [node-modules](http://node-modules.com/) - Personalized package search based on your GitHub social graph.
--   [NodeICO](https://nodei.co/) - Package badges.
--   [Libraries.io](https://libraries.io/npm) - Package discovery.
--   [npm-stat](http://npm-stat.com/) - Statistics charts for packages.
--   [npmgraph](http://npm.anvaka.com/) - Visualization of dependencies.
--   [npm trends](http://www.npmtrends.com/) - Compare package download counts over time.
--   [npm-compare](https://npmcompare.com/) - Easily search and compare packages.
--   [npm-top](https://gist.github.com/bcoe/dcc961b869bbf6685002) - npm users by downloads.
--   [npm semver calculator](http://semver.npmjs.com/) - Visually explore what versions of a package a semver range matches.
--   [npm-stats](http://www.npm-stats.com/) - Displays metrics about packages.
--   [ghub.io](https://ghub.io/) - Redirects to the GitHub repo of an npm package.
--   [npm addict](https://npmaddict.com/) - Your daily injection of npm packages.
--   [moiva](https://moiva.io/) - Discover and compare packages.
+- [npms](https://npms.io/) - Superb package search with deep analysis of package quality using a [myriad of metrics](https://npms.io/about).
+  - [npm-introspect](http://npm-introspect.z3d.tech/) - A npms-based utility for visually exploring the quality of package dependencies.
+- [npmsearch](http://npmsearch.com/) - Fast package search with ranking based on metrics like stars, dependents, release frequency, etc.
+- [node-modules](http://node-modules.com/) - Personalized package search based on your GitHub social graph.
+- [NodeICO](https://nodei.co/) - Package badges.
+- [Libraries.io](https://libraries.io/npm) - Package discovery.
+- [npm-stat](http://npm-stat.com/) - Statistics charts for packages.
+- [npmgraph](http://npm.anvaka.com/) - Visualization of dependencies.
+- [npm trends](http://www.npmtrends.com/) - Compare package download counts over time.
+- [npm-compare](https://npmcompare.com/) - Easily search and compare packages.
+- [npm-top](https://gist.github.com/bcoe/dcc961b869bbf6685002) - npm users by downloads.
+- [npm semver calculator](http://semver.npmjs.com/) - Visually explore what versions of a package a semver range matches.
+- [npm-stats](http://www.npm-stats.com/) - Displays metrics about packages.
+- [ghub.io](https://ghub.io/) - Redirects to the GitHub repo of an npm package.
+- [npm addict](https://npmaddict.com/) - Your daily injection of npm packages.
+- [moiva](https://moiva.io/) - Discover and compare packages.
 
 ### Browser extensions
 
--   [Octo-Linker](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp) - Chrome extension to navigate across npm packages on GitHub with ease.
--   [npm-hub](https://chrome.google.com/webstore/detail/npm-hub/kbbbjimdjbjclaebffknlabpogocablj) - Chrome extension to explore npm dependencies on GitHub repos.
--   [github-npm-stats](https://chrome.google.com/webstore/detail/github-npm-stats/oomfflokggoffaiagenekchfnpighcef) - View npm download stats on GitHub.
--   [npm-search-update](https://chrome.google.com/webstore/detail/npm-search-update/kagpoplamlmaonpddimnnigiojimihnh) - Chrome extension to quickly search for dependencies and monitor changes from the npm registry.
+- [Octo-Linker](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp) - Chrome extension to navigate across npm packages on GitHub with ease.
+- [npm-hub](https://chrome.google.com/webstore/detail/npm-hub/kbbbjimdjbjclaebffknlabpogocablj) - Chrome extension to explore npm dependencies on GitHub repos.
+- [github-npm-stats](https://chrome.google.com/webstore/detail/github-npm-stats/oomfflokggoffaiagenekchfnpighcef) - View npm download stats on GitHub.
+- [npm-search-update](https://chrome.google.com/webstore/detail/npm-search-update/kagpoplamlmaonpddimnnigiojimihnh) - Chrome extension to quickly search for dependencies and monitor changes from the npm registry.
 
 ### CLI
 
--   [zsh-better-npm-completion](https://github.com/lukechilds/zsh-better-npm-completion) - Better ZSH completion for npm.
--   [npkill](https://github.com/voidcosmos/npkill) - Easily find and remove old and heavy node_modules folders.
+- [zsh-better-npm-completion](https://github.com/lukechilds/zsh-better-npm-completion) - Better ZSH completion for npm.
+- [npkill](https://github.com/voidcosmos/npkill) - Easily find and remove old and heavy node_modules folders.
 
-Packages
---------
+## Packages
 
 ### Publishing
 
--   [np](https://github.com/sindresorhus/np) - A better `npm publish`.
--   [publish-please](https://github.com/inikulin/publish-please) - Publish packages safely and gracefully.
--   [npm-release](https://github.com/phuu/npm-release) - Making releasing to npm so easy a kitten could probably do it™.
--   [pkgfiles](https://github.com/timoxley/pkgfiles) - List all files which would be published in a package.
--   [release-it](https://github.com/webpro/release-it) - Automate releases for Git repositories and/or npm packages. Changelog generation, GitHub/GitLab releases, etc.
--   [semantic-release](https://github.com/semantic-release/semantic-release) - Fully automated package publishing.
+- [np](https://github.com/sindresorhus/np) - A better `npm publish`.
+- [publish-please](https://github.com/inikulin/publish-please) - Publish packages safely and gracefully.
+- [npm-release](https://github.com/phuu/npm-release) - Making releasing to npm so easy a kitten could probably do it™.
+- [pkgfiles](https://github.com/timoxley/pkgfiles) - List all files which would be published in a package.
+- [release-it](https://github.com/webpro/release-it) - Automate releases for Git repositories and/or npm packages. Changelog generation, GitHub/GitLab releases, etc.
+- [semantic-release](https://github.com/semantic-release/semantic-release) - Fully automated package publishing.
 
 ### Registry
 
--   [npm-name](https://github.com/sindresorhus/npm-name-cli) - Check whether a package name is available on npm.
--   [package-json](https://github.com/sindresorhus/package-json) - Get the package.json of a package from the npm registry.
--   [latest-version](https://github.com/sindresorhus/latest-version-cli) - Get the latest version of an npm package.
--   [npm-keyword](https://github.com/sindresorhus/npm-keyword) - Get a list of npm packages with a certain keyword.
--   [npm-user](https://github.com/sindresorhus/npm-user) - Get user info of an npm user.
--   [npm-email](https://github.com/sindresorhus/npm-email) - Get the email of an npm user.
--   [npm-user-packages](https://github.com/kevva/npm-user-packages-cli) - Get packages by an npm user.
--   [dpn](https://github.com/gillstrom/dpn) - Get the dependents of a user's npm packages.
--   [npm-stats](https://github.com/hughsk/npm-stats) - Get data from an npm registry.
--   [npm-cli-login](https://github.com/postmanlabs/npm-cli-login) - Log in to npm.
--   [nrm](https://github.com/Pana/nrm) - Registry manager.
--   [npm-register](https://github.com/dickeyxxx/npm-register) - Easy to set up and maintain npm registry and proxy.
--   [verdaccio](https://github.com/verdaccio/verdaccio) - Lightweight private npm proxy registry.
--   [cloudsmith](https://cloudsmith.io/l/npm-registry/) - A fully managed package management SaaS with support for public and private npm registries (and many others).
+- [npm-name](https://github.com/sindresorhus/npm-name-cli) - Check whether a package name is available on npm.
+- [package-json](https://github.com/sindresorhus/package-json) - Get the package.json of a package from the npm registry.
+- [latest-version](https://github.com/sindresorhus/latest-version-cli) - Get the latest version of an npm package.
+- [npm-keyword](https://github.com/sindresorhus/npm-keyword) - Get a list of npm packages with a certain keyword.
+- [npm-user](https://github.com/sindresorhus/npm-user) - Get user info of an npm user.
+- [npm-email](https://github.com/sindresorhus/npm-email) - Get the email of an npm user.
+- [npm-user-packages](https://github.com/kevva/npm-user-packages-cli) - Get packages by an npm user.
+- [dpn](https://github.com/gillstrom/dpn) - Get the dependents of a user's npm packages.
+- [npm-stats](https://github.com/hughsk/npm-stats) - Get data from an npm registry.
+- [npm-cli-login](https://github.com/postmanlabs/npm-cli-login) - Log in to npm.
+- [nrm](https://github.com/Pana/nrm) - Registry manager.
+- [npm-register](https://github.com/dickeyxxx/npm-register) - Easy to set up and maintain npm registry and proxy.
+- [verdaccio](https://github.com/verdaccio/verdaccio) - Lightweight private npm proxy registry.
+- [cloudsmith](https://cloudsmith.io/l/npm-registry/) - A fully managed package management SaaS with support for public and private npm registries (and many others).
 
 ### Other
 
--   [npm-home](https://github.com/sindresorhus/npm-home) - Open the npm page of a package.
--   [gh-home](https://github.com/sindresorhus/gh-home) - Open the GitHub page of a package.
--   [david](https://github.com/alanshaw/david) - Check if your package dependencies are out of date.
--   [npm-check](https://github.com/dylang/npm-check) - Check for outdated, incorrect, and unused dependencies, as well as interactive update.
--   [npm-upgrade](https://github.com/th0r/npm-upgrade) - Update outdated npm dependencies interactively.
--   [npm-shrinkwrap](https://github.com/uber/npm-shrinkwrap) - A consistent shrinkwrap tool.
--   [npm-windows-upgrade](https://github.com/felixrieseberg/npm-windows-upgrade) - Upgrade npm on Windows.
--   [generator-nm](https://github.com/sindresorhus/generator-nm) - Scaffold out an npm package.
--   [pkg-up](https://github.com/sindresorhus/pkg-up) - Find the closest package.json file.
--   [read-pkg-up](https://github.com/sindresorhus/read-pkg-up) - Read the closest package.json file.
--   [normalize-package-data](https://github.com/npm/normalize-package-data) - Normalize package metadata.
--   [pkg-conf](https://github.com/sindresorhus/pkg-conf) - Get namespaced config from the closest package.json.
--   [npm-run-path](https://github.com/sindresorhus/npm-run-path) - Run locally installed binaries in the terminal by name like with global ones.
--   [local-npm](https://github.com/nolanlawson/local-npm) - Use npm [offline](https://addyosmani.com/blog/using-npm-offline/).
--   [npe](https://github.com/zeke/npe) - CLI for inspecting and editing properties in package.json.
--   [engine-deps](https://github.com/samccone/engine-deps) - Manage Node.js version specific dependencies with ease.
--   [enpeem-search](https://github.com/amovah/enpeem-search) - Search packages by scraping the npm web search.
--   [npm-issues](https://github.com/seanzarrin/npm-issues) - Search known issues of all your packages at once.
--   [john](https://github.com/davej/john) - Make npm3's flat dependencies easier to find and sort.
--   [ntl](https://github.com/ruyadorno/ntl) - Interactive CLI menu to list & run npm tasks.
--   [decheck](https://github.com/egoist/decheck) - Explore dependencies of npm packages in the command-line.
--   [shrinkpack](https://github.com/JamieMason/shrinkpack) - Lock down your dependencies and install offline.
--   [redrun](https://github.com/coderaiser/redrun) - Expand scripts from package.json to improve execution speed.
--   [package-size](https://github.com/egoist/package-size) - Get the bundle size of an npm package.
--   [synp](https://github.com/imsnif/synp) - Convert yarn.lock to package-lock.json and vice versa.
--   [npm-run-all](https://github.com/mysticatea/npm-run-all) - CLI tool to run multiple npm-scripts in parallel or serial.
--   [onchange](https://github.com/Qard/onchange) - Watch files and folders and run a command when something changed.
--   [cli-error-notifier](https://github.com/micromata/cli-error-notifier) - Sends native desktop notifications when npm scripts fail.
--   [luna](https://github.com/rvpanoz/luna) - App to manage npm dependencies.
--   [emma-cli](https://github.com/maticzav/emma-cli) - Interactive CLI package search utility.
--   [lockfile-lint](https://github.com/lirantal/lockfile-lint) - Lint lockfiles for improved security and trust policies to mitigate malicious package injection and insecure lockfile resources.
+- [npm-home](https://github.com/sindresorhus/npm-home) - Open the npm page of a package.
+- [gh-home](https://github.com/sindresorhus/gh-home) - Open the GitHub page of a package.
+- [david](https://github.com/alanshaw/david) - Check if your package dependencies are out of date.
+- [npm-check](https://github.com/dylang/npm-check) - Check for outdated, incorrect, and unused dependencies, as well as interactive update.
+- [npm-upgrade](https://github.com/th0r/npm-upgrade) - Update outdated npm dependencies interactively.
+- [npm-shrinkwrap](https://github.com/uber/npm-shrinkwrap) - A consistent shrinkwrap tool.
+- [npm-windows-upgrade](https://github.com/felixrieseberg/npm-windows-upgrade) - Upgrade npm on Windows.
+- [generator-nm](https://github.com/sindresorhus/generator-nm) - Scaffold out an npm package.
+- [pkg-up](https://github.com/sindresorhus/pkg-up) - Find the closest package.json file.
+- [read-pkg-up](https://github.com/sindresorhus/read-pkg-up) - Read the closest package.json file.
+- [normalize-package-data](https://github.com/npm/normalize-package-data) - Normalize package metadata.
+- [pkg-conf](https://github.com/sindresorhus/pkg-conf) - Get namespaced config from the closest package.json.
+- [npm-run-path](https://github.com/sindresorhus/npm-run-path) - Run locally installed binaries in the terminal by name like with global ones.
+- [local-npm](https://github.com/nolanlawson/local-npm) - Use npm [offline](https://addyosmani.com/blog/using-npm-offline/).
+- [npe](https://github.com/zeke/npe) - CLI for inspecting and editing properties in package.json.
+- [engine-deps](https://github.com/samccone/engine-deps) - Manage Node.js version specific dependencies with ease.
+- [enpeem-search](https://github.com/amovah/enpeem-search) - Search packages by scraping the npm web search.
+- [npm-issues](https://github.com/seanzarrin/npm-issues) - Search known issues of all your packages at once.
+- [john](https://github.com/davej/john) - Make npm3's flat dependencies easier to find and sort.
+- [ntl](https://github.com/ruyadorno/ntl) - Interactive CLI menu to list & run npm tasks.
+- [decheck](https://github.com/egoist/decheck) - Explore dependencies of npm packages in the command-line.
+- [shrinkpack](https://github.com/JamieMason/shrinkpack) - Lock down your dependencies and install offline.
+- [redrun](https://github.com/coderaiser/redrun) - Expand scripts from package.json to improve execution speed.
+- [package-size](https://github.com/egoist/package-size) - Get the bundle size of an npm package.
+- [synp](https://github.com/imsnif/synp) - Convert yarn.lock to package-lock.json and vice versa.
+- [npm-run-all](https://github.com/mysticatea/npm-run-all) - CLI tool to run multiple npm-scripts in parallel or serial.
+- [onchange](https://github.com/Qard/onchange) - Watch files and folders and run a command when something changed.
+- [cli-error-notifier](https://github.com/micromata/cli-error-notifier) - Sends native desktop notifications when npm scripts fail.
+- [luna](https://github.com/rvpanoz/luna) - App to manage npm dependencies.
+- [emma-cli](https://github.com/maticzav/emma-cli) - Interactive CLI package search utility.
+- [lockfile-lint](https://github.com/lirantal/lockfile-lint) - Lint lockfiles for improved security and trust policies to mitigate malicious package injection and insecure lockfile resources.
 
-Clients
--------
+## Clients
 
--   [yarn](https://github.com/yarnpkg/yarn) - Fast, reliable, and secure dependency management.
--   [npm](https://github.com/npm/cli) - The official client.
--   [pnpm](https://github.com/pnpm/pnpm) - Fast, disk space efficient package manager.
+- [yarn](https://github.com/yarnpkg/yarn) - Fast, reliable, and secure dependency management.
+- [npm](https://github.com/npm/cli) - The official client.
+- [pnpm](https://github.com/pnpm/pnpm) - Fast, disk space efficient package manager.
 
-Tips
-----
+## Tips
 
 ### Update to the latest npm version
 
@@ -1263,17 +1253,17 @@ $ npm install --global npm
 
 ```
 
-*[Windows users, read more.](https://github.com/felixrieseberg/npm-windows-upgrade)*
+_[Windows users, read more.](https://github.com/felixrieseberg/npm-windows-upgrade)_
 
 ### Command aliases
 
--   `npm i` → `npm install`
--   `npm i -D` → `npm install --save-dev`
--   `npm t` → `npm test`
--   `npm it` → `npm install && npm test`
--   `npm r` → `npm uninstall`
--   `npm un` → `npm uninstall`
--   `npm up` → `npm update`
+- `npm i` → `npm install`
+- `npm i -D` → `npm install --save-dev`
+- `npm t` → `npm test`
+- `npm it` → `npm install && npm test`
+- `npm r` → `npm uninstall`
+- `npm un` → `npm uninstall`
+- `npm up` → `npm update`
 
 ### Shell aliases
 
@@ -1306,7 +1296,7 @@ $ npm install --save-dev ava
 
 ### Run scripts
 
-You can easily [run scripts](https://docs.npmjs.com/cli/run-script) using npm by adding them to the `"scripts"` field in package.json and run them with `npm run <script-name>`. Run `npm run` to see available scripts. Binaries of locally install packages are made available in the [PATH](https://en.wikipedia.org/wiki/PATH_(variable)), so you can run them by name.
+You can easily [run scripts](https://docs.npmjs.com/cli/run-script) using npm by adding them to the `"scripts"` field in package.json and run them with `npm run <script-name>`. Run `npm run` to see available scripts. Binaries of locally install packages are made available in the [PATH](<https://en.wikipedia.org/wiki/PATH_(variable)>), so you can run them by name.
 
 ```
 {
@@ -1360,7 +1350,7 @@ You can pass options to the command you are using in your npm script by adding 
 
 ```
 
-*Adding the `-- --fix` option is like executing `xo --fix`*.
+_Adding the `-- --fix` option is like executing `xo --fix`_.
 
 #### Silent option
 
@@ -1379,7 +1369,7 @@ Imagine you have a setup for linting your JavaScript files like the following:
 
 ```
 
-*Using the `--silent` option reduces the output in the terminal. See [this comparison](https://twitter.com/mkuehnel/status/957965749473210369).*
+_Using the `--silent` option reduces the output in the terminal. See [this comparison](https://twitter.com/mkuehnel/status/957965749473210369)._
 
 ### Lifecycle scripts
 
@@ -1400,7 +1390,7 @@ npm comes with predefined [lifecyle scripts](https://docs.npmjs.com/misc/script
 
 This will be executed automatically before your npm package is published to the registry via `npm publish` to check for known vulnerabilties in your dependencies.
 
-*Note: prepublishOnly is available since npm v4.0.0. See [npm docs](https://docs.npmjs.com/misc/scripts#deprecation-note).*
+_Note: prepublishOnly is available since npm v4.0.0. See [npm docs](https://docs.npmjs.com/misc/scripts#deprecation-note)._
 
 #### `npm start` and `npm test`
 
@@ -1454,7 +1444,7 @@ $ npm test
 
 This will lint your files before running your tests. The tests will not run if linting fails. Or more generally spoken: the following script won't be executed if one of the scripts running in sequence exits with an exit code other than 0.
 
-*Note: `pre` and `post` scripts can also be used for your custom npm scripts. So `npm run foo` will also run `prefoo` and `postfoo` if defined.*
+_Note: `pre` and `post` scripts can also be used for your custom npm scripts. So `npm run foo` will also run `prefoo` and `postfoo` if defined._
 
 ### Run script with `npx`
 
@@ -1577,36 +1567,33 @@ https://wzrd.in/standalone/<package-name>[@<version>]
 
 Examples:
 
--   <https://wzrd.in/standalone/object-assign>
--   <https://wzrd.in/standalone/object-assign@4.0.0>
+- <https://wzrd.in/standalone/object-assign>
+- <https://wzrd.in/standalone/object-assign@4.0.0>
 
 Great for prototyping, but download the file or use Browserify yourself for production.
 
-FAQ
----
+## FAQ
 
--   [Check in node_modules vs. shrinkwrap](https://stackoverflow.com/questions/11459733/check-in-node-modules-vs-shrinkwrap)
--   [What is the difference between Bower and npm?](https://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm)
--   [What does `^` mean in package.json versioning?](https://stackoverflow.com/questions/22137778/what-does-mean-in-package-json-versioning)
--   [Find the version of an installed npm package](https://stackoverflow.com/questions/10972176/find-the-version-of-an-installed-npm-package)
--   [What's the difference between dependencies, devDependencies, and peerDependencies in package.json?](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies)
+- [Check in node_modules vs. shrinkwrap](https://stackoverflow.com/questions/11459733/check-in-node-modules-vs-shrinkwrap)
+- [What is the difference between Bower and npm?](https://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm)
+- [What does `^` mean in package.json versioning?](https://stackoverflow.com/questions/22137778/what-does-mean-in-package-json-versioning)
+- [Find the version of an installed npm package](https://stackoverflow.com/questions/10972176/find-the-version-of-an-installed-npm-package)
+- [What's the difference between dependencies, devDependencies, and peerDependencies in package.json?](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies)
 
-Community
----------
+## Community
 
--   [`#npm` on Freenode](https://webchat.freenode.net/?channels=npm)
--   [Stack Overflow](https://stackoverflow.com/questions/tagged/npm)
--   [Reddit](https://www.reddit.com/r/npm)
--   [Twitter](https://twitter.com/npmjs)
--   [Blog](https://blog.npmjs.org/)
+- [`#npm` on Freenode](https://webchat.freenode.net/?channels=npm)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/npm)
+- [Reddit](https://www.reddit.com/r/npm)
+- [Twitter](https://twitter.com/npmjs)
+- [Blog](https://blog.npmjs.org/)
 
-Documentation
--------------
+## Documentation
 
--   [Official](https://docs.npmjs.com/)
--   [Troubleshooting](https://github.com/npm/npm/wiki/Troubleshooting)
--   [Semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning)
--   [Fixing npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
--   [package.json](https://docs.npmjs.com/files/package.json)
--   [npm run script](https://docs.npmjs.com/cli/run-script)
--   [Stats API](https://github.com/npm/download-counts)
+- [Official](https://docs.npmjs.com/)
+- [Troubleshooting](https://github.com/npm/npm/wiki/Troubleshooting)
+- [Semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning)
+- [Fixing npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
+- [package.json](https://docs.npmjs.com/files/package.json)
+- [npm run script](https://docs.npmjs.com/cli/run-script)
+- [Stats API](https://github.com/npm/download-counts)

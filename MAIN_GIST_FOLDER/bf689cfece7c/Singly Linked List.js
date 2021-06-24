@@ -7,10 +7,10 @@ function singlyLinkedList() {
 function storeNode(data) {
   this.data = data;
   this.next = null;
-};
+}
 
 //To add a node
-singlyLinkedList.prototype.add = function(value) {
+singlyLinkedList.prototype.add = function (value) {
   var node = new storeNode(value);
   var currentNode = this.head;
 
@@ -24,7 +24,7 @@ singlyLinkedList.prototype.add = function(value) {
   }
 
   //If next presents, then set current node to next node
-  while(currentNode.next) {
+  while (currentNode.next) {
     currentNode = currentNode.next;
   }
 
@@ -39,11 +39,11 @@ var list = new singlyLinkedList();
 list.add(1); //Head
 list.add(2); //1st node has ref of this node, this node ref = null
 
-singlyLinkedList.prototype.remove = function(position) {
+singlyLinkedList.prototype.remove = function (position) {
   var currentNode = this.head;
-  var deletedNode  = null;
-  var nextToDelete  = null;
-  var beforeToDelete  = null;
+  var deletedNode = null;
+  var nextToDelete = null;
+  var beforeToDelete = null;
   var count = 0;
 
   //If position not present
@@ -74,7 +74,7 @@ singlyLinkedList.prototype.remove = function(position) {
   return deletedNode;
 };
 
-singlyLinkedList.prototype.search = function(position) {
+singlyLinkedList.prototype.search = function (position) {
   var currentNode = this.head;
   var count = 1;
 

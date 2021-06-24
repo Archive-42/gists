@@ -9,7 +9,7 @@
 require.config({
   // main.js is your application starting point (call it whatever you want). This
   // references /path/to/configjs/main.js, in this case: /js/main.js
-  deps: ["main"]
+  deps: ["main"],
 
   // You can do more with require.config, such as managing dependencies not built
   // with require.js, but this is really all you need to get started.

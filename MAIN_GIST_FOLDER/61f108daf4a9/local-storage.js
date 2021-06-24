@@ -12,12 +12,12 @@ module.exports = class LocalStorage {
   }
 
   has(key) {
-    return (key in this.storage);
+    return key in this.storage;
   }
 
   clear(regexp) {
-    for(let key in this.storage) {
-      if (!regexp  || regexp.test(key)) {
+    for (let key in this.storage) {
+      if (!regexp || regexp.test(key)) {
         delete this.storage[key];
       }
     }

@@ -1,4 +1,4 @@
-```git 
+```git
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/settings.json

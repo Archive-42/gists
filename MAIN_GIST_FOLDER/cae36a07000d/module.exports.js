@@ -1,8 +1,8 @@
-cat.js
+cat.js;
 const someCat = {
-name: "Sennacy",
-color: "orange",
-age: 3
+  name: "Sennacy",
+  color: "orange",
+  age: 3,
 };
 module.exports = someCat;
 // animals.js

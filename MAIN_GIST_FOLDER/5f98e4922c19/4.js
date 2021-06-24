@@ -4,14 +4,14 @@
 // of monads.
 var Maybe = { Just, Nothing, of: Just };
 
-var identity = v => v;
+var identity = (v) => v;
 // we moved the empty check from Maybe into prop()
-var isEmpty = v => v == null;
-var prop = k => o => isEmpty(o[k]) ? Nothing() : Maybe.of(o[k]);
+var isEmpty = (v) => v == null;
+var prop = (k) => (o) => isEmpty(o[k]) ? Nothing() : Maybe.of(o[k]);
 
 var myObj = { something: { other: { and: 42 } } };
-Maybe.of( myObj )
-.chain( prop("something") )
-.chain( prop("other") )
-.chain( prop("and") )
-.chain( identity );   // 42
+Maybe.of(myObj)
+  .chain(prop("something"))
+  .chain(prop("other"))
+  .chain(prop("and"))
+  .chain(identity); // 42

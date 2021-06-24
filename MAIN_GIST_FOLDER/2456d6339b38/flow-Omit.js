@@ -5,11 +5,14 @@
 type T0 = {
   k0: string,
   k1: number,
-  k2: boolean
+  k2: boolean,
 };
 
 // this would be the same as type T1 = $Omit<T0, ["k0", "k1"]>
-type T1 = $Diff<T0, {
-  k0: *,
-  k1: *
-}>;
+type T1 = $Diff<
+  T0,
+  {
+    k0: *,
+    k1: *,
+  }
+>;

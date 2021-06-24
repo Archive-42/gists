@@ -1,7 +1,7 @@
 // Import necessary packages...
-const posts = (state = {data: []}, action) => {
-  let posts = {data: []};
-  switch(action.type){
+const posts = (state = { data: [] }, action) => {
+  let posts = { data: [] };
+  switch (action.type) {
     case VIEW_ALL:
       // TODO: Return all posts
       return posts;
@@ -15,6 +15,6 @@ const posts = (state = {data: []}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default posts;

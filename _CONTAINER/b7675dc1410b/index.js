@@ -1,10 +1,10 @@
-const Wabt = require('wabt');
+const Wabt = require("wabt");
 
 async function main() {
   const wabt = await Wabt();
 
   const module = wabt.parseWat(
-    'async-adder.wat',
+    "async-adder.wat",
     `(module
         (import "global" "table" (table 2 funcref))
         (elem (i32.const 0) $sumClosure1 $sumClosure2)
@@ -69,20 +69,20 @@ async function main() {
 
   const table = new WebAssembly.Table({
     initial: 2,
-    element: 'anyfunc'
+    element: "anyfunc",
   });
 
   const {
-    instance: { exports }
+    instance: { exports },
   } = await WebAssembly.instantiate(module.toBinary({}).buffer, {
     global: {
-      table
+      table,
     },
     promise: {
       then(parentPromisePointer, contextPointer) {
         const promisePointer = nextPromiseIndex++;
         promises[promisePointer] = promises[parentPromisePointer].then(
-          value => {
+          (value) => {
             const { tableIndex } = contexts[contextPointer];
             const nextPromisePointer = table.get(tableIndex)(
               contextPointer,
@@ -97,14 +97,14 @@ async function main() {
         const promisePointer = nextPromiseIndex++;
         promises[promisePointer] = Promise.resolve(value);
         return promisePointer;
-      }
+      },
     },
     closure: {
       createContext(tableIndex) {
         const contextPointer = nextContextIndex++;
         contexts[contextPointer] = {
           tableIndex,
-          values: {}
+          values: {},
         };
         return contextPointer;
       },
@@ -116,7 +116,7 @@ async function main() {
       },
       deleteContext(contextIndex) {
         delete contexts[contextIndex];
-      }
+      },
     },
     external: {
       getX() {
@@ -128,8 +128,8 @@ async function main() {
         const promisePointer = nextPromiseIndex++;
         promises[promisePointer] = getY();
         return promisePointer;
-      }
-    }
+      },
+    },
   });
 
   async function getX() {
@@ -137,7 +137,7 @@ async function main() {
   }
 
   async function getY() {
-    return new Promise(resolve => setTimeout(() => resolve(69), 100));
+    return new Promise((resolve) => setTimeout(() => resolve(69), 100));
   }
 
   async function sum() {
@@ -145,8 +145,8 @@ async function main() {
     return promises[promisePointer];
   }
 
-  console.log('await getX() + await getY() =', await sum());
+  console.log("await getX() + await getY() =", await sum());
   // console.assert(Object.keys(promises).length === 0, 'leaked promises');  // don't know how to delete promises yet
-  console.assert(Object.keys(contexts).length === 0, 'leaked contexts');
+  console.assert(Object.keys(contexts).length === 0, "leaked contexts");
 }
 main();

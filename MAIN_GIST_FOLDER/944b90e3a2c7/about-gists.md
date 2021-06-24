@@ -16,9 +16,9 @@ After creating a gist, you cannot convert it from public to secret.
 
 You'll receive a notification when:
 
-*   You are the author of a gist.
-*   Someone mentions you in a gist.
-*   You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+- You are the author of a gist.
+- Someone mentions you in a gist.
+- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
 You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en/articles/pinning-items-to-your-profile)."
 
@@ -39,16 +39,10 @@ You can also create a gist using the GitHub CLI. For more information, see "[`gh
 Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 1.  Sign in to GitHub.
-    
 2.  Navigate to your [gist home page](https://gist.github.com/).
-    
 3.  Type an optional description and name for your gist. ![Gist name description](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/assets/images/help/gist/gist_name_description.png)
-    
 4.  Type the text of your gist into the gist text box. ![Gist text box](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/assets/images/help/gist/gist_text_box.png)
-    
 5.  Optionally, to create a public gist, click , then click **Create public gist**. ![Drop-down menu to select gist visibility](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/assets/images/help/gist/gist-visibility-drop-down.png)
-    
 6.  Click **Create secret Gist** or **Create public gist**. ![Button to create gist](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/assets/images/help/gist/create-secret-gist-button.png)
-
 
 [Source](https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists)

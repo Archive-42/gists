@@ -10,7 +10,7 @@ function require(moduleName) {}
  * @param {RegExp} regExp
  * @returns {Object} {module_name: module_content}
  */
-require.match = function(regExp) {};
+require.match = function (regExp) {};
 
 /**
  * Get list of declared module
@@ -18,7 +18,7 @@ require.match = function(regExp) {};
  * @param {RegExp} [regExp] optional
  * @returns {Array} [moduleName, moduleName, etc]
  */
-require.modulesList = function(regExp) {};
+require.modulesList = function (regExp) {};
 
 /**
  * Loads any image
@@ -135,5 +135,5 @@ require.stats.sendTo = function (host) {};
 var exports = {};
 
 var module = {
-    exports:exports
+  exports: exports,
 };

@@ -14,7 +14,7 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string"
+      type: "string",
     },
     {
       title: "Map",
@@ -31,11 +31,11 @@ export default {
           name: "bounds",
           title: "Bounds",
           description: "Will be populated by file upload",
-          type: "string"
-        }
-      ]
-    }
-  ]
+          type: "string",
+        },
+      ],
+    },
+  ],
 };
 ```
 
@@ -48,7 +48,7 @@ import Fieldset from "part:@sanity/components/fieldsets/default";
 import {
   setIfMissing,
   set,
-  unset
+  unset,
 } from "part:@sanity/form-builder/patch-event";
 import { FormBuilderInput } from "part:@sanity/form-builder";
 import { withDocument } from "part:@sanity/form-builder";
@@ -56,7 +56,7 @@ import sanityClient from "part:@sanity/base/client";
 import { PatchEvent } from "part:@sanity/form-builder";
 
 function computeBounds(asset) {
-  return sanityClient.getDocument(asset._ref).then(asset => {
+  return sanityClient.getDocument(asset._ref).then((asset) => {
     console.log("Computing bounds for map file", asset.url);
     const { url } = asset;
     // Fetch file, and compute bounds here then return the result
@@ -69,26 +69,26 @@ class CustomObjectInput extends React.PureComponent {
   static propTypes = {
     type: PropTypes.shape({
       title: PropTypes.string,
-      name: PropTypes.string
+      name: PropTypes.string,
     }).isRequired,
     level: PropTypes.number,
     value: PropTypes.shape({
-      _type: PropTypes.string
+      _type: PropTypes.string,
     }),
     focusPath: PropTypes.array.isRequired,
     onFocus: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired
+    onBlur: PropTypes.func.isRequired,
   };
 
   firstFieldInput = React.createRef();
 
   handleFieldChange = (field, fieldPatchEvent) => {
     const { onChange, type, document } = this.props;
-    
+
     // If we see a set patch that sets the asset, use the file to compute the bounds
     const setAssetPatch = fieldPatchEvent.patches.find(
-      patch =>
+      (patch) =>
         patch.type === "set" &&
         patch.path.length === 1 &&
         patch.path[0] === "asset" &&
@@ -96,7 +96,7 @@ class CustomObjectInput extends React.PureComponent {
         patch.value._ref
     );
     if (field.name === "mapfile" && setAssetPatch) {
-      computeBounds(setAssetPatch.value).then(bounds => {
+      computeBounds(setAssetPatch.value).then((bounds) => {
         onChange(PatchEvent.from([set(JSON.stringify(bounds), ["bounds"])]));
       });
     }
@@ -104,7 +104,7 @@ class CustomObjectInput extends React.PureComponent {
     // If we see a patch that removes the map asset file, unset the bounds field
     if (
       fieldPatchEvent.patches.find(
-        patch =>
+        (patch) =>
           patch.type === "unset" &&
           patch.path.length === 1 &&
           patch.path[0] === "asset"
@@ -125,15 +125,8 @@ class CustomObjectInput extends React.PureComponent {
   }
 
   render() {
-    const {
-      document,
-      type,
-      value,
-      level,
-      focusPath,
-      onFocus,
-      onBlur
-    } = this.props;
+    const { document, type, value, level, focusPath, onFocus, onBlur } =
+      this.props;
     return (
       <Fieldset
         level={level}
@@ -150,7 +143,9 @@ class CustomObjectInput extends React.PureComponent {
               key={field.name}
               type={field.type}
               value={value && value[field.name]}
-              onChange={patchEvent => this.handleFieldChange(field, patchEvent)}
+              onChange={(patchEvent) =>
+                this.handleFieldChange(field, patchEvent)
+              }
               path={[field.name]}
               focusPath={focusPath}
               onFocus={onFocus}
@@ -164,5 +159,4 @@ class CustomObjectInput extends React.PureComponent {
 }
 
 export default withDocument(CustomObjectInput);
-
 ```

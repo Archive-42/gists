@@ -6,11 +6,11 @@
 
 #### Problem Statement
 
-Given a sorted array of *n* elements, write a function to search for the index of a given element (target)
+Given a sorted array of _n_ elements, write a function to search for the index of a given element (target)
 
 #### Approach
 
-- Search for the **range** within which the target is included increasing *index* by powers of 2
+- Search for the **range** within which the target is included increasing _index_ by powers of 2
 - If this range exists in array apply the Binary Search algorithm over it
 - Else return -1
 
@@ -21,14 +21,15 @@ arr = [1, 2, 3, 4, 5, 6, 7, ... 998, 999, 1_000]
 
 target = 998
 index = 0
+
 1. SEARCHING FOR THE RANGE
-index = 1, 2, 4, 8, 16, 32, 64, ..., 512, ..., 1_024
-after 10 iteration we have the index at 1_024 and outside of the array 
+   index = 1, 2, 4, 8, 16, 32, 64, ..., 512, ..., 1_024
+   after 10 iteration we have the index at 1_024 and outside of the array
 2. BINARY SEARCH
-Now we can apply the binary search on the subarray from 512 and 1_000.
+   Now we can apply the binary search on the subarray from 512 and 1_000.
 ```
 
-***Note***: we apply the Binary Search from 512 to 1_000 because at `i = 2^10 = 1_024` the array is finisced and the target number is less than the latest index of the array ( 1_000 ).
+**_Note_**: we apply the Binary Search from 512 to 1_000 because at `i = 2^10 = 1_024` the array is finisced and the target number is less than the latest index of the array ( 1_000 ).
 
 #### Time Complexity
 
@@ -38,8 +39,8 @@ Now we can apply the binary search on the subarray from 512 and 1_000.
 
 #### Complexity Explanation
 
-- The complexity of the first part of the algorithm is **O( log *i* )** because if *i* is the position of the target in the array, after doubling the search *index* `⌈log(i)⌉` times, the algorithm will be at a search index that is greater than or equal to *i*. We can write `2^⌈log(i)⌉ >= i`
-- The complexity of the second part of the algorithm also is **O ( log *i* )** because that is a simple Binary Search. The Binary Search complexity ( as explained [here](https://github.com/faridevnz/Algorithms-Explanation/blob/master/en/Search%20Algorithms/Binary%20Search.md) ) is O( *n* ) where *n* is the length of the array. In the Exponential Search, the length of the array on which the algorithm is applied is `2^i - 2^(i-1)`, put into words it means '( the length of the array from start to *i* ) - ( the part of array skipped until the previous iteration )'. Is simple verify that `2^i - 2^(i-1) = 2^(i-1) ` 
+- The complexity of the first part of the algorithm is **O( log _i_ )** because if _i_ is the position of the target in the array, after doubling the search _index_ `⌈log(i)⌉` times, the algorithm will be at a search index that is greater than or equal to _i_. We can write `2^⌈log(i)⌉ >= i`
+- The complexity of the second part of the algorithm also is **O ( log _i_ )** because that is a simple Binary Search. The Binary Search complexity ( as explained [here](https://github.com/faridevnz/Algorithms-Explanation/blob/master/en/Search%20Algorithms/Binary%20Search.md) ) is O( _n_ ) where _n_ is the length of the array. In the Exponential Search, the length of the array on which the algorithm is applied is `2^i - 2^(i-1)`, put into words it means '( the length of the array from start to _i_ ) - ( the part of array skipped until the previous iteration )'. Is simple verify that `2^i - 2^(i-1) = 2^(i-1) `
 
 After this detailed explanation we can say that the the complexity of the Exponential Search is:
 

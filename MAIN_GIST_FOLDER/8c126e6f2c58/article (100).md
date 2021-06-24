@@ -52,12 +52,12 @@ For instance:
 ```html run
 <body class="main page">
   <script>
-*!*
-    // add a class
-    document.body.classList.add('article');
-*/!*
+    *!*
+        // add a class
+        document.body.classList.add('article');
+    */!*
 
-    alert(document.body.className); // main page article
+        alert(document.body.className); // main page article
   </script>
 </body>
 ```
@@ -97,7 +97,7 @@ border-left-width => elem.style.borderLeftWidth
 For instance:
 
 ```js run
-document.body.style.backgroundColor = prompt('background color?', 'green');
+document.body.style.backgroundColor = prompt("background color?", "green");
 ```
 
 ````smart header="Prefixed properties"
@@ -123,13 +123,12 @@ Then later we may want to remove the `style.display` as if it were not set. Inst
 // if we run this code, the <body> will blink
 document.body.style.display = "none"; // hide
 
-setTimeout(() => document.body.style.display = "", 1000); // back to normal
+setTimeout(() => (document.body.style.display = ""), 1000); // back to normal
 ```
 
 If we set `style.display` to an empty string, then the browser applies CSS classes and its built-in styles normally, as if there were no such `style.display` property at all.
 
-````smart header="Full rewrite with `style.cssText`"
-Normally, we use `style.*` to assign individual style properties. We can't set the full style like `div.style="color: red; width: 100px"`, because `div.style` is an object, and it's read-only.
+````smart header="Full rewrite with `style.cssText`" Normally, we use `style.\*`to assign individual style properties. We can't set the full style like`div.style="color: red; width: 100px"`, because `div.style` is an object, and it's read-only.
 
 To set the full style as a string, there's a special property `style.cssText`:
 
@@ -138,7 +137,7 @@ To set the full style as a string, there's a special property `style.cssText`:
 
 <script>
   // we can set special style flags like "important" here
-  div.style.cssText=`color: red !important;
+  div.style.cssText = `color: red !important;
     background-color: yellow;
     width: 100px;
     text-align: center;
@@ -151,7 +150,8 @@ To set the full style as a string, there's a special property `style.cssText`:
 This property is rarely used, because such assignment removes all existing styles: it does not add, but replaces them. May occasionally delete something needed. But we can safely use it for new elements, when we know we won't delete an existing style.
 
 The same can be accomplished by setting an attribute: `div.setAttribute('style', 'color: red...')`.
-````
+
+`````
 
 ## Mind the units
 
@@ -275,14 +275,14 @@ There are other inconsistencies. As an example, some browsers (Chrome) show `10p
   alert(style.margin); // empty string in Firefox
 </script>
 ```
-````
+`````
 
-```smart header="Styles applied to `:visited` links are hidden!"
-Visited links may be colored using `:visited` CSS pseudoclass.
+```smart header="Styles applied to `:visited`links are hidden!" Visited links may be colored using`:visited` CSS pseudoclass.
 
 But `getComputedStyle` does not give access to that color, because otherwise an arbitrary page could find out whether the user visited a link by creating it on the page and checking the styles.
 
 JavaScript may not see the styles applied by `:visited`. And also, there's a limitation in CSS that forbids applying geometry-changing styles in `:visited`. That's to guarantee that there's no side way for an evil page to test if a link was visited and hence to break the privacy.
+
 ```
 
 ## Summary
@@ -301,3 +301,4 @@ To change the styles:
 To read the resolved styles (with respect to all classes, after all CSS is applied and final values are calculated):
 
 - The `getComputedStyle(elem, [pseudo])` returns the style-like object with them. Read-only.
+```

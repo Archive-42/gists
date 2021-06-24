@@ -7,7 +7,7 @@ importance: 4
 Examine the following code:
 
 ```js
-const birthday = '18.04.1982';
+const birthday = "18.04.1982";
 
 const age = someCode(birthday);
 ```
@@ -17,8 +17,7 @@ Here we have a constant `birthday` date and the `age` is calculated from `birthd
 Would it be right to use upper case for `birthday`? For `age`? Or even for both?
 
 ```js
-const BIRTHDAY = '18.04.1982'; // make uppercase?
+const BIRTHDAY = "18.04.1982"; // make uppercase?
 
 const AGE = someCode(BIRTHDAY); // make uppercase?
 ```
-

@@ -1,7 +1,7 @@
 // @flow
-import * as React from 'react';
+import * as React from "react";
 
-type Dimensions = {width: number, height: number, ref: ?HTMLElement};
+type Dimensions = { width: number, height: number, ref: ?HTMLElement };
 type Props = {
   children?: React.Node,
   className?: string,
@@ -25,17 +25,17 @@ export default class ResizeSensor extends React.Component<Props, {}> {
   }
 
   resetTriggers() {
-    const {contract, expand} = this;
+    const { contract, expand } = this;
     if (!contract || !expand) return;
 
-    contract.scrollLeft      = contract.scrollWidth;
-    contract.scrollTop       = contract.scrollHeight;
+    contract.scrollLeft = contract.scrollWidth;
+    contract.scrollTop = contract.scrollHeight;
     // $FlowIgnore we know it has a firstChild
-    const firstChildStyle    = expand.firstChild.style;
-    firstChildStyle.width    = expand.offsetWidth + 1 + 'px';
-    firstChildStyle.height   = expand.offsetHeight + 1 + 'px';
-    expand.scrollLeft        = expand.scrollWidth;
-    expand.scrollTop         = expand.scrollHeight;
+    const firstChildStyle = expand.firstChild.style;
+    firstChildStyle.width = expand.offsetWidth + 1 + "px";
+    firstChildStyle.height = expand.offsetHeight + 1 + "px";
+    expand.scrollLeft = expand.scrollWidth;
+    expand.scrollTop = expand.scrollHeight;
   }
 
   onScroll = () => {
@@ -56,20 +56,23 @@ export default class ResizeSensor extends React.Component<Props, {}> {
     const el = this.wrapper;
     if (el && el.lastChild) {
       const ref: HTMLElement = ((el.lastChild: any): HTMLElement);
-      const {offsetWidth: width, offsetHeight: height} = ref;
-      return {width, height, ref};
+      const { offsetWidth: width, offsetHeight: height } = ref;
+      return { width, height, ref };
     }
     return this.lastDimensions;
   }
 
   haveDimensionsChanged(dimensions: Dimensions) {
-    return dimensions.width !== this.lastDimensions.width || dimensions.height !== this.lastDimensions.height;
+    return (
+      dimensions.width !== this.lastDimensions.width ||
+      dimensions.height !== this.lastDimensions.height
+    );
   }
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const {onResize, ...rest} = this.props;
-    const className = `${this.props.className || ''} resizesensor-wrapper`;
+    const { onResize, ...rest } = this.props;
+    const className = `${this.props.className || ""} resizesensor-wrapper`;
     return (
       <div {...rest} ref={(el) => (this.wrapper = el)} className={className}>
         {this.props.children}
@@ -77,8 +80,12 @@ export default class ResizeSensor extends React.Component<Props, {}> {
           <div ref={(el) => (this.expand = el)} onScroll={this.onScroll}>
             <div />
           </div>
-          <div className="resizeSensor-contract" ref={(el) => (this.contract = el)} onScroll={this.onScroll}>
-            <div style={{width: '200%', height: '200%'}} />
+          <div
+            className="resizeSensor-contract"
+            ref={(el) => (this.contract = el)}
+            onScroll={this.onScroll}
+          >
+            <div style={{ width: "200%", height: "200%" }} />
           </div>
         </div>
       </div>

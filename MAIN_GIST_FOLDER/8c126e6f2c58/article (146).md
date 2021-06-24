@@ -1,5 +1,6 @@
 libs:
-  - 'https://cdn.jsdelivr.net/npm/idb@3.0.2/build/idb.min.js'
+
+- 'https://cdn.jsdelivr.net/npm/idb@3.0.2/build/idb.min.js'
 
 ---
 
@@ -40,6 +41,7 @@ let openRequest = indexedDB.open(name, version);
 We can have many databases with different names, but all of them exist within the current origin (domain/protocol/port). Different websites can't access each other's databases.
 
 The call returns `openRequest` object, we should listen to events on it:
+
 - `success`: database is ready, there's the "database object" in `openRequest.result`, we should use it for further calls.
 - `error`: opening failed.
 - `upgradeneeded`: database is ready, but its version is outdated (see below).
@@ -102,7 +104,7 @@ And then, only if `onupgradeneeded` handler finishes without errors, `openReques
 To delete a database:
 
 ```js
-let deleteRequest = indexedDB.deleteDatabase(name)
+let deleteRequest = indexedDB.deleteDatabase(name);
 // deleteRequest.onsuccess/onerror tracks the result
 ```
 
@@ -119,6 +121,7 @@ To protect from errors, we should check `db.version` and suggest a page reload. 
 As we're talking about versioning, let's tackle a small related problem.
 
 Let's say:
+
 1. A visitor opened our site in a browser tab, with database version `1`.
 2. Then we rolled out an update, so our code is newer.
 3. And then the same visitor opens our site in another tab.
@@ -167,7 +170,7 @@ openRequest.onblocked = function() {
 1. The `db.onversionchange` listener informs us about a parallel update attempt, if the current database version becomes outdated.
 2. The `openRequest.onblocked` listener informs us about the opposite situation: there's a connection to an outdated version elsewhere, and it doesn't close, so the newer connection can't be made.
 
-We can handle things more gracefully in `db.onversionchange`, prompt the visitor to save the data before the connection is closed and so on. 
+We can handle things more gracefully in `db.onversionchange`, prompt the visitor to save the data before the connection is closed and so on.
 
 Or, an alternative approach would be to not close the database in `db.onversionchange`, but instead use the `onblocked` handler (in the new tab) to alert the visitor, tell him that the newer version can't be loaded until they close other tabs.
 
@@ -175,7 +178,7 @@ These update collisions happen rarely, but we should at least have some handling
 
 ## Object store
 
-To store something in IndexedDB, we need an *object store*.
+To store something in IndexedDB, we need an _object store_.
 
 An object store is a core concept of IndexedDB. Counterparts in other databases are called "tables" or "collections". It's where the data is stored. A database may have multiple stores: one for users, another one for goods, etc.
 
@@ -187,19 +190,18 @@ IndexedDB uses the [standard serialization algorithm](https://www.w3.org/TR/html
 
 An example of an object that can't be stored: an object with circular references. Such objects are not serializable. `JSON.stringify` also fails for such objects.
 
-**There must be a unique `key` for every value in the store.**     
+**There must be a unique `key` for every value in the store.**
 
 A key must be one of these types - number, date, string, binary, or array. It's a unique identifier, so we can search/remove/update values by the key.
 
 ![](indexeddb-structure.svg)
 
-
 As we'll see very soon, we can provide a key when we add a value to the store, similar to `localStorage`. But when we store objects, IndexedDB allows setting up an object property as the key, which is much more convenient. Or we can auto-generate keys.
 
 But we need to create an object store first.
 
-
 The syntax to create an object store:
+
 ```js
 db.createObjectStore(name[, keyOptions]);
 ```
@@ -214,8 +216,9 @@ Please note, the operation is synchronous, no `await` needed.
 If we don't supply `keyOptions`, then we'll need to provide a key explicitly later, when storing an object.
 
 For instance, this object store uses `id` property as the key:
+
 ```js
-db.createObjectStore('books', {keyPath: 'id'});
+db.createObjectStore("books", { keyPath: "id" });
 ```
 
 **An object store can only be created/modified while updating the DB version, in `upgradeneeded` handler.**
@@ -223,6 +226,7 @@ db.createObjectStore('books', {keyPath: 'id'});
 That's a technical limitation. Outside of the handler we'll be able to add/remove/update the data, but object stores can only be created/removed/altered during a version update.
 
 To perform a database version upgrade, there are two main approaches:
+
 1. We can implement per-version upgrade functions: from 1 to 2, from 2 to 3, from 3 to 4 etc. Then, in `upgradeneeded` we can compare versions (e.g. old 2, now 4) and run per-version upgrades step by step, for every intermediate version (2 to 3, then 3 to 4).
 2. Or we can just examine the database: get a list of existing object stores as `db.objectStoreNames`. That object is a [DOMStringList](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist) that provides `contains(name)` method to check for existance. And then we can do updates depending on what exists and what doesn't.
 
@@ -234,19 +238,19 @@ Here's the demo of the second approach:
 let openRequest = indexedDB.open("db", 2);
 
 // create/upgrade the database without version checks
-openRequest.onupgradeneeded = function() {
+openRequest.onupgradeneeded = function () {
   let db = openRequest.result;
-  if (!db.objectStoreNames.contains('books')) { // if there's no "books" store
-    db.createObjectStore('books', {keyPath: 'id'}); // create it
+  if (!db.objectStoreNames.contains("books")) {
+    // if there's no "books" store
+    db.createObjectStore("books", { keyPath: "id" }); // create it
   }
 };
 ```
 
-
 To delete an object store:
 
 ```js
-db.deleteObjectStore('books')
+db.deleteObjectStore("books");
 ```
 
 ## Transactions
@@ -256,6 +260,7 @@ The term "transaction" is generic, used in many kinds of databases.
 A transaction is a group of operations, that should either all succeed or all fail.
 
 For instance, when a person buys something, we need to:
+
 1. Subtract the money from their account.
 2. Add the item to their inventory.
 
@@ -323,10 +328,10 @@ There were basically four steps:
 Object stores support two methods to store a value:
 
 - **put(value, [key])**
-    Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there's already a value with the same key, it will be replaced.
+  Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there's already a value with the same key, it will be replaced.
 
 - **add(value, [key])**
-    Same as `put`, but if there's already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
+  Same as `put`, but if there's already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
 
 Similar to opening a database, we can send a request: `books.add(book)`, and then wait for `success/error` events.
 
@@ -387,7 +392,7 @@ let transaction = db.transaction("books", "readwrite");
 
 // ...perform operations...
 
-transaction.oncomplete = function() {
+transaction.oncomplete = function () {
   console.log("Transaction is complete");
 };
 ```
@@ -401,7 +406,6 @@ transaction.abort();
 ```
 
 That cancels all modification made by the requests in it and triggers `transaction.onabort` event.
-
 
 ## Error handling
 
@@ -418,11 +422,11 @@ In the example below a new book is added with the same key (`id`) as the existin
 ```js
 let transaction = db.transaction("books", "readwrite");
 
-let book = { id: 'js', price: 10 };
+let book = { id: "js", price: 10 };
 
 let request = transaction.objectStore("books").add(book);
 
-request.onerror = function(event) {
+request.onerror = function (event) {
   // ConstraintError occurs when an object with the same id already exists
   if (request.error.name == "ConstraintError") {
     console.log("Book with such id already exists"); // handle the error
@@ -434,7 +438,7 @@ request.onerror = function(event) {
   }
 };
 
-transaction.onabort = function() {
+transaction.onabort = function () {
   console.log("Error", transaction.error);
 };
 ```
@@ -450,7 +454,7 @@ All events are DOM events, with capturing and bubbling, but usually only bubblin
 So we can catch all errors using `db.onerror` handler, for reporting or other purposes:
 
 ```js
-db.onerror = function(event) {
+db.onerror = function (event) {
   let request = event.target; // the request that caused the error
 
   console.log("Error", request.error);
@@ -462,7 +466,7 @@ db.onerror = function(event) {
 We can stop the bubbling and hence `db.onerror` by using `event.stopPropagation()` in `request.onerror`.
 
 ```js
-request.onerror = function(event) {
+request.onerror = function (event) {
   if (request.error.name == "ConstraintError") {
     console.log("Book with such id already exists"); // handle the error
     event.preventDefault(); // don't abort the transaction
@@ -511,19 +515,19 @@ Request examples:
 
 ```js
 // get one book
-books.get('js')
+books.get("js");
 
 // get books with 'css' <= id <= 'html'
-books.getAll(IDBKeyRange.bound('css', 'html'))
+books.getAll(IDBKeyRange.bound("css", "html"));
 
 // get books with id < 'html'
-books.getAll(IDBKeyRange.upperBound('html', true))
+books.getAll(IDBKeyRange.upperBound("html", true));
 
 // get all books
-books.getAll()
+books.getAll();
 
 // get all keys, where id > 'js'
-books.getAllKeys(IDBKeyRange.lowerBound('js', true))
+books.getAllKeys(IDBKeyRange.lowerBound("js", true));
 ```
 
 ```smart header="Object store is always sorted"
@@ -614,9 +618,10 @@ The `delete` method looks up values to delete by a query, the call format is sim
 - **`delete(query)`** -- delete matching values by query.
 
 For instance:
+
 ```js
 // delete the book with id='js'
-books.delete('js');
+books.delete("js");
 ```
 
 If we'd like to delete books based on a price or another object field, then we should first find the key in the index, and then call `delete`:
@@ -625,13 +630,14 @@ If we'd like to delete books based on a price or another object field, then we s
 // find the key where price = 5
 let request = priceIndex.getKey(5);
 
-request.onsuccess = function() {
+request.onsuccess = function () {
   let id = request.result;
   let deleteRequest = books.delete(id);
 };
 ```
 
 To delete everything:
+
 ```js
 books.clear(); // clear the storage.
 ```
@@ -646,11 +652,12 @@ What to do?
 
 Cursors provide the means to work around that.
 
-**A *cursor* is a special object that traverses the object storage, given a query, and returns one key/value at a time, thus saving memory.**
+**A _cursor_ is a special object that traverses the object storage, given a query, and returns one key/value at a time, thus saving memory.**
 
 As an object store is sorted internally by key, a cursor walks the store in key order (ascending by default).
 
 The syntax:
+
 ```js
 // like getAll, but with a cursor:
 let request = store.openCursor(query, [direction]);
@@ -675,7 +682,7 @@ let books = transaction.objectStore("books");
 let request = books.openCursor();
 
 // called for each book found by the cursor
-request.onsuccess = function() {
+request.onsuccess = function () {
   let cursor = request.result;
   if (cursor) {
     let key = cursor.key; // book key (id field)
@@ -705,7 +712,7 @@ For cursors over indexes, `cursor.key` is the index key (e.g. price), and we sho
 let request = priceIdx.openCursor(IDBKeyRange.upperBound(5));
 
 // called for each record
-request.onsuccess = function() {
+request.onsuccess = function () {
   let cursor = request.result;
   if (cursor) {
     let primaryKey = cursor.primaryKey; // next object store key (id field)
@@ -771,9 +778,7 @@ window.addEventListener('unhandledrejection', event => {
 
 ### "Inactive transaction" pitfall
 
-
-As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a *macrotask* like `fetch` in the middle of a transaction, then the transaction won't wait for it to finish. It just auto-commits. So the next request in it would fail.
-
+As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a _macrotask_ like `fetch` in the middle of a transaction, then the transaction won't wait for it to finish. It just auto-commits. So the next request in it would fail.
 
 For a promise wrapper and `async/await` the situation is the same.
 
@@ -793,6 +798,7 @@ await inventory.add({ id: 'js', price: 10, created: new Date() }); // Error
 The next `inventory.add` after `fetch` `(*)` fails with an "inactive transaction" error, because the transaction is already committed and closed at that time.
 
 The workaround is the same as when working with native IndexedDB: either make a new transaction or just split things apart.
+
 1. Prepare the data and fetch all that's needed first.
 2. Then save in the database.
 
@@ -825,12 +831,12 @@ The basic usage can be described with a few phrases:
 
 1. Get a promise wrapper like [idb](https://github.com/jakearchibald/idb).
 2. Open a database: `idb.openDb(name, version, onupgradeneeded)`
-    - Create object storages and indexes in `onupgradeneeded` handler or perform version update if needed.
+   - Create object storages and indexes in `onupgradeneeded` handler or perform version update if needed.
 3. For requests:
-    - Create transaction `db.transaction('books')` (readwrite if needed).
-    - Get the object store `transaction.objectStore('books')`.
+   - Create transaction `db.transaction('books')` (readwrite if needed).
+   - Get the object store `transaction.objectStore('books')`.
 4. Then, to search by a key, call methods on the object store directly.
-    - To search by an object field, create an index.
+   - To search by an object field, create an index.
 5. If the data does not fit in memory, use a cursor.
 
 Here's a small demo app:

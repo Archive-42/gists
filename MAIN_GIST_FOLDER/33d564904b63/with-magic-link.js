@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import hoistStatics from '../../HOCs/hoist-statics';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import hoistStatics from "../../HOCs/hoist-statics";
+import { connect } from "react-redux";
 import {
   getShouldSignOut,
   setShouldSignOut,
   getDidAuthFail,
   signInStatusChanged,
   setMagicUser,
-} from './ethereum-authentication-reducer';
-import { getUser } from '../user-profile/user-profile-reducer';
-import useMagicLink from './use-magic-link';
-import PropTypes from 'prop-types';
+} from "./ethereum-authentication-reducer";
+import { getUser } from "../user-profile/user-profile-reducer";
+import useMagicLink from "./use-magic-link";
+import PropTypes from "prop-types";
 
-const apiKey = 'pk_live_NOT_A_REAL_KEY_GET_YOUR_OWN';
+const apiKey = "pk_live_NOT_A_REAL_KEY_GET_YOUR_OWN";
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   shouldSignOut: getShouldSignOut(state),
   ethDidAuthFail: getDidAuthFail(state),
   user: getUser(state),
@@ -28,8 +28,8 @@ const mapDispatchToProps = {
 
 const connectComponent = connect(mapStateToProps, mapDispatchToProps);
 
-const withMagicLink = Component => {
-  const WithMagicLink = props => {
+const withMagicLink = (Component) => {
+  const WithMagicLink = (props) => {
     const {
       shouldSignOut,
       setShouldSignOut,

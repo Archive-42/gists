@@ -1,6 +1,5 @@
 # Ninja code
 
-
 ```quote author="Confucius (Analects)"
 Learning without thought is labor lost; thought without learning is perilous.
 ```
@@ -13,11 +12,9 @@ Novice developers sometimes use them even better than programmer ninjas.
 
 Read them carefully and find out who you are -- a ninja, a novice, or maybe a code reviewer?
 
-
 ```warn header="Irony detected"
 Many try to follow ninja paths. Few succeed.
 ```
-
 
 ## Brevity is the soul of wit
 
@@ -29,7 +26,7 @@ For instance, take a look at this ternary operator `'?'`:
 
 ```js
 // taken from a well-known javascript library
-i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
+i = i ? (i < 0 ? Math.max(0, len + i) : i) : 0;
 ```
 
 Cool, right? If you write like that, a developer who comes across this line and tries to understand what is the value of `i` is going to have a merry time. Then come to you, seeking for an answer.
@@ -75,19 +72,19 @@ The great image has no form.
 
 While choosing a name try to use the most abstract word. Like `obj`, `data`, `value`, `item`, `elem` and so on.
 
-- **The ideal name for a variable is `data`.** Use it everywhere you can. Indeed, every variable holds *data*, right?
+- **The ideal name for a variable is `data`.** Use it everywhere you can. Indeed, every variable holds _data_, right?
 
-    ...But what to do if `data` is already taken? Try `value`, it's also universal. After all, a variable eventually gets a *value*.
+  ...But what to do if `data` is already taken? Try `value`, it's also universal. After all, a variable eventually gets a _value_.
 
 - **Name a variable by its type: `str`, `num`...**
 
-    Give them a try. A young initiate may wonder -- are such names really useful for a ninja? Indeed, they are!
+  Give them a try. A young initiate may wonder -- are such names really useful for a ninja? Indeed, they are!
 
-    Sure, the variable name still means something. It says what's inside the variable: a string, a number or something else. But when an outsider tries to understand the code, they'll be surprised to see that there's actually no information at all! And will ultimately fail to alter your well-thought code.
+  Sure, the variable name still means something. It says what's inside the variable: a string, a number or something else. But when an outsider tries to understand the code, they'll be surprised to see that there's actually no information at all! And will ultimately fail to alter your well-thought code.
 
-    The value type is easy to find out by debugging. But what's the meaning of the variable? Which string/number does it store?
+  The value type is easy to find out by debugging. But what's the meaning of the variable? Which string/number does it store?
 
-    There's just no way to figure out without a good meditation!
+  There's just no way to figure out without a good meditation!
 
 - **...But what if there are no more such names?** Just add a number: `data1, item2, elem5`...
 
@@ -101,14 +98,13 @@ Mix them where you can.
 
 A quick read of such code becomes impossible. And when there's a typo... Ummm... We're stuck for long, time to drink tea.
 
-
 ## Smart synonyms
 
 ```quote author="Laozi (Tao Te Ching)"
 The Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name.
 ```
 
-Using *similar* names for *same* things makes life more interesting and shows your creativity to the public.
+Using _similar_ names for _same_ things makes life more interesting and shows your creativity to the public.
 
 For instance, consider function prefixes. If a function shows a message on the screen -- start it with `display…`, like `displayMessage`. And then if another function shows on the screen something else, like a user name, start it with `show…` (like `showName`).
 
@@ -137,7 +133,7 @@ Instead, reuse existing names. Just write new values into them.
 
 In a function try to use only variables passed as parameters.
 
-That would make it really hard to identify what's exactly in the variable *now*. And also where it comes from. The purpose is to develop the intuition and memory of a person reading the code. A person with weak intuition would have to analyze the code line-by-line and track the changes through every code branch.
+That would make it really hard to identify what's exactly in the variable _now_. And also where it comes from. The purpose is to develop the intuition and memory of a person reading the code. A person with weak intuition would have to analyze the code line-by-line and track the changes through every code branch.
 
 **An advanced variant of the approach is to covertly (!) replace the value with something alike in the middle of a loop or a function.**
 
@@ -171,7 +167,6 @@ Let everyone see how magnificent your entities are! Names like `superElement`, `
 
 Indeed, from one hand, something is written: `super..`, `mega..`, `nice..` But from the other hand -- that brings no details. A reader may decide to look for a hidden meaning and meditate for an hour or two of their paid working time.
 
-
 ## Overlap outer variables
 
 ```quote author="Guan Yin Zi"
@@ -198,7 +193,6 @@ A programmer who jumps inside the `render` will probably fail to notice that the
 
 Then they'll try to work with `user` assuming that it's the external variable, the result of `authenticateUser()`... The trap is sprung! Hello, debugger...
 
-
 ## Side-effects everywhere!
 
 There are functions that look like they don't change anything. Like `isReady()`, `checkPermission()`, `findTags()`... They are assumed to carry out calculations, find and return the data, without changing anything outside of them. In other words, without "side-effects".
@@ -212,7 +206,6 @@ An expression of dazed surprise on the face of your colleague when they see a fu
 Show your original thinking! Let the call of `checkPermission` return not `true/false`, but a complex object with the results of the check.
 
 Those developers who try to write `if (checkPermission(..))`, will wonder why it doesn't work. Tell them: "Read the docs!". And give this article.
-
 
 ## Powerful functions!
 
@@ -229,7 +222,7 @@ Additional actions should not be obvious from the function name. A true ninja co
 
 **Joining several actions into one protects your code from reuse.**
 
-Imagine, another developer wants only to check the email, and not output any message. Your function  `validateEmail(email)` that does both will not suit them. So they won't break your meditation by asking anything about it.
+Imagine, another developer wants only to check the email, and not output any message. Your function `validateEmail(email)` that does both will not suit them. So they won't break your meditation by asking anything about it.
 
 ## Summary
 

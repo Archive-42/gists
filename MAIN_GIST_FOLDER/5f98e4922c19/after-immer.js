@@ -1,17 +1,17 @@
-import produce from 'immer';
+import produce from "immer";
 
-const like = item => ({
+const like = (item) => ({
   type: like.type,
-  payload: item
+  payload: item,
 });
-like.type = 'user/like';
+like.type = "user/like";
 
 const initialState = {
-  name: 'Anonymous',
-  avatar: 'Anonymous',
-  email: '',
-  walletAddress: '',
-  likes: {}
+  name: "Anonymous",
+  avatar: "Anonymous",
+  email: "",
+  walletAddress: "",
+  likes: {},
 };
 
 // After immer

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function init(list) {
   list._idleNext = list;
@@ -50,5 +50,5 @@ module.exports = {
   peek,
   remove,
   append,
-  isEmpty
+  isEmpty,
 };

@@ -10,13 +10,14 @@ Both loops `alert` the same values, or not?
 
 1. The prefix form `++i`:
 
-    ```js
-    let i = 0;
-    while (++i < 5) alert( i );
-    ```
+   ```js
+   let i = 0;
+   while (++i < 5) alert(i);
+   ```
+
 2. The postfix form `i++`
 
-    ```js
-    let i = 0;
-    while (i++ < 5) alert( i );
-    ```
+   ```js
+   let i = 0;
+   while (i++ < 5) alert(i);
+   ```

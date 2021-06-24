@@ -14,7 +14,7 @@ Run this, study the annotations as needed
 
 ```bash
 # Pass the path to your pip.conf (secret) and build an image
-DOCKER_BUILDKIT=1 docker build --secret id=pipconfig,src=/path/to/some/pip.conf -t myapp --progress=plain . 
+DOCKER_BUILDKIT=1 docker build --secret id=pipconfig,src=/path/to/some/pip.conf -t myapp --progress=plain .
 docker run --rm -it -p 5000:5000 myapp
 ```
 
@@ -22,10 +22,10 @@ docker run --rm -it -p 5000:5000 myapp
 
 #### Dockerfile
 
-* It has to start with `# syntax = docker/dockerfile:1.0-experimental` to light up the ability to use the new syntax
-* We reference a secret by `id`, in this case `pipconfig`. This should match the `id` you pass in during `docker build`
-* We also set a destination to control where the mount lands. Otherwise it lands under `/run/secrets/{id}`
+- It has to start with `# syntax = docker/dockerfile:1.0-experimental` to light up the ability to use the new syntax
+- We reference a secret by `id`, in this case `pipconfig`. This should match the `id` you pass in during `docker build`
+- We also set a destination to control where the mount lands. Otherwise it lands under `/run/secrets/{id}`
 
 #### `docker build`
 
-* BuildKit changes the output, so it can be hard to see what's going on. `--progress=plain` gives a more familiar "Oh look, pip is installing packages" experience
+- BuildKit changes the output, so it can be hard to see what's going on. `--progress=plain` gives a more familiar "Oh look, pip is installing packages" experience

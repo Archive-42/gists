@@ -1,6 +1,5 @@
 # My Starred Repositories:
 
-
 - [ ] 1. [https://github.com/waldyrious/cheat.sh](https://github.com/waldyrious/cheat.sh)
 - [ ] 2. [https://github.com/waldyrious/crocks](https://github.com/waldyrious/crocks)
 - [ ] 3. [https://github.com/waldyrious/learnGitBranching](https://github.com/waldyrious/learnGitBranching)

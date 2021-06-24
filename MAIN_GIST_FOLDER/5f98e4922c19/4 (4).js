@@ -1,14 +1,11 @@
 // option 3:
 if (x === 0) {
   // ..
-}
-else if (x === 1) {
+} else if (x === 1) {
   // ..
-}
-else if (x === 2) {
+} else if (x === 2) {
   // ..
-}
-else {
+} else {
   if (x === 3) {
     // ..
   }

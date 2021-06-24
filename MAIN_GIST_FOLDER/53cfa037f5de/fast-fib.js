@@ -6,5 +6,5 @@ function fastFib(n, memo = {}) {
   return memo[n];
 }
 
-fastFib(6);     // => 8
-fastFib(50);    // => 12586269025
+fastFib(6); // => 8
+fastFib(50); // => 12586269025

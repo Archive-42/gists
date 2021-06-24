@@ -21,7 +21,7 @@ Given an array of n elements, write a function to sort the array
 #### Example
 
 ```
-arr = [1, 3, 9, 5, 0, 2]  
+arr = [1, 3, 9, 5, 0, 2]
 
 Divide the array in two halves [1, 3, 9] and [5, 0, 2]
 

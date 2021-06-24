@@ -11,9 +11,9 @@
  * See docs:https://www.sanity.io/docs/http-api/http-mutations#deleting-multiple-documents-by-query
  */
 
-import client from 'part:@sanity/base/client'
+import client from "part:@sanity/base/client";
 
 client
-  .delete({query: '*[_type == "aDocumentType"]'})
+  .delete({ query: '*[_type == "aDocumentType"]' })
   .then(console.log)
-  .catch(console.error)
+  .catch(console.error);

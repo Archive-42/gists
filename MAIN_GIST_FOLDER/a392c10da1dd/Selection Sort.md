@@ -29,7 +29,7 @@ Given an unsorted array of n elements, write a function to sort the array
 
 ```
 arr[] = {80, 10, 40, 30}
-Indexes: 0   1   2   3    
+Indexes: 0   1   2   3
 
 1. Index = 0
 	Select the minimum number from the array (between index 0-3), ie, 10

@@ -1,18 +1,17 @@
 // Mock jQuery
 (function () {
-    var id = 0;
-    var jQueryFactory = function () {
-        var jQuery = function () {};
-        jQuery.fn = {};
-        jQuery.id = ++id;
+  var id = 0;
+  var jQueryFactory = function () {
+    var jQuery = function () {};
+    jQuery.fn = {};
+    jQuery.id = ++id;
 
-        return jQuery;
-    };
+    return jQuery;
+  };
 
-    window.$ = window.jQuery = jQueryFactory();
+  window.$ = window.jQuery = jQueryFactory();
 
-    window.$.noConflict = function () {
-        return jQueryFactory();
-    };
-}());
-
+  window.$.noConflict = function () {
+    return jQueryFactory();
+  };
+})();

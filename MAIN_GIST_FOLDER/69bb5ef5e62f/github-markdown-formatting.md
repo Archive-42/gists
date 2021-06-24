@@ -1,5 +1,4 @@
-Advanced Formatting in GitHub Markdown
-======================================
+# Advanced Formatting in GitHub Markdown
 
 GitHub Flavored Markdown lets you create useful documents in [GitHub](https://github.com/) and [GitHub Enterprise](https://enterprise.github.com/home) using `.md` files.
 Like other varieties of markdown, GitHub Markdown tries to be as readable as possible in its raw form, resulting in an intentionally limited set of formatting options.
@@ -67,6 +66,7 @@ Use:
   <img width="300" src="https://apaskulin.github.io/waxtechnical/images/pup.jpg">
 </p>
 ```
+
 ---
 
 <br>
@@ -86,10 +86,11 @@ Use:
 
 ```html
 <details>
-<summary>Example</summary>
-This is a dropdown with text!
+  <summary>Example</summary>
+  This is a dropdown with text!
 </details>
 ```
+
 ---
 
 <br>
@@ -108,11 +109,14 @@ Use:
 
 ```html
 <details>
-<summary>Example</summary>
-<ul><li>This dropdown contains</li>
-<li>a list!</li></ul>
+  <summary>Example</summary>
+  <ul>
+    <li>This dropdown contains</li>
+    <li>a list!</li>
+  </ul>
 </details>
 ```
+
 ---
 
 <br>
@@ -130,10 +134,14 @@ Use:
 
 ```html
 <details>
-<summary>Example</summary>
-<img src="https://apaskulin.github.io/waxtechnical/images/pup.jpg" width="500">
+  <summary>Example</summary>
+  <img
+    src="https://apaskulin.github.io/waxtechnical/images/pup.jpg"
+    width="500"
+  />
 </details>
 ```
+
 ---
 
 <br>
@@ -151,10 +159,11 @@ Use:
 
 ```html
 <details>
-<summary>Example</summary>
-<pre>$ This dropdown contains<br>a code block!</pre>
+  <summary>Example</summary>
+  <pre>$ This dropdown contains<br>a code block!</pre>
 </details>
 ```
+
 ---
 
 <br>
@@ -163,30 +172,32 @@ Use:
 
 To create a single button:
 
-|[Click here](https://github.com/)|
-|---|
+| [Click here](https://github.com/) |
+| --------------------------------- |
 
 Use:
 
 ```md
-|[Click here](https://github.com/)|
-|---|
+| [Click here](https://github.com/) |
+| --------------------------------- |
 ```
+
 ---
 
 <br>
 
 To create a row of buttons:
 
-|[Click here](https://github.com/)|[Or here](https://github.com/)|[Or here](https://github.com/)|
-|---|---|---|
+| [Click here](https://github.com/) | [Or here](https://github.com/) | [Or here](https://github.com/) |
+| --------------------------------- | ------------------------------ | ------------------------------ |
 
 Use:
 
 ```md
-|[Click here](https://github.com/)|[Or here](https://github.com/)|[Or here](https://github.com/)|
-|---|---|---|
+| [Click here](https://github.com/) | [Or here](https://github.com/) | [Or here](https://github.com/) |
+| --------------------------------- | ------------------------------ | ------------------------------ |
 ```
+
 ---
 
 <br>
@@ -224,6 +235,7 @@ Use:
 ```
 See [creating an anchor link anywhere](#manual-anchor).
 ```
+
 ---
 
 <br>
@@ -239,6 +251,7 @@ Use:
 ```
 ---
 ```
+
 ---
 
 <br>

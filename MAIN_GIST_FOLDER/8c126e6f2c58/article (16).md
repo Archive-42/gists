@@ -7,6 +7,7 @@ The nullish coalescing operator is written as two question marks `??`.
 As it treats `null` and `undefined` similarly, we'll use a special term here, in this article. We'll say that an expression is "defined" when it's neither `null` nor `undefined`.
 
 The result of `a ?? b` is:
+
 - if `a` is defined, then `a`,
 - if `a` isn't defined, then `b`.
 
@@ -17,7 +18,7 @@ The nullish coalescing operator isn't anything completely new. It's just a nice 
 We can rewrite `result = a ?? b` using the operators that we already know, like this:
 
 ```js
-result = (a !== null && a !== undefined) ? a : b;
+result = a !== null && a !== undefined ? a : b;
 ```
 
 Now it should be absolutely clear what `??` does. Let's see where it helps.
@@ -81,8 +82,9 @@ Historically, the OR `||` operator was there first. It exists since the beginnin
 On the other hand, the nullish coalescing operator `??` was added to JavaScript only recently, and the reason for that was that people weren't quite happy with `||`.
 
 The important difference between them is that:
-- `||` returns the first *truthy* value.
-- `??` returns the first *defined* value.
+
+- `||` returns the first _truthy_ value.
+- `??` returns the first _defined_ value.
 
 In other words, `||` doesn't distinguish between `false`, `0`, an empty string `""` and `null/undefined`. They are all the same -- falsy values. If any of these is the first argument of `||`, then we'll get the second argument as the result.
 
@@ -98,9 +100,9 @@ alert(height ?? 100); // 0
 ```
 
 - The `height || 100` checks `height` for being a falsy value, and it's `0`, falsy indeed.
-    - so the result of `||` is the second argument, `100`.
+  - so the result of `||` is the second argument, `100`.
 - The `height ?? 100` checks `height` for being `null/undefined`, and it's not,
-    - so the result is `height` "as is", that is `0`.
+  - so the result is `height` "as is", that is `0`.
 
 In practice, the zero height is often a valid value, that shouldn't be replaced with the default. So `??` does just the right thing.
 
@@ -129,7 +131,7 @@ Otherwise, if we omit parentheses, then as `*` has the higher precedence than `?
 let area = height ?? 100 * width ?? 50;
 
 // ...works the same as this (probably not what we want):
-let area = height ?? (100 * width) ?? 50;
+let area = height ?? 100 * width ?? 50;
 ```
 
 ### Using ?? with && or ||
@@ -158,12 +160,12 @@ alert(x); // 2
 
 - The nullish coalescing operator `??` provides a short way to choose the first "defined" value from a list.
 
-    It's used to assign default values to variables:
+  It's used to assign default values to variables:
 
-    ```js
-    // set height=100, if height is null or undefined
-    height = height ?? 100;
-    ```
+  ```js
+  // set height=100, if height is null or undefined
+  height = height ?? 100;
+  ```
 
 - The operator `??` has a very low precedence, only a bit higher than `?` and `=`, so consider adding parentheses when using it in an expression.
 - It's forbidden to use it with `||` or `&&` without explicit parentheses.

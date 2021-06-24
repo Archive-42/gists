@@ -1,10 +1,10 @@
-import fs from 'fs';
+import fs from "fs";
 
-fs.mkdir( './newdir', err => {
-      if ( err ) {
-        console.error( err )
-    return
+fs.mkdir("./newdir", (err) => {
+  if (err) {
+    console.error(err);
+    return;
   }
 
-  console.log( 'directory created' )
-  } )
+  console.log("directory created");
+});

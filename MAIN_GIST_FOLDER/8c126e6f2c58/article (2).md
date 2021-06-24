@@ -1,7 +1,6 @@
-
 # Manuals and specifications
 
-This book is a *tutorial*. It aims to help you gradually learn the language. But once you're familiar with the basics, you'll need other sources.
+This book is a _tutorial_. It aims to help you gradually learn the language. But once you're familiar with the basics, you'll need other sources.
 
 ## Specification
 
@@ -19,7 +18,7 @@ Also, if you're developing for the browser, then there are other specifications 
 
 - **MDN (Mozilla) JavaScript Reference** is the main manual with examples and other information. It's great to get in-depth information about individual language functions, methods etc.
 
-    One can find it at <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
+  One can find it at <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
 
 Although, it's often best to use an internet search instead. Just use "MDN [term]" in the query, e.g. <https://google.com/search?q=MDN+parseInt> to search for `parseInt` function.
 

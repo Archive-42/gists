@@ -16,20 +16,21 @@ For instance, this button shows the height of your window:
 <button onclick="alert(document.documentElement.clientHeight)">alert(document.documentElement.clientHeight)</button>
 ```
 
-````warn header="Not `window.innerWidth/innerHeight`"
-Browsers also support properties like `window.innerWidth/innerHeight`. They look like what we want, so why not to use them instead?
+````warn header="Not `window.innerWidth/innerHeight`" Browsers also support properties like `window.innerWidth/innerHeight`. They look like what we want, so why not to use them instead?
 
 If there exists a scrollbar, and it occupies some space, `clientWidth/clientHeight` provide the width/height without it (subtract it). In other words, they return the width/height of the visible part of the document, available for the content.
 
 `window.innerWidth/innerHeight` includes the scrollbar.
 
 If there's a scrollbar, and it occupies some space, then these two lines show different values:
+
 ```js run
-alert( window.innerWidth ); // full window width
-alert( document.documentElement.clientWidth ); // window width minus the scrollbar
+alert(window.innerWidth); // full window width
+alert(document.documentElement.clientWidth); // window width minus the scrollbar
 ```
 
-In most cases, we need the *available* window width in order to draw or position something within scrollbars (if there are any), so we should use `documentElement.clientHeight/clientWidth`.
+In most cases, we need the _available_ window width in order to draw or position something within scrollbars (if there are any), so we should use `documentElement.clientHeight/clientWidth`.
+
 ````
 
 ```warn header="`DOCTYPE` is important"
@@ -174,3 +175,4 @@ Scrolling:
     - `window.scrollTo(pageX,pageY)` -- absolute coordinates,
     - `window.scrollBy(x,y)` -- scroll relative the current place,
     - `elem.scrollIntoView(top)` -- scroll to make `elem` visible (align with the top/bottom of the window).
+````

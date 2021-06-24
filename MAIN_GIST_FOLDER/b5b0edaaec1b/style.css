@@ -10,7 +10,11 @@
   --color-board-hue: 30;
   --color-board-sat: 40%;
   --color-shadow: hsl(var(--color-board-hue), var(--color-board-sat), 50%);
-  --color-shadow-lighter: hsl(var(--color-board-hue), var(--color-board-sat), 55%);
+  --color-shadow-lighter: hsl(
+    var(--color-board-hue),
+    var(--color-board-sat),
+    55%
+  );
   --transition-ease: cubic-bezier(0.25, 1, 0.5, 1);
   --color-background: var(--color-black);
 }
@@ -137,9 +141,12 @@ body {
 .perspective-white .board .row:nth-child(odd) .tile:nth-child(even) {
   color: hsl(var(--color-board-hue), var(--color-board-sat), 70%);
 }
-.board .row .tile.highlight-active {}
-.board .row .tile.highlight-capture {}
-.board .row .tile.highlight-move {}
+.board .row .tile.highlight-active {
+}
+.board .row .tile.highlight-capture {
+}
+.board .row .tile.highlight-move {
+}
 
 .board .row .tile .move,
 .board .row .tile .moves,
@@ -191,15 +198,41 @@ body {
   opacity: 0.4;
 }
 
-.board .row .tile.occupied .captures svg { position: absolute; }
-.board .row .tile.occupied .captures svg:nth-child(1) { top: 0; left: 0; }
-.board .row .tile.occupied .captures svg:nth-child(2) { top: 0; right: 0; }
-.board .row .tile.occupied .captures svg:nth-child(3) { bottom: calc(var(--di) * 0.1); left: 0; }
-.board .row .tile.occupied .captures svg:nth-child(4) { bottom: calc(var(--di) * 0.1); right: 0; }
-.board .row .tile.occupied .captures svg:nth-child(5) { top: calc(50% - var(--di) * 0.55); left: 0; }
-.board .row .tile.occupied .captures svg:nth-child(6) { top: calc(50% - var(--di) * 0.55); right: 0; }
-.board .row .tile.occupied .captures svg:nth-child(7) { top: 0; left: calc(50% - var(--di) * 0.5); }
-.board .row .tile.occupied .captures svg:nth-child(8) { bottom: calc(var(--di) * 0.1); left: calc(50% - var(--di) * 0.5); }
+.board .row .tile.occupied .captures svg {
+  position: absolute;
+}
+.board .row .tile.occupied .captures svg:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.board .row .tile.occupied .captures svg:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+.board .row .tile.occupied .captures svg:nth-child(3) {
+  bottom: calc(var(--di) * 0.1);
+  left: 0;
+}
+.board .row .tile.occupied .captures svg:nth-child(4) {
+  bottom: calc(var(--di) * 0.1);
+  right: 0;
+}
+.board .row .tile.occupied .captures svg:nth-child(5) {
+  top: calc(50% - var(--di) * 0.55);
+  left: 0;
+}
+.board .row .tile.occupied .captures svg:nth-child(6) {
+  top: calc(50% - var(--di) * 0.55);
+  right: 0;
+}
+.board .row .tile.occupied .captures svg:nth-child(7) {
+  top: 0;
+  left: calc(50% - var(--di) * 0.5);
+}
+.board .row .tile.occupied .captures svg:nth-child(8) {
+  bottom: calc(var(--di) * 0.1);
+  left: calc(50% - var(--di) * 0.5);
+}
 
 .touching .board .row .tile .moves,
 .touching .board .row .tile .captures,
@@ -212,7 +245,7 @@ body {
 
 .board .row .tile[class*="highlight-"] .moves,
 .board .row .tile[class*="highlight-"] .captures {
-  display: none;  
+  display: none;
 }
 
 button:focus {
@@ -227,8 +260,12 @@ svg {
   fill: var(--fill);
 }
 
-svg.white { --fill: var(--color-white); }
-svg.black { --fill: var(--color-black); }
+svg.white {
+  --fill: var(--color-white);
+}
+svg.black {
+  --fill: var(--color-black);
+}
 
 .pieces {
   display: block;
@@ -295,9 +332,17 @@ svg.black { --fill: var(--color-black); }
 }
 
 @keyframes wobble {
-  0%, 50%, 100% { transform: translate(-50%, -50%) translateZ(0) scale(1) rotate(0deg); }
-  25% { transform: translate(-50%, -50%) translateZ(0) scale(1.1) rotate(-2deg); }
-  75% { transform: translate(-50%, -50%) translateZ(0) scale(1.1) rotate(2deg); }
+  0%,
+  50%,
+  100% {
+    transform: translate(-50%, -50%) translateZ(0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateZ(0) scale(1.1) rotate(-2deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateZ(0) scale(1.1) rotate(2deg);
+  }
 }
 .pieces .piece.highlight-active svg {
   animation: wobble 500ms linear infinite;

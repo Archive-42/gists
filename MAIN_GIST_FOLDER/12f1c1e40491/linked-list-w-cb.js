@@ -16,7 +16,8 @@ class LinkedList {
     return this.count;
   }
 
-  each(cb) {  // new
+  each(cb) {
+    // new
     if (this.head === null) return;
     let node = this.head;
     while (node.next !== null) {
@@ -25,7 +26,8 @@ class LinkedList {
     }
   }
 
-  checkForDupes(key, newVal) { // new
+  checkForDupes(key, newVal) {
+    // new
     if (this.head === null) return;
     const checkArr = [];
     const searchLinkedList = (node) => {
@@ -40,7 +42,8 @@ class LinkedList {
     return searchLinkedList(this.head);
   }
 
-  retrieveValue(key) { // new
+  retrieveValue(key) {
+    // new
     if (this.head === null) return;
     const searchLinkedList = (node) => {
       if (node.value[0] === key) {
@@ -53,18 +56,18 @@ class LinkedList {
   }
 
   removeKey(key) {
-    console.log(' reaching removeKey ');
+    console.log(" reaching removeKey ");
     if (this.head !== null) {
       if (this.head.value[0] === key) {
         return this.removeHead();
       }
       // find node if node not head
-      console.log('uhhh');
+      console.log("uhhh");
       let current = this.head;
       while (current.next !== null) {
-        console.log('while');
+        console.log("while");
         if (current.next.value[0] === key) {
-          console.log('while if');
+          console.log("while if");
           current.next = current.next.next;
           return;
         }

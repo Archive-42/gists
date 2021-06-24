@@ -11,22 +11,14 @@
  then 15. Check the example test codes for examples of the outputs and inputs.
 */
 
-
-function multiples(x){
-  
+function multiples(x) {
   if (x % 49 == 0 && x % 3 == 0) {
     return "Fang";
-  }
-  
-  else if (x % 7 == 0) {
-    return "Fizz"; 
-  }
-  
-  else if (x % 15 == 0) {
+  } else if (x % 7 == 0) {
+    return "Fizz";
+  } else if (x % 15 == 0) {
     return "Foo";
-  }
-  
-  else {
-    return "Far"; 
+  } else {
+    return "Far";
   }
 }

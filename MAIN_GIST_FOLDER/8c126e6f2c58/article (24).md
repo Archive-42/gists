@@ -2,13 +2,14 @@
 
 Our code must be as clean and easy to read as possible.
 
-That is actually the art of programming -- to take a complex task and code it in a way that is both correct and human-readable. A good code style greatly assists in that.  
+That is actually the art of programming -- to take a complex task and code it in a way that is both correct and human-readable. A good code style greatly assists in that.
 
 ## Syntax
 
 Here is a cheat sheet with some suggested rules (see below for more details):
 
 ![](code-style.svg)
+
 <!--
 ```js
 function pow(x, n) {
@@ -36,7 +37,7 @@ if (n < 0) {
 
 Now let's discuss the rules and reasons for them in detail.
 
-```warn header="There are no \"you must\" rules"
+```warn header="There are no "you must" rules"
 Nothing is set in stone here. These are style preferences, not religious dogmas.
 ```
 
@@ -57,24 +58,23 @@ A single-line construct, such as `if (condition) doSomething()`, is an important
 Here are the annotated variants so you can judge their readability for yourself:
 
 1. 😠 Beginners sometimes do that. Bad! Curly braces are not needed:
-    ```js
-    if (n < 0) *!*{*/!*alert(`Power ${n} is not supported`);*!*}*/!*
-    ```
+   ```js
+   if (n < 0) *!*{*/!*alert(`Power ${n} is not supported`);*!*}*/!*
+   ```
 2. 😠 Split to a separate line without braces. Never do that, easy to make an error when adding new lines:
-    ```js
-    if (n < 0)
-      alert(`Power ${n} is not supported`);
-    ```
+   ```js
+   if (n < 0) alert(`Power ${n} is not supported`);
+   ```
 3. 😏 One line without braces - acceptable, if it's short:
-    ```js
-    if (n < 0) alert(`Power ${n} is not supported`);
-    ```
+   ```js
+   if (n < 0) alert(`Power ${n} is not supported`);
+   ```
 4. 😃 The best variant:
-    ```js
-    if (n < 0) {
-      alert(`Power ${n} is not supported`);
-    }
-    ```
+   ```js
+   if (n < 0) {
+     alert(`Power ${n} is not supported`);
+   }
+   ```
 
 For a very brief code, one line is allowed, e.g. `if (cond) return null`. But a code block (the last variant) is usually more readable.
 
@@ -83,6 +83,7 @@ For a very brief code, one line is allowed, e.g. `if (cond) return null`. But a 
 No one likes to read a long horizontal line of code. It's best practice to split them.
 
 For example:
+
 ```js
 // backtick quotes ` allow to split the string into multiple lines
 let str = `
@@ -95,11 +96,7 @@ let str = `
 And, for `if` statements:
 
 ```js
-if (
-  id === 123 &&
-  moonPhase === 'Waning Gibbous' &&
-  zodiacSign === 'Libra'
-) {
+if (id === 123 && moonPhase === "Waning Gibbous" && zodiacSign === "Libra") {
   letTheSorceryBegin();
 }
 ```
@@ -112,40 +109,40 @@ There are two types of indents:
 
 - **Horizontal indents: 2 or 4 spaces.**
 
-    A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key `key:Tab`). Which one to choose is an old holy war. Spaces are more common nowadays.
+  A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key `key:Tab`). Which one to choose is an old holy war. Spaces are more common nowadays.
 
-    One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.
+  One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.
 
-    For instance, we can align the parameters with the opening bracket, like this:
+  For instance, we can align the parameters with the opening bracket, like this:
 
-    ```js no-beautify
-    show(parameters,
-         aligned, // 5 spaces padding at the left  
-         one,
-         after,
-         another
-      ) {
-      // ...
-    }
-    ```
+  ```js no-beautify
+  show(parameters,
+       aligned, // 5 spaces padding at the left
+       one,
+       after,
+       another
+    ) {
+    // ...
+  }
+  ```
 
 - **Vertical indents: empty lines for splitting code into logical blocks.**
 
-    Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
+  Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
 
-    ```js
-    function pow(x, n) {
-      let result = 1;
-      //              <--
-      for (let i = 0; i < n; i++) {
-        result *= x;
-      }
-      //              <--
-      return result;
+  ```js
+  function pow(x, n) {
+    let result = 1;
+    //              <--
+    for (let i = 0; i < n; i++) {
+      result *= x;
     }
-    ```
+    //              <--
+    return result;
+  }
+  ```
 
-    Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.
+  Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.
 
 ### Semicolons
 
@@ -198,7 +195,7 @@ function pow(x, n) {
     }
 
     return result;
-  }  
+  }
 }
 ```
 
@@ -227,53 +224,55 @@ The second one is more readable because the "special case" of `n < 0` is handled
 
 If you are writing several "helper" functions and the code that uses them, there are three ways to organize the functions.
 
-1. Declare the functions *above* the code that uses them:
+1. Declare the functions _above_ the code that uses them:
 
-    ```js
-    // *!*function declarations*/!*
-    function createElement() {
-      ...
-    }
+   ```js
+   // *!*function declarations*/!*
+   function createElement() {
+     ...
+   }
 
-    function setHandler(elem) {
-      ...
-    }
+   function setHandler(elem) {
+     ...
+   }
 
-    function walkAround() {
-      ...
-    }
+   function walkAround() {
+     ...
+   }
 
-    // *!*the code which uses them*/!*
-    let elem = createElement();
-    setHandler(elem);
-    walkAround();
-    ```
+   // *!*the code which uses them*/!*
+   let elem = createElement();
+   setHandler(elem);
+   walkAround();
+   ```
+
 2. Code first, then functions
 
-    ```js
-    // *!*the code which uses the functions*/!*
-    let elem = createElement();
-    setHandler(elem);
-    walkAround();
+   ```js
+   // *!*the code which uses the functions*/!*
+   let elem = createElement();
+   setHandler(elem);
+   walkAround();
 
-    // --- *!*helper functions*/!* ---
-    function createElement() {
-      ...
-    }
+   // --- *!*helper functions*/!* ---
+   function createElement() {
+     ...
+   }
 
-    function setHandler(elem) {
-      ...
-    }
+   function setHandler(elem) {
+     ...
+   }
 
-    function walkAround() {
-      ...
-    }
-    ```
+   function walkAround() {
+     ...
+   }
+   ```
+
 3. Mixed: a function is declared where it's first used.
 
 Most of time, the second variant is preferred.
 
-That's because when reading code, we first want to know *what it does*. If the code goes first, then it becomes clear from the start. Then, maybe we won't need to read the functions at all, especially if their names are descriptive of what they actually do.
+That's because when reading code, we first want to know _what it does_. If the code goes first, then it becomes clear from the start. Then, maybe we won't need to read the functions at all, especially if their names are descriptive of what they actually do.
 
 ## Style Guides
 

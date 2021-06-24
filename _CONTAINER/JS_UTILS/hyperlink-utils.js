@@ -17,14 +17,14 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "href", {
     this[impl].href = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 HTMLHyperlinkElementUtils.prototype.toString = function () {
   if (!this || !module.exports.is(this)) {
     throw new TypeError("Illegal invocation");
   }
-  return this[impl].href;;
+  return this[impl].href;
 };
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "origin", {
@@ -32,7 +32,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "origin", {
     return this[impl].origin;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "protocol", {
@@ -44,7 +44,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "protocol", {
     this[impl].protocol = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "username", {
@@ -56,7 +56,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "username", {
     this[impl].username = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "password", {
@@ -68,7 +68,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "password", {
     this[impl].password = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "host", {
@@ -80,7 +80,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "host", {
     this[impl].host = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "hostname", {
@@ -92,7 +92,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "hostname", {
     this[impl].hostname = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "port", {
@@ -104,7 +104,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "port", {
     this[impl].port = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "pathname", {
@@ -116,7 +116,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "pathname", {
     this[impl].pathname = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "search", {
@@ -128,7 +128,7 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "search", {
     this[impl].search = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 
 Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "hash", {
@@ -140,9 +140,8 @@ Object.defineProperty(HTMLHyperlinkElementUtils.prototype, "hash", {
     this[impl].hash = V;
   },
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
-
 
 const iface = {
   mixedInto: [],
@@ -184,8 +183,7 @@ const iface = {
     this.setup(obj, constructorArgs, privateData);
     return utils.implForWrapper(obj);
   },
-  _internalSetup(obj) {
-  },
+  _internalSetup(obj) {},
   setup(obj, constructorArgs, privateData) {
     if (!privateData) privateData = {};
     privateData.wrapper = obj;
@@ -196,9 +194,7 @@ const iface = {
     obj[impl][utils.wrapperSymbol] = obj;
   },
   interface: HTMLHyperlinkElementUtils,
-  expose: {
-    
-  }
+  expose: {},
 };
 module.exports = iface;
 

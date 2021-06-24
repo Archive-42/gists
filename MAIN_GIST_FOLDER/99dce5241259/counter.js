@@ -1,6 +1,6 @@
 let counter = 0;
 function addOne() {
-    counter++;
+  counter++;
 }
 console.log(counter); // <Fill in Expected Result>
 counter++;

@@ -5,8 +5,8 @@ class Timer extends React.Component {
   }
 
   tick() {
-    this.setState(state => ({
-      seconds: state.seconds + 1
+    this.setState((state) => ({
+      seconds: state.seconds + 1,
     }));
   }
 
@@ -19,15 +19,8 @@ class Timer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        Seconds: {this.state.seconds}
-      </div>
-    );
+    return <div>Seconds: {this.state.seconds}</div>;
   }
 }
 
-ReactDOM.render(
-  <Timer />,
-  document.getElementById('timer-example')
-);
+ReactDOM.render(<Timer />, document.getElementById("timer-example"));

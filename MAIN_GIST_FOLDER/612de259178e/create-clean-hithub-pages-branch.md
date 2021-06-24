@@ -2,7 +2,7 @@
 
 This is the sequence of steps to follow to create a root `gh-pages` branch. It is based on a question at [SO]
 
-``` {shell}
+```{shell}
 cd /path/to/repo-name
 git symbolic-ref HEAD refs/heads/gh-pages
 rm .git/index
@@ -19,6 +19,5 @@ Here, the intention is to create a branch for github pages, which is typically n
 
 Note that it is also called an orphan branch and `git checkout --orphan` will now do the same thing as the `git symbolic-ref` that was being done before. Check out this question on [SO2] as well.
 
-[SO]: http://stackoverflow.com/questions/9088803/whats-the-difference-between-git-symbolic-ref-head-refs-heads-gh-pages-and-g
-
-[SO2]:  http://stackoverflow.com/a/8815361/526535
+[so]: http://stackoverflow.com/questions/9088803/whats-the-difference-between-git-symbolic-ref-head-refs-heads-gh-pages-and-g
+[so2]: http://stackoverflow.com/a/8815361/526535

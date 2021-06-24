@@ -1,7 +1,7 @@
 return (
- <App>
-  <Navbar />
-  <Dashboard />
-  <Footer />
- </App>
-)
+  <App>
+    <Navbar />
+    <Dashboard />
+    <Footer />
+  </App>
+);

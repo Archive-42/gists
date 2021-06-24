@@ -6,7 +6,9 @@ This handler is assigned to `<div>`, but also runs if you click any nested tag l
 
 ```html autorun height=60
 <div onclick="alert('The handler!')">
-  <em>If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em>
+  <em
+    >If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em
+  >
 </div>
 ```
 
@@ -28,14 +30,17 @@ Let's say we have 3 nested elements `FORM > DIV > P` with a handler on each of t
   }
 </style>
 
-<form onclick="alert('form')">FORM
-  <div onclick="alert('div')">DIV
+<form onclick="alert('form')">
+  FORM
+  <div onclick="alert('div')">
+    DIV
     <p onclick="alert('p')">P</p>
   </div>
 </form>
 ```
 
 A click on the inner `<p>` first runs `onclick`:
+
 1. On that `<p>`.
 2. Then on the outer `<div>`.
 3. Then on the outer `<form>`.
@@ -57,7 +62,7 @@ For instance, a `focus` event does not bubble. There are other examples too, we'
 
 A handler on a parent element can always get the details about where it actually happened.
 
-**The most deeply nested element that caused the event is called a *target* element, accessible as `event.target`.**
+**The most deeply nested element that caused the event is called a _target_ element, accessible as `event.target`.**
 
 Note the differences from `this` (=`event.currentTarget`):
 
@@ -115,7 +120,6 @@ For instance:
 There's usually no real need to prevent the bubbling. A task that seemingly requires that may be solved by other means. One of them is to use custom events, we'll cover them later. Also we can write our data into the `event` object in one handler and read it in another one, so we can pass to handlers on parents information about the processing below.
 ```
 
-
 ## Capturing
 
 There's another phase of event processing called "capturing". It is rarely used in real code, but sometimes can be useful.
@@ -149,7 +153,6 @@ There are two possible values of the `capture` option:
 - If it's `false` (default), then the handler is set on the bubbling phase.
 - If it's `true`, then the handler is set on the capturing phase.
 
-
 Note that while formally there are 3 phases, the 2nd phase ("target phase": the event reached the element) is not handled separately: handlers on both capturing and bubbling phases trigger at that phase.
 
 Let's see both capturing and bubbling in action:
@@ -162,21 +165,27 @@ Let's see both capturing and bubbling in action:
   }
 </style>
 
-<form>FORM
-  <div>DIV
+<form>
+  FORM
+  <div>
+    DIV
     <p>P</p>
   </div>
 </form>
 
 <script>
-  for(let elem of document.querySelectorAll('*')) {
-    elem.addEventListener("click", e => alert(`Capturing: ${elem.tagName}`), true);
-    elem.addEventListener("click", e => alert(`Bubbling: ${elem.tagName}`));
+  for (let elem of document.querySelectorAll("*")) {
+    elem.addEventListener(
+      "click",
+      (e) => alert(`Capturing: ${elem.tagName}`),
+      true
+    );
+    elem.addEventListener("click", (e) => alert(`Bubbling: ${elem.tagName}`));
   }
 </script>
 ```
 
-The code sets click handlers on *every* element in the document to see which ones are working.
+The code sets click handlers on _every_ element in the document to see which ones are working.
 
 If you click on `<p>`, then the sequence is:
 
@@ -186,9 +195,9 @@ If you click on `<p>`, then the sequence is:
 
 There's a property `event.eventPhase` that tells us the number of the phase on which the event was caught. But it's rarely used, because we usually know it in the handler.
 
-```smart header="To remove the handler, `removeEventListener` needs the same phase"
-If we `addEventListener(..., true)`, then we should mention the same phase in `removeEventListener(..., true)` to correctly remove the handler.
-```
+```smart header="To remove the handler, `removeEventListener`needs the same phase" If we`addEventListener(..., true)`, then we should mention the same phase in `removeEventListener(..., true)` to correctly remove the handler.
+
+`````
 
 ````smart header="Listeners on same element and same phase run in their set order"
 If we have multiple event handlers on the same phase, assigned to the same element with `addEventListener`, they run in the same order as they are created:
@@ -196,8 +205,9 @@ If we have multiple event handlers on the same phase, assigned to the same eleme
 ```js
 elem.addEventListener("click", e => alert(1)); // guaranteed to trigger first
 elem.addEventListener("click", e => alert(2));
+`````
+
 ```
-````
 
 
 ## Summary
@@ -223,3 +233,4 @@ In real world, when an accident happens, local authorities react first. They kno
 The same for event handlers. The code that set the handler on a particular element knows maximum details about the element and what it does. A handler on a particular `<td>` may be suited for that exactly `<td>`, it knows everything about it, so it should get the chance first. Then its immediate parent also knows about the context, but a little bit less, and so on till the very top element that handles general concepts and runs the last one.
 
 Bubbling and capturing lay the foundation for "event delegation" -- an extremely powerful event handling pattern that we study in the next chapter.
+```

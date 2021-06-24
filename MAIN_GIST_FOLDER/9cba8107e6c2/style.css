@@ -4,22 +4,20 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .flex-container-center {
-  displaY: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
-.full-screen{
-  color: white
+.full-screen {
+  color: white;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
-
-

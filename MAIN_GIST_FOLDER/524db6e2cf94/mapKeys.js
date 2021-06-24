@@ -1,23 +1,27 @@
-const mapKeys = ( collection, rootKey ) => {
+const mapKeys = (collection, rootKey) => {
   const obj = {};
-  collection.forEach( item => {
-    obj[ item[ rootKey ] ] = item;
-  } );
+  collection.forEach((item) => {
+    obj[item[rootKey]] = item;
+  });
   return obj;
 };
 
-const justins = [ {
-  id: 1,
-  name: 'Justin Bieber'
-}, {
-  id: 2,
-  name: 'Justin Timberlake'
-}, {
-  id: 3,
-  name: 'Justin Time'
-} ];
+const justins = [
+  {
+    id: 1,
+    name: "Justin Bieber",
+  },
+  {
+    id: 2,
+    name: "Justin Timberlake",
+  },
+  {
+    id: 3,
+    name: "Justin Time",
+  },
+];
 
-mapKeys( justins, 'id' );
+mapKeys(justins, "id");
 
 // {
 //  1: {id: 1, name: 'Justin Bieber'},

@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
 /** Hide a DOM element. */
 function hideElement(el) {
-  el.style.display = 'none';
+  el.style.display = "none";
 }
 
 /** Show a DOM element that has been hidden. */
 function showElement(el) {
-  el.style.display = 'block';
+  el.style.display = "block";
 }
 
 /**
@@ -20,14 +20,16 @@ function LocatorPlus(configuration) {
   locator.locations = configuration.locations || [];
   locator.capabilities = configuration.capabilities || {};
 
-  const mapEl = document.getElementById('map');
-  locator.panelListEl = document.getElementById('locations-panel-list');
-  const sectionNameEl =
-      document.getElementById('location-results-section-name');
-  const resultsContainerEl = document.getElementById('location-results-list');
+  const mapEl = document.getElementById("map");
+  locator.panelListEl = document.getElementById("locations-panel-list");
+  const sectionNameEl = document.getElementById(
+    "location-results-section-name"
+  );
+  const resultsContainerEl = document.getElementById("location-results-list");
 
   const itemsTemplate = Handlebars.compile(
-      document.getElementById('locator-result-items-tmpl').innerHTML);
+    document.getElementById("locator-result-items-tmpl").innerHTML
+  );
 
   locator.searchLocation = null;
   locator.searchLocationMarker = null;
@@ -47,34 +49,34 @@ function LocatorPlus(configuration) {
   });
 
   // Store selection.
-  const selectResultItem = function(locationIdx, panToMarker) {
+  const selectResultItem = function (locationIdx, panToMarker) {
     locator.selectedLocationIdx = locationIdx;
     for (let locationElem of resultsContainerEl.children) {
-      locationElem.classList.remove('selected');
+      locationElem.classList.remove("selected");
       if (getResultIndex(locationElem) === locator.selectedLocationIdx) {
-        locationElem.classList.add('selected');
+        locationElem.classList.add("selected");
       }
     }
-    if (panToMarker && (locationIdx != null)) {
+    if (panToMarker && locationIdx != null) {
       locator.map.panTo(locator.locations[locationIdx].coords);
     }
   };
 
   // Create a marker for each location.
-  const markers = locator.locations.map(function(location, index) {
+  const markers = locator.locations.map(function (location, index) {
     const marker = new google.maps.Marker({
       position: location.coords,
       map: locator.map,
       title: location.title,
     });
-    marker.addListener('click', function() {
+    marker.addListener("click", function () {
       selectResultItem(index, false);
     });
     return marker;
   });
 
   // Fit map to marker bounds.
-  locator.updateBounds = function() {
+  locator.updateBounds = function () {
     const bounds = new google.maps.LatLngBounds();
     if (locator.searchLocationMarker) {
       bounds.extend(locator.searchLocationMarker.getPosition());
@@ -88,7 +90,7 @@ function LocatorPlus(configuration) {
 
   // Get the distance of a store location to the user's location,
   // used in sorting the list.
-  const getLocationDistance = function(location) {
+  const getLocationDistance = function (location) {
     if (!locator.searchLocation) return null;
 
     // Use travel distance if available (from Distance Matrix).
@@ -98,24 +100,25 @@ function LocatorPlus(configuration) {
 
     // Fall back to straight-line distance.
     return google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(location.coords),
-        locator.searchLocation.location);
+      new google.maps.LatLng(location.coords),
+      locator.searchLocation.location
+    );
   };
 
   // Render the results list --------------------------------------------------
-  const getResultIndex = function(elem) {
-    return parseInt(elem.getAttribute('data-location-index'));
+  const getResultIndex = function (elem) {
+    return parseInt(elem.getAttribute("data-location-index"));
   };
 
-  locator.renderResultsList = function() {
+  locator.renderResultsList = function () {
     let locations = locator.locations.slice();
     for (let i = 0; i < locations.length; i++) {
       locations[i].index = i;
     }
     if (locator.searchLocation) {
       sectionNameEl.textContent =
-          'Nearest locations (' + locations.length + ')';
-      locations.sort(function(a, b) {
+        "Nearest locations (" + locations.length + ")";
+      locations.sort(function (a, b) {
         return getLocationDistance(a) - getLocationDistance(b);
       });
     } else {
@@ -123,16 +126,16 @@ function LocatorPlus(configuration) {
     }
     const resultItemContext = {
       locations: locations,
-      showDirectionsButton: !!locator.searchLocation
+      showDirectionsButton: !!locator.searchLocation,
     };
     resultsContainerEl.innerHTML = itemsTemplate(resultItemContext);
     for (let item of resultsContainerEl.children) {
       const resultIndex = getResultIndex(item);
       if (resultIndex === locator.selectedLocationIdx) {
-        item.classList.add('selected');
+        item.classList.add("selected");
       }
 
-      const resultSelectionHandler = function() {
+      const resultSelectionHandler = function () {
         if (resultIndex !== locator.selectedLocationIdx) {
           locator.clearDirections();
         }
@@ -142,25 +145,28 @@ function LocatorPlus(configuration) {
       // Clicking anywhere on the item selects this location.
       // Additionally, create a button element to make this behavior
       // accessible under tab navigation.
-      item.addEventListener('click', resultSelectionHandler);
-      item.querySelector('.select-location')
-          .addEventListener('click', function(e) {
-            resultSelectionHandler();
-            e.stopPropagation();
-          });
+      item.addEventListener("click", resultSelectionHandler);
+      item
+        .querySelector(".select-location")
+        .addEventListener("click", function (e) {
+          resultSelectionHandler();
+          e.stopPropagation();
+        });
 
-      item.querySelector('.details-button')
-          .addEventListener('click', function() {
-            locator.showDetails(resultIndex);
-          });
+      item
+        .querySelector(".details-button")
+        .addEventListener("click", function () {
+          locator.showDetails(resultIndex);
+        });
 
       if (resultItemContext.showDirectionsButton) {
-        item.querySelector('.show-directions')
-            .addEventListener('click', function(e) {
-              selectResultItem(resultIndex, false);
-              locator.updateDirections();
-              e.stopPropagation();
-            });
+        item
+          .querySelector(".show-directions")
+          .addEventListener("click", function (e) {
+            selectResultItem(resultIndex, false);
+            locator.updateDirections();
+            e.stopPropagation();
+          });
       }
     }
   };
@@ -180,10 +186,10 @@ function initializeSearchInput(locator) {
   const geocodeCache = new Map();
   const geocoder = new google.maps.Geocoder();
 
-  const searchInputEl = document.getElementById('location-search-input');
-  const searchButtonEl = document.getElementById('location-search-button');
+  const searchInputEl = document.getElementById("location-search-input");
+  const searchButtonEl = document.getElementById("location-search-button");
 
-  const updateSearchLocation = function(address, location) {
+  const updateSearchLocation = function (address, location) {
     if (locator.searchLocationMarker) {
       locator.searchLocationMarker.setMap(null);
     }
@@ -191,24 +197,24 @@ function initializeSearchInput(locator) {
       locator.searchLocation = null;
       return;
     }
-    locator.searchLocation = {'address': address, 'location': location};
+    locator.searchLocation = { address: address, location: location };
     locator.searchLocationMarker = new google.maps.Marker({
       position: location,
       map: locator.map,
-      title: 'My location',
+      title: "My location",
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
         scale: 12,
-        fillColor: '#3367D6',
+        fillColor: "#3367D6",
         fillOpacity: 0.5,
         strokeOpacity: 0,
-      }
+      },
     });
 
     // Update the locator's idea of the user's country, used for units. Use
     // `formatted_address` instead of the more structured `address_components`
     // to avoid an additional billed call.
-    const addressParts = address.split(' ');
+    const addressParts = address.split(" ");
     locator.userCountry = addressParts[addressParts.length - 1];
 
     // Update map bounds to include the new location marker.
@@ -222,24 +228,26 @@ function initializeSearchInput(locator) {
     locator.clearDirections();
   };
 
-  const geocodeSearch = function(query) {
+  const geocodeSearch = function (query) {
     if (!query) {
       return;
     }
 
-    const handleResult = function(geocodeResult) {
+    const handleResult = function (geocodeResult) {
       searchInputEl.value = geocodeResult.formatted_address;
       updateSearchLocation(
-          geocodeResult.formatted_address, geocodeResult.geometry.location);
+        geocodeResult.formatted_address,
+        geocodeResult.geometry.location
+      );
     };
 
     if (geocodeCache.has(query)) {
       handleResult(geocodeCache.get(query));
       return;
     }
-    const request = {address: query, bounds: locator.map.getBounds()};
-    geocoder.geocode(request, function(results, status) {
-      if (status === 'OK') {
+    const request = { address: query, bounds: locator.map.getBounds() };
+    geocoder.geocode(request, function (results, status) {
+      if (status === "OK") {
         if (results.length > 0) {
           const result = results[0];
           geocodeCache.set(query, result);
@@ -250,25 +258,33 @@ function initializeSearchInput(locator) {
   };
 
   // Set up geocoding on the search input.
-  searchButtonEl.addEventListener('click', function() {
+  searchButtonEl.addEventListener("click", function () {
     geocodeSearch(searchInputEl.value.trim());
   });
 
   // Initialize Autocomplete.
   initializeSearchInputAutocomplete(
-      locator, searchInputEl, geocodeSearch, updateSearchLocation);
+    locator,
+    searchInputEl,
+    geocodeSearch,
+    updateSearchLocation
+  );
 }
 
 /** Add Autocomplete to the search input. */
 function initializeSearchInputAutocomplete(
-    locator, searchInputEl, fallbackSearch, searchLocationUpdater) {
+  locator,
+  searchInputEl,
+  fallbackSearch,
+  searchLocationUpdater
+) {
   // Set up Autocomplete on the search input. Bias results to map viewport.
   const autocomplete = new google.maps.places.Autocomplete(searchInputEl, {
-    types: ['geocode'],
-    fields: ['place_id', 'formatted_address', 'geometry.location']
+    types: ["geocode"],
+    fields: ["place_id", "formatted_address", "geometry.location"],
   });
-  autocomplete.bindTo('bounds', locator.map);
-  autocomplete.addListener('place_changed', function() {
+  autocomplete.bindTo("bounds", locator.map);
+  autocomplete.addListener("place_changed", function () {
     const placeResult = autocomplete.getPlace();
     if (!placeResult.geometry) {
       // Hitting 'Enter' without selecting a suggestion will result in a
@@ -277,7 +293,9 @@ function initializeSearchInputAutocomplete(
       return;
     }
     searchLocationUpdater(
-        placeResult.formatted_address, placeResult.geometry.location);
+      placeResult.formatted_address,
+      placeResult.geometry.location
+    );
   });
 }
 
@@ -286,27 +304,28 @@ function initializeDistanceMatrix(locator) {
   const distanceMatrixService = new google.maps.DistanceMatrixService();
 
   // Annotate travel times to the selected location using Distance Matrix.
-  locator.updateTravelTimes = function() {
+  locator.updateTravelTimes = function () {
     if (!locator.searchLocation) return;
 
-    const units = (locator.userCountry === 'USA') ?
-        google.maps.UnitSystem.IMPERIAL :
-        google.maps.UnitSystem.METRIC;
+    const units =
+      locator.userCountry === "USA"
+        ? google.maps.UnitSystem.IMPERIAL
+        : google.maps.UnitSystem.METRIC;
     const request = {
       origins: [locator.searchLocation.location],
-      destinations: locator.locations.map(function(x) {
+      destinations: locator.locations.map(function (x) {
         return x.coords;
       }),
       travelMode: google.maps.TravelMode.DRIVING,
       unitSystem: units,
     };
-    const callback = function(response, status) {
-      if (status === 'OK') {
+    const callback = function (response, status) {
+      if (status === "OK") {
         const distances = response.rows[0].elements;
         for (let i = 0; i < distances.length; i++) {
           const distResult = distances[i];
           let travelDistanceText, travelDistanceValue;
-          if (distResult.status === 'OK') {
+          if (distResult.status === "OK") {
             travelDistanceText = distResult.distance.text;
             travelDistanceValue = distResult.distance.value;
           }
@@ -333,12 +352,14 @@ function initializeDirections(locator) {
 
   // Update directions displayed from the search location to
   // the selected location on the map.
-  locator.updateDirections = function() {
-    if (!locator.searchLocation || (locator.selectedLocationIdx == null)) {
+  locator.updateDirections = function () {
+    if (!locator.searchLocation || locator.selectedLocationIdx == null) {
       return;
     }
-    const cacheKey = JSON.stringify(
-        [locator.searchLocation.location, locator.selectedLocationIdx]);
+    const cacheKey = JSON.stringify([
+      locator.searchLocation.location,
+      locator.selectedLocationIdx,
+    ]);
     if (directionsCache.has(cacheKey)) {
       const directions = directionsCache.get(cacheKey);
       directionsRenderer.setMap(locator.map);
@@ -348,10 +369,10 @@ function initializeDirections(locator) {
     const request = {
       origin: locator.searchLocation.location,
       destination: locator.locations[locator.selectedLocationIdx].coords,
-      travelMode: google.maps.TravelMode.DRIVING
+      travelMode: google.maps.TravelMode.DRIVING,
     };
-    directionsService.route(request, function(response, status) {
-      if (status === 'OK') {
+    directionsService.route(request, function (response, status) {
+      if (status === "OK") {
         directionsRenderer.setMap(locator.map);
         directionsRenderer.setDirections(response);
         directionsCache.set(cacheKey, response);
@@ -359,36 +380,38 @@ function initializeDirections(locator) {
     });
   };
 
-  locator.clearDirections = function() {
+  locator.clearDirections = function () {
     directionsRenderer.setMap(null);
   };
 }
 
 /** Initialize Place Details service and UI for the locator. */
 function initializeDetails(locator) {
-  const panelDetailsEl = document.getElementById('locations-panel-details');
+  const panelDetailsEl = document.getElementById("locations-panel-details");
   const detailsService = new google.maps.places.PlacesService(locator.map);
 
   const detailsTemplate = Handlebars.compile(
-      document.getElementById('locator-details-tmpl').innerHTML);
+    document.getElementById("locator-details-tmpl").innerHTML
+  );
 
-  const renderDetails = function(context) {
+  const renderDetails = function (context) {
     panelDetailsEl.innerHTML = detailsTemplate(context);
-    panelDetailsEl.querySelector('.back-button')
-        .addEventListener('click', hideDetails);
+    panelDetailsEl
+      .querySelector(".back-button")
+      .addEventListener("click", hideDetails);
   };
 
-  const hideDetails = function() {
+  const hideDetails = function () {
     showElement(locator.panelListEl);
     hideElement(panelDetailsEl);
   };
 
-  locator.showDetails = function(locationIndex) {
+  locator.showDetails = function (locationIndex) {
     const location = locator.locations[locationIndex];
-    const context = {location};
+    const context = { location };
 
     // Helper function to create a fixed-size array.
-    const initArray = function(arraySize) {
+    const initArray = function (arraySize) {
       const array = [];
       while (array.length < arraySize) {
         array.push(0);
@@ -400,24 +423,32 @@ function initializeDetails(locator) {
       const request = {
         placeId: location.placeId,
         fields: [
-          'formatted_phone_number', 'website', 'opening_hours', 'url',
-          'utc_offset_minutes', 'price_level', 'rating', 'user_ratings_total'
-        ]
+          "formatted_phone_number",
+          "website",
+          "opening_hours",
+          "url",
+          "utc_offset_minutes",
+          "price_level",
+          "rating",
+          "user_ratings_total",
+        ],
       };
-      detailsService.getDetails(request, function(place, status) {
+      detailsService.getDetails(request, function (place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           if (place.opening_hours) {
-            const daysHours =
-                place.opening_hours.weekday_text.map(e => e.split(/\:\s+/))
-                    .map(e => ({'days': e[0].substr(0, 3), 'hours': e[1]}));
+            const daysHours = place.opening_hours.weekday_text
+              .map((e) => e.split(/\:\s+/))
+              .map((e) => ({ days: e[0].substr(0, 3), hours: e[1] }));
 
             for (let i = 1; i < daysHours.length; i++) {
               if (daysHours[i - 1].hours === daysHours[i].hours) {
-                if (daysHours[i - 1].days.indexOf('-') !== -1) {
-                  daysHours[i - 1].days =
-                      daysHours[i - 1].days.replace(/\w+$/, daysHours[i].days);
+                if (daysHours[i - 1].days.indexOf("-") !== -1) {
+                  daysHours[i - 1].days = daysHours[i - 1].days.replace(
+                    /\w+$/,
+                    daysHours[i].days
+                  );
                 } else {
-                  daysHours[i - 1].days += ' - ' + daysHours[i].days;
+                  daysHours[i - 1].days += " - " + daysHours[i].days;
                 }
                 daysHours.splice(i--, 1);
               }

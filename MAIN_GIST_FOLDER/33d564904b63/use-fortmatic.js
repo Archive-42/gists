@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import Web3 from 'web3';
-import Fortmatic from 'fortmatic';
+import { useState, useEffect, useRef } from "react";
+import Web3 from "web3";
+import Fortmatic from "fortmatic";
 
 const usePromise = () => {
   const ref = [];
@@ -14,7 +14,7 @@ const usePromise = () => {
   return container.current;
 };
 
-const useFortmatic = apiKey => {
+const useFortmatic = (apiKey) => {
   const [accounts, setAccounts] = useState([]);
   const [web3Ready, setWeb3Ready] = usePromise();
   const [web3IsInitialized, setWeb3IsInitialized] = useState(false);
@@ -27,7 +27,7 @@ const useFortmatic = apiKey => {
     // to complete before it resolves.
     return web3.eth
       .getAccounts()
-      .then(newAccounts => {
+      .then((newAccounts) => {
         if (newAccounts[0] !== accounts[0]) setAccounts(newAccounts);
         return newAccounts;
       })
@@ -46,7 +46,7 @@ const useFortmatic = apiKey => {
     setAccounts([]);
   };
 
-  const isSignedIn = accounts => accounts.length > 0;
+  const isSignedIn = (accounts) => accounts.length > 0;
 
   // Fire only once after components mounts.
   useEffect(() => {

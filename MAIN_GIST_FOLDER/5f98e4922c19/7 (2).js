@@ -23,6 +23,6 @@ if (x === 3) {
 //   if (!(A || B) && C) { .. }
 //   if (!(A || B || C) && D) { .. }
 
-// note 3: this option is also a bit more "dangerous" in that if one of the 
+// note 3: this option is also a bit more "dangerous" in that if one of the
 // if blocks reassigned `x`, then it could potentially (and accidentally) match
 // more than one clause, unlike an if..else if series

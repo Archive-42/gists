@@ -1,8 +1,8 @@
 // class Spiderman {
 let SpidermanPrototype = {
   lookOut() {
-    alert('My Spider-Sense is tingling.');
-  }
+    alert("My Spider-Sense is tingling.");
+  },
 };
 
 // let miles = new Spiderman();

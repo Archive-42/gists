@@ -2,7 +2,12 @@
   <div class="cards">
     <sort-card
       v-for="(card, index) in store.state.cards"
-      :key="index" :value="card.value" :sort-index="card.sortIndex" :is-active="card.isActive" :is-locked="card.isLocked">
+      :key="index"
+      :value="card.value"
+      :sort-index="card.sortIndex"
+      :is-active="card.isActive"
+      :is-locked="card.isLocked"
+    >
     </sort-card>
   </div>
   <div class="control-panel">
@@ -14,9 +19,9 @@
 </div>
 
 <script type="text/x-template" id="sort-card-template">
-	<div class="card-wrapper" :data-sort-index="sortIndex">
-  	<div class="card" :class="cardClassObject">
-    	<div class="value">{{value}}</div>
-  	</div>
-  </div>
+  <div class="card-wrapper" :data-sort-index="sortIndex">
+   	<div class="card" :class="cardClassObject">
+     	<div class="value">{{value}}</div>
+   	</div>
+   </div>
 </script>

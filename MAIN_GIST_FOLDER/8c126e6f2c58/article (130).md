@@ -23,7 +23,7 @@ For example:
 
 ```js
 // create Blob from a string
-let blob = new Blob(["<html>…</html>"], {type: 'text/html'});
+let blob = new Blob(["<html>…</html>"], { type: "text/html" });
 // please note: the first argument must be an array [...]
 ```
 
@@ -31,9 +31,8 @@ let blob = new Blob(["<html>…</html>"], {type: 'text/html'});
 // create Blob from a typed array and strings
 let hello = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" in binary form
 
-let blob = new Blob([hello, ' ', 'world'], {type: 'text/plain'});
+let blob = new Blob([hello, " ", "world"], { type: "text/plain" });
 ```
-
 
 We can extract `Blob` slices with:
 
@@ -47,11 +46,11 @@ blob.slice([byteStart], [byteEnd], [contentType]);
 
 The arguments are similar to `array.slice`, negative numbers are allowed too.
 
-```smart header="`Blob` objects are immutable"
-We can't change data directly in a `Blob`, but we can slice parts of a `Blob`, create new `Blob` objects from them, mix them into a new `Blob` and so on.
+```smart header="`Blob`objects are immutable" We can't change data directly in a`Blob`, but we can slice parts of a `Blob`, create new `Blob`objects from them, mix them into a new`Blob` and so on.
 
 This behavior is similar to JavaScript strings: we can't change a character in a string, but we can make a new corrected string.
-```
+
+````
 
 ## Blob as URL
 
@@ -70,17 +69,17 @@ let blob = new Blob(["Hello, world!"], {type: 'text/plain'});
 
 link.href = URL.createObjectURL(blob);
 </script>
-```
+````
 
 We can also create a link dynamically in JavaScript and simulate a click by `link.click()`, then download starts automatically.
 
 Here's the similar code that causes user to download the dynamically created `Blob`, without any HTML:
 
 ```js run
-let link = document.createElement('a');
-link.download = 'hello.txt';
+let link = document.createElement("a");
+link.download = "hello.txt";
 
-let blob = new Blob(['Hello, world!'], {type: 'text/plain'});
+let blob = new Blob(["Hello, world!"], { type: "text/plain" });
 
 link.href = URL.createObjectURL(blob);
 
@@ -124,11 +123,12 @@ A [data url](mdn:/http/Data_URIs) has the form `data:[<mediatype>][;base64],<dat
 For instance, here's a smiley:
 
 ```html
-<img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
+<img
+  src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7"
+/>
 ```
 
 The browser will decode the string and show the image: <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
-
 
 To transform a `Blob` into base64, we'll use the built-in `FileReader` object. It can read data from Blobs in multiple formats. In the [next chapter](info:file) we'll cover it more in-depth.
 
@@ -173,36 +173,39 @@ In the example below, an image is just copied, but we could cut from it, or tran
 
 ```js run
 // take any image
-let img = document.querySelector('img');
+let img = document.querySelector("img");
 
 // make <canvas> of the same size
-let canvas = document.createElement('canvas');
+let canvas = document.createElement("canvas");
 canvas.width = img.clientWidth;
 canvas.height = img.clientHeight;
 
-let context = canvas.getContext('2d');
+let context = canvas.getContext("2d");
 
 // copy image to it (this method allows to cut image)
 context.drawImage(img, 0, 0);
 // we can context.rotate(), and do many other things on canvas
 
 // toBlob is async operation, callback is called when done
-canvas.toBlob(function(blob) {
+canvas.toBlob(function (blob) {
   // blob ready, download it
-  let link = document.createElement('a');
-  link.download = 'example.png';
+  let link = document.createElement("a");
+  link.download = "example.png";
 
   link.href = URL.createObjectURL(blob);
   link.click();
 
   // delete the internal blob reference, to let the browser clear memory from it
   URL.revokeObjectURL(link.href);
-}, 'image/png');
+}, "image/png");
 ```
 
 If we prefer `async/await` instead of callbacks:
+
 ```js
-let blob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
+let blob = await new Promise((resolve) =>
+  canvasElem.toBlob(resolve, "image/png")
+);
 ```
 
 For screenshotting a page, we can use a library such as <https://github.com/niklasvh/html2canvas>. What it does is just walks the page and draws it on `<canvas>`. Then we can get a `Blob` of it the same way as above.
@@ -225,7 +228,6 @@ fileReader.onload = function(event) {
   let arrayBuffer = fileReader.result;
 };
 ```
-
 
 ## Summary
 

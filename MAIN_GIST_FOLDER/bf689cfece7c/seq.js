@@ -1,30 +1,37 @@
-var INTERVAL = 200;  // in milliseconds
+var INTERVAL = 200; // in milliseconds
 
 function sendMIDISequence(MIDIAccess) {
-    setIntervalHandle = setInterval(function () {
-        var msg, delay, setIntervalHandle, domhrtRelativeTime;
+  setIntervalHandle = setInterval(function () {
+    var msg, delay, setIntervalHandle, domhrtRelativeTime;
 
-        domhrtRelativeTime = Math.round(window.performance.webkitNow() -
-            domhrtTimeAtStartOfPerformance);
+    domhrtRelativeTime = Math.round(
+      window.performance.webkitNow() - domhrtTimeAtStartOfPerformance
+    );
 
-        while (msgIndex<sequenceLength) {
-            msg = sequence[msgIndex];
-            delay = msg.timestamp - domhrtRelativeTime;
-    
-            if (delay > INTERVAL*2 )
-                return; // This is the usual exit point from the interval
-                        // callback - we only push events that are less than
-                        // INTERVAL*2 ahead in time into the MIDI queue
+    while (msgIndex < sequenceLength) {
+      msg = sequence[msgIndex];
+      delay = msg.timestamp - domhrtRelativeTime;
 
-            output.sendMIDIMessage(msg);
+      if (delay > INTERVAL * 2) return; // This is the usual exit point from the interval
+      // callback - we only push events that are less than
+      // INTERVAL*2 ahead in time into the MIDI queue
 
-            logMessage("timestamp: " + msg.timestamp + ", domhrtTime: " + domhrtRelativeTime + ", deviation: " + (domhrtRelativeTime - msg.timestamp));
+      output.sendMIDIMessage(msg);
 
-            msgIndex++;
-        }
+      logMessage(
+        "timestamp: " +
+          msg.timestamp +
+          ", domhrtTime: " +
+          domhrtRelativeTime +
+          ", deviation: " +
+          (domhrtRelativeTime - msg.timestamp)
+      );
 
-        // If we get here, we've sent all the MIDI messages.
+      msgIndex++;
+    }
 
-        window.clearInterval(setIntervalHandle);    // stop the timer.
-    }, INTERVAL);
+    // If we get here, we've sent all the MIDI messages.
+
+    window.clearInterval(setIntervalHandle); // stop the timer.
+  }, INTERVAL);
 }

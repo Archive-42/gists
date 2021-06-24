@@ -1,4 +1,3 @@
-
 The pattern start is obvious: `pattern:<style`.
 
 ...But then we can't simply write `pattern:<style.*?>`, because `match:<styler>` would match it.
@@ -12,5 +11,5 @@ In action:
 ```js run
 let regexp = /<style(>|\s.*?>)/g;
 
-alert( '<style> <styler> <style test="...">'.match(regexp) ); // <style>, <style test="...">
+alert('<style> <styler> <style test="...">'.match(regexp)); // <style>, <style test="...">
 ```

@@ -6,7 +6,14 @@ exports.default = function (_ref) {
   var t = _ref.types;
 
   function hasRestProperty(node) {
-    for (var _iterator = node.properties, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    for (
+      var _iterator = node.properties,
+        _isArray = Array.isArray(_iterator),
+        _i = 0,
+        _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();
+      ;
+
+    ) {
       var _ref2;
 
       if (_isArray) {
@@ -29,7 +36,14 @@ exports.default = function (_ref) {
   }
 
   function variableDeclarationHasRestProperty(node) {
-    for (var _iterator2 = node.declarations, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
+    for (
+      var _iterator2 = node.declarations,
+        _isArray2 = Array.isArray(_iterator2),
+        _i2 = 0,
+        _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();
+      ;
+
+    ) {
       var _ref3;
 
       if (_isArray2) {
@@ -51,7 +65,14 @@ exports.default = function (_ref) {
   }
 
   function hasSpread(node) {
-    for (var _iterator3 = node.properties, _isArray3 = Array.isArray(_iterator3), _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator]();;) {
+    for (
+      var _iterator3 = node.properties,
+        _isArray3 = Array.isArray(_iterator3),
+        _i3 = 0,
+        _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator]();
+      ;
+
+    ) {
       var _ref4;
 
       if (_isArray3) {
@@ -76,7 +97,14 @@ exports.default = function (_ref) {
     var restProperty = props.pop();
 
     var keys = [];
-    for (var _iterator4 = props, _isArray4 = Array.isArray(_iterator4), _i4 = 0, _iterator4 = _isArray4 ? _iterator4 : _iterator4[Symbol.iterator]();;) {
+    for (
+      var _iterator4 = props,
+        _isArray4 = Array.isArray(_iterator4),
+        _i4 = 0,
+        _iterator4 = _isArray4 ? _iterator4 : _iterator4[Symbol.iterator]();
+      ;
+
+    ) {
       var _ref5;
 
       if (_isArray4) {
@@ -97,7 +125,13 @@ exports.default = function (_ref) {
       keys.push(key);
     }
 
-    return [restProperty.argument, t.callExpression(file.addHelper("objectWithoutProperties"), [objRef, t.arrayExpression(keys)])];
+    return [
+      restProperty.argument,
+      t.callExpression(file.addHelper("objectWithoutProperties"), [
+        objRef,
+        t.arrayExpression(keys),
+      ]),
+    ];
   }
 
   function replaceRestProperty(paramsPath, i, numParams) {
@@ -105,7 +139,9 @@ exports.default = function (_ref) {
       var parentPath = paramsPath.parentPath;
       var uid = parentPath.scope.generateUidIdentifier("ref");
 
-      var declar = t.variableDeclaration("let", [t.variableDeclarator(paramsPath.node, uid)]);
+      var declar = t.variableDeclaration("let", [
+        t.variableDeclarator(paramsPath.node, uid),
+      ]);
       declar._blockHoist = i ? numParams - i : 1;
 
       parentPath.ensureBlock();
@@ -136,36 +172,52 @@ exports.default = function (_ref) {
         var kind = path.parentPath.node.kind;
         var nodes = [];
 
-        path.traverse({
-          RestProperty: function RestProperty(path) {
-            var ref = this.originalPath.node.init;
+        path.traverse(
+          {
+            RestProperty: function RestProperty(path) {
+              var ref = this.originalPath.node.init;
 
-            path.findParent(function (path) {
-              if (path.isObjectProperty()) {
-                ref = t.memberExpression(ref, t.identifier(path.node.key.name));
-              } else if (path.isVariableDeclarator()) {
-                return true;
-              }
-            });
+              path.findParent(function (path) {
+                if (path.isObjectProperty()) {
+                  ref = t.memberExpression(
+                    ref,
+                    t.identifier(path.node.key.name)
+                  );
+                } else if (path.isVariableDeclarator()) {
+                  return true;
+                }
+              });
 
-            var _createObjectSpread = createObjectSpread(file, path.parentPath.node.properties, ref),
+              var _createObjectSpread = createObjectSpread(
+                  file,
+                  path.parentPath.node.properties,
+                  ref
+                ),
                 argument = _createObjectSpread[0],
                 callExpression = _createObjectSpread[1];
 
-            nodes.push(t.variableDeclarator(argument, callExpression));
+              nodes.push(t.variableDeclarator(argument, callExpression));
 
-            if (path.parentPath.node.properties.length === 0) {
-              path.findParent(function (path) {
-                return path.isObjectProperty() || path.isVariableDeclaration();
-              }).remove();
-            }
+              if (path.parentPath.node.properties.length === 0) {
+                path
+                  .findParent(function (path) {
+                    return (
+                      path.isObjectProperty() || path.isVariableDeclaration()
+                    );
+                  })
+                  .remove();
+              }
+            },
+          },
+          {
+            originalPath: path,
           }
-        }, {
-          originalPath: path
-        });
+        );
 
         if (nodes.length > 0) {
-          path.parentPath.getSibling(path.parentPath.key + 1).insertBefore(t.variableDeclaration(kind, nodes));
+          path.parentPath
+            .getSibling(path.parentPath.key + 1)
+            .insertBefore(t.variableDeclaration(kind, nodes));
         }
       },
 
@@ -202,15 +254,29 @@ exports.default = function (_ref) {
           var nodes = [];
 
           var ref = void 0;
-          if (path.isCompletionRecord() || path.parentPath.isExpressionStatement()) {
-            ref = path.scope.generateUidIdentifierBasedOnNode(path.node.right, "ref");
+          if (
+            path.isCompletionRecord() ||
+            path.parentPath.isExpressionStatement()
+          ) {
+            ref = path.scope.generateUidIdentifierBasedOnNode(
+              path.node.right,
+              "ref"
+            );
 
-            nodes.push(t.variableDeclaration("var", [t.variableDeclarator(ref, path.node.right)]));
+            nodes.push(
+              t.variableDeclaration("var", [
+                t.variableDeclarator(ref, path.node.right),
+              ])
+            );
           }
 
-          var _createObjectSpread2 = createObjectSpread(file, path.node.left.properties, ref),
-              argument = _createObjectSpread2[0],
-              callExpression = _createObjectSpread2[1];
+          var _createObjectSpread2 = createObjectSpread(
+              file,
+              path.node.left.properties,
+              ref
+            ),
+            argument = _createObjectSpread2[0],
+            callExpression = _createObjectSpread2[1];
 
           var nodeWithoutSpread = t.clone(path.node);
           nodeWithoutSpread.right = ref;
@@ -228,7 +294,7 @@ exports.default = function (_ref) {
       // taken from transform-es2015-destructuring/src/index.js#visitor
       ForXStatement: function ForXStatement(path) {
         var node = path.node,
-            scope = path.scope;
+          scope = path.scope;
 
         var left = node.left;
 
@@ -236,11 +302,15 @@ exports.default = function (_ref) {
         if (t.isObjectPattern(left) && hasRestProperty(left)) {
           var temp = scope.generateUidIdentifier("ref");
 
-          node.left = t.variableDeclaration("var", [t.variableDeclarator(temp)]);
+          node.left = t.variableDeclaration("var", [
+            t.variableDeclarator(temp),
+          ]);
 
           path.ensureBlock();
 
-          node.body.body.unshift(t.variableDeclaration("var", [t.variableDeclarator(left, temp)]));
+          node.body.body.unshift(
+            t.variableDeclaration("var", [t.variableDeclarator(left, temp)])
+          );
 
           return;
         }
@@ -251,11 +321,17 @@ exports.default = function (_ref) {
         if (!t.isObjectPattern(pattern)) return;
 
         var key = scope.generateUidIdentifier("ref");
-        node.left = t.variableDeclaration(left.kind, [t.variableDeclarator(key, null)]);
+        node.left = t.variableDeclaration(left.kind, [
+          t.variableDeclarator(key, null),
+        ]);
 
         path.ensureBlock();
 
-        node.body.body.unshift(t.variableDeclaration(node.left.kind, [t.variableDeclarator(pattern, key)]));
+        node.body.body.unshift(
+          t.variableDeclaration(node.left.kind, [
+            t.variableDeclarator(pattern, key),
+          ])
+        );
       },
 
       // var a = { ...b, ...c }
@@ -264,7 +340,9 @@ exports.default = function (_ref) {
 
         var useBuiltIns = file.opts.useBuiltIns || false;
         if (typeof useBuiltIns !== "boolean") {
-          throw new Error("transform-object-rest-spread currently only accepts a boolean option for useBuiltIns (defaults to false)");
+          throw new Error(
+            "transform-object-rest-spread currently only accepts a boolean option for useBuiltIns (defaults to false)"
+          );
         }
 
         var args = [];
@@ -276,7 +354,14 @@ exports.default = function (_ref) {
           props = [];
         }
 
-        for (var _iterator5 = path.node.properties, _isArray5 = Array.isArray(_iterator5), _i5 = 0, _iterator5 = _isArray5 ? _iterator5 : _iterator5[Symbol.iterator]();;) {
+        for (
+          var _iterator5 = path.node.properties,
+            _isArray5 = Array.isArray(_iterator5),
+            _i5 = 0,
+            _iterator5 = _isArray5 ? _iterator5 : _iterator5[Symbol.iterator]();
+          ;
+
+        ) {
           var _ref6;
 
           if (_isArray5) {
@@ -304,10 +389,12 @@ exports.default = function (_ref) {
           args.unshift(t.objectExpression([]));
         }
 
-        var helper = useBuiltIns ? t.memberExpression(t.identifier("Object"), t.identifier("assign")) : file.addHelper("extends");
+        var helper = useBuiltIns
+          ? t.memberExpression(t.identifier("Object"), t.identifier("assign"))
+          : file.addHelper("extends");
 
         path.replaceWith(t.callExpression(helper, args));
-      }
-    }
+      },
+    },
   };
 };

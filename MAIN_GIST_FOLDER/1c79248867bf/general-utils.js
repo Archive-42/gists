@@ -15,11 +15,20 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.countDecimalPlaces = exports.clamp = exports.approxEqual = exports.arrayLengthCompare = exports.isNodeEnv = void 0;
+exports.countDecimalPlaces =
+  exports.clamp =
+  exports.approxEqual =
+  exports.arrayLengthCompare =
+  exports.isNodeEnv =
+    void 0;
 var errors_1 = require("../errors");
 /** Returns whether `process.env.NODE_ENV` exists and equals `env`. */
 function isNodeEnv(env) {
-    return typeof process !== "undefined" && process.env && process.env.NODE_ENV === env;
+  return (
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.NODE_ENV === env
+  );
 }
 exports.isNodeEnv = isNodeEnv;
 /**
@@ -29,9 +38,13 @@ exports.isNodeEnv = isNodeEnv;
  * equal.
  */
 function arrayLengthCompare(a, b) {
-    if (a === void 0) { a = []; }
-    if (b === void 0) { b = []; }
-    return a.length - b.length;
+  if (a === void 0) {
+    a = [];
+  }
+  if (b === void 0) {
+    b = [];
+  }
+  return a.length - b.length;
 }
 exports.arrayLengthCompare = arrayLengthCompare;
 /**
@@ -40,8 +53,10 @@ exports.arrayLengthCompare = arrayLengthCompare;
  * for integers.
  */
 function approxEqual(a, b, tolerance) {
-    if (tolerance === void 0) { tolerance = 0.00001; }
-    return Math.abs(a - b) <= tolerance;
+  if (tolerance === void 0) {
+    tolerance = 0.00001;
+  }
+  return Math.abs(a - b) <= tolerance;
 }
 exports.approxEqual = approxEqual;
 /**
@@ -49,27 +64,27 @@ exports.approxEqual = approxEqual;
  * range, or closest bound.
  */
 function clamp(val, min, max) {
-    if (val == null) {
-        return val;
-    }
-    if (max < min) {
-        throw new Error(errors_1.CLAMP_MIN_MAX);
-    }
-    return Math.min(Math.max(val, min), max);
+  if (val == null) {
+    return val;
+  }
+  if (max < min) {
+    throw new Error(errors_1.CLAMP_MIN_MAX);
+  }
+  return Math.min(Math.max(val, min), max);
 }
 exports.clamp = clamp;
 /** Returns the number of decimal places in the given number. */
 function countDecimalPlaces(num) {
-    if (!isFinite(num)) {
-        return 0;
-    }
-    var e = 1;
-    var p = 0;
-    while (Math.round(num * e) / e !== num) {
-        e *= 10;
-        p++;
-    }
-    return p;
+  if (!isFinite(num)) {
+    return 0;
+  }
+  var e = 1;
+  var p = 0;
+  while (Math.round(num * e) / e !== num) {
+    e *= 10;
+    p++;
+  }
+  return p;
 }
 exports.countDecimalPlaces = countDecimalPlaces;
 //# sourceMappingURL=jsUtils.js.map

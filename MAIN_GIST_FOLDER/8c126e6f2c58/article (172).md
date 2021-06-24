@@ -1,4 +1,3 @@
-
 # Sticky flag "y", searching at position
 
 The flag `pattern:y` allows to perform the search at the given position in the source string.
@@ -31,7 +30,7 @@ So, successive calls to `regexp.exec(str)` return matches one after another.
 Here's an example of such calls:
 
 ```js run
-let str = 'let varName'; // Let's find all words in this string
+let str = "let varName"; // Let's find all words in this string
 let regexp = /\w+/g;
 
 alert(regexp.lastIndex); // 0 (initially lastIndex=0)
@@ -52,13 +51,13 @@ alert(regexp.lastIndex); // 0 (resets at search end)
 We can get all matches in the loop:
 
 ```js run
-let str = 'let varName';
+let str = "let varName";
 let regexp = /\w+/g;
 
 let result;
 
-while (result = regexp.exec(str)) {
-  alert( `Found ${result[0]} at position ${result.index}` );
+while ((result = regexp.exec(str))) {
+  alert(`Found ${result[0]} at position ${result.index}`);
   // Found let at position 0, then
   // Found varName at position 4
 }
@@ -85,7 +84,7 @@ let word = regexp.exec(str);
 alert(word); // varName
 ```
 
-Hooray! Problem solved! 
+Hooray! Problem solved!
 
 We performed a search of `pattern:\w+`, starting from position `regexp.lastIndex = 4`.
 
@@ -105,7 +104,7 @@ let regexp = /\w+/g;
 regexp.lastIndex = 3;
 */!*
 
-let word = regexp.exec(str); 
+let word = regexp.exec(str);
 // found the match at position 4
 alert(word[0]); // varName
 alert(word.index); // 4
@@ -123,13 +122,13 @@ let str = 'let varName = "value"';
 let regexp = /\w+/y;
 
 regexp.lastIndex = 3;
-alert( regexp.exec(str) ); // null (there's a space at position 3, not a word)
+alert(regexp.exec(str)); // null (there's a space at position 3, not a word)
 
 regexp.lastIndex = 4;
-alert( regexp.exec(str) ); // varName (word at position 4)
+alert(regexp.exec(str)); // varName (word at position 4)
 ```
 
-As we can see, regexp `pattern:/\w+/y` doesn't match at position `3` (unlike the flag  `pattern:g`), but matches at position `4`.
+As we can see, regexp `pattern:/\w+/y` doesn't match at position `3` (unlike the flag `pattern:g`), but matches at position `4`.
 
 Not only that's what we need, there's an important performance gain when using flag `pattern:y`.
 

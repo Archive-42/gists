@@ -77,9 +77,7 @@
     "minifyCssOnSave": true
   },
   "markdown.preview.openMarkdownLinks": "inEditor",
-  "settingsSync.ignoredExtensions": [
-    "doi.fileheadercomment"
-  ],
+  "settingsSync.ignoredExtensions": ["doi.fileheadercomment"],
   "better-comments.tags": [
     {
       "tag": "!",
@@ -258,9 +256,7 @@
   // Render vertical rulers after a certain number of
   // monospace characters. Use multiple values for multiple
   // rulers. No rulers are drawn if array is empty
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "update.mode": "start",
   "git.autofetch": true,
   "git.allowForcePush": true,
@@ -410,9 +406,7 @@
   "python.defaultInterpreterPath": "C:\\Users\\bryan\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
   "workbench.settings.openDefaultSettings": true,
   "windowColors.🌈 DeleteSettingsFileUponExit": true,
-  "projectManager.git.baseFolders": [
-    "C:\\"
-  ],
+  "projectManager.git.baseFolders": ["C:\\"],
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
@@ -453,7 +447,7 @@
   "[scss]": {
     "editor.defaultFormatter": "Wscats.eno"
   },
- 
+
   "workbench.productIconTheme": "bootstrap-product-icons",
   "postcssSorting.config": {
     "order": [
@@ -489,15 +483,10 @@
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "markdown.extension.syntax.plainTheme": true,
-  "markdown.styles": [
-    "C:\\\\MY-WEB-DEV\\\\08-tools\\\\_VSCODE\\\\style.css"
-  ],
+  "markdown.styles": ["C:\\\\MY-WEB-DEV\\\\08-tools\\\\_VSCODE\\\\style.css"],
   "markdown.links.openLocation": "beside",
   "files.saveConflictResolution": "overwriteFileOnDisk",
-  "terminal.integrated.shellArgs.windows": [
-    "-d",
-    "Ubuntu-20.04"
-  ],
+  "terminal.integrated.shellArgs.windows": ["-d", "Ubuntu-20.04"],
   "workbench.colorTheme": "Monokai Plus - Dark Teal",
   "editor.snippetSuggestions": "top",
   "editor.matchBrackets": false,
@@ -521,7 +510,7 @@
   "workbench.editor.enablePreviewFromCodeNavigation": true,
   "explorer.openEditors.sortOrder": "alphabetical",
   "explorer.openEditors.visible": 6,
-  "search.searchEditor.reusePriorSearchConfiguration": true,
+  "search.searchEditor.reusePriorSearchConfiguration": true
 }
 //---------------------------Extension descriptions----------------------\\
 //  - formulahendry.auto-close-tag: Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text
@@ -604,7 +593,7 @@
 //  - bierner.emojisense: Adds suggestions and autocomplete for emoji
 //  - RedVanWorkshop.explorer-exclude-vscode-extension: Explorer Exclude lets you easily Hide Files & Folders with Dynamic Filter Options.  Add a New 'Hidden Items' Explorer Pane for you to Manage and Quickly Toggle Visibility of Hidden Items.
 //  - vscode.extension-editing: Provides linting capabilities for authoring extensions.
-//  - alexbabichev.formatter-pug: Syntax highlighting for Pug templates 
+//  - alexbabichev.formatter-pug: Syntax highlighting for Pug templates
 //  - bierner.gif-player: Add a play/pause button and a scrubber for controlling gif playback.
 //  - vsls-contrib.gistfs: Manage your code snippets, developer notes and interactive samples using GitHub Gists and repositories.
 //  - vscode.git: Git SCM Integration

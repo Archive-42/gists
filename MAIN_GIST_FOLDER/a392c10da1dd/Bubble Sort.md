@@ -33,7 +33,7 @@ Given an unsorted array of n elements, write a function to sort the array
 
 ```
 arr[] = {10, 80, 40, 30}
-Indexes: 0   1   2   3    
+Indexes: 0   1   2   3
 
 1. Index = 0, Number = 10
 2. 10 < 80, do nothing and continue
@@ -49,7 +49,7 @@ Indexes: 0   1   2   3
 Repeat the Above Steps again
 
 arr[] = {10, 40, 30, 80}
-Indexes: 0   1   2   3   
+Indexes: 0   1   2   3
 
 1. Index = 0, Number = 10
 2. 10 < 40, do nothing and continue
@@ -65,7 +65,7 @@ Indexes: 0   1   2   3
 Repeat the Above Steps again
 
 arr[] = {10, 30, 40, 80}
-Indexes: 0   1   2   3   
+Indexes: 0   1   2   3
 
 1. Index = 0, Number = 10
 2. 10 < 30, do nothing and continue

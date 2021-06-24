@@ -1,4 +1,3 @@
-
 Opening tag is `pattern:\[(b|url|quote)\]`.
 
 Then to find everything till the closing tag -- let's use the pattern `pattern:.*?` with flag `pattern:s` to match any character including the newline and then add a backreference to the closing tag.
@@ -17,7 +16,7 @@ let str = `
   [/quote]
 `;
 
-alert( str.match(regexp) ); // [b]hello![/b],[quote][url]http://google.com[/url][/quote]
+alert(str.match(regexp)); // [b]hello![/b],[quote][url]http://google.com[/url][/quote]
 ```
 
 Please note that besides escaping `pattern:[` and `pattern:]`, we had to escape a slash for the closing tag `pattern:[\/\1]`, because normally the slash closes the pattern.

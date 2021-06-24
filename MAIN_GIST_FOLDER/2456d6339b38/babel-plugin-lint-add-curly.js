@@ -3,18 +3,22 @@ export default function ({ Plugin, types: t }) {
   function addCurly(body) {
     if (t.isExpressionStatement(body)) {
       return t.blockStatement([body]);
-    } else if (Array.isArray(body) && body.length > 0 && !t.isBlockStatement(body[0])) {
+    } else if (
+      Array.isArray(body) &&
+      body.length > 0 &&
+      !t.isBlockStatement(body[0])
+    ) {
       return [t.blockStatement(body)];
     } else {
       return body;
     }
   }
-  
+
   return new Plugin("add-curly", {
     visitor: {
       IfStatement({ test, consequent, alternate }) {
         consequent = addCurly(consequent);
-        alternate  = addCurly(alternate);
+        alternate = addCurly(alternate);
 
         if (alternate == null) {
           return t.ifStatement(test, consequent);
@@ -39,7 +43,7 @@ export default function ({ Plugin, types: t }) {
       },
       ForOfStatement({ left, right, body }) {
         body = addCurly(body);
-        
+
         return t.ForOfStatement(left, right, body);
       },
       DoWhileStatement({ body, test }) {
@@ -51,7 +55,7 @@ export default function ({ Plugin, types: t }) {
         consequent = addCurly(consequent);
 
         return t.SwitchCase(test, consequent);
-      }
-    }
+      },
+    },
   });
 }

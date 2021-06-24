@@ -29,11 +29,5 @@ ladder.up().up().down().up().down().showStep(); // 1
 We also can write a single call per line. For long chains it's more readable:
 
 ```js
-ladder
-  .up()
-  .up()
-  .down()
-  .up()
-  .down()
-  .showStep(); // 1
+ladder.up().up().down().up().down().showStep(); // 1
 ```

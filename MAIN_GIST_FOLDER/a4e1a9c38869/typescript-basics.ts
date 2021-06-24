@@ -62,7 +62,7 @@ let bb: [number, string, string, number] = [
   123,
   "Fake Street",
   "Nowhere, USA",
-  10110
+  10110,
 ];
 
 // bb = [1, 2, 3]; // 🚨 ERROR: Type 'number' is not assignable to type 'string'.
@@ -81,11 +81,11 @@ const yy: [number, number] = [32, 31];
 let cc: { houseNumber: number; streetName: string };
 cc = {
   streetName: "Fake Street",
-  houseNumber: 123
+  houseNumber: 123,
 };
 
 cc = {
-  houseNumber: 33
+  houseNumber: 33,
 };
 /**
  * 🚨 Property 'streetName'
@@ -99,7 +99,7 @@ cc = {
  */
 let dd: { houseNumber: number; streetName?: string };
 dd = {
-  houseNumber: 33
+  houseNumber: 33,
 };
 
 // (13) if we want to re-use this type, we can create an interface
@@ -132,12 +132,12 @@ let contactInfo: HasEmail | HasPhoneNumber =
     ? {
         // we can assign it to a HasPhoneNumber
         name: "Mike",
-        phone: 3215551212
+        phone: 3215551212,
       }
     : {
         // or a HasEmail
         name: "Mike",
-        email: "mike@example.com"
+        email: "mike@example.com",
       };
 
 contactInfo.name; // NOTE: we can only access the .name property  (the stuff HasPhoneNumber and HasEmail have in common)
@@ -149,7 +149,7 @@ let otherContactInfo: HasEmail & HasPhoneNumber = {
   // we _must_ initialize it to a shape that's asssignable to HasEmail _and_ HasPhoneNumber
   name: "Mike",
   email: "mike@example.com",
-  phone: 3215551212
+  phone: 3215551212,
 };
 
 otherContactInfo.name; // NOTE: we can access anything on _either_ type

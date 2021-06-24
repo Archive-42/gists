@@ -21,8 +21,8 @@ In action:
 ```js run
 let regexp = /^(\w+\s?)*$/;
 
-alert( regexp.test("A good string") ); // true
-alert( regexp.test("Bad characters: $@#") ); // false
+alert(regexp.test("A good string")); // true
+alert(regexp.test("Bad characters: $@#")); // false
 ```
 
 The regexp seems to work. The result is correct. Although, on certain strings it takes a lot of time. So long that JavaScript engine "hangs" with 100% CPU consumption.
@@ -31,13 +31,14 @@ If you run the example below, you probably won't see anything, as JavaScript wil
 
 ```js run
 let regexp = /^(\w+\s?)*$/;
-let str = "An input string that takes a long time or even makes this regexp hang!";
+let str =
+  "An input string that takes a long time or even makes this regexp hang!";
 
 // will take a very long time
-alert( regexp.test(str) );
+alert(regexp.test(str));
 ```
 
-To be fair, let's note that some regular expression engines can handle such a search effectively, for example V8 engine version starting from 8.8 can do that (so Google Chrome 88 doesn't hang here), while Firefox browser does hang. 
+To be fair, let's note that some regular expression engines can handle such a search effectively, for example V8 engine version starting from 8.8 can do that (so Google Chrome 88 doesn't hang here), while Firefox browser does hang.
 
 ## Simplified example
 
@@ -53,7 +54,7 @@ let regexp = /^(\d+)*$/;
 let str = "012345678901234567890123456789z";
 
 // will take a very long time (careful!)
-alert( regexp.test(str) );
+alert(regexp.test(str));
 ```
 
 So what's wrong with the regexp?
@@ -68,87 +69,87 @@ Here's what the regexp engine does:
 
 1. First, the regexp engine tries to find the content of the parentheses: the number `pattern:\d+`. The plus `pattern:+` is greedy by default, so it consumes all digits:
 
-    ```
-    \d+.......
-    (123456789)z
-    ```
+   ```
+   \d+.......
+   (123456789)z
+   ```
 
-    After all digits are consumed, `pattern:\d+` is considered found (as `match:123456789`).
+   After all digits are consumed, `pattern:\d+` is considered found (as `match:123456789`).
 
-    Then the star quantifier `pattern:(\d+)*` applies. But there are no more digits in the text, so the star doesn't give anything.
+   Then the star quantifier `pattern:(\d+)*` applies. But there are no more digits in the text, so the star doesn't give anything.
 
-    The next character in the pattern is the string end `pattern:$`. But in the text we have `subject:z` instead, so there's no match:
+   The next character in the pattern is the string end `pattern:$`. But in the text we have `subject:z` instead, so there's no match:
 
-    ```
-               X
-    \d+........$
-    (123456789)z
-    ```
+   ```
+              X
+   \d+........$
+   (123456789)z
+   ```
 
 2. As there's no match, the greedy quantifier `pattern:+` decreases the count of repetitions, backtracks one character back.
 
-    Now `pattern:\d+` takes all digits except the last one (`match:12345678`):
-    ```
-    \d+.......
-    (12345678)9z
-    ```
+   Now `pattern:\d+` takes all digits except the last one (`match:12345678`):
+
+   ```
+   \d+.......
+   (12345678)9z
+   ```
+
 3. Then the engine tries to continue the search from the next position (right after `match:12345678`).
 
-    The star `pattern:(\d+)*` can be applied -- it gives one more match of `pattern:\d+`, the number `match:9`:
+   The star `pattern:(\d+)*` can be applied -- it gives one more match of `pattern:\d+`, the number `match:9`:
 
-    ```
+   ```
 
-    \d+.......\d+
-    (12345678)(9)z
-    ```
+   \d+.......\d+
+   (12345678)(9)z
+   ```
 
-    The engine tries to match `pattern:$` again, but fails, because it meets `subject:z` instead:
+   The engine tries to match `pattern:$` again, but fails, because it meets `subject:z` instead:
 
-    ```
-                 X
-    \d+.......\d+
-    (12345678)(9)z
-    ```
-
+   ```
+                X
+   \d+.......\d+
+   (12345678)(9)z
+   ```
 
 4. There's no match, so the engine will continue backtracking, decreasing the number of repetitions. Backtracking generally works like this: the last greedy quantifier decreases the number of repetitions until it reaches the minimum. Then the previous greedy quantifier decreases, and so on.
 
-    All possible combinations are attempted. Here are their examples.
+   All possible combinations are attempted. Here are their examples.
 
-    The first number `pattern:\d+` has 7 digits, and then a number of 2 digits:
+   The first number `pattern:\d+` has 7 digits, and then a number of 2 digits:
 
-    ```
-                 X
-    \d+......\d+
-    (1234567)(89)z
-    ```
+   ```
+                X
+   \d+......\d+
+   (1234567)(89)z
+   ```
 
-    The first number has 7 digits, and then two numbers of 1 digit each:
+   The first number has 7 digits, and then two numbers of 1 digit each:
 
-    ```
-                   X
-    \d+......\d+\d+
-    (1234567)(8)(9)z
-    ```
+   ```
+                  X
+   \d+......\d+\d+
+   (1234567)(8)(9)z
+   ```
 
-    The first number has 6 digits, and then a number of 3 digits:
+   The first number has 6 digits, and then a number of 3 digits:
 
-    ```
-                 X
-    \d+.......\d+
-    (123456)(789)z
-    ```
+   ```
+                X
+   \d+.......\d+
+   (123456)(789)z
+   ```
 
-    The first number has 6 digits, and then 2 numbers:
+   The first number has 6 digits, and then 2 numbers:
 
-    ```
-                   X
-    \d+.....\d+ \d+
-    (123456)(78)(9)z
-    ```
+   ```
+                  X
+   \d+.....\d+ \d+
+   (123456)(78)(9)z
+   ```
 
-    ...And so on.
-
+   ...And so on.
 
 There are many ways to split a sequence of digits `123456789` into numbers. To be precise, there are <code>2<sup>n</sup>-1</code>, where `n` is the length of the sequence.
 
@@ -196,9 +197,10 @@ This regexp is equivalent to the previous one (matches the same) and works well:
 
 ```js run
 let regexp = /^(\w+\s)*\w*$/;
-let str = "An input string that takes a long time or even makes this regex hang!";
+let str =
+  "An input string that takes a long time or even makes this regex hang!";
 
-alert( regexp.test(str) ); // false
+alert(regexp.test(str)); // false
 ```
 
 Why did the problem disappear?
@@ -273,12 +275,12 @@ For instance, in the word `subject:JavaScript` it may not only match `match:Java
 Here's the comparison of two patterns:
 
 ```js run
-alert( "JavaScript".match(/\w+Script/)); // JavaScript
-alert( "JavaScript".match(/(?=(\w+))\1Script/)); // null
+alert("JavaScript".match(/\w+Script/)); // JavaScript
+alert("JavaScript".match(/(?=(\w+))\1Script/)); // null
 ```
 
 1. In the first variant `pattern:\w+` first captures the whole word `subject:JavaScript` but then `pattern:+` backtracks character by character, to try to match the rest of the pattern, until it finally succeeds (when `pattern:\w+` matches `match:Java`).
-2. In the second variant `pattern:(?=(\w+))` looks ahead and finds the word  `subject:JavaScript`, that is included into the pattern as a whole by `pattern:\1`, so there remains no way to find `subject:Script` after it.
+2. In the second variant `pattern:(?=(\w+))` looks ahead and finds the word `subject:JavaScript`, that is included into the pattern as a whole by `pattern:\1`, so there remains no way to find `subject:Script` after it.
 
 We can put a more complex regular expression into `pattern:(?=(\w+))\1` instead of `pattern:\w`, when we need to forbid backtracking for `pattern:+` after it.
 
@@ -291,11 +293,12 @@ Let's rewrite the first example using lookahead to prevent backtracking:
 ```js run
 let regexp = /^((?=(\w+))\2\s?)*$/;
 
-alert( regexp.test("A good string") ); // true
+alert(regexp.test("A good string")); // true
 
-let str = "An input string that takes a long time or even makes this regex hang!";
+let str =
+  "An input string that takes a long time or even makes this regex hang!";
 
-alert( regexp.test(str) ); // false, works and fast!
+alert(regexp.test(str)); // false, works and fast!
 ```
 
 Here `pattern:\2` is used instead of `pattern:\1`, because there are additional outer parentheses. To avoid messing up with the numbers, we can give the parentheses a name, e.g. `pattern:(?<word>\w+)`.
@@ -304,15 +307,17 @@ Here `pattern:\2` is used instead of `pattern:\1`, because there are additional 
 // parentheses are named ?<word>, referenced as \k<word>
 let regexp = /^((?=(?<word>\w+))\k<word>\s?)*$/;
 
-let str = "An input string that takes a long time or even makes this regex hang!";
+let str =
+  "An input string that takes a long time or even makes this regex hang!";
 
-alert( regexp.test(str) ); // false
+alert(regexp.test(str)); // false
 
-alert( regexp.test("A correct string") ); // true
+alert(regexp.test("A correct string")); // true
 ```
 
 The problem described in this article is called "catastrophic backtracking".
 
 We covered two ways how to solve it:
+
 - Rewrite the regexp to lower the possible combinations count.
 - Prevent backtracking.

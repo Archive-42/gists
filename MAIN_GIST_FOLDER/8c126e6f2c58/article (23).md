@@ -52,11 +52,12 @@ It should look like this (blue is where you should click):
 
 ![](chrome-sources-breakpoint.svg)
 
-A *breakpoint* is a point of code where the debugger will automatically pause the JavaScript execution.
+A _breakpoint_ is a point of code where the debugger will automatically pause the JavaScript execution.
 
 While the code is paused, we can examine current variables, execute commands in the console etc. In other words, we can debug it.
 
 We can always find a list of breakpoints in the right panel. That's useful when we have many breakpoints in various files. It allows us to:
+
 - Quickly jump to the breakpoint in the code (by clicking on it in the right panel).
 - Temporarily disable the breakpoint by unchecking it.
 - Remove the breakpoint by right-clicking and selecting Remove.
@@ -86,7 +87,6 @@ function hello(name) {
 
 That's very convenient when we are in a code editor and don't want to switch to the browser and look up the script in developer tools to set the breakpoint.
 
-
 ## Pause and look around
 
 In our example, `hello()` is called during the page load, so the easiest way to activate the debugger (after we've set the breakpoints) is to reload the page. So let's press `key:F5` (Windows, Linux) or `key:Cmd+R` (Mac).
@@ -99,27 +99,30 @@ Please open the informational dropdowns to the right (labeled with arrows). They
 
 1. **`Watch` -- shows current values for any expressions.**
 
-    You can click the plus `+` and input an expression. The debugger will show its value at any moment, automatically recalculating it in the process of execution.
+   You can click the plus `+` and input an expression. The debugger will show its value at any moment, automatically recalculating it in the process of execution.
 
 2. **`Call Stack` -- shows the nested calls chain.**
 
-    At the current moment the debugger is inside `hello()` call, called by a script in `index.html` (no function there, so it's called "anonymous").
+   At the current moment the debugger is inside `hello()` call, called by a script in `index.html` (no function there, so it's called "anonymous").
 
-    If you click on a stack item (e.g. "anonymous"), the debugger jumps to the corresponding code, and all its variables can be examined as well.
+   If you click on a stack item (e.g. "anonymous"), the debugger jumps to the corresponding code, and all its variables can be examined as well.
+
 3. **`Scope` -- current variables.**
 
-    `Local` shows local function variables. You can also see their values highlighted right over the source.
+   `Local` shows local function variables. You can also see their values highlighted right over the source.
 
-    `Global` has global variables (out of any functions).
+   `Global` has global variables (out of any functions).
 
-    There's also `this` keyword there that we didn't study yet, but we'll do that soon.
+   There's also `this` keyword there that we didn't study yet, but we'll do that soon.
 
 ## Tracing the execution
 
-Now it's time to *trace* the script.
+Now it's time to _trace_ the script.
 
 There are buttons for it at the top of the right panel. Let's engage them.
+
 <!-- https://github.com/ChromeDevTools/devtools-frontend/blob/master/front_end/Images/src/largeIcons.svg -->
+
 <span class="devtools" style="background-position:-146px -168px"></span> -- "Resume": continue the execution, hotkey `key:F8`.
 : Resumes the execution. If there are no additional breakpoints, then the execution just continues and the debugger loses control.
 
@@ -134,7 +137,7 @@ There are buttons for it at the top of the right panel. Let's engage them.
 
     Clicking this again and again will step through all script statements one by one.
 
-<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": run the next command, but *don't go into a function*, hotkey `key:F10`.
+<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": run the next command, but _don't go into a function_, hotkey `key:F10`.
 : Similar to the previous "Step" command, but behaves differently if the next statement is a function call. That is: not a built-in, like `alert`, but a function of our own.
 
     The "Step" command goes into it and pauses the execution at its first line, while "Step over" executes the nested function call invisibly, skipping the function internals.
@@ -183,6 +186,7 @@ If we have enough logging in our code, then we can see what's going on from the 
 ## Summary
 
 As we can see, there are three main ways to pause a script:
+
 1. A breakpoint.
 2. The `debugger` statements.
 3. An error (if dev tools are open and the button <span class="devtools" style="background-position:-90px -146px"></span> is "on").

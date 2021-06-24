@@ -1,9 +1,8 @@
-
 [Source](http://www.fprintf.net/vimCheatSheet.html "Permalink to Vim Commands Cheat Sheet")
 
 # Vim Commands Cheat Sheet
 
-* * *
+---
 
 ## How to Exit
 
@@ -37,7 +36,7 @@ Write current file, if modified, and exit.
 ZQ
 Quit current file and exit (same as ":q!").
 
-* * *
+---
 
 ## Editing a File
 
@@ -56,7 +55,7 @@ Edit {file} always. Discard any changes to the current buffer.
 gf
 Edit the file whose name is under or after the cursor. Mnemonic: "goto file".
 
-* * *
+---
 
 ## Inserting Text
 
@@ -81,7 +80,7 @@ Begin a new line below the cursor and insert text, repeat [count] times.
 O
 Begin a new line above the cursor and insert text, repeat [count] times.
 
-* * *
+---
 
 ## Inserting a file
 
@@ -91,11 +90,11 @@ Insert the file [name] below the cursor.
 :r[ead] !{cmd}
 Execute {cmd} and insert its standard output below the cursor.
 
-* * *
+---
 
 ## Deleting Text
 
- or
+or
 x
 Delete [count] characters under and after the cursor
 
@@ -129,7 +128,7 @@ Delete [range] lines (default: current line)
 :[range]d[elete] {count}
 Delete {count} lines, starting with [range]
 
-* * *
+---
 
 ## Changing (or Replacing) Text
 
@@ -148,16 +147,15 @@ switch case of {motion} text.
 {Visual}~
 Switch case of highlighted text
 
-* * *
+---
 
 ## Substituting
 
 :[range]s[ubstitute]/{pattern}/{string}/[c][e][g][p][r][i][I] [count]
 For each line in [range] replace a match of {pattern} with {string}.
 
-:[range]s[ubstitute] [c][e][g][r][i][I] [count] :[range]&amp;[c][e][g][r][i][I] [count]
+:[range]s[ubstitute] [c][e][g][r][i][i] [count] :[range]&amp;[c][e][g][r][i][i] [count]
 Repeat last :substitute with same search pattern and substitute string, but without the same flags. You may add extra flags
-
 
     The arguments that you can use for the substitute commands:
     [c]  Confirm each substitution.  Vim positions the cursor on the matching
@@ -177,8 +175,7 @@ Repeat last :substitute with same search pattern and substitute string, but with
     [I]  Don't ignore case for the pattern.
     [p]  Print the line containing the last substitute.
 
-
-* * *
+---
 
 ## Copying and Moving Text
 
@@ -233,7 +230,7 @@ Put the text [from register x] after [line] (default current line).
 :[line]pu[t]! [x]
 Put the text [from register x] before [line] (default current line).
 
-* * *
+---
 
 ## Undo/Redo/Repeat
 
@@ -255,10 +252,9 @@ Undo all latest changes on one line. {Vi: while not moved off of it}
 .
 Repeat last change, with count replaced with [count].
 
-* * *
+---
 
 ## Moving Around
-
 
     Basic motion commands:
 
@@ -290,7 +286,6 @@ CTRL-N
 0
 To the first character of the line (exclusive).
 
-
 To the first character of the line (exclusive).
 
 ^
@@ -308,10 +303,7 @@ g^
 When lines wrap ('wrap' on): To the first non-blank character of the screen line (exclusive). Differs from "^" when a line is wider than the screen. When lines don't wrap ('wrap' off): To the leftmost non-blank character of the current line that is on the screen. Differs from "^" when the first non-blank character of the line is not on the screen.
 
 g$ or
-g  shift right
-
-
-
+g shift right
 
 v
 start Visual mode per character.
@@ -319,10 +311,9 @@ start Visual mode per character.
 V
 start Visual mode linewise.
 
-
 exit Visual mode without making any changes
 
-* * *
+---
 
 ## How to Suspend
 
@@ -333,4 +324,4 @@ Suspend Vim, like ":stop". Works in Normal and in Visual mode. In Insert and Com
 :st[op][!]
 Suspend Vim. If the '!' is not given and 'autowrite' is set, every buffer with changes and a file name is written out. If the '!' is given or 'autowrite' is not set, changed buffers are not written, don't forget to bring Vim back to the foreground later!
 
-* * *
+---
